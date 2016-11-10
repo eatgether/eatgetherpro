@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   #root 'admin/users#index'
 
   namespace :admin do
-    resources :users
+    resources :users do
+      member do
+        post :take_master
+        post :customer
+      end
+    end
   end
 
   root 'welcome#index'

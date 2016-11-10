@@ -6,5 +6,17 @@ class User < ApplicationRecord
   def admin?
      is_admin
   end
+
+  def take_master!
+    self.is_admin = false
+    self.save
+  end
+
+  def customer!
+    self.is_admin = true
+    self.save
+  end
+
   has_many :posts
+  
 end
