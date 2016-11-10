@@ -1,0 +1,14 @@
+<h2> Edit Post </h2>
+<%= simple_form_for @post do |f| %>
+
+  <div class="group">
+    <%= f.input :title %>
+  </div>
+
+  <div class="group">
+    <%= f.input :description %>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>
