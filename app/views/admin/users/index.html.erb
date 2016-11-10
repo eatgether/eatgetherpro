@@ -15,7 +15,19 @@
     <tr>
     <% @users.each do |user| %>
       <td>  <%= user.email %> </td>
-      <td>  <%= user.is_admin %> </td>
+      <td>  <%= user.is_admin %>
+    <% if user.is_admin %>
+
+      <% link_to("Admin", "#", :class => "btn-btn-xs btn-default") %>
+    <% else %>
+      <% link_to("User", "#", :class => "btn btn-btn-xs btn-default") %>
+    <% end %>
+        
+
+      </td>
+
+
+
     </tr>
 
      <% end %>
