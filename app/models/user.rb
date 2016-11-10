@@ -16,4 +16,7 @@ class User < ApplicationRecord
     self.is_admin = true
     self.save
   end
+
+  has_many :posts
+  
 end
