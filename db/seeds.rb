@@ -14,3 +14,7 @@ u.password_confirmation = "123456"   # 最少要六码
 
 u.is_admin = true
 u.save
+create_post = for i in 1..10 do
+  Post.create!([title: "约饭主题no.#{i}", description: "约饭详细信息#{i}"])
+end
+puts "10 posts created."
