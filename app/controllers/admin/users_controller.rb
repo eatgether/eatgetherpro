@@ -8,17 +8,17 @@ class Admin::UsersController < ApplicationController
      @users = User.all
   end
 
-  def admin
+  def take_master
     @user = User.find(params[:id])
-      @user.admin!
+      @user.take_master!
 
       redirect_to :back
   end
 
 
-  def user
+  def customer
     @user = User.find(params[:id])
-      @user.user!
+      @user.customer!
 
       redirect_to :back
   end

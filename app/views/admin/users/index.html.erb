@@ -2,12 +2,12 @@
 
   <thead>
     <tr>
-       <th class="col-md-6">  用户名  </th>
-       <th class="col-md-6">  权限  </th>
+       <th class="col-md-3">  用户名  </th>
+       <th class="col-md-3">  admin 状态  </th>
+        <th class="col-md-3">  权限编辑  </th>
+
    </tr>
   </thead>
-
-
 
 
   <tbody>
@@ -15,18 +15,15 @@
     <tr>
     <% @users.each do |user| %>
       <td>  <%= user.email %> </td>
-      <td>  <%= user.is_admin %>
-    <% if user.is_admin %>
+      <td>  <%= user.is_admin %>  </td>
+      <td>  <% if user.is_admin %>
 
-      <% link_to("Admin", "#", :class => "btn-btn-xs btn-default") %>
-    <% else %>
-      <% link_to("User", "#", :class => "btn btn-btn-xs btn-default") %>
-    <% end %>
-        
+         <%= link_to("Admin", take_master_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
+       <% else %>
+         <%= link_to("User", customer_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
 
+       <% end %>
       </td>
-
-
 
     </tr>
 

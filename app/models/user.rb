@@ -7,13 +7,13 @@ class User < ApplicationRecord
      is_admin
   end
 
-  def admin!
+  def take_master!
     self.is_admin = false
-    self.sve
+    self.save
   end
 
-  def user
+  def customer!
     self.is_admin = true
     self.save
-  end 
+  end
 end
