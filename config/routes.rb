@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
-    resources :posts
+    resources :posts do
+      member do
+        get :get_post_2_id
+      end
+    end
   end
 
   root 'welcome#index'
