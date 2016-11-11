@@ -11,7 +11,23 @@ Rails.application.routes.draw do
   #root 'admin/users#index'
 
   namespace :admin do
+
     resources :users
+    resources :orders
+    resources :posts do
+      member do
+        get :get_post_2_id
+        post :confirm_order
+      end
+    end
+
+    resources :users do
+      member do
+        post :take_master
+        post :customer
+
+      end
+    end
   end
 
   root 'welcome#index'
