@@ -16,26 +16,19 @@
     <tbody>
 
         <% @posts.each do |post| %>
-          <tr>
-            <%#= form_for [:admin, @order] do |f| %>
-              <td> <%#=f.post_id :post_1_id%>
-                  <%= post.id %>
+           <tr>
+             <td> <%= post.id %> </td>
+             <td>
+
+             <%= simple_form_for Order.new , :url => admin_orders_path do |f| %>
+
+                <%= f.input :poster_id, :as => :select, :collection => User.all.map(&:id)   %>
+                <%= f.input :asker_id, :as => :select, :collection => User.all.map(&:id) %>
+                <%= f.submit "Submit "%>
+             <% end %>
+
               </td>
-              <td><%= link_to(post.title,post_path(post)) %></td>
-              <td><%= post.description %></td>
-                <td>
-                  <select name="sel" id="sel">
-                    <option selected="selected">--请选择--</option>
-                    <% @posts.each do |p| %>
-                      <% if p.id != post.id %>
-                        <option value="0"><%=p.id %></option>
-                      <% end %>
-                    <% end %>
-                  </select>
-                  <%= link_to("确认配对", class: "btn btn-default") %>
-                </td>
-            <%# end %>
-          </tr>
+           </tr>
         <% end %>
 
     </tbody>

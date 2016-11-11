@@ -2,18 +2,18 @@ class Admin::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
-    @order.post_1_id =
-    @order.post_2_id =
-
     if @order.save
 
+      redirect_to admin_orders_path
+    else
+      render "admin/orders/index"
     end
 
   end
 
   private
 
-  def method_name
-    params.require(:order).permit(:post_1_id,:post_2_id)
+  def order_params
+    params.require(:order).permit(:poster_id, :asker_id)
   end
 end

@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :users
+    resources :orders
     resources :posts do
       member do
         get :get_post_2_id
+        post :confirm_order
       end
     end
 
