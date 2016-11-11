@@ -12,6 +12,7 @@
 
 class Post < ApplicationRecord
   belongs_to :user
+  belongs_to :order
 
   # def current_post_2_id
   #     @post_2_id = self.

@@ -10,6 +10,7 @@
 #
 
 class Order < ApplicationRecord
-  belongs_to :asker, :class_name => "User" 
+  belongs_to :asker, :class_name => "User"
   belongs_to :poster, :class_name => "User"
+  has_many :posts
 end

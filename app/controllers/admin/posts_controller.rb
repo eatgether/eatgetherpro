@@ -17,7 +17,7 @@ class Admin::PostsController < ApplicationController
 
   def confirm_order
     @post = Post.find(params[:id])
-    #@post.post_2_id = 
+    #@post.post_2_id =
   end
 
 end
