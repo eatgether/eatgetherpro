@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+       <th class="col-md-6">  用户名  </th>
+       <th class="col-md-6">  权限  </th>
+   </tr>
+  </thead>
+
+
+
+
+  <tbody>
+
+    <tr>
+    <% @users.each do |user| %>
+      <td>  <%= user.email %> </td>
+      <td>  <%= user.is_admin %> </td>
+    </tr>
+
+     <% end %>
+  </tbody>
+</table>
