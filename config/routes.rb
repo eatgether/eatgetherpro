@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :posts do
       member do
         get :get_post_2_id
+      end
+    end
 
     resources :users do
       member do
