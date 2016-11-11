@@ -20,9 +20,8 @@
              <td> <%= post.id %> </td>
              <td>
 
-             <%= simple_form_for Order.new , :url => admin_orders_path do |f| %>
+             <%= simple_form_for Order.new , :url => admin_orders_path(:poster_id => post.id ) do |f| %>
 
-                <%= f.input :poster_id, :as => :select, :collection => User.all.map(&:id)   %>
                 <%= f.input :asker_id, :as => :select, :collection => User.all.map(&:id) %>
                 <%= f.submit "Submit "%>
              <% end %>

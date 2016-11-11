@@ -3,8 +3,6 @@
 # Table name: orders
 #
 #  id         :integer          not null, primary key
-#  post_1_id  :integer
-#  post_2_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  asker_id   :integer

@@ -1,8 +1,10 @@
 class Admin::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
+    @order.poster_id = params[:poster_id]
 
-    if @order.save
+    
+    if @order.save!
 
       redirect_to admin_orders_path
     else
