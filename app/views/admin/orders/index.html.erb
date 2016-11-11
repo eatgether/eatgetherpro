@@ -1,0 +1,21 @@
+<div>
+<table class="table table-boldered">
+    <thead>
+        <tr>
+            <th>配对者1</th>
+            <th>配对者2</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+            <td><%= order.poster_id %></td>
+            <td><%= order.asker_id %></td>
+            <td>
+                <%=link_to("删除", admin_order_path(order), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" })%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>

@@ -1,52 +1,124 @@
-.container {
-    margin-top: 20px;
-    max-width: 100%;
+
+.fade-carousel {
+    position: relative;
+    height: 100vh;
 }
-/* 这是首页图片的头 */
-
-
-.carousel-inner img {
-    width: 100%;
-    max-height: 460px;
+.fade-carousel .carousel-inner .item {
+    height: 100vh;
 }
-
-
-
-.carousel-control.left span {
-    padding: 5px;
+.fade-carousel .carousel-indicators > li {
+    margin: 0 2px;
+    background-color: #f39c12;
+    border-color: #f39c12;
+    opacity: .7;
 }
-
-.carousel-control.right span {
-    padding: 15px;
+.fade-carousel .carousel-indicators > li.active {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
 }
 
-.carousel-control .glyphicon-chevron-left,
-.carousel-control .glyphicon-chevron-right,
-.carousel-control .icon-next,
-.carousel-control .icon-prev {
+/********************************/
+/*          Hero Headers        */
+/********************************/
+.hero {
     position: absolute;
-    top: 45%;
-    z-index: 5;
-    display: inline-block;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
-.carousel-control .glyphicon-chevron-left,
-.carousel-control .icon-prev {
-    left: 0;
+.fade-carousel .carousel-inner .item .hero {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s;
+        -ms-transition: 2s all ease-in-out .1s;
+         -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
+}
+.fade-carousel .carousel-inner .item.active .hero {
+    opacity: 1;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s;
+        -ms-transition: 2s all ease-in-out .1s;
+         -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
 }
 
-.carousel-control .glyphicon-chevron-right,
-.carousel-control .icon-next {
-    right: 0;
+
+.overlay {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .6;
+  margin-left: 377px
 }
 
-.carousel-control.left span,
-.carousel-control.right span {
-    background-color: #000;
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+.btn.btn-lg {padding: 10px 40px;}
+.btn.btn-hero,
+.btn.btn-hero:hover,
+.btn.btn-hero:focus {
+    color: #f5f5f5;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    outline: none;
+    margin: 20px auto;
 }
 
-.carousel-control.left span:hover,
-.carousel-control.right span:hover {
-    opacity: 0.7;
-    filter: alpha(opacity=70);
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+.fade-carousel .slides .slide-1,
+ {
+  height: 70vh;
+  background-size: cover;
+
+}
+.fade-carousel .slides .slide-1 {
+  background-image: url(http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/7e4312ab-group-lg-8.jpg);
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+
+
+}
+
+p{
+  z-index: 100;
+
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  left: 150px;
+  top: 350px;
+}
+
+/********************************/
+/*          Media Queries       */
+/********************************/
+@media screen and (min-width: 980px){
+    .hero { width: 980px; }
+}
+@media screen and (max-width: 640px){
+    .hero h1 { font-size: 4em; }
 }

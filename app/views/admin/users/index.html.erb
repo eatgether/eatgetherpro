@@ -18,9 +18,9 @@
       <td>  <%= user.is_admin %>  </td>
       <td>  <% if user.is_admin %>
 
-         <%= link_to("Admin", take_master_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
+         <%= link_to("成为User", customer_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
        <% else %>
-         <%= link_to("User", customer_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
+         <%= link_to("成为Admin", take_master_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
 
        <% end %>
       </td>
