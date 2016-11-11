@@ -18,15 +18,15 @@
         <% @posts.each do |post| %>
            <tr>
              <td> <%= post.id %> </td>
+             <td><%= post.title %></td>
+             <td><%= post.description %></td>
              <td>
-
-             <%= simple_form_for Order.new , :url => admin_orders_path(:poster_id => post.id ) do |f| %>
-
-                <%= f.input :asker_id, :as => :select, :collection => User.all.map(&:id) %>
-                <%= f.submit "Submit "%>
-             <% end %>
-
-              </td>
+               <%= simple_form_for Order.new , :url => admin_orders_path(:poster_id => post.id ) do |f| %>
+                  <%= f.input :asker_id, :as => :select, :collection => Post.where.not(id: post.id).map(&:id) %>
+                  <%#= f.submit "Submit "%>
+                  <%= f.submit '配对' ,:class => "btn btn-default" %>
+               <% end %>
+             </td>
            </tr>
         <% end %>
 
