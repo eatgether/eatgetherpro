@@ -5,8 +5,8 @@ class Admin::PostsController < ApplicationController
   layout "admin"
 
   def index
-     @posts = Post.distinct.where('id NOT IN (SELECT poster_id FROM orders)
-                                  AND id NOT IN (SELECT asker_id FROM orders)')
+    @posts = Post.where('id NOT IN (SELECT DISTINCT poster_id FROM orders)
+                                   AND id NOT IN (SELECT DISTINCT asker_id FROM orders)')
   end
 
   def checkout
