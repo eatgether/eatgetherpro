@@ -20,4 +20,8 @@ class Admin::PostsController < ApplicationController
     #@post.post_2_id =
   end
 
+  private
+  def post_params
+    params.require(:post).permit(:title, :description, :is_hidden)
+  end
 end

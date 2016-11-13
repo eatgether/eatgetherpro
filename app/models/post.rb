@@ -12,7 +12,7 @@
 
 class Post < ApplicationRecord
   belongs_to :user
-
+  belongs_to :order
 
   scope :all_except, -> (post) {where.not(id: post)}
 
