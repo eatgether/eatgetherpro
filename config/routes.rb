@@ -33,6 +33,11 @@ Rails.application.routes.draw do
   namespace :account do
     resources :users
     resources :posts
+    resources :orders do
+      member do
+        
+      end
+    end
   end
 
   root 'welcome#index'

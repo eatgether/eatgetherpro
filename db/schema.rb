@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114054012) do
+ActiveRecord::Schema.define(version: 20161114101806) do
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "asker_id"
     t.integer  "poster_id"
+    t.integer  "poster_user_id"
+    t.integer  "asker_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

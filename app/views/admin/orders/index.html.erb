@@ -19,7 +19,7 @@
             <td><%= order.poster.description %></td>
             <td><%= order.poster.user.email %></td>
             <td><%= order.asker_id %></td>
-            <td><%= order.asker.description %></td>            
+            <td><%= order.asker.description %></td>
             <td><%= order.asker.user.email%></td>
             <td>
                 <%=link_to("删除", admin_order_path(order), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" })%></td>

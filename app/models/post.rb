@@ -8,6 +8,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  eatVenue    :string
+#  eatDay      :date
+#
 
 #  eatVenue    :string
 #  eatDay      :date
@@ -18,6 +21,7 @@
 
 class Post < ApplicationRecord
   belongs_to :user
+  belongs_to :order
 
 
   scope :all_except, -> (post) {where.not(id: post)}
