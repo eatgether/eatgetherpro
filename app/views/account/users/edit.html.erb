@@ -1,0 +1,41 @@
+<h2>修改个人信息</h2>
+<div class="container">
+<%= simple_form_for [:account,@user] do |f| %>
+
+  <div class="group">
+    <%= f.input :nameChi, label: '姓名' %>
+  </div>
+
+  <div class="group">
+    <%= f.input :nameNick, label: '昵称' %>
+  </div>
+
+  <div class="group">
+    <%= f.input :gender, label: '性别' %>
+  </div>
+
+  <div class="group">
+    <%= f.input :birthday, label: '出生年月日' %>
+  </div>
+
+  <div class="group">
+    <%= f.input :cellNum, label: '电话号码' %>
+  </div>
+
+  <div class="group">
+    <%= f.input :heightUser, label: '身高' %>
+  </div>
+
+  <div class="group">
+    <%= f.input :income, label: '收入' %>
+  </div>
+
+  <div class="group">
+    <%= f.input :image, as: :file, label: '头像' %>
+  </div>
+
+
+  <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
+
+<% end %>
+</div>
