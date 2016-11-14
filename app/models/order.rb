@@ -1,14 +1,3 @@
-# == Schema Information
-#
-# Table name: orders
-#
-#  id         :integer          not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  asker_id   :integer
-#  poster_id  :integer
-#
-
 class Order < ApplicationRecord
 	include AASM
 	belongs_to :asker, :class_name => "Post"

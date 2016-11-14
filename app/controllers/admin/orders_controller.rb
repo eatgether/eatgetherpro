@@ -28,7 +28,7 @@ class Admin::OrdersController < ApplicationController
 				#add send email to user confirm cancellation
 				flash[:warning] = "Order cancelled. User will be notified via email."
 		else
-			flash[:warning] = "Order cannot be cancelled. Check order status is 'order_matched'."
+			flash[:alert] = "Order cannot be cancelled. Check order status is 'order_matched'."
 		end
 
 		redirect_to :back
@@ -38,7 +38,8 @@ class Admin::OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		if @order.aasm_state === "order_cancelled"
 			@order.revive_order!
-			flash[:notice] = "Order revived. User will not be notified by email, please contact user manually."
+			#add send email to user confirm reviving order
+			flash[:notice] = "Order revived. User will be notified via email."
 		else
 			flash[:warning] = 'Order cannot be revived. Check order status is "order_cancelled".'
 		end
@@ -48,7 +49,7 @@ class Admin::OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.delete
-    redirect_to :back, warning: "Order removed."
+    redirect_to :back
   end
 
   private

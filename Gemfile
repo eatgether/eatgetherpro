@@ -35,6 +35,8 @@ gem "devise"
 gem "font-awesome-rails"
 gem "pry"
 gem 'aasm'
+gem 'carrierwave'
+gem 'mini_magick'
 
 gem "annotate"
 

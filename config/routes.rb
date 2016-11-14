@@ -35,12 +35,19 @@ Rails.application.routes.draw do
     end
   end
 
+
 	resources :orders do
 		member do
 			post :confirm_meeting
 			post :ask_cancel
 		end
 	end
+
+  namespace :account do
+    resources :users
+    resources :posts
+  end
+
   root 'welcome#index'
 
 end

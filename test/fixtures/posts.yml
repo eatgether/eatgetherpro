@@ -8,6 +8,12 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+<<<<<<< HEAD
+#  eatVenue    :string
+#  eatDay      :date
+=======
+#  is_hidden   :boolean          default(FALSE)
+>>>>>>> d0e389f84355fc06d2d04980bd3dd05ea6e8fcb7
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

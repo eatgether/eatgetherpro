@@ -16,6 +16,14 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
+#  nameChi                :string
+#  nameNick               :string
+#  image                  :string
+#  gender                 :string
+#  birthday               :integer
+#  cellNum                :integer
+#  income                 :integer
+#  heightUser             :integer
 #
 
 require 'test_helper'
