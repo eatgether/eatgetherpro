@@ -8,7 +8,12 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+
+#  eatVenue    :string
+#  eatDay      :date
+
 #  is_hidden   :boolean          default(FALSE)
+
 #
 
 class Post < ApplicationRecord

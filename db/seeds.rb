@@ -24,6 +24,6 @@ end
 puts "10 User created."
 
 create_post = for i in 1..10 do
-  Post.create!([title: "约饭主题no.#{i}", description: "约饭详细信息#{i}", user_id: i])
+  Post.create!([title: "约饭主题no.#{i}", description: "约饭详细信息#{i}", user_id: i, eatVenue: "约饭地点#{i}", eatDay: "2016-11-1#{i}"])
 end
 puts "10 posts created."
