@@ -9,6 +9,8 @@
             <th>ID</th>
             <th>约饭主题</th>
             <th>约饭内容</th>
+            <th>约饭地点</th>
+            <th>约饭日期</th>
             <th>控制面板</th>
         </tr>
     </thead>
@@ -20,6 +22,9 @@
              <td> <%= post.id %> </td>
              <td><%= post.title %></td>
              <td><%= post.description %></td>
+             <td><%= post.eatVenue %></td>
+             <td><%= post.eatDay %></td>
+
              <td>
                <%= simple_form_for Order.new , :url => admin_orders_path(:poster_id => post.id ) do |f| %>
                   <%#= f.input :asker_id, :as => :select, :collection => Post.where.not(id: post.id).map(&:id)  %>

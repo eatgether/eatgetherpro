@@ -8,6 +8,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  eatVenue    :string
+#  eatDay      :date
 #
 
 require 'test_helper'

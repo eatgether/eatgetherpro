@@ -3,6 +3,8 @@
         <tr>
           <th>约饭主题</th>
           <th>约饭内容</th>
+          <th>约饭地址</th>
+          <th>约饭日期</th>
         </tr>
     </thead>
 
@@ -10,6 +12,8 @@
            <tr>
             <td><%= @post.title %></td>
             <td><%= @post.description %></td>
+            <td><%= @post.eatVenue %></td>
+            <td><%= @post.eatDay %></td>
           </tr>
     </tbody>
 </table>
