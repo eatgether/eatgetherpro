@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20161114101806) do
     t.string   "nameNick"
     t.string   "image"
     t.string   "gender"
-    t.integer  "birthday"
+    t.date     "birthday"
     t.integer  "cellNum"
     t.integer  "income"
     t.integer  "heightUser"
