@@ -1,7 +1,7 @@
 class Account::OrdersController < ApplicationController
   def index
-  #  binding.pry
-    @orders = Order.where(:poster_user_id => current_user)
+    #binding.pry
+    @orders = Order.where(:poster_user_id => current_user) || Order.where(:asker_user_id => current_user)
   end
 
 	def confirm_meeting
@@ -25,5 +25,5 @@ class Account::OrdersController < ApplicationController
 		end
 		redirect_to :back
 	end
-	
+
 end

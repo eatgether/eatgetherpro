@@ -11,10 +11,15 @@
     <tbody>
       <% @orders.each do |order| %>
       <tr>
-        <td><%= order.asker_user.email %></td>
-        <td><%= order.poster.eatVenue %></td>
-        <td><%= order.poster.eatDay %></td>
-
+        <% if order.poster_user = current_user %>
+          <td><%= order.asker_user.email %></td>
+          <td><%= order.poster.eatVenue %></td>
+          <td><%= order.poster.eatDay %></td>
+        <% else %>
+          <td><%= order.poster_user.email %></td>
+          <td><%= order.asker.eatVenue %></td>
+          <td><%= order.asker.eatDay %></td>
+        <% end %>
 				<td><% case order.aasm_state
 				when "order_matched"%>
 				<%= link_to("申请取消", ask_cancel_account_order_path(order), :method => :post, :class => "btn btn-xs btn-default") %>
