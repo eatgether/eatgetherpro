@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :users
-    resources :orders
+    resources :orders do
+    	member do
+    		post :confirm_cancel
+				post :undo_cancel
+    	end
+    end
     resources :posts do
       member do
         get :get_post_2_id
@@ -30,6 +35,12 @@ Rails.application.routes.draw do
     end
   end
 
+	resources :orders do
+		member do
+			post :confirm_meeting
+			post :ask_cancel
+		end
+	end
   root 'welcome#index'
 
 end

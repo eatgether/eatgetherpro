@@ -4,6 +4,8 @@
         <tr>
             <th>配对者1</th>
             <th>配对者2</th>
+						<th>约会状态</th>
+						<th colspan="3">Admin操作</th>
         </tr>
     </thead>
 
@@ -12,8 +14,10 @@
         <tr>
             <td><%= order.poster_id %></td>
             <td><%= order.asker_id %></td>
-            <td>
-                <%=link_to("删除", admin_order_path(order), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" })%></td>
+						<td><%= order.aasm_state %></td>
+            <td><%=link_to("取消", confirm_cancel_admin_order_path(order), method: :post, class: "btn btn-primary")%></td>
+						<td><%=link_to("重启", undo_cancel_admin_order_path(order), method: :post, class: "btn btn-primary")%></td>
+						<td><%=link_to("删除", admin_order_path(order), method: :delete, class: "btn btn-primary", data: { confirm: "只能删除测试订单，确定？" })%></td>
         </tr>
         <% end %>
     </tbody>

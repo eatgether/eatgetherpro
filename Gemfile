@@ -34,6 +34,7 @@ gem "simple_form"
 gem "devise"
 gem "font-awesome-rails"
 gem "pry"
+gem 'aasm'
 
 gem "annotate"
 
