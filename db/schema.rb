@@ -10,22 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112032716) do
+ActiveRecord::Schema.define(version: 20161114101806) do
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "asker_id"
     t.integer  "poster_id"
+    t.string   "aasm_state",     default: "order_matched"
+    t.integer  "poster_user_id"
+    t.integer  "asker_user_id"
+    t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.boolean  "is_hidden",   default: false
+    t.string   "eatVenue"
+    t.date     "eatDay"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,6 +47,14 @@ ActiveRecord::Schema.define(version: 20161112032716) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
+    t.string   "nameChi"
+    t.string   "nameNick"
+    t.string   "image"
+    t.string   "gender"
+    t.date     "birthday"
+    t.integer  "cellNum"
+    t.integer  "income"
+    t.integer  "heightUser"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

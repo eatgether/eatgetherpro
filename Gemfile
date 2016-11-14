@@ -34,8 +34,15 @@ gem "simple_form"
 gem "devise"
 gem "font-awesome-rails"
 gem "pry"
+gem 'aasm'
+gem 'carrierwave'
+gem 'mini_magick'
 
 gem "annotate"
+gem "awesome_rails_console"
+
+gem "letter_opener", group: :development
+gem 'roadie-rails', '~> 1.0'
 
 
 group :development, :test do
