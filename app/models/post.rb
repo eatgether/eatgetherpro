@@ -17,7 +17,6 @@
 
 #  is_hidden   :boolean          default(FALSE)
 
-#
 
 class Post < ApplicationRecord
   belongs_to :user
