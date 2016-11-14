@@ -37,15 +37,17 @@ Rails.application.routes.draw do
 
 
 	resources :orders do
-		member do
-			post :confirm_meeting
-			post :ask_cancel
-		end
 	end
 
   namespace :account do
     resources :users
     resources :posts
+    resources :orders do
+      member do
+				post :confirm_meeting
+				post :ask_cancel
+      end
+    end
   end
 
   root 'welcome#index'

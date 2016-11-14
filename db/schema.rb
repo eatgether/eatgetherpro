@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114055725) do
+ActiveRecord::Schema.define(version: 20161114101806) do
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "asker_id"
     t.integer  "poster_id"
-    t.string   "aasm_state", default: "order_matched"
+    t.string   "aasm_state",     default: "order_matched"
+    t.integer  "poster_user_id"
+    t.integer  "asker_user_id"
     t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 

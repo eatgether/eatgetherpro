@@ -2,6 +2,8 @@ class Order < ApplicationRecord
 	include AASM
 	belongs_to :asker, :class_name => "Post"
   belongs_to :poster, :class_name => "Post"
+  belongs_to :poster_user, :class_name => "User"
+  belongs_to :asker_user, :class_name => "User"
 
 
 	aasm do
@@ -21,5 +23,7 @@ class Order < ApplicationRecord
 			transitions from: :order_cancelled, to: :order_matched
 		end
 	end
+
+scope :account_order, ->(post) { where(poster_id) }
 
 end

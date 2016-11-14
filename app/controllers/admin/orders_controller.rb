@@ -5,12 +5,17 @@ class Admin::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-  end
+  #   @orders.each do |order|
+  #     Post.id()
+  #   end
+  #   #@post = Post.where(:id in @orders.post_id)
+   end
 
   def create
     @order = Order.new(order_params)
     @order.poster_id = params[:poster_id]
-
+    @order.poster_user_id = @order.poster.user_id
+    @order.asker_user_id = @order.asker.user_id
 
     if @order.save!
 
