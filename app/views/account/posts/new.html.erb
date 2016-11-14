@@ -1,5 +1,5 @@
 <h2>我要约饭</h2>
-<%= simple_form_for @post do |f| %>
+<%= simple_form_for [:account, @post] do |f| %>
 
 <div class="group">
     <%= f.input :title, label: '主题' %>

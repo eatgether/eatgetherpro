@@ -30,6 +30,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :account do
+    resources :users
+    resources :posts
+  end
+
   root 'welcome#index'
 
 end
