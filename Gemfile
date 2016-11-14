@@ -34,6 +34,8 @@ gem "simple_form"
 gem "devise"
 gem "font-awesome-rails"
 gem "pry"
+gem 'carrierwave'
+gem 'mini_magick'
 
 gem "annotate"
 gem "awesome_rails_console"
