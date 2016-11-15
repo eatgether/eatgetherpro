@@ -1,34 +1,149 @@
-<div class="col-md-12">
-    <%= link_to("约饭", new_post_path(@post), class: "btn btn-danger pull-right") %>
-</div>
-<br>
+<!DOCTYPE html>
 
-<table class="table table-boldered">
-    <thead>
-        <tr>
-            <th>约饭主题</th>
-            <th>约饭内容</th>
-            <th>约饭地点</th>
-            <th>约饭日期</th>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>约饭</title>
+  </head>
+  <body>
+    <div class="onepage">
+      <div class="onepage-bg" id="onepage">  </div>
+      <div class="container">
+        <div class="row">
+          <div class="title-text">
+            <div class="col-md-12 headfontsize">
+              <h1 class="headh1content">
+                一顿饭，创造一段新关系
+              </h1>
+              <p> 用餐廳、話題、興趣...等資訊，來尋找跟你志同道合的朋友一起吃飯吧！</p>
+              <!-- <h3 class="headh3content">
+                轻松聊  &nbsp 美食 &nbsp  人生梦想 &nbsp 旅行 &nbsp 马上出发
+              </h3> -->
+              <p class="btn-app-store">
+                 <a class="btn btn-success btn-lg" href="new_post_path(@post)"> 加入约饭 </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="twopage">
+      <div class="twopage-text">
 
-            <th>控制面板</th>
-        </tr>
-    </thead>
+        <h1 class="twopage-text-h1"> 全部约饭 </h1>
+      </div>
+      <div class="container">
+      <div class="row">
+        <div class="twopage-yuefan1 col-md-4">
+          <a href="#">
+             <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9svb348ygj305307nmx4.jpg" style="width: 350px;">
+             <div class="classicon">
+               <h1>jeney</h1>
+               <h3><strong>约吗</strong></h3>
+               <h3><strong>我们吃个饭</strong></h3>
+             </div>
+          </a>
+        </div>
+        <div class="twopage-yuefan1 col-md-4">
+          <a href="#">
+             <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9sx9b462sj30b20goq40.jpg" style="width: 350px;">
+             <div class="classicon">
+               <h1>小雪</h1>
+               <h3><strong>约吗</strong></h3>
+               <h3><strong>我们吃个饭</strong></h3>
+             </div>
+          </a>
+        </div>
+        <div class="twopage-yuefan1 col-md-4">
+          <a href="#">
+             <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9sxkvhf48j30ja0smdk1.jpg" style="width: 350px;">
+             <div class="classicon">
+               <h1>冰冰</h1>
+               <h3><strong>约吗</strong></h3>
+                <h3><strong>我们吃个饭</strong></h3>
+             </div>
+          </a>
+        </div>
 
-    <tbody>
-        <% @posts.each do |post| %>
-        <tr>
-            <td><%= link_to(post.title,post_path(post)) %></td>
-            <td><%= post.description %></td>
-            <td><%= post.eatVenue %></td>
-            <td><%= post.eatDay %></td>
+      </div>
+    </div>
+    <br><br>
+    <div class="container">
+    <div class="row">
+      <div class="twopage-yuefan1 col-md-4">
+        <a href="#">
+           <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9szhevei5j30dc0hswhv.jpg" style="width: 350px;">
+           <div class="classicon">
+             <h1>卡哇伊~</h1>
+             <h3><strong>约吗</strong></h3>
+             <h3><strong>我们吃个饭</strong></h3>
+           </div>
+        </a>
+      </div>
+      <div class="twopage-yuefan1 col-md-4">
+        <a href="#">
+           <img src="http://ww1.sinaimg.cn/large/006tNc79jw1f9szhv4fo7j305e07774c.jpg" style="width: 350px;">
+           <div class="classicon">
+             <h1>小丽</h1>
+             <h3><strong>约吗</strong></h3>
+             <h3><strong>我们吃个饭</strong></h3>
+           </div>
+        </a>
+      </div>
+      <div class="twopage-yuefan1 col-md-4">
+        <a href="#">
+           <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9szqtnrj3j309n0d0wep.jpg" style="width: 350px;">
+           <div class="classicon">
+             <h1>刘德华</h1>
+             <h3><strong>约吗</strong></h3>
+             <h3><strong>我们吃个饭</strong></h3>
+           </div>
+        </a>
+      </div>
 
-            <td>
-                <%= link_to("修改", edit_post_path(post), class: "btn btn-default") %>
-                <%=link_to("删除", post_path(post), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" })%></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
-</div>
-</div>
+    </div>
+  </div>
+  <div class="twopagebtn">
+    <a id="twopage-easy" href="#" class="btn btn-success btn-lg"> 载入更多约饭 </a>
+  </div>
+  </div>
+
+  <div class="threepage">
+    <div class="threepage-bg" id="threepage">
+      <div class="threepagecontent">
+        <div class="threepagetext">
+         <h3>「Eatgether一起吃」利用聚餐交友功能，徹底結合「飲食」與「社交」，為餐廳創造無限的可能性！
+           <br><br>只等有缘的你
+          </h3>
+        </div>
+       </div>
+    <div class="container">
+        <div class="bottompage col-md-4 ">
+          <div class="threepage-weixin">
+            <a href="#">
+               <img src="http://ww1.sinaimg.cn/large/006tNc79jw1f9t19or41kj3069069wec.jpg" style="width: 100px;" >
+            </a>
+         </div>
+       </div>
+
+       <div class="bottompage col-md-4 ">
+         <div class="threepage-weixin">
+           <a href="#">
+              <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9t19oq9rvj3069069jrf.jpg" style="width: 100px;">
+           </a>
+        </div>
+      </div>
+
+      <div class="bottompage col-md-4 ">
+        <div class="threepage-weixin">
+          <a href="#">
+             <img src="http://ww3.sinaimg.cn/large/006tNc79jw1f9t2mm8664j305o05odfq.jpg" style="width: 100px;">
+          </a>
+       </div>
+      </div>
+
+     </div>
+    </div>
+  </div>
+  </body>
+</html>
