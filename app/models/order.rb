@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id             :integer          not null, primary key
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  asker_id       :integer
+#  poster_id      :integer
+#  aasm_state     :string           default("order_matched")
+#  poster_user_id :integer
+#  asker_user_id  :integer
+#
+
 class Order < ApplicationRecord
 	include AASM
 	belongs_to :asker, :class_name => "Post"
