@@ -12,9 +12,9 @@
 
   <div class="group">
 
-    <%= f.radio_button :eatVenue, 'soho1',checked: true %><strong>地址1</strong><br>
-    <%= f.radio_button :eatVenue, 'soho2' %><strong>地址2</strong><br>
-    <%= f.radio_button :eatVenue, 'soho3' %><strong>地址3</strong>
+    <%= f.radio_button :eat_venue, 'soho1',checked: true %><strong>地址1</strong><br>
+    <%= f.radio_button :eat_venue, 'soho2' %><strong>地址2</strong><br>
+    <%= f.radio_button :eat_venue, 'soho3' %><strong>地址3</strong>
   </div>
 
   <div class="group">
@@ -22,7 +22,7 @@
     <p>
         <strong> 年 月 日</strong>
     </p>
-    <%= f.date_select(:eatDay, :use_month_numbers=>true, :start_year=>2016, :end_year => Time.now.year, :default =>'2016-11-15'.to_date)%>
+    <%= f.date_select(:eat_day, :use_month_numbers=>true, :start_year=>2016, :end_year => Time.now.year, :default =>'2016-11-15'.to_date)%>
 
   </div>
 
