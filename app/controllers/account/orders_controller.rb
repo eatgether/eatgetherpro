@@ -1,9 +1,14 @@
 class Account::OrdersController < ApplicationController
+  before_action :authenticate_user!
   def index
     #binding.pry
     @orders = Order.where(:poster_user_id => current_user) || Order.where(:asker_user_id => current_user)
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+  
 	def confirm_meeting
 		@order = Order.find(params[:id])
 		if @order.aasm_state === "order_matched"
