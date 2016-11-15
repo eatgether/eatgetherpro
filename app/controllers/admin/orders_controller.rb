@@ -18,7 +18,7 @@ class Admin::OrdersController < ApplicationController
     @order.asker_user_id = @order.asker.user_id
 
     if @order.save!
-
+			OrderMailer.notify_order_placed(Order.last).deliver!
       redirect_to admin_orders_path
     else
       render "admin/orders/index"
@@ -30,7 +30,7 @@ class Admin::OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		if @order.aasm_state === "order_matched"
 				@order.cancel_order!
-				#add send email to user confirm cancellation
+				OrderMailer.notify_order_cancelled(Order.last).deliver!
 				flash[:warning] = "Order cancelled. User will be notified via email."
 		else
 			flash[:alert] = "Order cannot be cancelled. Check order status is 'order_matched'."
@@ -39,14 +39,14 @@ class Admin::OrdersController < ApplicationController
 		redirect_to :back
 	end
 
-	def undo_cancel
+	def admin_revive
 		@order = Order.find(params[:id])
-		if @order.aasm_state === "order_cancelled"
+		if @order.aasm_state === "order_cancelled" || @order.aasm_state === "order_met"
 			@order.revive_order!
-			#add send email to user confirm reviving order
+			OrderMailer.notify_order_revived(Order.last).deliver!
 			flash[:notice] = "Order revived. User will be notified via email."
 		else
-			flash[:warning] = 'Order cannot be revived. Check order status is "order_cancelled".'
+			flash[:warning] = 'Order cannot be revived. Check order status is "order_cancelled" or "order_met".'
 		end
 		redirect_to :back
 	end

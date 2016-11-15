@@ -10,6 +10,7 @@
 #  user_id     :integer
 #  eatVenue    :string
 #  eatDay      :date
+#  image       :string
 #
 
 #  eatVenue    :string
@@ -19,6 +20,7 @@
 
 
 class Post < ApplicationRecord
+  mount_uploader :image, ImageUploader
   belongs_to :user
   belongs_to :order
 

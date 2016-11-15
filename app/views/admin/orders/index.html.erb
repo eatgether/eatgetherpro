@@ -24,7 +24,7 @@
             <td><%= order.asker.user.email%></td>
 						<td><%= order.aasm_state %></td>
             <td><%=link_to("取消", confirm_cancel_admin_order_path(order), method: :post, class: "btn btn-primary")%></td>
-						<td><%=link_to("重启", undo_cancel_admin_order_path(order), method: :post, class: "btn btn-primary")%></td>
+						<td><%=link_to("重启", admin_revive_admin_order_path(order), method: :post, class: "btn btn-primary")%></td>
 						<td><%=link_to("删除", admin_order_path(order), method: :delete, class: "btn btn-primary", data: { confirm: "只能删除测试订单，确定？" })%></td>
         </tr>
         <% end %>

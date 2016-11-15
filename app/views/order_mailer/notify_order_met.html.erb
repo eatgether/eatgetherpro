@@ -12,6 +12,7 @@
           <th>约会日期</th>
 					<th>约会地点</th>
 					<th>约会描述</th>
+					<th colspan="2">约会成员</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,8 @@
 					<td><%= @order.poster.eatDay %></td>
 					<td><%= @order.poster.eatVenue %></td>
 					<td><%= @order.poster.description %></td>
+					<td><%= @poster.email %></td>
+					<td><%= @asker.email %></td>
 				</tr>
       </tbody>
     </table>

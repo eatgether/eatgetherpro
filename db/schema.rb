@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114101806) do
+ActiveRecord::Schema.define(version: 20161115055343) do
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.integer  "asker_id"
     t.integer  "poster_id"
-    t.string   "aasm_state",     default: "order_matched"
     t.integer  "poster_user_id"
     t.integer  "asker_user_id"
+    t.string   "aasm_state",     default: "order_matched"
     t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161114101806) do
     t.integer  "user_id"
     t.string   "eatVenue"
     t.date     "eatDay"
+    t.string   "image"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(version: 20161114101806) do
     t.string   "nameNick"
     t.string   "image"
     t.string   "gender"
-    t.date     "birthday"
+    t.integer  "birthday"
     t.integer  "cellNum"
     t.integer  "income"
     t.integer  "heightUser"
