@@ -7,9 +7,9 @@
 #  updated_at     :datetime         not null
 #  asker_id       :integer
 #  poster_id      :integer
-#  aasm_state     :string           default("order_matched")
 #  poster_user_id :integer
 #  asker_user_id  :integer
+#  aasm_state     :string           default("order_matched")
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
