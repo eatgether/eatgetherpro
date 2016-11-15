@@ -18,6 +18,13 @@
     <tbody>
         <% @posts.each do |post| %>
         <tr>
+          <td>
+            <% if post.image.present? %>
+              <%= image_tag(post.image.thumb.url, class: "thumbnail") %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+            <% end %>
+            </td>
             <td><%= link_to(post.title,post_path(post)) %></td>
             <td><%= post.description %></td>
             <td><%= post.eatVenue %></td>
