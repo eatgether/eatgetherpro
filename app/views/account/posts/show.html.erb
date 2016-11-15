@@ -1,19 +1,25 @@
-<table class="table table-boldered table-hover">
-    <thead>
-        <tr>
-          <th>约饭主题</th>
-          <th>约饭内容</th>
-          <th>约饭地址</th>
-          <th>约饭日期</th>
-        </tr>
-    </thead>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>约饭主题</th>
+                        <th>约饭内容</th>
+                        <th>约饭地址</th>
+                        <th>约饭日期</th>
+                    </tr>
+                </thead>
 
-    <tbody>
-           <tr>
-            <td><%= @post.title %></td>
-            <td><%= @post.description %></td>
-            <td><%= @post.eatVenue %></td>
-            <td><%= @post.eatDay %></td>
-          </tr>
-    </tbody>
-</table>
+                <tbody>
+                    <tr>
+                        <td><%= @post.title %></td>
+                        <td><%= @post.description %></td>
+                        <td><%= @post.eatVenue %></td>
+                        <td><%= @post.eatDay %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
