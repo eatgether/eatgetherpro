@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :orders do
     	member do
     		post :confirm_cancel
-				post :undo_cancel
+				post :admin_revive
     	end
     end
     resources :posts do

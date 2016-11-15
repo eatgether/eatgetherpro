@@ -3,7 +3,6 @@ class Account::PostsController < ApplicationController
 
  def index
    @posts = current_user.posts
-	 flash[:notice] = "早安！你好！"
  end
 
  def new
@@ -22,7 +21,7 @@ class Account::PostsController < ApplicationController
    @post = Post.new(post_params)
    @post.user_id = current_user.id
    if @post.save
-     redirect_to posts_path
+     redirect_to account_posts_path
    else
      render :new
    end
@@ -31,7 +30,7 @@ class Account::PostsController < ApplicationController
  def update
    @post = Post.find(params[:id])
    if @post.update(post_params)
-     redirect_to posts_path, notice: 'Update Success'
+     redirect_to account_posts_path, notice: 'Update Success'
    else
      render :edit
    end
@@ -41,7 +40,7 @@ class Account::PostsController < ApplicationController
    @post = Post.find(params[:id])
 
    @post.destroy
-   redirect_to posts_path, alert: 'Post deleted'
+   redirect_to account_posts_path, alert: 'Post deleted'
  end
 
  private
@@ -49,6 +48,6 @@ class Account::PostsController < ApplicationController
 
 
  def post_params
-   params.require(:post).permit(:title, :description,:eatVenue,:eatDay)
+   params.require(:post).permit(:title, :description,:eat_venue,:eat_day,:image)
  end
 end

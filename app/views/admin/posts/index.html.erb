@@ -1,9 +1,9 @@
 <div class="col-md-12">
     <%= link_to("约饭", new_post_path(@post), class: "btn btn-danger pull-right") %>
 </div>
-<br>
+<br><br>
 
-<table class="table table-boldered">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>ID</th>
@@ -22,16 +22,18 @@
              <td> <%= post.id %> </td>
              <td><%= post.title %></td>
              <td><%= post.description %></td>
-             <td><%= post.eatVenue %></td>
-             <td><%= post.eatDay %></td>
+             <td><%= post.eat_venue %></td>
+             <td><%= post.eat_day %></td>
 
              <td>
                <%= simple_form_for Order.new , :url => admin_orders_path(:poster_id => post.id ) do |f| %>
                   <%#= f.input :asker_id, :as => :select, :collection => Post.where.not(id: post.id).map(&:id)  %>
-                  <%= f.input :asker_id, :as => :select, :collection => Post.where('id NOT IN (SELECT DISTINCT poster_id FROM orders)
-                                                 AND id NOT IN (SELECT DISTINCT asker_id FROM orders)').where.not(id: post.id).map(&:id)  %>
+                  <div class="center">
+                  <%= f.input :asker_id, :as => :select, :collection => Post.no_match.all_except(post.id).map(&:id) ,
+                              :label => "配对者", class: "pagination-centered" %>
 
-                  <%= f.submit '配对' ,:class => "btn btn-default" %>
+                  <%= f.submit '配对' ,:class => "btn btn-default center-block" %>
+                </div>
                <% end %>
              </td>
            </tr>

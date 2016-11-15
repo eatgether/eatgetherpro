@@ -1,21 +1,29 @@
-<table class="table table-boldered">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>约饭对象</th>
             <th>约饭地点</th>
             <th>约饭日期</th>
-            <th>控制面板</th>
+            <th class="center">控制面板</th>
         </tr>
     </thead>
 
     <tbody>
       <% @orders.each do |order| %>
       <tr>
-        <td><%= order.asker_user.email %></td>
-        <td><%= order.poster.eatVenue %></td>
-        <td><%= order.poster.eatDay %></td>
-
-				<td><% case order.aasm_state
+        <% if order.poster_user = current_user %>
+          <td><%= link_to(order.asker_user.email, account_user_path(order.asker_user))%></td>
+          <td><%= order.poster.eat_venue %></td>
+          <td><%= order.poster.eat_day %></td>
+        <% else %>
+          <td><%= link_to(order.poster_user.email, account_user_path(order.poster_user))%></td>
+          <td><%= order.asker.eat_venue %></td>
+          <td><%= order.asker.eat_day %></td>
+        <% end %>
+				<td class="center"><% case order.aasm_state
 				when "order_matched"%>
 				<%= link_to("申请取消", ask_cancel_account_order_path(order), :method => :post, :class => "btn btn-xs btn-default") %>
 				<%= link_to("确认约会", confirm_meeting_account_order_path(order), :method => :post, :class => "btn btn-xs btn-default") %>
@@ -23,10 +31,16 @@
 					<%= link_to("已完成", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
 				<% when "order_cancelled" %>
 					<%= link_to("已取消", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
-				<% end %></td>
+				<% end %>
+        <%= link_to("删除", admin_order_path(order), method: :delete, :class => "btn btn-xs btn-default", data: { confirm: "确定？" }) %>
+      </td>
+
       </tr>
       <% end %>
     </tbody>
 </table>
 </div>
+
+</div>
+
 </div>

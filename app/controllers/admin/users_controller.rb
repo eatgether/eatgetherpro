@@ -17,6 +17,10 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def take_master
     @user = User.find(params[:id])
       @user.take_master!

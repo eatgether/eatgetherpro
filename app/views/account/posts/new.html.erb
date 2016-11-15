@@ -1,25 +1,36 @@
-<h2>我要约饭</h2>
-<%= simple_form_for [:account, @post] do |f| %>
+<h2 class="center">我要约饭</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <%= simple_form_for [:account, @post] do |f| %>
 
-<div class="group">
-    <%= f.input :title, label: '主题' %>
-</div>
+            <div class="group">
+                <%= f.input :title, label: '主题' %>
+            </div>
 
-<div class="group">
-    <%= f.input :description, label: '详细信息' %>
-</div>
-
+            <div class="group">
+                <%= f.input :description, label: '详细信息' %>
+            </div>
 
   <div class="group">
-    <%= f.input :eatVenue, label: '约饭地点' %>
+
+    <%= f.radio_button :eat_venue, 'soho1',checked: true %><strong>地址1</strong><br>
+    <%= f.radio_button :eat_venue, 'soho2' %><strong>地址2</strong><br>
+    <%= f.radio_button :eat_venue, 'soho3' %><strong>地址3</strong>
   </div>
 
   <div class="group">
-    <%= f.input :eatDay, label: '约饭日期' %>
+
+    <p>
+        <strong> 年 月 日</strong>
+    </p>
+    <%= f.date_select(:eat_day, :use_month_numbers=>true, :start_year=>2016, :end_year => Time.now.year, :default =>'2016-11-15'.to_date)%>
+
   </div>
 
+            <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
 
-  <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
-
-
-<% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

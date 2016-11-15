@@ -1,19 +1,32 @@
-<table class="table table-boldered table-hover">
-    <thead>
-        <tr>
-          <th>约饭主题</th>
-          <th>约饭内容</th>
-          <th>约饭地址</th>
-          <th>约饭日期</th>
-        </tr>
-    </thead>
-
-    <tbody>
-           <tr>
-            <td><%= @post.title %></td>
-            <td><%= @post.description %></td>
-            <td><%= @post.eatVenue %></td>
-            <td><%= @post.eatDay %></td>
-          </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>图片</th>
+                        <th>约饭主题</th>
+                        <th>约饭内容</th>
+                        <th>约饭地址</th>
+                        <th>约饭日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <% if @post.image.present? %>
+                            <%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
+                        <% else %>
+                            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+                            <% end %>
+                        </td>
+                        <td><%= @post.title %></td>
+                        <td><%= @post.description %></td>
+                        <td><%= @post.eat_venue %></td>
+                        <td><%= @post.eat_day %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

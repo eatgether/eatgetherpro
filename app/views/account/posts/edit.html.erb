@@ -1,22 +1,28 @@
-<h2>修改约饭信息</h2>
-<%= simple_form_for [:account,@post] do |f| %>
+<h2 class="center">修改约饭信息</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <%= simple_form_for [:account,@post] do |f| %>
 
-  <div class="group">
-    <%= f.input :title, label: '主题' %>
-  </div>
+            <div class="group">
+                <%= f.input :title, label: '主题' %>
+            </div>
 
-  <div class="group">
-    <%= f.input :description, label: '详细信息' %>
-  </div>
+            <div class="group">
+                <%= f.input :description, label: '详细信息' %>
+            </div>
 
-  <div class="group">
-    <%= f.input :eatVenue, label: '约饭地点' %>
-  </div>
+            <div class="group">
+              <%= f.input :eat_venue,label: '约饭地点' %>
+            </div>
 
-  <div class="group">
-    <%= f.input :eatDay, label: '约饭日期' %>
-  </div>
+            <div class="group">
+              <%= f.input :eat_day, label: '约饭日期' %>
+            </div>
 
-  <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
+            <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
 
-<% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
