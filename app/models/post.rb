@@ -13,9 +13,6 @@
 #  image       :string
 #
 
-#  eatVenue    :string
-#  eatDay      :date
-
 #  is_hidden   :boolean          default(FALSE)
 
 
