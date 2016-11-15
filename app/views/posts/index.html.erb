@@ -32,7 +32,6 @@
                         <td><%= post.description %></td>
                         <td><%= post.eatVenue %></td>
                         <td><%= post.eatDay %></td>
-
                         <td>
                             <%= link_to("修改", edit_post_path(post), class: "btn btn-default") %>
                             <%=link_to("删除", post_path(post), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" })%></td>

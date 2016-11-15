@@ -22,8 +22,8 @@
              <td> <%= post.id %> </td>
              <td><%= post.title %></td>
              <td><%= post.description %></td>
-             <td><%= post.eatVenue %></td>
-             <td><%= post.eatDay %></td>
+             <td><%= post.eat_venue %></td>
+             <td><%= post.eat_day %></td>
 
              <td>
                <%= simple_form_for Order.new , :url => admin_orders_path(:poster_id => post.id ) do |f| %>
