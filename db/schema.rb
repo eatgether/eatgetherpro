@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20161115113626) do
     t.datetime "updated_at",                               null: false
     t.integer  "asker_id"
     t.integer  "poster_id"
+    t.string   "aasm_state",     default: "order_matched"
     t.integer  "poster_user_id"
     t.integer  "asker_user_id"
-    t.string   "aasm_state",     default: "order_matched"
     t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20161115113626) do
     t.string   "nameNick"
     t.string   "image"
     t.string   "gender"
-    t.integer  "birthday"
+    t.date     "birthday"
     t.integer  "cellNum"
     t.integer  "income"
     t.integer  "heightUser"
