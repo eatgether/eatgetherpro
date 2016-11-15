@@ -18,7 +18,7 @@ class Admin::OrdersController < ApplicationController
     @order.asker_user_id = @order.asker.user_id
 
     if @order.save!
-
+			OrderMailer.notify_order_placed(Order.last).deliver!
       redirect_to admin_orders_path
     else
       render "admin/orders/index"
