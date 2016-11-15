@@ -3,7 +3,6 @@ class Account::PostsController < ApplicationController
 
  def index
    @posts = current_user.posts
-	 flash[:notice] = "早安！你好！"
  end
 
  def new

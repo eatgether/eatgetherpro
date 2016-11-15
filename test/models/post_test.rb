@@ -10,6 +10,7 @@
 #  user_id     :integer
 #  eatVenue    :string
 #  eatDay      :date
+#  image       :string
 #
 
 <<<<<<< HEAD
