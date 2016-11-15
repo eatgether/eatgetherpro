@@ -27,8 +27,8 @@ class Post < ApplicationRecord
 
   scope :all_except, -> (post) {where.not(id: post)}
 
-  # def current_post_2_id
-  #     @post_2_id = self.
-  # end
-
+  def self.no_match
+    where('id NOT IN (SELECT DISTINCT poster_id FROM orders)
+       AND id NOT IN (SELECT DISTINCT asker_id FROM orders)')
+  end
 end

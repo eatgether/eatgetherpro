@@ -28,8 +28,7 @@
              <td>
                <%= simple_form_for Order.new , :url => admin_orders_path(:poster_id => post.id ) do |f| %>
                   <%#= f.input :asker_id, :as => :select, :collection => Post.where.not(id: post.id).map(&:id)  %>
-                  <%= f.input :asker_id, :as => :select, :collection => Post.where('id NOT IN (SELECT DISTINCT poster_id FROM orders)
-                                                 AND id NOT IN (SELECT DISTINCT asker_id FROM orders)').where.not(id: post.id).map(&:id)  %>
+                  <%= f.input :asker_id, :as => :select, :collection => Post.no_match.all_except(post.id).map(&:id)  %>
 
                   <%= f.submit '配对' ,:class => "btn btn-default" %>
                <% end %>
