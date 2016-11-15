@@ -30,7 +30,7 @@ class Admin::OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		if @order.aasm_state === "order_matched"
 				@order.cancel_order!
-				#add send email to user confirm cancellation
+				OrderMailer.notify_order_cancelled(Order.last).deliver!
 				flash[:warning] = "Order cancelled. User will be notified via email."
 		else
 			flash[:alert] = "Order cannot be cancelled. Check order status is 'order_matched'."
