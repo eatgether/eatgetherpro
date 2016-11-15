@@ -20,7 +20,7 @@ class Order < ApplicationRecord
 		end
 
 		event :revive_order do
-			transitions from: :order_cancelled, to: :order_matched
+			transitions from: [:order_cancelled, :order_met], to: :order_matched
 		end
 	end
 

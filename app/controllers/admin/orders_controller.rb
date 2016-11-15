@@ -39,14 +39,14 @@ class Admin::OrdersController < ApplicationController
 		redirect_to :back
 	end
 
-	def undo_cancel
+	def admin_revive
 		@order = Order.find(params[:id])
-		if @order.aasm_state === "order_cancelled"
+		if @order.aasm_state === "order_cancelled" || @order.aasm_state === "order_met"
 			@order.revive_order!
-			#add send email to user confirm reviving order
+			OrderMailer.notify_order_revived(Order.last).deliver!
 			flash[:notice] = "Order revived. User will be notified via email."
 		else
-			flash[:warning] = 'Order cannot be revived. Check order status is "order_cancelled".'
+			flash[:warning] = 'Order cannot be revived. Check order status is "order_cancelled" or "order_met".'
 		end
 		redirect_to :back
 	end

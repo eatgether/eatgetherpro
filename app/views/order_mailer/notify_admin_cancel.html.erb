@@ -8,10 +8,12 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-					<th>约会主题</th>
+          <th>约会主题</th>
           <th>约会日期</th>
 					<th>约会地点</th>
 					<th>约会描述</th>
+					<th>约会成员-发起者</th>
+					<th>约会成员-配对者</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +22,8 @@
 					<td><%= @order.poster.eatDay %></td>
 					<td><%= @order.poster.eatVenue %></td>
 					<td><%= @order.poster.description %></td>
+					<td><%= @poster.email %></td>
+					<td><%= @asker.email %></td>
 				</tr>
       </tbody>
     </table>
