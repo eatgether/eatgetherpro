@@ -32,6 +32,31 @@
 
         <h1 class="twopage-text-h1"> 全部约饭 </h1>
       </div>
+
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>约饭主题</th>
+                  <th>约饭内容</th>
+                  <th>约饭地点</th>
+                  <th>约饭日期</th>
+
+                  <th>控制面板</th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <% @posts.each do |post| %>
+              <tr>
+                  <td><%= link_to(post.title,post_path(post)) %></td>
+                  <td><%= post.description %></td>
+                  <td><%= post.eat_venue %></td>
+                  <td><%= post.eat_day %></td>
+              </tr>
+              <% end %>
+          </tbody>
+      </table>
+      
       <div class="container">
       <div class="row">
         <div class="twopage-yuefan1 col-md-4">

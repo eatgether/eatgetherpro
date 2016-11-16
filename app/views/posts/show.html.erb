@@ -30,3 +30,13 @@
         </div>
     </div>
 </div>
+
+<span class="pull-right">
+  <% if current_user && current_user.is_asker_of?(@post) %>
+    <label class="label label-success"> 您已是申请者 </label>
+    <%= link_to("Cancel application", cancel_application_post_path(@post), method: :post, class: "btn btn-default") %>
+  <% else %>
+    <label class="label label-warning"> 您还不是申请者 </label>
+    <%= link_to("Application", application_post_path(@post), method: :post, class: "btn btn-default") %>
+  <% end %>
+</span>

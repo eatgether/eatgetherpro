@@ -21,8 +21,8 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :order
 
-
-  scope :all_except, -> (post) {where.not(id: post)}
+  has_many :asker_requests
+  has_many :asker_users, through: :asker_requests,source: :user
 
   def self.no_match
     where('id NOT IN (SELECT DISTINCT poster_id FROM orders)
