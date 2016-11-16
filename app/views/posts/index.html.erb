@@ -28,74 +28,10 @@
       </div>
     </div>
 
-<<<<<<< HEAD
   <div class="twopage">
       <div class="twopage-text">
         <h1 class="twopage-text-h1"> 全部约饭 </h1>
       </div>
-
-      <table class="table table-bordered">
-          <thead>
-              <tr>
-                  <th>约饭主题</th>
-                  <th>约饭内容</th>
-                  <th>约饭地点</th>
-                  <th>约饭日期</th>
-
-                  <th>控制面板</th>
-              </tr>
-          </thead>
-
-          <tbody>
-              <% @posts.each do |post| %>
-              <tr>
-                  <td><%= link_to(post.title,post_path(post)) %></td>
-                  <td><%= post.description %></td>
-                  <td><%= post.eat_venue %></td>
-                  <td><%= post.eat_day %></td>
-              </tr>
-              <% end %>
-          </tbody>
-      </table>
-
-      <div class="container">
-        <div class="row">
-
-          <div class="twopage-yuefan1 col-md-4">
-            <a href="#">
-               <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9svb348ygj305307nmx4.jpg" style="width: 350px;">
-               <div class="classicon">
-                 <h1>jeney</h1>
-                 <h3><strong>约吗</strong></h3>
-                 <h3><strong>我们吃个饭</strong></h3>
-               </div>
-            </a>
-          </div>
-
-          <div class="twopage-yuefan1 col-md-4">
-            <a href="#">
-               <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9sx9b462sj30b20goq40.jpg" style="width: 350px;">
-               <div class="classicon">
-                 <h1>小雪</h1>
-                 <h3><strong>约吗</strong></h3>
-                 <h3><strong>我们吃个饭</strong></h3>
-               </div>
-            </a>
-          </div>
-
-          <div class="twopage-yuefan1 col-md-4">
-            <a href="#">
-               <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9sxkvhf48j30ja0smdk1.jpg" style="width: 350px;">
-               <div class="classicon">
-                 <h1>冰冰</h1>
-                 <h3><strong>约吗</strong></h3>
-                  <h3><strong>我们吃个饭</strong></h3>
-               </div>
-            </a>
-          </div>
-
-        </div>
-    </div>
 
     <div class="container">
       <div class="row">
@@ -165,6 +101,6 @@
      </div>
     </div>
   </div>
-  
+
   </body>
 </html>
