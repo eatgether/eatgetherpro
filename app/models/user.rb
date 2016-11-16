@@ -32,12 +32,17 @@ class User < ApplicationRecord
   has_many :posts
 
   has_many :asker_requests
-  has_many :asker_posts, :through => :asker_requests, :source => :post
+  has_many :ask_posts, :through => :asker_requests, :source => :post
 
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def is_asker_of?(post)
+    ask_posts.include?(post)
+  end
+
   def admin?
      is_admin
   end
