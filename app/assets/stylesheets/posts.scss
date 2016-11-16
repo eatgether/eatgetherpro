@@ -61,6 +61,7 @@ h1,h3,p,a,button{
   margin-top: 80px;
   margin-bottom: 35px;
   padding: 20px 0 0 0;
+
 }
 
 .twopage-yuefan1 {
@@ -82,20 +83,23 @@ h1,h3,p,a,button{
 .classicon h1 {
   margin-top: 120px;
   color: #d1e973;
+  text-align: center;
 }
 
-.classicon h3 {
+.classicon h3 {  
+  text-align: center;
   color: #fff5e1;
 }
 
 .classicon {
-  width: 100%;
-  height: 100%;
+  width: 78%;
+  height: 95%;
   position: absolute;
   left: 0;
   top: 0;
   color: #fff;
   opacity: 0;
+  margin-left: 19px;
 }
 .classicon:hover{
   background: orange;
@@ -117,7 +121,7 @@ h1,h3,p,a,button{
 #twopage-easy {
   margin: 50px 0;
   margin-bottom: 100px;
-  padding: 40px 40px 20px 40px;
+  padding: 25px 40px 20px 40px;
 }
 
 .threepage-bg {
@@ -126,6 +130,7 @@ h1,h3,p,a,button{
   position: absolute;
   background-position: center center;
   background-size: cover;
+  margin-top: 60px;
 }
 #threepage {
   // background-image: url("http://img9.dzdwl.com/img/51f88137799e8.jpg");
@@ -133,6 +138,7 @@ h1,h3,p,a,button{
 }
 
 .threepagetext {
+  margin-top: 50px;
   text-align: center;
   color: white;
 }
@@ -142,3 +148,16 @@ h1,h3,p,a,button{
   margin-top: 200px;
   margin-left: 100px;
 }
+
+// .post-image {
+//   position: relative;
+//   margin-top: 100px;
+//   margin-left: 100px;
+//   width: 20%;
+//   height: 50%;
+//   float: left;
+//   background: #fff;
+//   padding: 0 2px 2px 0;
+//   position: relative;
+//   // overflow: hidden;
+// }
