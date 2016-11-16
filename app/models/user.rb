@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_many :posts
 
   has_many :asker_requests
-  has_many :asker_user_posts, :through => :asker_requests, :source => :post
+  has_many :asker_posts, :through => :asker_requests, :source => :post
 
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}

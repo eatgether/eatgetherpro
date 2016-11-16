@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 20161116051449) do
 
   create_table "asker_requests", force: :cascade do |t|
-    t.integer  "asker_user_id"
+    t.integer  "user_id"
     t.integer  "post_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
