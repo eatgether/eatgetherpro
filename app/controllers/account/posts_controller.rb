@@ -25,6 +25,7 @@ class Account::PostsController < ApplicationController
      redirect_to account_posts_path
    else
      render :new
+     flash[:alert] = "请选择周末"
    end
  end
 
