@@ -29,6 +29,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :posts
+
+  has_many :asker_requests
+  has_many :asker_user_posts, :through => :asker_requests, :source => :post
+
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
   devise :database_authenticatable, :registerable,
@@ -46,7 +51,5 @@ class User < ApplicationRecord
     self.is_admin = false
     self.save
   end
-
-  has_many :posts
 
 end

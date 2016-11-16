@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161116051449) do
 
-  create_table "asker_reqursts", force: :cascade do |t|
+  create_table "asker_requests", force: :cascade do |t|
     t.integer  "asker_user_id"
     t.integer  "post_id"
     t.datetime "created_at",    null: false

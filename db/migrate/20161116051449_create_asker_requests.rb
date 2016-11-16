@@ -1,6 +1,6 @@
-class CreateAskerReqursts < ActiveRecord::Migration[5.0]
+class CreateAskerRequests < ActiveRecord::Migration[5.0]
   def change
-    create_table :asker_reqursts do |t|
+    create_table :asker_requests do |t|
       t.integer :asker_user_id
       t.integer :post_id
 
