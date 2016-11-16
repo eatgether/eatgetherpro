@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     		post :confirm_cancel
 				post :admin_revive
     	end
+			resources :feedbacks
     end
     resources :posts do
       member do
@@ -38,9 +39,7 @@ Rails.application.routes.draw do
   end
 
 
-	resources :orders do
-		resources :feedbacks
-	end
+	resources :orders
 
   namespace :account do
     resources :users
@@ -50,8 +49,9 @@ Rails.application.routes.draw do
 				post :confirm_meeting
 				post :ask_cancel
       end
+			resources :feedbacks
     end
-		resources :feedbacks
+
   end
 
   root 'welcome#index'

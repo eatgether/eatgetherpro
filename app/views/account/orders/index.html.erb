@@ -23,7 +23,6 @@
 				<% when "order_met" %>
 					<%= link_to("已完成", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
 					<!-- PATH FOR EDITING FEEDBACK BREAKS WHEN DELETED A PREVIOUS FEEDBACK -->
-
 						<% if order.feedbacks.blank? %>
 							<%= link_to("约会反馈", new_order_feedback_path(order), class: "btn btn-sm btn-negative pull-left") %>
 						<% else %>
