@@ -11,13 +11,29 @@
             <div class="group">
                 <%= f.input :description, label: '详细信息' %>
             </div>
-
             <div class="group">
-              <%= f.input :eat_venue,label: '约饭地点' %>
+              <% case @post.eat_venue %>
+              <% when '101咖啡' then %>
+              <%= f.radio_button :eat_venue, '101咖啡',checked: true %><strong>101咖啡</strong><br>
+              <%= f.radio_button :eat_venue, '汤城小厨' %><strong>汤城小厨</strong><br>
+              <%= f.radio_button :eat_venue, '星巴克' %><strong>星巴克</strong>
+              <% when '汤城小厨' then %>
+              <%= f.radio_button :eat_venue, '101咖啡' %><strong>101咖啡</strong><br>
+              <%= f.radio_button :eat_venue, '汤城小厨' ,checked: true%><strong>汤城小厨</strong><br>
+              <%= f.radio_button :eat_venue, '星巴克' %><strong>星巴克</strong>
+              <% else  %>
+              <%= f.radio_button :eat_venue, '101咖啡'  %><strong>101咖啡</strong><br>
+              <%= f.radio_button :eat_venue, '汤城小厨' %><strong>汤城小厨</strong><br>
+              <%= f.radio_button :eat_venue, '星巴克' ,checked:true%><strong>星巴克</strong>
+              <% end %>
             </div>
 
             <div class="group">
               <%= f.input :eat_day, label: '约饭日期' %>
+            </div>
+
+            <div class="group">
+                <%= f.input :image, as: :file, label: '图片' %>
             </div>
 
             <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>

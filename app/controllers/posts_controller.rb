@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-   #before_action :authenticate_user!
+   before_action :authenticate_user!,only:[:new,:create,:update,:edit,:destroy]
 
   def index
     @posts = Post.all #current_user.posts
@@ -42,6 +42,32 @@ class PostsController < ApplicationController
 
     @post.destroy
     redirect_to posts_path alert: 'Post deleted'
+  end
+
+  def application
+    @post = Post.find(params[:id])
+
+    if !current_user.is_asker_of?(@post)
+      current_user.application!(@post)
+      flash[:notice] = "您已成功申请！"
+    else
+      flash[:warning] = "您已经申请过这个邀约了！"
+    end
+
+    redirect_to :back
+  end
+
+  def cancel_application
+    @post = Post.find(params[:id])
+
+    if current_user.is_asker_of?(@post)
+      current_user.cancel_application!(@post)
+      flash[:alert] = "您已取消了申请！"
+    else
+      flash[:warning] = "您还没有申请该邀约哦！"
+    end
+
+    redirect_to :back
   end
 
   private

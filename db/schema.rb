@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115113626) do
+ActiveRecord::Schema.define(version: 20161116141722) do
+
+  create_table "asker_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "is_matched", default: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_twos", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "poster_user_id"
+    t.integer  "asker_user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at",                               null: false
@@ -32,6 +54,13 @@ ActiveRecord::Schema.define(version: 20161115113626) do
     t.string   "eat_venue"
     t.date     "eat_day"
     t.string   "image"
+  end
+
+  create_table "user_interests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "interest_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

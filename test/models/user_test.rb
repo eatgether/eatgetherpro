@@ -20,7 +20,7 @@
 #  nameNick               :string
 #  image                  :string
 #  gender                 :string
-#  birthday               :integer
+#  birthday               :date
 #  cellNum                :integer
 #  income                 :integer
 #  heightUser             :integer

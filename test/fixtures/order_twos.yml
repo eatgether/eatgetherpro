@@ -1,17 +1,15 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: order_twos
 #
-#  id          :integer          not null, primary key
-#  title       :string
-#  description :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :integer
-#  eat_venue   :string
-#  eat_day     :date
-#  image       :string
+#  id             :integer          not null, primary key
+#  post_id        :integer
+#  poster_user_id :integer
+#  asker_user_id  :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

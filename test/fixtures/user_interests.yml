@@ -1,17 +1,14 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: user_interests
 #
 #  id          :integer          not null, primary key
-#  title       :string
-#  description :text
+#  user_id     :integer
+#  interest_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :integer
-#  eat_venue   :string
-#  eat_day     :date
-#  image       :string
 #
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

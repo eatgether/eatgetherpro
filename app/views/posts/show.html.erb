@@ -51,30 +51,12 @@
       </div>
     </div>
 
-  </div>
-
-
-
-
-
-                <!-- <thead>
-                    <tr>
-                        <th>图片</th>
-                        <th>约饭主题</th>
-                        <th>约饭内容</th>
-                        <th>约饭地址</th>
-                        <th>约饭日期</th>
-                    </tr>
-                </thead> -->
-                <!-- <tbody>
-                    <tr>
-                        <td>
-
-                        </td>
-                        <!-- <td><%= @post.title %></td>
-                        <td><%= @post.description %></td>
-                        <td><%= @post.eat_venue %></td>
-
-                    <!-- </tr>
-                </tbody>
-            </table> -->
+<span class="pull-right">
+  <% if current_user && current_user.is_asker_of?(@post) %>
+    <label class="label label-success"> 您已是申请者 </label>
+    <%= link_to("Cancel application", cancel_application_post_path(@post), method: :post, class: "btn btn-default") %>
+  <% else %>
+    <label class="label label-warning"> 您还不是申请者 </label>
+    <%= link_to("Application", application_post_path(@post), method: :post, class: "btn btn-default") %>
+  <% end %>
+</span>

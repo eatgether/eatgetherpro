@@ -11,6 +11,7 @@ class Account::PostsController < ApplicationController
 
  def show
    @post = Post.find(params[:id])
+   @asker_users = @post.asker_users
  end
 
  def edit
@@ -20,10 +21,12 @@ class Account::PostsController < ApplicationController
  def create
    @post = Post.new(post_params)
    @post.user_id = current_user.id
+
    if @post.save
      redirect_to account_posts_path
    else
      render :new
+     flash[:alert] = "请选择周末"
    end
  end
 
@@ -41,6 +44,23 @@ class Account::PostsController < ApplicationController
 
    @post.destroy
    redirect_to account_posts_path, alert: 'Post deleted'
+ end
+
+ def application_approved
+   @post = Post.find(params[:id])
+   @asker_user = params[:asker_user]
+   @order = OrderTwo.new
+   @order.post_id = @post.id
+   @order.poster_user_id = @post.user_id
+   @order.asker_user_id = @asker_user
+   @asker_request = current_asker_request(@asker_user,@post.id)
+   if @order.save
+     @asker_request.is_matched = true
+     @asker_request.save
+     redirect_to :back, notice: 'Application approved Success!'
+   else
+     redirect_to :back
+   end
  end
 
  private
