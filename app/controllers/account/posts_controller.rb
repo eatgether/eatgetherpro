@@ -11,6 +11,7 @@ class Account::PostsController < ApplicationController
 
  def show
    @post = Post.find(params[:id])
+   @asker_users = @post.asker_users 
  end
 
  def edit
