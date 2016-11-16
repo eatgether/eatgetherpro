@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116051449) do
+ActiveRecord::Schema.define(version: 20161116081357) do
 
   create_table "asker_requests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "is_matched", default: false
+  end
+
+  create_table "order_twos", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "poster_user_id"
+    t.integer  "asker_user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "orders", force: :cascade do |t|

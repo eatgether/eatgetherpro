@@ -12,8 +12,6 @@
 #  eat_day     :date
 #  image       :string
 #
-#  is_hidden   :boolean          default(FALSE)
-#
 
 require 'test_helper'
 

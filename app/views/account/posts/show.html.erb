@@ -25,6 +25,7 @@
                     <tr>
                         <th>申请者id</th>
                         <th>申请者email</th>
+                        <th>申请状态</th>
                         <th>操作</th>
                     </tr>
                 </thead>
@@ -33,7 +34,14 @@
                     <tr>
                         <td><%= asker_user.id %></td>
                         <td><%= asker_user.email %></td>
-                        
+                        <%#= binding.pry=%>
+
+                        <td><%= current_asker_request(asker_user.id,@post.id).is_matched %></td>
+                        <% if current_asker_request(asker_user.id,@post.id).is_matched %>
+                          <td><%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%></td>
+                        <% else %>
+                          <td><%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-primary btn-sm")%></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

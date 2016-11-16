@@ -12,8 +12,6 @@
 #  eat_day     :date
 #  image       :string
 #
-#  is_hidden   :boolean          default(FALSE)
-#
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 

@@ -46,7 +46,11 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :users
-    resources :posts
+    resources :posts do
+      member do
+        post :application_approved
+      end
+    end
     resources :orders do
       member do
 				post :confirm_meeting
