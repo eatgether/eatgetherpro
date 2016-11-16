@@ -43,6 +43,14 @@ class User < ApplicationRecord
     ask_posts.include?(post)
   end
 
+  def application!(post)
+    ask_posts << post
+  end
+
+  def cancel_application!(post)
+    ask_posts.delete(post)
+  end
+
   def admin?
      is_admin
   end
