@@ -4,6 +4,7 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
+                        <th>图片</th>
                         <th>约饭主题</th>
                         <th>约饭内容</th>
                         <th>约饭地址</th>
@@ -12,6 +13,14 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>
+                          <% if @post.image.present? %>
+                          <%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
+                          <% else %>
+                          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+                          <% end %>
+                        </td>
+
                         <td><%= @post.title %></td>
                         <td><%= @post.description %></td>
                         <td><%= @post.eat_venue %></td>

@@ -12,23 +12,26 @@
                 <%= f.input :description, label: '详细信息' %>
             </div>
 
-  <div class="group">
+            <div class="group">
+             <%= f.radio_button :eat_venue, '101咖啡',checked: true %><strong>101咖啡</strong><br>
+             <%= f.radio_button :eat_venue, '汤城小厨' %><strong>汤城小厨</strong><br>
+             <%= f.radio_button :eat_venue, '星巴克' %><strong>星巴克</strong>
+           </div>
 
-    <%= f.radio_button :eat_venue, 'soho1',checked: true %><strong>地址1</strong><br>
-    <%= f.radio_button :eat_venue, 'soho2' %><strong>地址2</strong><br>
-    <%= f.radio_button :eat_venue, 'soho3' %><strong>地址3</strong>
-  </div>
+           <div class="group">
+            <p>
+             <strong> 年 月 日</strong>
+            </p>
+            <%= f.input :eat_day, as: :date, start_year: Date.today.year - 0,
+                            end_year: Date.today.year - 0,discard_day: false,
+                            order: [:year,:month, :day] %>
+            <%#= f.date_select(:eat_day, :use_month_numbers=>true, :start_year=>2016, :end_year => Time.now.year, :default =>'2016-11-15'.to_date)%>
+           </div>
 
-  <div class="group">
-
-    <p>
-        <strong> 年 月 日</strong>
-    </p>
-    <%= f.date_select(:eat_day, :use_month_numbers=>true, :start_year=>2016, :end_year => Time.now.year, :default =>'2016-11-15'.to_date)%>
-
-  </div>
-
-            <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
+           <div class="group">
+               <%= f.input :image, as: :file, label: '图片' %>
+           </div>
+           <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
 
             <% end %>
         </div>
