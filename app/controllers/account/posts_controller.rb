@@ -21,10 +21,12 @@ class Account::PostsController < ApplicationController
  def create
    @post = Post.new(post_params)
    @post.user_id = current_user.id
+
    if @post.save
      redirect_to account_posts_path
    else
      render :new
+     flash[:alert] = "请选择周末"
    end
  end
 
