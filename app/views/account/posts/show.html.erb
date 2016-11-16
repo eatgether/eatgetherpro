@@ -41,7 +41,7 @@
                           <td><%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%></td>
                         <% else %>
                           <% if OrderTwo.find_by_post_id(@post.id)%>
-                            <td><%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-primary btn-sm",disabled: :true)%></td>
+                            <td><%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%></td>
                           <% else %>
                             <td><%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-primary btn-sm")%></td>
                           <% end %>
