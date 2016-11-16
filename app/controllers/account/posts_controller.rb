@@ -49,6 +49,7 @@ class Account::PostsController < ApplicationController
    @asker_user = params[:asker_user]
    @order = OrderTwo.new
    @order.post_id = @post.id
+   @order.poster_user_id = @post.user_id
    @order.asker_user_id = @asker_user
    @asker_request = current_asker_request(@asker_user,@post.id)
    if @order.save
