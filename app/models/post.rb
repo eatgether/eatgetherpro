@@ -38,7 +38,7 @@ class Post < ApplicationRecord
    validates_inclusion_of :eat_venue, :in => ['101咖啡', '汤城小厨', '星巴克', 'USA'],
     :message => "地点只能在'101咖啡','汤城小厨','星巴克','USA'中选择"
 
-    validates_presence_of :image, :message => "想约饭，图片一定要上"
+    #validates_presence_of :image, :message => "想约饭，图片一定要上"
 
     validate :must_be_weekend
 
