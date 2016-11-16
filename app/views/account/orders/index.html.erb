@@ -13,12 +13,12 @@
       <tr>
         <% if order.poster_user = current_user %>
           <td><%= link_to(order.asker_user.email, account_user_path(order.asker_user))%></td>
-          <td><%= order.poster.eatVenue %></td>
-          <td><%= order.poster.eatDay %></td>
+          <td><%= order.poster.eat_venue %></td>
+          <td><%= order.poster.eat_day %></td>
         <% else %>
           <td><%= link_to(order.poster_user.email, account_user_path(order.poster_user))%></td>
-          <td><%= order.asker.eatVenue %></td>
-          <td><%= order.asker.eatDay %></td>
+          <td><%= order.asker.eat_venue %></td>
+          <td><%= order.asker.eat_day %></td>
         <% end %>
 				<td><% case order.aasm_state
 				when "order_matched"%>

@@ -13,12 +13,7 @@
 #  image       :string
 #
 
-<<<<<<< HEAD
-#  eatVenue    :string
-#  eatDay      :date
-=======
-#  is_hidden   :boolean          default(FALSE)
->>>>>>> d0e389f84355fc06d2d04980bd3dd05ea6e8fcb7
+
 #
 
 require 'test_helper'

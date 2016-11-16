@@ -22,6 +22,6 @@ class Admin::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :description, :eatVenue,:eatDay)
+    params.require(:post).permit(:title, :description, :eat_venue,:eat_day)
   end
 end

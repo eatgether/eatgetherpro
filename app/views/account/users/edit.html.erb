@@ -51,10 +51,8 @@
                     <% end %>
 
                     <div class="group">
-
                       <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
-
-                                                    </div>
+                    </div>
 <br><br>
                     <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
 
