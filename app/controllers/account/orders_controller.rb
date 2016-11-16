@@ -1,8 +1,12 @@
 class Account::OrdersController < ApplicationController
   def index
-  #  binding.pry
     @orders = Order.where(:poster_user_id => current_user)
   end
+
+	def show
+		@orders = Order.find(params[:id])
+	end
+
 
 	def confirm_meeting
 		@order = Order.find(params[:id])

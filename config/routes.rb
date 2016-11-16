@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :posts
+	resources :feedbacks
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
-    resources :users
     resources :orders do
     	member do
     		post :confirm_cancel
@@ -30,13 +30,16 @@ Rails.application.routes.draw do
       member do
         post :take_master
         post :customer
-
       end
     end
+
+		resources :feedbacks
+
   end
 
 
 	resources :orders do
+		resources :feedbacks
 	end
 
   namespace :account do
@@ -48,6 +51,7 @@ Rails.application.routes.draw do
 				post :ask_cancel
       end
     end
+		resources :feedbacks
   end
 
   root 'welcome#index'
