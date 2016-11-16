@@ -1,0 +1,2 @@
+class AskerRequrst < ApplicationRecord
+end
