@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+  resources :interests
 	resources :orders do
 	end
 

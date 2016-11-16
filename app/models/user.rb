@@ -20,7 +20,7 @@
 #  nameNick               :string
 #  image                  :string
 #  gender                 :string
-#  birthday               :integer
+#  birthday               :date
 #  cellNum                :integer
 #  income                 :integer
 #  heightUser             :integer
@@ -48,5 +48,7 @@ class User < ApplicationRecord
   end
 
   has_many :posts
+  has_many :user_interests
+  has_many :interest, :through => :user_interests,source: :interest
 
 end

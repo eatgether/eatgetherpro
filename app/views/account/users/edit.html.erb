@@ -46,14 +46,22 @@
                     <br>
                     <% if current_user.image.present? %>
                     <%= image_tag(current_user.image.thumb.url, class: "thumbnail") %>
-                    <% else %>
+                <% else %>
                     <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
                     <% end %>
 
+                    <div class="group">
+
+                      <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
+
+                                                    </div>
+<br><br>
                     <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
 
                     <% end %>
-                </div>
-            </div>
 
-        </div>
+
+                        </div>
+                    </div>
+
+                </div>
