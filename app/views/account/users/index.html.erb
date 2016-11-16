@@ -42,6 +42,14 @@
                     <th>收入</th>
                     <td><%= current_user.income %></td>
                 </tr>
+                <tr>
+                    <th>爱好</th>
+                    <td>
+                    <% @users.interest.each do |interest| %>
+                    <%= interest.name %>
+                    <% end %>
+                    </td>
+                </tr>
             </table>
         </div>
         <div class="col-md-2">

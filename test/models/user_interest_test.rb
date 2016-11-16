@@ -1,20 +1,17 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: user_interests
 #
 #  id          :integer          not null, primary key
-#  title       :string
-#  description :text
+#  user_id     :integer
+#  interest_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :integer
-#  eat_venue   :string
-#  eat_day     :date
-#  image       :string
 #
+
 require 'test_helper'
 
-class PostTest < ActiveSupport::TestCase
+class UserInterestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
