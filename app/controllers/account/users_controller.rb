@@ -16,8 +16,6 @@ class Account::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      # @user.interest = Interest.find(params[:id])
-      @interest.user_id = current_user
       redirect_to account_users_path
     else
       render :edit
