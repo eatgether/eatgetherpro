@@ -5,7 +5,7 @@
   </div>
 <br><br>
 
-  <div class="col-md-10">
+  <div class="col-md-8">
     <table class="table table-bordered table-striped">
       <colgroup>
         <col class="col-md-2"></col>
@@ -21,9 +21,9 @@
          <th>头像</th>
          <td>
            <% if current_user.image.present? %>
-             <%= image_tag(current_user.image.thumb.url, class: "thumbnail") %>
+             <%= image_tag(current_user.image.thumb.url, class: "thumbnail img-responsive center-block") %>
            <% else %>
-             <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+             <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
            <% end %>
            </td>
        </tr>

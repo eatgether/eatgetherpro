@@ -6,4 +6,13 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
     end
   end
+
+  def current_asker_request(user,post)
+    @current_asker_request = AskerRequest.find_by_user_id_and_post_id(user,post)
+  end
+
+  def c_user
+    @c_user = current_user
+  end
+
 end

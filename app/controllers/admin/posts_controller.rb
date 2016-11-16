@@ -5,23 +5,20 @@ class Admin::PostsController < ApplicationController
   layout "admin"
 
   def index
-    @posts = Post.where('id NOT IN (SELECT DISTINCT poster_id FROM orders)
-                                   AND id NOT IN (SELECT DISTINCT asker_id FROM orders)')
+    @posts = Post.no_match
   end
 
   def checkout
     @post_2_id = Post.find(params[:id])
-    puts "!!!!!!!!!!!!!!!!!#{@post_2_id}"
     redirect_to admin_posts_path(@post_2_id)
   end
 
   def confirm_order
     @post = Post.find(params[:id])
-    #@post.post_2_id =
   end
 
   private
   def post_params
-    params.require(:post).permit(:title, :description, :eat_venue,:eat_day)
+    params.require(:post).permit(:title, :description, :eat_venue,:eat_day,:image)
   end
 end

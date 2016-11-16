@@ -2,15 +2,16 @@
     <%= link_to("约饭", new_account_post_path(@post), class: "btn btn-danger pull-right") %>
 </div>
 <br>
-
-<table class="table table-boldered">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>约饭主题</th>
             <th>约饭内容</th>
             <th>约饭地点</th>
-            <th>约饭日期</th>
-
+            <th>约饭日期</th>          
             <th>控制面板</th>
         </tr>
     </thead>
@@ -30,5 +31,6 @@
         <% end %>
     </tbody>
 </table>
+</div>
 </div>
 </div>

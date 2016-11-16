@@ -29,10 +29,28 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :posts
+
+  has_many :asker_requests
+  has_many :ask_posts, :through => :asker_requests, :source => :post
+
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def is_asker_of?(post)
+    ask_posts.include?(post)
+  end
+
+  def application!(post)
+    ask_posts << post
+  end
+
+  def cancel_application!(post)
+    ask_posts.delete(post)
+  end
+
   def admin?
      is_admin
   end
@@ -47,8 +65,11 @@ class User < ApplicationRecord
     self.save
   end
 
+<<<<<<< HEAD
   has_many :posts
   has_many :user_interests
   has_many :interest, :through => :user_interests,source: :interest
 
+=======
+>>>>>>> development
 end

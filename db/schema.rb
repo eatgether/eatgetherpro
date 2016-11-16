@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 20161116092444) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "asker_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "is_matched", default: false
+  end
+
+  create_table "order_twos", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "poster_user_id"
+    t.integer  "asker_user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
@@ -36,8 +52,8 @@ ActiveRecord::Schema.define(version: 20161116092444) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.string   "eatVenue"
-    t.date     "eatDay"
+    t.string   "eat_venue"
+    t.date     "eat_day"
     t.string   "image"
   end
 
