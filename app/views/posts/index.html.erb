@@ -27,86 +27,42 @@
         </div>
       </div>
     </div>
-    <div class="twopage">
-      <div class="twopage-text">
 
-        <h1 class="twopage-text-h1"> 全部约饭 </h1>
-      </div>
-      <div class="container">
-      <div class="row">
-        <div class="twopage-yuefan1 col-md-4">
-          <a href="#">
-             <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9svb348ygj305307nmx4.jpg" style="width: 350px;">
-             <div class="classicon">
-               <h1>jeney</h1>
-               <h3><strong>约吗</strong></h3>
-               <h3><strong>我们吃个饭</strong></h3>
-             </div>
-          </a>
-        </div>
-        <div class="twopage-yuefan1 col-md-4">
-          <a href="#">
-             <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9sx9b462sj30b20goq40.jpg" style="width: 350px;">
-             <div class="classicon">
-               <h1>小雪</h1>
-               <h3><strong>约吗</strong></h3>
-               <h3><strong>我们吃个饭</strong></h3>
-             </div>
-          </a>
-        </div>
-        <div class="twopage-yuefan1 col-md-4">
-          <a href="#">
-             <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9sxkvhf48j30ja0smdk1.jpg" style="width: 350px;">
-             <div class="classicon">
-               <h1>冰冰</h1>
-               <h3><strong>约吗</strong></h3>
-                <h3><strong>我们吃个饭</strong></h3>
-             </div>
-          </a>
-        </div>
-
-      </div>
+  <div class="twopage">
+    <div class="twopage-text">
+      <h1 class="twopage-text-h1"> 全部约饭 </h1>
     </div>
-    <br><br>
+
     <div class="container">
-    <div class="row">
-      <div class="twopage-yuefan1 col-md-4">
-        <a href="#">
-           <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9szhevei5j30dc0hswhv.jpg" style="width: 350px;">
-           <div class="classicon">
-             <h1>卡哇伊~</h1>
-             <h3><strong>约吗</strong></h3>
-             <h3><strong>我们吃个饭</strong></h3>
-           </div>
-        </a>
-      </div>
-      <div class="twopage-yuefan1 col-md-4">
-        <a href="#">
-           <img src="http://ww1.sinaimg.cn/large/006tNc79jw1f9szhv4fo7j305e07774c.jpg" style="width: 350px;">
-           <div class="classicon">
-             <h1>小丽</h1>
-             <h3><strong>约吗</strong></h3>
-             <h3><strong>我们吃个饭</strong></h3>
-           </div>
-        </a>
-      </div>
-      <div class="twopage-yuefan1 col-md-4">
-        <a href="#">
-           <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9szqtnrj3j309n0d0wep.jpg" style="width: 350px;">
-           <div class="classicon">
-             <h1>刘德华</h1>
-             <h3><strong>约吗</strong></h3>
-             <h3><strong>我们吃个饭</strong></h3>
-           </div>
-        </a>
-      </div>
+      <div class="row">
 
+       <% @posts.each do |post| %>
+         <div class="twopage-yuefan1 col-md-4">
+            <div class="post-image">
+              <%= link_to post_path(post) do %>
+                <% if post.image.present? %>
+                    <%= image_tag(post.image.thumb.url, class: "thumbnail") %>
+                <% else %>
+                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                <% end %>
+                <div class="classicon">
+                  <h1>hello</h1>
+                  <h3><strong>约吗</strong></h3>
+                  <h3><strong>我们吃个饭</strong></h3>
+               </div>
+             <% end %>
+
+           </div>
+         </div>
+      <% end %>
+     </div>
     </div>
-  </div>
-  <div class="twopagebtn">
-    <a id="twopage-easy" href="#" class="btn btn-success btn-lg"> 载入更多约饭 </a>
-  </div>
-  </div>
+
+      <div class="twopagebtn">
+        <a id="twopage-easy" href="#" class="btn btn-success btn-lg"> 载入更多约饭 </a>
+      </div>
+    </div>
+
 
   <div class="threepage">
     <div class="threepage-bg" id="threepage">
@@ -145,5 +101,7 @@
      </div>
     </div>
   </div>
+
+
   </body>
 </html>
