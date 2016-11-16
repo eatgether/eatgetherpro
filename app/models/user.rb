@@ -34,6 +34,9 @@ class User < ApplicationRecord
   has_many :asker_requests
   has_many :ask_posts, :through => :asker_requests, :source => :post
 
+  has_many :user_interests
+  has_many :interest, :through => :user_interests,source: :interest
+
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
   devise :database_authenticatable, :registerable,
@@ -64,12 +67,4 @@ class User < ApplicationRecord
     self.is_admin = false
     self.save
   end
-
-<<<<<<< HEAD
-  has_many :posts
-  has_many :user_interests
-  has_many :interest, :through => :user_interests,source: :interest
-
-=======
->>>>>>> development
 end
