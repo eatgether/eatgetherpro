@@ -1,4 +1,5 @@
 class Admin::FeedbacksController < ApplicationController
+  layout "admin"
 
 	def index
 		@feedbacks = Feedback.all
@@ -18,8 +19,11 @@ class Admin::FeedbacksController < ApplicationController
 	end
 
 	def destroy
-		@feedback = Feedback.find(params[:id])
+		@order = Order.find(params[:order_id])
+		@feedback = @order.feedbacks.find(params[:id])
+		# @feedback = current_user.feedbacks.find(params[:id])
 		@feedback.destroy
+		# @feedback.order.delete(Order.find[:order_id])
 		redirect_to admin_feedbacks_path, alert: "Feedback Deleted."
 	end
 

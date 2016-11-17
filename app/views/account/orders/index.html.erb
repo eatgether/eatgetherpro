@@ -24,9 +24,9 @@
 					<%= link_to("已完成", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
 					<!-- PATH FOR EDITING FEEDBACK BREAKS WHEN DELETED A PREVIOUS FEEDBACK -->
 						<% if order.feedbacks.blank? %>
-							<%= link_to("约会反馈", new_order_feedback_path(order), class: "btn btn-sm btn-negative pull-left") %>
+							<%= link_to("约会反馈", new_account_order_feedback_path(order), class: "btn btn-sm btn-negative pull-left") %>
 						<% else %>
-							<%= link_to("修改反馈", edit_feedback_path(order), class: "btn btn-sm btn-negative pull-left") %>
+							<%= link_to("修改反馈", edit_account_order_feedback_path(order.feedbacks, order), class: "btn btn-sm btn-negative pull-left") %>
 						<% end %>
 				<% when "order_cancelled" %>
 					<%= link_to("已取消", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
