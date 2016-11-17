@@ -1,11 +1,23 @@
-<table class="table table-bordered">
+<div class="group">
+  <%= link_to("添加兴趣", new_interest_path(@interest), class: "btn btn-primary") %>
+</div>
+
+<br><br>
+
+<table class="table table-bordered table-striped">
 
   <thead>
+    <colgroup>
+      <col class="col-md-2"></col>
+      <col class="col-md-4"></col>
+      <col class="col-md-2"></col>
+      <col class="col-md-2"></col>
+    </colgroup>
     <tr>
-       <th class="col-md-3">  用户名  </th>
-       <th class="col-md-3">  admin 状态  </th>
-        <th class="col-md-3">  权限编辑  </th>
-
+       <th>用户编号</th>
+       <th>email</th>
+       <th>admin 状态</th>
+       <th>权限编辑</th>
    </tr>
   </thead>
 
@@ -14,16 +26,19 @@
 
     <tr>
     <% @users.each do |user| %>
-      <td>  <%= user.email %> </td>
-      <td>  <%= user.is_admin %>  </td>
-      <td>  <% if user.is_admin %>
-
-         <%= link_to("成为User", customer_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
-       <% else %>
-         <%= link_to("成为Admin", take_master_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
-
-       <% end %>
-      </td>
+      <% if user.is_admin %>
+        <td>  <%= link_to("<i class='fa fa-user'></i> #{user.id}".html_safe(),admin_user_path(user)) %> </td>
+      <% else %>
+        <td>  <%= link_to("<i class='fa fa-group'></i> #{user.id}".html_safe(),admin_user_path(user)) %> </td>
+      <% end %>
+        <td>  <%= user.email %> </td>
+        <td>  <%= user.is_admin %>  </td>
+        <td>  <% if user.is_admin %>
+                <%= link_to("成为User", customer_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
+              <% else %>
+                <%= link_to("成为Admin", take_master_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default") %>
+              <% end %>
+        </td>
 
     </tr>
 

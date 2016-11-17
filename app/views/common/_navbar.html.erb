@@ -1,13 +1,15 @@
 <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+    <div class="container">
+
+         <div class="navbar-header">
             <a class="navbar-brand" href="/">Eatgether</a>
-        </div>
+
+         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                 <li> <%=  link_to("最新约饭",posts_path)%></li>
               <% if !current_user %>
                   <li><%= link_to("注册", new_user_registration_path) %> </li>
                   <li><%= link_to("登入", new_user_session_path) %></li>

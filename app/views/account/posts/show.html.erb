@@ -1,19 +1,64 @@
-<table class="table table-boldered table-hover">
-    <thead>
-        <tr>
-          <th>约饭主题</th>
-          <th>约饭内容</th>
-          <th>约饭地址</th>
-          <th>约饭日期</th>
-        </tr>
-    </thead>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>图片</th>
+                        <th>约饭主题</th>
+                        <th>约饭内容</th>
+                        <th>约饭地址</th>
+                        <th>约饭日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                          <% if @post.image.present? %>
+                          <%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
+                          <% else %>
+                          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+                          <% end %>
+                        </td>
+                        <td><%= @post.title %></td>
+                        <td><%= @post.description %></td>
+                        <td><%= @post.eat_venue %></td>
+                        <td><%= @post.eat_day %></td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <tbody>
-           <tr>
-            <td><%= @post.title %></td>
-            <td><%= @post.description %></td>
-            <td><%= @post.eatVenue %></td>
-            <td><%= @post.eatDay %></td>
-          </tr>
-    </tbody>
-</table>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>申请者id</th>
+                        <th>申请者email</th>
+                        <th>申请状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @asker_users.each do |asker_user| %>
+                    <tr>
+                        <td><%= asker_user.id %></td>
+                        <td><%= asker_user.email %></td>
+                        <%#= binding.pry=%>
+
+                        <td><%= current_asker_request(asker_user.id,@post.id).is_matched %></td>
+                        <% if current_asker_request(asker_user.id,@post.id).is_matched %>
+                          <td><%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%></td>
+                        <% else %>
+                          <% if OrderTwo.find_by_post_id(@post.id)%>
+                            <td><%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%></td>
+                          <% else %>
+                            <td><%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-primary btn-sm")%></td>
+                          <% end %>
+                        <% end %>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

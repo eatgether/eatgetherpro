@@ -1,0 +1,21 @@
+.new {
+  height: 750px;
+
+}
+
+.new-bg {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+
+#newbg {
+  background-image: url("http://ww2.sinaimg.cn/large/006tNc79jw1f9uaipdcglj31kw0zkww1.jpg");
+}
+.new-bg h1 {
+  text-align: center;
+  color: black;
+  margin-top: 650px;
+}

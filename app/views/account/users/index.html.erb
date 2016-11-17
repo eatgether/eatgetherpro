@@ -1,51 +1,62 @@
+<br><br>
 <div class="container">
-  <br>
-  <div class="pull-right">
-    <%= link_to("添加详细资料", edit_account_user_path(current_user), class: "btn btn-primary") %>
-  </div>
-<br>
-  <div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
 
-    <table class="table table-boldered">
-        <tr>
-         <th>头像</th>
-         <td>
-           <% if current_user.image.present? %>
-             <%= image_tag(current_user.image.thumb.url, class: "thumbnail") %>
-           <% else %>
-             <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-           <% end %>
-           </td>
-       </tr>
-       <tr>
-         <th>姓名</th>
-         <td><%= current_user.nameChi %></td>
-       </tr>
-       <tr>
-         <th>昵称</th>
-         <td><%= current_user.nameNick %></td>
-       </tr>
-       <tr>
-         <th>性别</th>
-         <td><%= current_user.gender %></td>
-       </tr>
-       <tr>
-         <th>出生年月</th>
-         <td><%= current_user.birthday %></td>
-       </tr>
-       <tr>
-         <th>身高</th>
-         <td><%= current_user.heightUser %></td>
-       </tr>
-       <tr>
-         <th>手机号码</th>
-         <td><%= current_user.cellNum %></td>
-       </tr>
-       <tr>
-         <th>收入</th>
-         <td><%= current_user.income %></td>
-       </tr>
-    </table>
-  </div>
+            <table class="table table-bordered ">
+                <tr>
+                    <th>头像</th>
+                    <td>
+                        <% if current_user.image.present? %>
+                        <%= image_tag(current_user.image.thumb.url, class: "thumbnail img-responsive center-block") %>
+                    <% else %>
+                        <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+                        <% end %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>姓名</th>
+                    <td><%= current_user.nameChi %></td>
+                </tr>
+                <tr>
+                    <th>昵称</th>
+                    <td><%= current_user.nameNick %></td>
+                </tr>
+                <tr>
+                    <th>性别</th>
+                    <td><%= current_user.gender %></td>
+                </tr>
+                <tr>
+                    <th>出生年月</th>
+                    <td><%= current_user.birthday %></td>
+                </tr>
+                <tr>
+                    <th>身高</th>
+                    <td><%= current_user.heightUser %></td>
+                </tr>
+                <tr>
+                    <th>手机号码</th>
+                    <td><%= current_user.cellNum %></td>
+                </tr>
+                <tr>
+                    <th>收入</th>
+                    <td><%= current_user.income %></td>
+                </tr>
+                <tr>
+                    <th>爱好</th>
+                    <td>
+                    <% @users.interest.each do |interest| %>
+                    <%= interest.name %>
+                    <% end %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-2">
+        <div class="pull-right">
+            <%= link_to("添加详细资料", edit_account_user_path(current_user), class: "btn btn-primary") %>
+        </div>
+      </div>
+    </div>
 
 </div>

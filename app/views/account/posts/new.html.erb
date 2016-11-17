@@ -1,25 +1,42 @@
-<h2>我要约饭</h2>
-<%= simple_form_for [:account, @post] do |f| %>
+<h2 class="center">我要约饭</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <%= simple_form_for [:account, @post] do |f| %>
 
-<div class="group">
-    <%= f.input :title, label: '主题' %>
+            <div class="group">
+                <%= f.input :title, label: '主题' %>
+            </div>
+
+            <div class="group">
+                <%= f.input :description, label: '详细信息' %>
+            </div>
+
+            <div class="group">
+              <p>
+               <strong>约饭地点</strong>
+              </p>
+             <%= f.radio_button :eat_venue, '101咖啡',checked: true %><strong>101咖啡</strong><br>
+             <%= f.radio_button :eat_venue, '汤城小厨' %><strong>汤城小厨</strong><br>
+             <%= f.radio_button :eat_venue, '星巴克' %><strong>星巴克</strong>
+           </div>
+
+           <div class="group">
+             <br>
+
+            <%= f.input :eat_day, label:'约饭日期',as: :date, start_year: Date.today.year - 0,
+                            end_year: Date.today.year - 0,discard_day: false,
+                            :default =>Date.today,
+                            order: [:year,:month, :day] %>
+            <%#= f.date_select(:eat_day, :use_month_numbers=>true, :start_year=>Date.today.year, :end_year => Time.now.year, :default =>Date.today)%>
+           </div>
+
+           <div class="group">
+               <%= f.input :image, as: :file, label: '图片' %>
+           </div>
+           <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
+
+            <% end %>
+        </div>
+    </div>
 </div>
-
-<div class="group">
-    <%= f.input :description, label: '详细信息' %>
-</div>
-
-
-  <div class="group">
-    <%= f.input :eatVenue, label: '约饭地点' %>
-  </div>
-
-  <div class="group">
-    <%= f.input :eatDay, label: '约饭日期' %>
-  </div>
-
-
-  <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
-
-
-<% end %>

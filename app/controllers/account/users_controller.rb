@@ -9,8 +9,12 @@ class Account::UsersController < ApplicationController
     @user = current_user
   end
 
-  def update
+  def show
     @user = User.find(params[:id])
+  end
+
+  def update
+    @user = current_user
     if @user.update(user_params)
       redirect_to account_users_path
     else
@@ -18,10 +22,11 @@ class Account::UsersController < ApplicationController
     end
   end
 
+
   private
 
   def user_params
-    params.require(:user).permit(:nameChi, :nameNick, :image, :gender, :birthday, :cellNum, :income, :heightUser)
+    params.require(:user).permit(:nameChi, :nameNick, :image, :gender, :birthday, :cellNum, :income, :heightUser, interest_ids: [] )
   end
 
 

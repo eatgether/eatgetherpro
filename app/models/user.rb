@@ -1,13 +1,58 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  is_admin               :boolean          default(FALSE)
+#  nameChi                :string
+#  nameNick               :string
+#  image                  :string
+#  gender                 :string
+#  birthday               :date
+#  cellNum                :integer
+#  income                 :integer
+#  heightUser             :integer
+#
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :posts
 	has_many :feedbacks
+  has_many :asker_requests
+  has_many :ask_posts, :through => :asker_requests, :source => :post
+  has_many :user_interests
+  has_many :interest, :through => :user_interests,source: :interest
 
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def is_asker_of?(post)
+    ask_posts.include?(post)
+  end
+
+  def application!(post)
+    ask_posts << post
+  end
+
+  def cancel_application!(post)
+    ask_posts.delete(post)
+  end
+
   def admin?
      is_admin
   end
@@ -21,7 +66,4 @@ class User < ApplicationRecord
     self.is_admin = false
     self.save
   end
-
-  has_many :posts
-
 end

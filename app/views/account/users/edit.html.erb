@@ -1,46 +1,67 @@
-<h2>修改个人信息</h2>
+<h2 class="center">修改个人信息</h2>
 <div class="container">
-    <%= simple_form_for [:account,@user] do |f| %>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <%= simple_form_for [:account,@user] do |f| %>
 
-    <div class="group">
-        <%= f.input :nameChi, label: '姓名' %>
-    </div>
+            <div class="group">
+                <%= f.input :nameChi, label: '姓名' %>
+            </div>
 
-    <div class="group">
-        <%= f.input :nameNick, label: '昵称' %>
-    </div>
+            <div class="group">
+                <%= f.input :nameNick, label: '昵称' %>
+            </div>
 
-    <div class="group">
-        <%= f.input :gender, label: '性别' %>
-    </div>
+            <div class="group">
+                <%= f.input :gender, label: '性别' %>
+            </div>
 
-    <div class="group">
-        <p>
-            <strong>出生 年 月 日</strong>
-        </p>
-        <%= f.date_select(:birthday, :use_month_numbers=>true, :start_year=>1930, :end_year => Time.now.year, :default =>'1990-1-1'.to_date)%>
-    </div>
+            <div class="group">
+                <p>
+                    <strong>出生 年 月 日</strong>
+                </p>
+                <%= f.date_select(:birthday, :use_month_numbers=>true, :start_year=>1930, :end_year => Time.now.year, :default =>'1990-1-1'.to_date)%>
+            </div>
 
-    <br>
+            <br>
 
-    <div class="group">
-        <%= f.input :cellNum, label: '电话号码' %>
-    </div>
+            <div class="group">
+                <%= f.input :cellNum, label: '电话号码' %>
+            </div>
 
-    <div class="group">
-        <%= f.input :heightUser, label: '身高' %>
-    </div>
+            <div class="group">
+                <%= f.input :heightUser, label: '身高' %>
+            </div>
 
-    <div class="group">
-        <%= f.input :income, label: '收入' %>
-    </div>
+            <div class="group">
+                <%= f.input :income, label: '收入' %>
+            </div>
 
-    <div class="group">
-        <%= f.input :image, as: :file, label: '头像' %>
-    </div>
+            <div class="group">
+                <%= f.input :image, as: :file, label: '头像' %>
+            </div>
 
-    <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
+            <span>
+                <strong>目前头像<strong></span>
+                    <br>
+                    <% if current_user.image.present? %>
+                      <%= image_tag(current_user.image.thumb.url, class: "thumbnail") %>
+                    <% else %>
+                      <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                    <% end %>
 
-    <% end %>
+                    <div class="group">
+                      <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
+                    </div>
 
-</div>
+                    <br><br>
+
+                    <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "Submitting..." } %>
+
+                    <% end %>
+
+
+                        </div>
+                    </div>
+
+                </div>
