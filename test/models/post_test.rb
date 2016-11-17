@@ -12,6 +12,7 @@
 #  eat_day     :date
 #  image       :string
 #
+
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase

@@ -35,12 +35,12 @@ class Post < ApplicationRecord
   #
    validates_presence_of :title, :message => "为了能约到饭，请如实填写"
    validates_presence_of :description, :message => "写一点自我介绍吧"
-   validates_inclusion_of :eat_venue, :in => ['101咖啡', '汤城小厨', '星巴克', 'USA'],
-    :message => "地点只能在'101咖啡','汤城小厨','星巴克','USA'中选择"
+   #validates_inclusion_of :eat_venue, :in => ['101咖啡', '汤城小厨', '星巴克', 'USA'],
+  #  :message => "地点只能在'101咖啡','汤城小厨','星巴克','USA'中选择"
 
     #validates_presence_of :image, :message => "想约饭，图片一定要上"
 
-    validate :must_be_weekend
+  #  validate :must_be_weekend
 
     def must_be_weekend
       if !eat_day.saturday? || eat_day.sunday?
