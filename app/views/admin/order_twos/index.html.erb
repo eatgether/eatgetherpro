@@ -1,0 +1,29 @@
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th>约饭主题</th>
+            <th>发起者</th>
+            <th>邀请人</th>
+            <th>控制选项</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_twos.each do |order_two| %>
+          <tr>
+            <td><%= order_two.post.title %></td>
+            <td><%= order_two.poster_user.email %></td>
+            <td><%= order_two.asker_user.email %></td>
+            <td><%= link_to("删除", admin_order_two_path(order_two), method: :delete, class: "btn btn-danger", :data => { :confirm => "确定要删除配对？？" }) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+</div>
