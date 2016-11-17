@@ -13,7 +13,12 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :order_twos
+    resources :order_twos do
+      member do
+        post :confirm_cancel
+				post :admin_revive
+      end
+    end
     resources :interests
     resources :users
     resources :orders do
@@ -53,7 +58,7 @@ Rails.application.routes.draw do
         post :application_approved
       end
     end
-    resources :orders do
+    resources :order_twos do
       member do
 				post :confirm_meeting
 				post :ask_cancel

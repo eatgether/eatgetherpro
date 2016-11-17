@@ -1,0 +1,2 @@
+class OrderTwosController < ApplicationController
+end

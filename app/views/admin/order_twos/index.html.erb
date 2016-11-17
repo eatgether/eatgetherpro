@@ -4,22 +4,30 @@
     <div class="col-md-11">
       <table class="table table-bordered table-hover table-striped">
         <thead>
-          <tr>
-            <th>约饭主题</th>
-            <th>发起者</th>
-            <th>邀请人</th>
-            <th>控制选项</th>
-          </tr>
+            <tr>
+                <th>约饭代码</th>
+                <th>约饭主题</th>
+                <th>约饭发起人</th>
+                <th>约饭申请人</th>
+    						<th>邀约状态</th>
+    						<th colspan="3">Admin操作</th>
+            </tr>
         </thead>
         <tbody>
-          <% @order_twos.each do |order_two| %>
-          <tr>
-            <td><%= order_two.post.title %></td>
-            <td><%= order_two.poster_user.email %></td>
-            <td><%= order_two.asker_user.email %></td>
-            <td><%= link_to("删除", admin_order_two_path(order_two), method: :delete, class: "btn btn-danger", :data => { :confirm => "确定要删除配对？？" }) %></td>
-          </tr>
-          <% end %>
+            <% @order_twos.each do |order| %>
+            <tr>
+                <td><%= order.post_id %></td>
+                <td><%= order.post.title %></td>
+                <td><%= order.poster_user.email %></td>
+                <td><%= order.asker_user.email%></td>
+    						<td><%= order.aasm_state %></td>
+                <td>
+                  <%=link_to("取消", confirm_cancel_admin_order_two_path(order), method: :post, class: "btn btn-primary")%>
+    						  <%=link_to("重启", admin_revive_admin_order_two_path(order), method: :post, class: "btn btn-primary")%>
+    						  <%=link_to("删除", admin_order_two_path(order), method: :delete, class: "btn btn-primary", data: { confirm: "只能删除测试订单，确定？" })%>
+                </td>
+            </tr>
+            <% end %>
         </tbody>
 
       </table>
