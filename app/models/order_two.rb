@@ -12,7 +12,7 @@
 
 class OrderTwo < ApplicationRecord
   include AASM
-  
+
   belongs_to :poster_user, :class_name => "User"
   belongs_to :asker_user, :class_name => "User"
   belongs_to :post, :class_name => "Post"
@@ -34,4 +34,5 @@ class OrderTwo < ApplicationRecord
 			transitions from: [:order_cancelled, :order_met], to: :order_matched
 		end
 	end
+
 end

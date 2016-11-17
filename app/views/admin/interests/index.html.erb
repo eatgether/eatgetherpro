@@ -1,0 +1,40 @@
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+          <th>
+            兴趣爱好
+          </th>
+          <th class="center">
+            控制选项
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @interests.each do |interest| %>
+        <tr>
+          <td>
+            <%= interest.name %>
+          </td>
+          <td class="center">
+            <%= link_to("删除", admin_interest_path(interest), :method => :delete, class: "btn btn-danger", data: { confirm: "确定删除此爱好"}) %>
+          </td>
+        </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+      <%= link_to("添加兴趣爱好", new_interest_path(@interest), :class => "btn btn-primary") %>
+    </div>
+
+  </div>
+
+
+
+</div>
