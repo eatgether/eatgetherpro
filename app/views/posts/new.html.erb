@@ -1,42 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>我要约饭</title>
+  </head>
+  <body>
 
-<div class="container-fluid">
+      <div class="new">
+        <div class="new-bg" id="newbg">
+          <h1>我要约饭</h1>
 
-  <div class="new">
-    <div class="new-bg" id="newbg">
-      <h1>我要约饭</h1>
+
+         <div class="tianbiao">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1">
+                    <%= simple_form_for @post do |f| %>
+
+                    <div class="group">
+                        <%= f.input :title, label: '主题' %>
+                    </div>
+
+                    <div class="group">
+                        <%= f.input :description, label: '详细信息' %>
+                    </div>
+
+                    <div class="group">
+                          <%= f.input :eat_venue, :collection => ['101咖啡', '汤城小厨','星巴克'], :selected => '星巴克',label: '地点' %>
+                    </div>
+
+                    <div class="group">
+                      <p>约会日期</p>
+                      <%= radio_button(:post, :eat_day,[Time.now.end_of_week()-1.days],checked: true)%><strong>本周六<%= (Time.now.end_of_week()-1.days).strftime("%Y/%m/%d") %></strong><br>
+                      <%= radio_button(:post, :eat_day ,[Time.now.end_of_week()]) %><strong>本周日<%= Time.now.end_of_week().strftime("%Y/%m/%d") %></strong>
+                    </div>
+
+                    <div class="group">
+                        <%= f.input :image, as: :file, label: '图片' %>
+                    </div>
+
+                    <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
+
+                    <% end %>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
-
   </div>
 
-  <div class="container">
-      <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-              <%= simple_form_for @post do |f| %>
-
-              <div class="group">
-                  <%= f.input :title, label: '主题' %>
-              </div>
-
-              <div class="group">
-                  <%= f.input :description, label: '详细信息' %>
-              </div>
-
-              <div class="group">
-                  <%= f.input :eat_venue, label: '约饭地点' %>
-              </div>
-
-              <div class="group">
-                  <%= f.input :eat_day, label: '约饭日期' %>
-              </div>
-              <div class="group">
-                  <%= f.input :image, as: :file, label: '图片' %>
-              </div>
-
-              <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
-
-              <% end %>
-          </div>
-      </div>
-  </div>
-
-</div>
+  </body>
+</html>

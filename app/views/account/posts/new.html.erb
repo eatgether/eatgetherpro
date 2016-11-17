@@ -22,13 +22,14 @@
            </div>
 
            <div class="group">
-             <br>
+             <p>
+              <strong>约饭日期</strong>
+             </p>
 
-            <%= f.input :eat_day, label:'约饭日期',as: :date, start_year: Date.today.year - 0,
-                            end_year: Date.today.year - 0,discard_day: false,
-                            :default =>Date.today,
-                            order: [:year,:month, :day] %>
-            <%#= f.date_select(:eat_day, :use_month_numbers=>true, :start_year=>Date.today.year, :end_year => Time.now.year, :default =>Date.today)%>
+             <%= cust.radio_button(:post, :eat_day ,checked: true,[Time.now.end_of_week()-1.days])%><strong>本周六<%= (Time.now.end_of_week()-1.days).strftime("%Y/%m/%d") %></strong><br>
+             <%= cust.radio_button(:post, :eat_day ,[Time.now.end_of_week()]) %><strong>本周日<%= Time.now.end_of_week().strftime("%Y/%m/%d") %></strong>
+
+
            </div>
 
            <div class="group">

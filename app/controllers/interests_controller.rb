@@ -1,5 +1,6 @@
 class InterestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_required
 
   def new
     @interest = Interest.new
@@ -9,7 +10,7 @@ class InterestsController < ApplicationController
     @interest = Interest.new(interest_params)
     if @interest.save
     #@interest.user_id = @user.id
-      redirect_to admin_users_path
+      redirect_to admin_interests_path
     else
       render :new
     end
