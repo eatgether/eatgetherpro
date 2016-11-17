@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         post :confirm_cancel
 				post :admin_revive
       end
+      resources :feedbacks
     end
     resources :interests
     resources :users
