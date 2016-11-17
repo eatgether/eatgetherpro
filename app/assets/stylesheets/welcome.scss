@@ -1,136 +1,255 @@
 
+.one {
+  height: 750px;
 
-/*  文字 Hero Headers */
+  }
 
-.hero {
-    position: absolute;
-    top: 40%;
-    left: 25%;
-    z-index: 3;
-    color: white;
-    text-align: left;
-    text-transform: capitalize;
+.one-bg {
+  height: 750px;
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  background-position: center center;
+  background-size: cover;
+
 }
 
-.hero1 {
-    position: relative;
-    // top: 40%;
-    left: 0%;
-    padding-top: 4%;
-    padding-bottom: 2%;
-    z-index: 3;
-    color: black;
-    text-align: left;
-    text-transform: capitalize;
+#pictureone {
+  background-image: url("http://ww3.sinaimg.cn/large/006tNc79jw1f9pf9w9pfyj31400om0w5.jpg");
+  width: 100%;
 }
 
-.hero2 {
-    position: relative;
-    // top: 40%;
-    left: 25%;
-    padding-top: 8%;
-    padding-bottom: 2%;
-    z-index: 3;
-    color: black;
-    // text-align-last: center;
-    text-transform: capitalize;
-}
-.hero3 {
-    position: relative;
-    left: 26%;
-    // padding-top: 5%;
-    padding-bottom: 1%;
-    z-index: 3;
-    color: black;
-    // text-align-last: center;
-    text-transform: capitalize;
+.headh1 {
+  margin-top: 150px;
+  line-height: 75px;
 }
 
-.hero4 {
-    position: absolute;
-    top: 35%;
-    left: 40%;
-
-    z-index: 3;
-    color: white;
-    text-align: center;
-    text-transform: capitalize;
+.title-one {
+  position: absolute;
+  z-index: 3;
+  margin-left: 50px;
+  margin-top: 200px;
 }
 
+.headfontsize h1 {
+  font-size: 50pt;
+  color: #fff
+}
 
-
+.headfontsize p {
+  margin-top: 50px;
+  // line-height: 33px;
+  font-size: 15pt;
+  color: #fff
+}
 
          // 阴影 overlay //
 .overlay {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 750px;
     z-index: 2;
   background:rgba(49,48,35,0.5);;
     opacity: .9;
   margin-left: 0px
 }
 
-.overlay1 {
-    position: absolute;
+  // 第二页 //
 
-    width: 100%;
-    height: 50%;
-    z-index: 2;
-  background:rgba(49,48,35,0.5);;
-    opacity: .4;
-  margin-left: 0px
+.two {
+   height: 500px;
 }
+.two-bg {
+  height: 450px;
+  width: 100%;
+  position: absolute;
+  background-position: center center;
+  background-size: cover;
+  margin-top: 60px;
+}
+#tpicturetwo {
+  background-color:white;
+}
+
+.fork {
+  margin-top: 40px;
+}
+
+
+.title-two{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.title-two p {
+  margin-top: 30px;
+  font-size: 19px;
+}
+
+  // 第三页 //
+
+.three {
+   height: 750px;
+}
+
+#picturethree {
+  display:block;
+  background:rgba(236,236,236,0.87);
+  background-image:url(//d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/a01ae583-cheers-lg.jpg);
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  background-position:left top;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  -ms-behavior:url(//d9hhrg4mnvzow.cloudfront.net/backgroundsize.min.htc);
+  behavior:url(//d9hhrg4mnvzow.cloudfront.net/backgroundsize.min.htc);
+  border-style:solid none none none;
+  border-width:1px;
+  border-color:#000;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:0px;
+  border-radius:0px;
+  width:100%;
+  height:750px;
+  position:relative;
+}
+
+
+
+.title-three {
+  margin-top: 50px;
+  position:relative;
+  text-align: center;
+  z-index: 3;
+}
+
+
+.sanzhangtu {
+  z-index: 3;
+  position: relative;
+}
+
+.wenzi {
+  z-index: 3;
+  position: relative;
+  margin-top: 30px;
+}
+
+.overlay1 {
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: 750px;
+  z-index: 2;
+  background:#E4E0D8;
+  opacity: 0.8;
+  margin-left: 0px
+ }
+
+ // 第四页 //
+
+.four {
+  height: 1400px;
+}
+
+.four-bg {
+ height: 1400px;
+ width: 100%;
+ position: absolute;
+ background-position: center center;
+ background-size: cover;
+
+}
+
+.hero2 {
+ position: relative;
+ text-align: center;
+ margin-left:auto;
+ margin-top:auto;
+ margin-top: 80px;
+ margin-bottom: 50px;
+}
+
+
+.hero3 {
+  margin-top: 35px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+ // 第五页 //
+
+.five {
+  height: 450px;
+}
+
+.five-bg {
+ height: 450px;
+ width: 100%;
+ position: absolute;
+ background-position: center center;
+ background-size: cover;
+}
+
+.five h1 {
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+.person p {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+ // 第六页 //
+
+.six {
+  height: 500px;
+
+  }
+
+.six-bg {
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  background-position: center center;
+  background-size: cover;
+
+}
+
+#picturesix {
+  background-image: url("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/adfcd524-group-lg-5.jpg");
+  width: 100%;
+}
+
+.title-six {
+  position: absolute;
+  z-index: 3;
+  margin-left: 14%;
+  margin-top: 60px;
+  margin-right: auto;
+
+  text-align: center;
+  color: white;
+}
+
+
+.title-six p {
+  margin-top: 80px;
+  padding: 10px 10px 10px 10px;
+
+}
+
 .overlay2 {
     position: absolute;
 
     width: 100%;
-    height: 100%;
+    height: 500px;
     z-index: 2;
   background:rgba(49,48,35,0.5);;
     opacity: .8;
   margin-left: 0px
 }
-/*  Custom Buttons */
-
-.btn.btn-lg {padding: 15px 80px;}
-
-
-
-/* Slides backgrounds */
-
-.picture1,
- {
-  height: 60vh;
-  background-size: cover;
-}
-.picture1 {
-  background-image: url(http://ww3.sinaimg.cn/large/006tNc79jw1f9pf9w9pfyj31400om0w5.jpg);
-  width: 100%;
-  display: block;
-  margin: 0 auto;
-}
-
-.picture,
- {
-  height: 50vh;
-  background-size: cover;
-}
-.picture {
-  background-image: url(http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/adfcd524-group-lg-5.jpg);
-  width: 101%;
-  display: block;
-  margin: 0 auto;
-}
-//
-// .picture, {
-//   height: 50vh;
-//   background-size: cover;
-// }
-// .picture {
-//   background-image: url(http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/adfcd524-group-lg-5.jpg);
-//   width: 100%;
-//
-//   display: block;
-//   margin: 0 auto;
-// }

@@ -20,7 +20,7 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   belongs_to :order
-
+   scope :recent, -> {order("created_at DESC")}
 
   scope :all_except, -> (post) {where.not(id: post)}
 
