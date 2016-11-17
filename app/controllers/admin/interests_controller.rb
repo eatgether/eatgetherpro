@@ -1,4 +1,4 @@
-class Account::InterestsController < ApplicationController
+class Admin::InterestsController < ApplicationController
   before_action :authenticate_user!
 
   def index
