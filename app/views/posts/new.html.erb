@@ -27,8 +27,8 @@
 
               <div class="group">
                 <p>约会日期</p>
-                <%= radio_button(:post, :eat_day,  Date.this_saturday ,checked: true)%><strong>本周六<%=  Date.this_saturday.strftime("%Y/%m/%d") %></strong><br>
-                <%= radio_button(:post, :eat_day ,  Date.this_sunday ) %><strong>本周日<%= Date.this_sunday.strftime("%Y/%m/%d") %></strong>
+                <%= radio_button(:post, :eat_day,  Date.this_saturday ,checked: true)%><strong>本周六<%=  Date.this_saturday.to_s(:for_date) %></strong><br>
+                <%= radio_button(:post, :eat_day ,  Date.this_sunday ) %><strong>本周日<%= Date.this_sunday.to_s(:for_date) ) %></strong>
               </div>
 
               <div class="group">
