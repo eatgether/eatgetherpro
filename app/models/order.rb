@@ -20,6 +20,9 @@ class Order < ApplicationRecord
   belongs_to :asker_user, :class_name => "User"
 
 
+	scope :account_order, ->(_post) { where(poster_id) }
+
+	
 	aasm do
 		state :order_matched, initial: true
 		state :order_met
@@ -38,6 +41,6 @@ class Order < ApplicationRecord
 		end
 	end
 
-scope :account_order, ->(post) { where(poster_id) }
+
 
 end
