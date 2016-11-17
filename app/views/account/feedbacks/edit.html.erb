@@ -2,7 +2,7 @@
     <h2>填写会展示到网站上的反馈博客-用户修改</h2>
 
     <hr>
-    <%= simple_form_for [:account,:order,@feedback] do |f| %>
+    <%= simple_form_for [:account,@order,@feedback] do |f| %>
     <%= f.input :title, label: '邀约的主题 - 什么地点、哪种菜系？' %>
     <br>
     <br>

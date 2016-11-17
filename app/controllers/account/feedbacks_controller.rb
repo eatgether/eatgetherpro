@@ -3,31 +3,32 @@ class Account::FeedbacksController < ApplicationController
 	# before_action :find_order
 
 	def new
-		@order = Order.find(params[:order_id])
+		@order = OrderTwo.find(params[:order_two_id])
 		@feedback = @order.feedbacks.new
 	end
 
 	def create
-		@order = Order.find(params[:order_id])
+		@order = OrderTwo.find(params[:order_two_id])
 		@feedback = @order.feedbacks.build(feedback_params)
 		@feedback.user = current_user
-		@feedback.order = @order
+		@feedback.order_two_id = @order.id
 		@feedback.save
 
-		redirect_to account_orders_path, notice: "反馈已保存，感谢您的填写！"
+		redirect_to account_order_twos_path, notice: "反馈已保存，感谢您的填写！"
 	end
 
 	def edit
-		@order = Order.find(params[:id])
-		@feedback = current_user.feedbacks.find(params[:id])
+		@order = OrderTwo.find(params[:id])
+		@feedback = params[:feedback]
+		#@feedback = current_user.feedbacks.find(params[:id])
 	end
 
 	def update
-		@order = Order.find(params[:id])
+		@order = OrderTwo.find(params[:id])
 		@feedback = current_user.feedbacks.last
 
 		if @feedback.update(feedback_params)
-			redirect_to account_orders_path, notice: "反馈已更新。"
+			redirect_to account_orders_twos_path, notice: "反馈已更新。"
 		else
 			render :root
 		end

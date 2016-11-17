@@ -31,10 +31,10 @@
 				<% when "order_met" %>
 					<%= link_to("已完成", "#", class: "btn btn-sm btn-default outline pull-left disabled") %>
 
-          <% if order.feedbacks.blank? %>
+          <% if @feedbacks.blank? %>
             <%= link_to("约会反馈", new_account_order_two_feedback_path(order), class: "btn btn-sm btn-default outline") %>
           <% else %>
-            <%= link_to("修改反馈", edit_account_order_two_feedback_path(order.feedbacks, order), class: "btn btn-sm btn-default outline") %>
+            <%= link_to("修改反馈", edit_account_order_two_feedback_path(order,:feedback => @feedback), class: "btn btn-sm btn-default outline") %>
           <% end %>
 
         <% when "order_cancelled" %>
