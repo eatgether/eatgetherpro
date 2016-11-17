@@ -21,9 +21,10 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   belongs_to :order
-
   has_many :asker_requests
   has_many :asker_users, through: :asker_requests,source: :user
+  scope :all_except, -> (post){where.not(id: post)}
+  scope :recent, -> {order("created_at DESC")}
 
   def self.no_match
     where('id NOT IN (SELECT DISTINCT poster_id FROM orders)

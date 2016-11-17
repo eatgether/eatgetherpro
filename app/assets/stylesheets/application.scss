@@ -18,6 +18,120 @@
  @import "bootstrap";
  @import "font-awesome";
 
+
+ @font-face {
+     font-family: 'marck_scriptregular';
+     src: url('marck-script.regular-webfont.woff2') format('woff2'),
+          url('marck-script.regular-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ * {
+   font-family: "lucida grande";
+  }
+
 .center {
      text-align: center;
  }
+
+.projname {
+  font-family: "marck_scriptregular";
+}
+
+.logohome {
+	height: 45px;
+	width: 45px;
+	margin-bottom: 20px;
+}
+
+.logoend {
+	height: 30px;
+	width: 30px;
+	margin-bottom: 9px;
+}
+
+
+$bgDefault      : #3e3e3e;
+$bgHighlight    : #f01d67;
+$colDefault     : #d6d6d6;
+$colHighlight   : #f01d67;
+$dropDown       : true;
+.navbar-default {
+  background-color: $bgDefault;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }
+		&:focus {
+			color: #d6d6d6
+		}}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}
+      @if $dropDown {
+        > .dropdown-menu {
+          background-color: $bgDefault;
+          > li {
+            > a {
+              color: $colDefault;
+              &:hover {
+                color: $colHighlight;
+                background-color: $bgHighlight; }
+							&:focus {
+								color: $colDefault;
+							}
+						}
+            > .divider {
+              background-color: $bgHighlight;}}}}}
+    @if $dropDown {
+      .open .dropdown-menu > .active {
+        > a, > a:hover {
+          color: $colHighlight;
+          background-color: $bgHighlight; }
+				> a:focus {
+						color: $colDefault;
+					}}}
+    > .active {
+      > a, > a:hover {
+        color: $colHighlight;
+        background-color: $bgHighlight; }
+			> a:focus {
+				color: $colDefault;
+			}}
+//THIS "OPEN" PART IS THE LINE THAT CHANGES NAV MENU COLOR
+//WHEN SELECTED DURING A DROPDOWN
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }
+			> a:focus {
+				color: $colDefault;
+			}}}
+  .navbar-toggle {
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+}

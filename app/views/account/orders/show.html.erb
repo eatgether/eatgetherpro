@@ -1,1 +1,19 @@
+<table class="table table-boldered table-hover">
+    <thead>
+        <tr>
+          <th>约饭主题</th>
+          <th>约饭内容</th>
+          <th>约饭地址</th>
+          <th>约饭日期</th>
+        </tr>
+    </thead>
 
+    <tbody>
+           <tr>
+            <td><%= @orders.poster.title %></td>
+            <td><%= @orders.poster.description %></td>
+            <td><%= @orders.poster.eatVenue %></td>
+            <td><%= @orders.poster.eatDay %></td>
+          </tr>
+    </tbody>
+</table>

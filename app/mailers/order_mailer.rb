@@ -1,22 +1,12 @@
 class OrderMailer < ApplicationMailer
   include Roadie::Rails::Automatic
 
-  def notify_order_placed(order)
-    @order = order
-    @poster = order.poster.user
-		@asker = order.asker.user
-		@recipients = [@poster.email, @asker.email]
-    # puts"!!!!!poster#{@post_user.email}"
-    # puts"!!!!!asker#{@ask_user.email}"
-
-    mail(to: @recipients,subject: "[Eatgether]您的预约已匹配。以下是您此次约会详细信息。#{order}")
-  end
-
 	def notify_order_met(order)
 		@order = order
-    @poster = order.poster.user
-		@asker = order.asker.user
-		@recipients = [@poster.email, @asker.email]
+    @post = order.post
+    @poster_user = @order.poster_user
+    @asker_user = @order.asker_user
+		@recipients = [@poster_user.email, @asker_user.email]
 		@admin = User.where(is_admin: true)
 		@admin_recipients = @admin.select(:email).map(&:email)
 
@@ -26,8 +16,9 @@ class OrderMailer < ApplicationMailer
 
 	def notify_admin_cancel(order)
 		@order = order
-    @poster = order.poster.user
-		@asker = order.asker.user
+    @post = order.post
+    @poster_user = @order.poster_user
+    @asker_user = @order.asker_user
 		@admin = User.where(is_admin: true)
 		@admin_recipients = @admin.select(:email).map(&:email)
 
@@ -37,18 +28,20 @@ class OrderMailer < ApplicationMailer
 
 	def notify_order_cancelled(order)
 		@order = order
-    @poster = order.poster.user
-		@asker = order.asker.user
-		@recipients = [@poster.email, @asker.email]
+    @post = order.post
+    @poster_user = @order.poster_user
+    @asker_user = @order.asker_user
+		@recipients = [@poster_user.email, @asker_user.email]
 
 		mail(to: @recipients,subject: "[Eatgether]您的预约已取消。欢迎您重新登录建立新邀约。#{order}")
 	end
 
 	def notify_order_revived(order)
-		@order = order
-		@poster = order.poster.user
-		@asker = order.asker.user
-		@recipients = [@poster.email, @asker.email]
+    @order = order
+    @post = order.post
+    @poster_user = @order.poster_user
+    @asker_user = @order.asker_user
+		@recipients = [@poster_user.email, @asker_user.email]
 
 		mail(to: @recipients,subject: "[Eatgether]您的预约已重启。以下是您约会详细信息。#{order}")
 	end

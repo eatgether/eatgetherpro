@@ -12,10 +12,20 @@
 }
 
 #newbg {
-  background-image: url("http://ww2.sinaimg.cn/large/006tNc79jw1f9uaipdcglj31kw0zkww1.jpg");
+  background-image: url('wine-lg.jpg');
 }
 .new-bg h1 {
-  text-align: center;
+  // text-align: center;
   color: black;
-  margin-top: 650px;
+  margin-top: 450px;
+  text-indent: 25px;
+  margin-left: 100px;
+}
+
+.tianbiao {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  // border:2px solid #a1a1a1;
 }

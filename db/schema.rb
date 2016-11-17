@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20161117134046) do
     t.boolean  "is_matched", default: false
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image"
+    t.integer  "user_id"
+    t.integer  "order_id"
+  end
+
   create_table "interests", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -30,8 +40,10 @@ ActiveRecord::Schema.define(version: 20161117134046) do
     t.integer  "post_id"
     t.integer  "poster_user_id"
     t.integer  "asker_user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "aasm_state",     default: "order_matched"
+    t.index ["aasm_state"], name: "index_order_twos_on_aasm_state"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -85,6 +97,7 @@ ActiveRecord::Schema.define(version: 20161117134046) do
     t.integer  "cellNum"
     t.integer  "income"
     t.integer  "heightUser"
+    t.text     "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

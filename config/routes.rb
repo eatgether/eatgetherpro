@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :posts
+	resources :feedbacks
   resources :posts do
     member do
       post :application
@@ -8,21 +10,23 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  #root 'posts#index'
-
-
-  #root 'admin/users#index'
 
   namespace :admin do
-
+    resources :order_twos do
+      member do
+        post :confirm_cancel
+				post :admin_revive
+      end
+    end
+    resources :interests
     resources :users
     resources :orders do
     	member do
     		post :confirm_cancel
 				post :admin_revive
     	end
+			resources :feedbacks
     end
     resources :posts do
       member do
@@ -35,10 +39,13 @@ Rails.application.routes.draw do
       member do
         post :take_master
         post :customer
-
       end
     end
+
+		resources :feedbacks
+
   end
+
 
   resources :interests
 	resources :orders do
@@ -51,12 +58,14 @@ Rails.application.routes.draw do
         post :application_approved
       end
     end
-    resources :orders do
+    resources :order_twos do
       member do
 				post :confirm_meeting
 				post :ask_cancel
       end
+			resources :feedbacks
     end
+
   end
 
   root 'welcome#index'
