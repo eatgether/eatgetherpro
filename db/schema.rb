@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116141722) do
+ActiveRecord::Schema.define(version: 20161117074809) do
 
   create_table "asker_requests", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 20161116141722) do
     t.integer  "post_id"
     t.integer  "poster_user_id"
     t.integer  "asker_user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "aasm_state",     default: "order_matched"
+    t.index ["aasm_state"], name: "index_order_twos_on_aasm_state"
   end
 
   create_table "orders", force: :cascade do |t|
