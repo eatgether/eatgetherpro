@@ -7,3 +7,4 @@ class Date
     Date.today.end_of_week()
   end
 end
+ 
