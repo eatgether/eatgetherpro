@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered table-hover table-striped">
         <thead>
           <tr>
           <th>
@@ -20,7 +20,7 @@
             <%= interest.name %>
           </td>
           <td class="center">
-            <%= link_to("删除", admin_interest_path(interest), :method => :delete, class: "btn btn-primary", data: { confirm: "确定删除此爱好"}) %>
+            <%= link_to("删除", admin_interest_path(interest), :method => :delete, class: "btn btn-danger", data: { confirm: "确定删除此爱好"}) %>
           </td>
         </tr>
         <% end %>

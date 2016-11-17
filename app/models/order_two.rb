@@ -13,4 +13,5 @@
 class OrderTwo < ApplicationRecord
   belongs_to :poster_user, :class_name => "User"
   belongs_to :asker_user, :class_name => "User"
+  belongs_to :post
 end
