@@ -3,7 +3,7 @@ class PostsController < ApplicationController
    before_action :authenticate_user!,only:[:new,:create,:update,:edit,:destroy]
 
   def index
-    @posts = Post.all #current_user.posts
+    @posts = Post.all.recent
   end
 
   def new
