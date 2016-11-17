@@ -12,14 +12,8 @@
                 <%= f.input :description, label: '详细信息' %>
             </div>
             <div class="group">
-              <% case @post.eat_venue %>
-              <% when '101咖啡' then %>
-                <%= f.input :eat_venue, :collection => ['101咖啡', '汤城小厨','星巴克'], :selected => '101咖啡',label: '地点' %>
-              <% when '汤城小厨' then %>
-                <%= f.input :eat_venue, :collection => ['101咖啡', '汤城小厨','星巴克'], :selected => '汤城小厨',label: '地点' %>
-              <% else  %>
-                <%= f.input :eat_venue, :collection => ['101咖啡', '汤城小厨','星巴克'], :selected => '星巴克',label: '地点' %>
-              <% end %>
+    
+                <%= f.input :eat_venue, :collection => Post.default_location , :selected =>  @post.eat_venue ,label: '地点' %>
             </div>
 
             <div class="group">
