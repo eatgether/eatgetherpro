@@ -9,7 +9,7 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #  eat_venue   :string
-#  eat_day     :date
+#  eat_day     :integer
 #  image       :string
 #
 
