@@ -5,31 +5,30 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+	<%= render "common/navbar" %>
+	<%= render "common/flashes" %>
 </head>
 <body>
-  <div>
-    <%= render "common/navbar" %>
-    <%= render "common/flashes" %>
-    <div class="row">
-      <div class="col-md-2">
-        <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-          <li class="active"> <%= link_to("Users", admin_users_path) %> </li>
+    <div class="row col-md-2">
+        <ul class="nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+					<%= link_to("用户", admin_users_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
+        </ul>
+
+        <ul class="nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+          <%= link_to("邀约", admin_posts_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
+        </ul>
+
+
+        <ul class="nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+          <%= link_to("订单", admin_orders_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
         </ul>
 
         <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-          <li class="active"> <%= link_to("Posts", admin_posts_path) %> </li>
+          <%= link_to("兴趣", admin_interests_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
         </ul>
 
-        <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-          <li class="active"> <%= link_to("Orders", admin_order_twos_path) %> </li>
-        </ul>
-
-        <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-          <li class="active"> <%= link_to("Interests", admin_interests_path) %> </li>
-        </ul>
-
-				<ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-					<li class="active"> <%= link_to("Feedbacks", admin_feedbacks_path) %> </li>
+				<ul class="nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+					<%= link_to("反馈", admin_feedbacks_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
 				</ul>
 
       </div>
@@ -37,7 +36,5 @@
         <%= yield %>
         <%= render "common/footer" %>
       </div>
-    </div>
-  </div>
 </body>
 </html>

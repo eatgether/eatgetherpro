@@ -52,12 +52,51 @@
 	margin-bottom: 9px;
 }
 
+.jumbotron {
+			width:100%;
+			height:100px;
+      background:
+    	 	linear-gradient(
+    			rgba(31, 5, 5, 0.6),
+    			rgba(31, 5, 5, 0.6)
+    			),
+    			url("cheers1.jpg") no-repeat;
+			background-size: auto;
+			background-position: 70% 48%;
+}
 
 $bgDefault      : #3e3e3e;
 $bgHighlight    : #f01d67;
 $colDefault     : #d6d6d6;
 $colHighlight   : #f01d67;
 $dropDown       : true;
+
+.userheader {
+	 font-family: 'marck_scriptregular';
+	 text-align: center;
+	 vertical-align: middle;
+	 font-style: italic;
+	 color: $colDefault;
+	 margin: 0 0 10% 0;
+	 padding: 0px 0px 0px 0px;
+	 font-size: 60px;
+	 line-height: 0px;
+	 letter-spacing: -2px;
+	 font-weight: bold;
+}
+
+
+
+
+a {
+	color: $bgDefault
+}
+
+a:hover {
+	color: $colDefault
+}
+
+
 .navbar-default {
   background-color: $bgDefault;
   .navbar-brand {
@@ -93,14 +132,14 @@ $dropDown       : true;
     @if $dropDown {
       .open .dropdown-menu > .active {
         > a, > a:hover {
-          color: $colHighlight;
+          color: $colDefault;
           background-color: $bgHighlight; }
 				> a:focus {
 						color: $colDefault;
 					}}}
     > .active {
       > a, > a:hover {
-        color: $colHighlight;
+        color: $colDefault;
         background-color: $bgHighlight; }
 			> a:focus {
 				color: $colDefault;
@@ -134,4 +173,64 @@ $dropDown       : true;
       > a, > a:hover, > a:focus {
         color: $colHighlight;
         background-color: $bgHighlight; }}}
+}
+
+
+/* button section */
+
+.btn.outline {
+    background: none;
+    padding: 9px 20px;
+}
+.btn-default.outline {
+    border: 2px solid $bgDefault;
+    color: $bgDefault;
+}
+.btn-default.outline:hover, .btn-default.outline:focus, .btn-default.outline:active, .btn-default.outline.active, .open > .dropdown-toggle.btn-default {
+    color: $colDefault;
+    border-color: $colDefault;
+}
+.btn-default.outline:active, .btn-default.outline.active {
+    border-color: $colDefault;
+    color: $colDefault;
+    box-shadow: none;
+}
+
+//
+
+.btn {
+    padding: 11px 20px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    // text-transform: uppercase;
+}
+
+// This is the code for when the button is clicked.
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+		background: $bgDefault;
+		color: $colDefault ;
+}
+
+.btn-primary {
+    background: $bgDefault;
+    color: $colDefault ;
+}
+
+// This is the code when mouse hovers over the button
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: $colDefault;
+		color: $bgDefault ;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: $colDefault;
+    color: $colDefault ;
+		box-shadow: none;
+}
+
+.btn-primary[disabled] {
+	background: $colDefault;
+	color: $bgDefault ;
 }

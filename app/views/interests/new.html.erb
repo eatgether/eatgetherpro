@@ -4,9 +4,8 @@
             <%= simple_form_for @interest do |f| %>
             <h4 class="center">兴趣爱好</h4>
             <%= f.input :name, label: "." %>
-            <%= f.submit "提交", class: "btn btn-default center-block", data: { disable_with: "Submitting..." } %>
+            <%= f.submit "提交", class: "btn btn-default outline center-block", data: { disable_with: "提交中.." } %>
             <% end %>
         </div>
-
     </div>
 </div>
