@@ -17,8 +17,8 @@
           <td><%= feedback.description %></td>
 					<td><%= feedback.user.email %></td>
           <td>
-              <%= link_to("Edit", edit_admin_order_feedback_path(feedback.order, feedback), class: "btn btn-sm btn-default")%>
-							<%= link_to("Delete", "#", class: "btn btn-sm btn-default", disabled: true )%>
+              <%= link_to("Edit", edit_admin_order_feedback_path(feedback.order, feedback), class: "btn btn-sm btn-default outline")%>
+							<%= link_to("Delete", "#", class: "btn btn-sm btn-default outline", disabled: true )%>
 							<%#= link_to("Delete", admin_order_feedback_path(feedback.order, feedback), class: "btn btn-sm btn-default",
                           method: :delete, data: { confirm: "Are you sure?" }, disabled: true )%>
           </td>

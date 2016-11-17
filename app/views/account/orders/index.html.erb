@@ -1,7 +1,10 @@
 <div class="container">
-  <div class="row">
+	<div class="jumbotron">
+		<h2 class="userheader">My Dinners</h2>
+	</div>
+	<div class="row">
     <div class="col-md-12">
-<table class="table table-bordered">
+<table class="table table-hover">
     <thead>
         <tr>
 						<th>约饭主题</th>
@@ -28,20 +31,20 @@
         <% end %>
 				<td class="center"><% case order.aasm_state
 				when "order_matched"%>
-				<%= link_to("申请取消", ask_cancel_account_order_path(order), :method => :post, :class => "btn btn-xs btn-default") %>
-				<%= link_to("确认约会", confirm_meeting_account_order_path(order), :method => :post, :class => "btn btn-xs btn-default") %>
+				<%= link_to("申请取消", ask_cancel_account_order_path(order), :method => :post, :class => "btn btn-sm btn-default outline") %>
+				<%= link_to("确认约会", confirm_meeting_account_order_path(order), :method => :post, :class => "btn btn-sm btn-default outline") %>
 				<% when "order_met" %>
-					<%= link_to("已完成", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
+					<%= link_to("已完成", "#", class: "btn btn-sm btn-default outline disabled") %>
 					<!-- PATH FOR EDITING FEEDBACK BREAKS WHEN DELETED A PREVIOUS FEEDBACK -->
 						<% if order.feedbacks.blank? %>
-							<%= link_to("约会反馈", new_account_order_feedback_path(order), class: "btn btn-sm btn-negative pull-left") %>
+							<%= link_to("约会反馈", new_account_order_feedback_path(order), class: "btn btn-sm btn-default outline") %>
 						<% else %>
-							<%= link_to("修改反馈", edit_account_order_feedback_path(order.feedbacks, order), class: "btn btn-sm btn-negative pull-left") %>
+							<%= link_to("修改反馈", edit_account_order_feedback_path(order.feedbacks, order), class: "btn btn-sm btn-default outline") %>
 						<% end %>
 				<% when "order_cancelled" %>
-					<%= link_to("已取消", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
+					<%= link_to("已取消", "#", class: "btn btn-sm btn-default outline disabled") %>
 				<% end %>
-        <%= link_to("删除", admin_order_path(order), method: :delete, :class => "btn btn-xs btn-default", data: { confirm: "确定？" }) %>
+        <%= link_to("删除", admin_order_path(order), method: :delete, :class => "btn btn-sm btn-default outline", data: { confirm: "确定？" }) %>
       </td>
 
       </tr>
