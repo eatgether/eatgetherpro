@@ -18,7 +18,7 @@ class Order < ApplicationRecord
   belongs_to :poster, :class_name => "Post"
   belongs_to :poster_user, :class_name => "User"
   belongs_to :asker_user, :class_name => "User"
-
+	has_many :feedbacks
 
 	aasm do
 		state :order_matched, initial: true

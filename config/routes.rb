@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :posts
+	resources :feedbacks
   resources :posts do
     member do
       post :application
@@ -17,12 +19,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
-    resources :users
     resources :orders do
     	member do
     		post :confirm_cancel
 				post :admin_revive
     	end
+			resources :feedbacks
     end
     resources :posts do
       member do
@@ -35,10 +37,13 @@ Rails.application.routes.draw do
       member do
         post :take_master
         post :customer
-
       end
     end
+
+		resources :feedbacks
+
   end
+
 
   resources :interests
 	resources :orders do
@@ -56,7 +61,9 @@ Rails.application.routes.draw do
 				post :confirm_meeting
 				post :ask_cancel
       end
+			resources :feedbacks
     end
+
   end
 
   root 'welcome#index'

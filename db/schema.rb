@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20161116141722) do
     t.boolean  "is_matched", default: false
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image"
+    t.integer  "user_id"
+    t.integer  "order_id"
+  end
+
   create_table "interests", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false

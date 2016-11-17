@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <div class="feedback">
+    <%= link_to("New feedback", new_admin_feedback_path, class: "btn btn-primary pull-right") %>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @feedbacks.each do |feedback| %>
+        <tr>
+          <td><%= feedback.id %></td>
+          <td><%= feedback.title %></td>
+          <td><%= feedback.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

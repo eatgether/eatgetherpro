@@ -30,10 +30,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :posts
-
+	has_many :feedbacks
   has_many :asker_requests
   has_many :ask_posts, :through => :asker_requests, :source => :post
-
   has_many :user_interests
   has_many :interest, :through => :user_interests,source: :interest
 

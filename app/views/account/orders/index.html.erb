@@ -4,7 +4,8 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>约饭对象</th>
+						<th>约饭主题</th>
+						<th>约饭对象</th>
             <th>约饭地点</th>
             <th>约饭日期</th>
             <th class="center">控制面板</th>
@@ -15,11 +16,13 @@
       <% @orders.each do |order| %>
       <tr>
         <% if order.poster_user = current_user %>
-          <td><%= link_to(order.asker_user.email, account_user_path(order.asker_user))%></td>
+					<td><%= order.poster.title %></td>
+					<td><%= link_to(order.asker_user.email, account_user_path(order.asker_user))%></td>
           <td><%= order.poster.eat_venue %></td>
           <td><%= order.poster.eat_day %></td>
         <% else %>
-          <td><%= link_to(order.poster_user.email, account_user_path(order.poster_user))%></td>
+          <td><%= order.asker.title %></td>
+					<td><%= link_to(order.poster_user.email, account_user_path(order.poster_user))%></td>
           <td><%= order.asker.eat_venue %></td>
           <td><%= order.asker.eat_day %></td>
         <% end %>
@@ -29,6 +32,12 @@
 				<%= link_to("确认约会", confirm_meeting_account_order_path(order), :method => :post, :class => "btn btn-xs btn-default") %>
 				<% when "order_met" %>
 					<%= link_to("已完成", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
+					<!-- PATH FOR EDITING FEEDBACK BREAKS WHEN DELETED A PREVIOUS FEEDBACK -->
+						<% if order.feedbacks.blank? %>
+							<%= link_to("约会反馈", new_account_order_feedback_path(order), class: "btn btn-sm btn-negative pull-left") %>
+						<% else %>
+							<%= link_to("修改反馈", edit_account_order_feedback_path(order.feedbacks, order), class: "btn btn-sm btn-negative pull-left") %>
+						<% end %>
 				<% when "order_cancelled" %>
 					<%= link_to("已取消", "#", class: "btn btn-sm btn-negative pull-left disabled") %>
 				<% end %>
