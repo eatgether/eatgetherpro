@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-
+    resources :interests
     resources :users
     resources :orders do
     	member do
@@ -40,7 +40,6 @@ Rails.application.routes.draw do
 	end
 
   namespace :account do
-    resources :interests
     resources :users
     resources :posts do
       member do
