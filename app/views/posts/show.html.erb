@@ -45,13 +45,19 @@
             </p>
           </div>
       </div>
-      <div class="showbtn" style="text-align:center">
-        <a id="twopage-easy" href="#" class="btn btn-success btn-lg"> 加入约饭 </a>
-      </div>
+        <div class="showbtn" style="text-align:center">
+          <% if current_user && current_user.is_asker_of?(@post) %>
+            <%= link_to("您已申请约饭","#", class: "btn btn-warning",id: "twopage-easy",disabled: :true) %>
+          <% elsif @post.user_id == current_user.id && current_user %>
+            <%= link_to("这是您发起的预约","#", class: "btn btn-primary",id: "twopage-easy",disabled: :true) %>
+          <% else %>
+            <%= link_to("加入约饭",application_post_path(@post),method: :post,id: "twopage-easy",class: "btn btn-success btn-lg") %>
+          <% end %>
+        </div>
       </div>
     </div>
 
-<span class="pull-right">
+<!-- <span class="pull-right">
   <% if current_user && current_user.is_asker_of?(@post) %>
     <label class="label label-success"> 您已是申请者 </label>
     <%= link_to("Cancel application", cancel_application_post_path(@post), method: :post, class: "btn btn-default") %>
@@ -59,4 +65,4 @@
     <label class="label label-warning"> 您还不是申请者 </label>
     <%= link_to("Application", application_post_path(@post), method: :post, class: "btn btn-default") %>
   <% end %>
-</span>
+</span> -->
