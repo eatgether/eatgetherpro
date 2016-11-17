@@ -26,8 +26,8 @@
               <strong>约饭日期</strong>
              </p>
 
-             <%= radio_button(:post, :eat_day ,Time.now.end_of_week()-1.days)%><strong>本周六<%= (Time.now.end_of_week()-1.days).strftime("%Y/%m/%d") %></strong><br>
-             <%= radio_button(:post, :eat_day ,Time.now.end_of_week()) %><strong>本周日<%= Time.now.end_of_week().strftime("%Y/%m/%d") %></strong>
+             <%= radio_button(:post, :eat_day ,Date.this_saturday)%><strong>本周六<%= (Date.this_saturday).strftime("%Y/%m/%d") %></strong><br>
+             <%= radio_button(:post, :eat_day ,Date.this_sunday) %><strong>本周日<%= Date.this_sunday.strftime("%Y/%m/%d") %></strong>
 
 
            </div>
