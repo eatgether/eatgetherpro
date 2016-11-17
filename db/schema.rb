@@ -12,6 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20161116141722) do
 
+  create_table "asker_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "is_matched", default: false
+  end
+
   create_table "feedbacks", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -20,13 +28,6 @@ ActiveRecord::Schema.define(version: 20161116141722) do
     t.string   "image"
     t.integer  "user_id"
     t.integer  "order_id"
-
-  create_table "asker_requests", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "is_matched", default: false
   end
 
   create_table "interests", force: :cascade do |t|

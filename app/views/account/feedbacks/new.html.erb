@@ -3,16 +3,16 @@
 
     <hr>
     <%= simple_form_for [:account,@order,@feedback] do |f| %>
-    <%= f.input :title %>
+		<%= f.input :title, label: '邀约的主题 - 什么地点、哪种菜系？' %>
     <br>
     <br>
-    <%= f.input :description %>
+    <%= f.input :description, label: '描述一下聚餐详情 - 都吃了什么美食、聊了什么有趣的话题？' %>
     <br>
 		<br>
-		<%= f.input :image, as: :file, label: '吃饭合照' %>
+		<%= f.input :image, as: :file, label: '吃饭合照 - 把美好的瞬间分享给大家' %>
 		</br>
 
-    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    <%= f.submit "完成", :disable_with => 'Submiting...' %>
     <% end %>
-
+		<br>
 </div>
