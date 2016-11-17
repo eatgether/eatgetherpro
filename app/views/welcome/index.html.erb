@@ -1,135 +1,211 @@
+<!DOCTYPE html>
 
-<!-- <div class="container-fluid"> -->
-<div class="carousel" >
-    <div class="overlay"></div>
-      <div class="picture1"></div>
-       <div class="hero">
-        <hgroup>
-           <h2>
-             <img src="assets/logo1-white.png" class="logohome"><font class="projname" size="17">Eatgether </font>
-              <br><br>
-           </h2>
-           <h1><font size="10"> 好玩不尴尬，吃饭认识TA </font></h1>
-           <p><font size="4" > 约上四个人一起吃饭，结交更多拥有共同爱好的年轻人 </font></p>
-        </hgroup>
-          <br><br><br>
-            <%= link_to("查看饭局", posts_path, class: "btn btn-danger btn-lg") %>
-      </div>
-</div>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>landing page</title>
+  </head>
 
-<br><br>  <br><br>
-<div align="center">
-    <%= image_tag ("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/a90eb697-logo1_01i01i01i01i000000.png") %>
-</div>
+  <body>
+    <div class="one">
+      <div class="overlay"></div>
+      <div class="one-bg" id="pictureone"></div>
+      <div class="container">
+        <div class="row">
+          <div class="title-one">
+            <div class="col-md-12 headfontsize">
+              <h1 class="headh1">
+                好玩不尴尬，吃饭认识TA
+              </h1>
+              <p> 约上四个人一起吃饭，结交更多拥有共同爱好的年轻人</p>
 
-<div align="center" >
-  <h1>  轻松拓展社交圈，带上好友一起结交有趣的人  </h1>
-           <br>
-  <h4> 省去发信息、问时间、选餐厅等繁琐步骤 </h4>
-  <h4> 由系统通过共同爱好、地理位置等特征精准匹配能够吃到一起的人 </h4>
-</div>
-
-   <br> <br><br>  <br><br><br>  <br>
-
-<div>
-
-
-  <div class="overlay1"></div>
-
-<div class="container">
-  <div class="hero1">
-     <h1>让美好的饭局变得理所当然</h1>
-  </div>
-	<div class="row clearfix">
-
-       <br>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="http://ww4.sinaimg.cn/large/006tNc79jw1f9pf7a83f9j306905rgls.jpg" />
-						<div class="caption">
-							<h3>	四人行组局，让邀约不再尴尬	</h3>
-                   <br>
-						<p><font size="4" >
-                 独自或找朋友一起发起饭局，选择系统推荐应邀者共进晚餐。
-                 每周更新全城最热门餐厅、图片、介绍，丰富邀约介绍，吸引到最和你胃口的人共进晚餐~
-                </font>
-            </p>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="http://ww3.sinaimg.cn/large/006tNc79jw1f9pf894bb5j305z0620sx.jpg" />
-            <div class="caption">
-							<h3>	邀约流程简单明了	</h3>
-                 <br>
-						<p><font size="4" >
-                 省去发信息、问时间、选餐厅等繁琐步骤,
-                 由系统通过共同爱好、地理位置等特征,
-                 精准匹配能够吃到一起的人。
-                 <br>
-                </font>
-            </p>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="http://ww1.sinaimg.cn/large/006tNc79jw1f9pf8sajbtj306905rt8s.jpg" />
-            <div class="caption">
-              <h3>	只和靠谱的人共进晚餐	</h3>
-                   <br>
-            <p><font size="4" >
-                 为确保邀约完美体验，所有邀约发起人都经过平台身份验证，餐厅也经过平台审核。
-                 邀约必须提前三天取消，临时决定不来的用户将被终生取消平台使用权。
-                </font>
-            </p>
+              <p class="btn-app-store">
+                 <%= link_to("查看饭局", posts_path, class: "btn btn-danger btn-lg") %>
+              </p>
             </div>
-					</div>
-				</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		</div>
-	</div>
+
+<div class="two">
+  <div class="two-bg" id="picturetwo">
+    <div class="container">
+      <div class="row">
+        <div class="fork">
+          <div align="center">
+            <%= image_tag ("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/a90eb697-logo1_01i01i01i01i000000.png") %>
+          </div>
+        </div>
+        <div class="title-two">
+            <h1 >
+              轻松拓展社交圈，带上好友一起结交有趣的人
+            </h1>
+            <p> 省去发信息、问时间、选餐厅等繁琐步骤 <br>
+             由系统通过共同爱好、地理位置等特征精准匹配能够吃到一起的人
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="three">
+
+    <div class="overlay1"></div>
+      <div class="three-bg" id="picturethree">
+
+        <div class="container">
+
+         <div class="row ">
+           <div class="title-three block" style="text-align:center">
+             <h1 class="text-center">  让美好的饭局变得理所当然 </h1>
+           </div>
+  <div class="sanzhangtu block" style="margin-top: 80px;">
+               <div class="col-md-4" >
+                  <img src="http://chuantu.biz/t5/41/1479386669x1780898010.png" style="width: 295px;">
+               </div>
+
+               <div class="col-md-4">
+                  <img src="http://chuantu.biz/t5/41/1479386737x1780898010.png" style="width: 295px;">
+               </div>
+
+                <div class="col-md-4">
+                   <img src="http://chuantu.biz/t5/41/1479386037x1780898010.png" style="width: 295px;">
+                </div>
+              </div>
+           </div>
+          </div>
+
+        <div class="container">
+          <div class="row">
+          <div class="wenzi">
+             <div class="col-md-4">
+               <div class="caption">
+                  <h3>	四人行组局，让邀约不再尴尬	</h3>
+                     <br>
+                    <p><font size="4" >
+                   独自或找朋友一起发起饭局，<br>
+                    选择系统推荐应邀者共进晚餐。<br>
+                   每周更新全城最热门餐厅、图<br>
+                   片、介绍，丰富邀约介绍，吸引到<br
+                   最和你胃口的人共进晚餐~
+                  </font>
+                </p>
+              </div>
+          </div>
+
+    <div class="col-md-4">
+          <div class="caption">
+            <h3>	邀约流程简单明了	</h3>
+              <br>
+               <p><font size="4" >
+             省去发信息、问时间、选餐厅<br>
+             等繁琐步骤,由系统通过共同<br>
+             爱好、地理位置等特征,精准<br>
+             匹配能够吃到一起的人。
+               <br>
+               </font>
+            </p>
+        </div>
+      </div>
+
+  <div class="col-md-4">
+        <div class="caption">
+          <h3>	只和靠谱的人共进晚餐	</h3>
+               <br>
+               <p><font size="4" >
+                为确保邀约完美体验，所有邀约<br>
+                发起人都经过平台身份验证，餐厅<br>
+                也经过平台审核.邀约必须提前三<br>
+                天取消，临时决定不来的用户将被<br>
+                终生取消平台使用权。
+            </font>
+            </p>
+        </div>
+    </div>
+  </div>
+  </div>
 </div>
 
-<div class="hero2">
-   <h1>未来一周内精选的邀约</h1>
-</div>
-     <div class="container">
-      <div align="center">
-						<img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9pkg2m2w5j30l406c75q.jpg" width="1000" height="300" />
-      </div>
-     </div>
-      <div class="hero3">
-         <h3>LE CINQ 五道菜法式套餐 </h3>
+        </div>
       </div>
 
-      <div class="container">
-       <div align="center">
-             <img src="http://ww3.sinaimg.cn/large/006tNc79jw1f9plgvw7qmj30l4062tbe.jpg" width="1000" height="300" />
+    <div class="four">
+        <div class="four-bg" id="picturefour">
+          <div class="container">
+            <div class="row">
+              <div class="hero2">
+                 <h1>未来一周内精选的邀约</h1>
+              </div>
+                   <div class="container">
+                    <div align="center">
+                         <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9pkg2m2w5j30l406c75q.jpg" width="1000" height="300" />
+                    </div>
+                   </div>
+                    <div class="hero3">
+                       <h3> LE CINQ 五道菜法式套餐 ———> 地点：大望路 </h3>
+                    </div>
+
+                    <div class="container">
+                     <div align="center">
+                           <img src="http://ww3.sinaimg.cn/large/006tNc79jw1f9plgvw7qmj30l4062tbe.jpg" width="1000" height="300" />
+                     </div>
+                    </div>
+                    <div class="hero3">
+                       <h3> HEALTHY EATS 健康又美味 ———>  地点：国贸</h3>
+                    </div>
+
+                    <div class="container">
+                     <div align="center">
+                           <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9pljwaoswj30l406276k.jpg" width="1000" height="300" />
+                     </div>
+                    </div>
+                    <div class="hero3">
+                       <h3> LA TAVERNA意大利风味西餐 ———> 地点：三里屯</h3>
+                    </div>
+
+               </div>
+            </div>
+          </div>
+        </div>
+
+
+<hr>
+
+     <div class="five">
+       <div class="five-bg" id="picturefive">  </div>
+         <div class="container">
+          <h1>听听他们怎么说</h1>
+
+             <div class="row">
+               <div class="person">
+                 <div class="col-md-2">
+                    <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9plzjwe17j3029029t8k.jpg" class="img-circle"  width="110" height="110" />
+                 </div>
+
+                <div class="col-md-4 ">
+                    <p>
+                    我最大的爱好就是吃，北京所有的新餐厅、酒吧都会去尝试。身边的闺蜜工作都太忙，总是临时取消。在Eatgether的平台上可以找到靠谱的人一起去尝试这些地方，还认识了不少经常一起聚的小伙伴。
+                   </p>
+                </div>
+
+                <div class="col-md-2 ">
+                    <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9pmbpr77tj3029029dfp.jpg" class="img-circle"  width="110" height="110" />
+                </div>
+
+                 <div class="col-md-4">
+                   <p>
+                      刚毕业那几年工作太忙，没时间交女朋友，后来在Eatgether上看到了我家附近的一家新开的餐厅饭局，想多认识人就参加了，结果不仅认识了朋友，还认识了现在的女朋友，感谢Eatgether这个平台！
+                   </p>
+                 </div>
+               </div>
+            </div>
+          </div>
        </div>
-      </div>
-      <div class="hero3">
-         <h3> HEALTHY EATS 健康又美味 </h3>
-      </div>
 
-      <div class="container">
-       <div align="center">
-             <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9pljwaoswj30l406276k.jpg" width="1000" height="300" />
-       </div>
-      </div>
-      <div class="hero3">
-         <h3> LA TAVERNA意大利风味西餐 </h3>
-      </div>
-    <hr >
-    <div class="hero3">
-           <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9plzjwe17j3029029t8k.jpg" class="img-circle"  width="110" height="110" />
-
-
-          <img src="http://ww4.sinaimg.cn/large/006tNc79jw1f9pmbpr77tj3029029dfp.jpg" class="img-circle"  width="110" height="110" />
-
+<<<<<<< HEAD
   </div>
 
 <div class="carousel ">
@@ -158,3 +234,22 @@
 
        </div>
  </div>
+=======
+       <div class="six">
+          <div class="overlay2"></div>
+            <div class="six-bg" id="picturesix">  </div>
+              <div class="container">
+                <div class="title-six">
+                    <h1>
+                      无数和你一样的年轻人，都可能 <br>
+                        通过一顿饭成为你的好友
+                    </h1>
+                    <p class="btn-app-store">
+                       <%= link_to("查看饭局", posts_path, class: "btn btn-danger btn-lg") %>
+                    </p>
+               </div>
+              </div>
+         </div>
+  </body>
+</html>
+>>>>>>> 214065b9256f0e38925ce644bbf9d84737e9e90e
