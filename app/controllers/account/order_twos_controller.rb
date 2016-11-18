@@ -3,6 +3,8 @@ class Account::OrderTwosController < ApplicationController
   def index
     #binding.pry
     @order_twos = OrderTwo.where(:poster_user_id => current_user) || OrderTwo.where(:asker_user_id => current_user)
+    #@order_twos = OrderTwo.where(:asker_user_id => current_user)
+    #@order_twos = OrderTwo.where(':poster_user_id = ? OR :asker_user_id = ?', current_user ,current_user )
   end
 
   def show
@@ -11,7 +13,7 @@ class Account::OrderTwosController < ApplicationController
 
   def confirm_meeting
     @order_twos = OrderTwo.find(params[:id])
-    if @order_twos.aasm_state === "order_matched"
+    if @order_twos.order_matched?
       @order_twos.metMatch!
       OrderMailer.notify_order_met(@order_twos).deliver!
       flash[:notice] = "Congratulations on making a new friend! We kindly ask your feedback via email: xxx@xxx.com"

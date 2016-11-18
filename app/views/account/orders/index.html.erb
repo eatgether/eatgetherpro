@@ -16,7 +16,7 @@
     </thead>
 
     <tbody>
-      <% @orders.each do |order| %>
+      <% @order_twos.each do |order| %>
       <tr>
         <% if order.poster_user = current_user %>
 					<td><%= order.poster.title %></td>

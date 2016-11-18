@@ -15,7 +15,7 @@
     <tbody>
       <% @order_twos.each do |order| %>
       <tr>
-        <% if order.poster_user = current_user %>
+        <% if order.poster_user == current_user %>
           <td><%= link_to(order.asker_user.email, account_user_path(order.asker_user))%></td>
         <% else %>
           <td><%= link_to(order.poster_user.email, account_user_path(order.poster_user))%></td>
