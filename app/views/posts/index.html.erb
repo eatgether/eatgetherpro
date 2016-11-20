@@ -1,106 +1,106 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>约饭</title>
-  </head>
-  <body>
-    <div class="onepage">
-      <div class="onepage-bg" id="onepage">  </div>
-      <div class="container">
-        <div class="row">
-          <div class="title-text">
-            <div class="col-md-12 headfontsize">
-              <h1 class="headh1content">
-                一顿饭，创造一段新关系
-              </h1>
-              <p> 用餐廳、話題、興趣...等資訊，來尋找跟你志同道合的朋友一起吃飯吧！</p>
-              <!-- <h3 class="headh3content">
+    <head>
+        <meta charset="utf-8">
+        <title>约饭</title>
+    </head>
+    <body>
+        <div class="onepage">
+            <div class="onepage-bg" id="onepage"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="title-text">
+                        <div class="col-md-12 headfontsize">
+                            <h1 class="headh1content">
+                                一顿饭，创造一段新关系
+                            </h1>
+                            <p>
+                                用餐廳、話題、興趣...等資訊，來尋找跟你志同道合的朋友一起吃飯吧！</p>
+                            <!-- <h3 class="headh3content">
                 轻松聊  &nbsp 美食 &nbsp  人生梦想 &nbsp 旅行 &nbsp 马上出发
               </h3> -->
-              <p class="btn-app-store">
-                 <%= link_to("发起约饭", new_post_path(@post), class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
-              </p>
+                            <p class="btn-app-store">
+                                <%= link_to("发起约饭", new_post_path(@post), class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="twopage">
+            <div class="twopage-text">
+                <h1 class="twopage-text-h1">
+                    全部约饭
+                </h1>
+            </div>
+
+
+
+
+
+         <!-- 这里是引用的partial文件，达到加载更多的约饭 -->
+         <div class=center>
+            <div id="content">
+                <%= render(partial: 'post') %>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-  <div class="twopage">
-      <div class="twopage-text">
-        <h1 class="twopage-text-h1"> 全部约饭 </h1>
-      </div>
-
-    <div class="container">
-      <div class="row">
-
-       <% @posts.each do |post| %>
-         <div class="twopage-yuefan1 col-md-4">
-            <div class="post-image">
-              <%= link_to post_path(post) do %>
-                <% if post.image.present? %>
-                    <%= image_tag(post.image.thumb.url, class: "thumbnail") %>
-                <% else %>
-                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+            <div class="center">
+                   <!-- 判断页数 -->
+                <% unless @posts.current_page == @posts.total_pages %>
+                <p id="view-more">
+                    <%= link_to('载入更多约饭', url_for(page: @posts.current_page + 1), remote: true,
+                           class: "btn btn-success btn-lg") %>
+                </p>
                 <% end %>
-                <div class="classicon">
-                  <h1>hello</h1>
-                  <h3><strong>约吗</strong></h3>
-                  <h3><strong>我们吃个饭</strong></h3>
-               </div>
-             <% end %>
-
-           </div>
-         </div>
-      <% end %>
-     </div>
-    </div>
-
-      <div class="twopagebtn">
-        <a id="twopage-easy" href="#" class="btn btn-success btn-lg"> 载入更多约饭 </a>
-      </div>
-    </div>
+            </div>
+            <!-- 这里是引用的partial文件，达到加载更多的约饭 -->
 
 
-  <div class="threepage">
-    <div class="threepage-bg" id="threepage">
-      <div class="threepagecontent">
-        <div class="threepagetext">
-         <h3>「Eatgether一起吃」利用聚餐交友功能，徹底結合「飲食」與「社交」，為餐廳創造無限的可能性！
-           <br><br>只等有缘的你
-          </h3>
+
+
+
+
+
+
+        <div class="threepage">
+            <div class="threepage-bg" id="threepage">
+                <div class="threepagecontent">
+                    <div class="threepagetext">
+                        <h3>「Eatgether一起吃」利用聚餐交友功能，徹底結合「飲食」與「社交」，為餐廳創造無限的可能性！
+                            <br><br>只等有缘的你
+                        </h3>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="bottompage col-md-4 ">
+                        <div class="threepage-weixin">
+                            <a href="#">
+                                <img src="http://ww1.sinaimg.cn/large/006tNc79jw1f9t19or41kj3069069wec.jpg" style="width: 100px;">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bottompage col-md-4 ">
+                        <div class="threepage-weixin">
+                            <a href="#">
+                                <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9t19oq9rvj3069069jrf.jpg" style="width: 100px;">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bottompage col-md-4 ">
+                        <div class="threepage-weixin">
+                            <a href="#">
+                                <img src="http://ww3.sinaimg.cn/large/006tNc79jw1f9t2mm8664j305o05odfq.jpg" style="width: 100px;">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-       </div>
-    <div class="container">
-        <div class="bottompage col-md-4 ">
-          <div class="threepage-weixin">
-            <a href="#">
-               <img src="http://ww1.sinaimg.cn/large/006tNc79jw1f9t19or41kj3069069wec.jpg" style="width: 100px;" >
-            </a>
-         </div>
-       </div>
 
-       <div class="bottompage col-md-4 ">
-         <div class="threepage-weixin">
-           <a href="#">
-              <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9t19oq9rvj3069069jrf.jpg" style="width: 100px;">
-           </a>
-        </div>
-      </div>
-
-      <div class="bottompage col-md-4 ">
-        <div class="threepage-weixin">
-          <a href="#">
-             <img src="http://ww3.sinaimg.cn/large/006tNc79jw1f9t2mm8664j305o05odfq.jpg" style="width: 100px;">
-          </a>
-       </div>
-      </div>
-
-     </div>
-    </div>
-  </div>
-
-  </body>
+    </body>
 </html>
