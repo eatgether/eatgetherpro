@@ -16,12 +16,21 @@
                 一顿饭，创造一段新关系
               </h1>
               <p> 用餐廳、話題、興趣...等資訊，來尋找跟你志同道合的朋友一起吃飯吧！</p>
-              <!-- <h3 class="headh3content">
-                轻松聊  &nbsp 美食 &nbsp  人生梦想 &nbsp 旅行 &nbsp 马上出发
-              </h3> -->
               <p class="btn-app-store">
                  <%= link_to("发起约饭", new_post_path(@post), class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
               </p>
+
+              <form class="subForm" id="dinnerSearchForm">
+                 <div class="search_container">
+                    <input type="text" class="search" name="search" placeholder="搜尋飯局關鍵字">
+                    <a href="javascript:;" class="clear_btn"><i class="fa fa-times"></i></a>
+                </div>
+                    <input type="submit" class="submit" value="搜尋">
+            	</form>
+
+
+
+
             </div>
           </div>
         </div>
@@ -29,29 +38,25 @@
     </div>
 
   <div class="twopage">
-      <div class="twopage-text">
-        <h1 class="twopage-text-h1"> 全部约饭 </h1>
-      </div>
 
     <div class="container">
-      <div class="row">
+      <div class="row ">
 
        <% @posts.each do |post| %>
-         <div class="twopage-yuefan1 col-md-4">
-            <div class="post-image">
+         <div class="col-md-4">
+            <div class="img">
               <%= link_to post_path(post) do %>
                 <% if post.image.present? %>
                     <%= image_tag(post.image.thumb.url, class: "thumbnail") %>
                 <% else %>
                     <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
                 <% end %>
-                <div class="classicon">
-                  <h1>hello</h1>
-                  <h3><strong>约吗</strong></h3>
-                  <h3><strong>我们吃个饭</strong></h3>
+                <div class="desc">
+                  <h1> <%= post.title %> </h1>
+                  <h3> <strong> <%= post.eat_venue %> </strong></h3>
+                  <h3><strong> <%= post.eat_day %> </strong></h3>
                </div>
              <% end %>
-
            </div>
          </div>
       <% end %>
