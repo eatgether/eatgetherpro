@@ -6,7 +6,7 @@
         <th>Title</th>
         <th>Description</th>
 				<th>User</th>
-				<!-- <th>Admin Actions</th> -->
+				<th>Admin Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -16,12 +16,11 @@
           <td><%= link_to(feedback.title, feedback_path(feedback)) %></td>
           <td><%= feedback.description %></td>
 					<td><%= feedback.user.email %></td>
-          <!-- <td> -->
-              <%#= link_to("Edit", edit_admin_order_feedback_path(feedback.order, feedback), class: "btn btn-sm btn-default outline")%>
-							<%#= link_to("Delete", "#", class: "btn btn-sm btn-default outline", disabled: true )%>
-							<%#= link_to("Delete", admin_order_feedback_path(feedback.order, feedback), class: "btn btn-sm btn-default",
-                          method: :delete, data: { confirm: "Are you sure?" }, disabled: true )%>
-          <!-- </td> -->
+          <td>
+              <%= link_to("Edit", edit_admin_feedback_path(feedback), class: "btn btn-sm btn-default outline")%>
+							<%= link_to("Delete", admin_feedback_path(feedback), class: "btn btn-sm btn-default",
+                          method: :delete, data: { confirm: "Are you sure?" })%>
+          </td>
         </tr>
       <% end %>
     </tbody>

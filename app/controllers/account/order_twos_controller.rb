@@ -1,8 +1,7 @@
 class Account::OrderTwosController < ApplicationController
   before_action :authenticate_user!
   def index
-    #binding.pry
-    @order_twos = OrderTwo.where(:poster_user_id => current_user) || OrderTwo.where(:asker_user_id => current_user)
+    @order_twos = OrderTwo.where(:poster_user_id => current_user).or(OrderTwo.where(:asker_user_id => current_user))
     #@order_twos = OrderTwo.where(:asker_user_id => current_user)
     #@order_twos = OrderTwo.where(':poster_user_id = ? OR :asker_user_id = ?', current_user ,current_user )
   end

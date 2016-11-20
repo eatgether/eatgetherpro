@@ -26,21 +26,22 @@
 				<td class="center">
         <% case order.aasm_state
 				  when "order_matched"%>
-				<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default") %>
-				<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default") %>
+				<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
+				<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
 				<% when "order_met" %>
 					<%= link_to("已完成", "#", class: "btn btn-sm btn-default outline pull-left disabled") %>
-
-          <% if @feedbacks.blank? %>
+          <% if order.feedbacks.where(:user_id => current_user).blank? %>
             <%= link_to("约会反馈", new_account_order_two_feedback_path(order), class: "btn btn-sm btn-default outline") %>
           <% else %>
-            <%= link_to("修改反馈", edit_account_order_two_feedback_path(order,:feedback => @feedback), class: "btn btn-sm btn-default outline") %>
-          <% end %>
+						<!--找current user写过的feedback-->
+					  <% order.feedbacks.where(:user_id => current_user).each do |feedback| %>
+            <%= link_to("修改反馈", edit_account_order_two_feedback_path(order.id, feedback.id), class: "btn btn-sm btn-default outline") %>
+						<% end %>
+					<% end %>
 
         <% when "order_cancelled" %>
 					<%= link_to("已取消", "#", class: "btn btn-sm btn-default outline pull-left disabled") %>
 				<% end %>
-        <%#= link_to("删除", admin_order_twos_path(order), method: :delete, :class => "btn btn-xs btn-default", data: { confirm: "确定？" }) %>
       </td>
 
       </tr>
