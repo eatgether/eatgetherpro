@@ -121,7 +121,7 @@ a:hover {
             > a {
               color: $colDefault;
               &:hover {
-                color: $colHighlight;
+                color: $colDefault;
                 background-color: $bgHighlight; }
 							&:focus {
 								color: $colDefault;
@@ -148,7 +148,7 @@ a:hover {
 //WHEN SELECTED DURING A DROPDOWN
     > .open {
       > a, > a:hover, > a:focus {
-        color: $colHighlight;
+        color: $colDefault;
         background-color: $bgHighlight; }
 			> a:focus {
 				color: $colDefault;

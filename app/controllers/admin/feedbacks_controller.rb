@@ -19,8 +19,8 @@ class Admin::FeedbacksController < ApplicationController
 	end
 
 	def destroy
-		@order = Order.find(params[:order_id])
-		@feedback = @order.feedbacks.find(params[:id])
+		# @order = Order.find(params[:order_id])
+		@feedback = Feedback.find(params[:id])
 		# @feedback = current_user.feedbacks.find(params[:id])
 		@feedback.destroy
 		# @feedback.order.delete(Order.find[:order_id])

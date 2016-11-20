@@ -4,7 +4,11 @@ class Account::FeedbacksController < ApplicationController
 
 	def new
 		@order = OrderTwo.find(params[:order_two_id])
-		@feedback = @order.feedbacks.new
+		if @order.feedbacks.where(:user_id => current_user).blank?
+			@feedback = @order.feedbacks.new
+		else
+			redirect_to account_order_twos_path, notice: "反馈已填写，如需修改，请选择“修改反馈”进行修改。"
+		end
 	end
 
 	def create
@@ -18,17 +22,17 @@ class Account::FeedbacksController < ApplicationController
 	end
 
 	def edit
-		@order = OrderTwo.find(params[:id])
-		@feedback = params[:feedback]
-		#@feedback = current_user.feedbacks.find(params[:id])
+		@order = OrderTwo.find(params[:order_two_id])
+		# @feedback = @order.feedbacks.find(params[:id])
+		@feedback = current_user.feedbacks.find(params[:id])
 	end
 
 	def update
-		@order = OrderTwo.find(params[:id])
+		@order = OrderTwo.find(params[:order_two_id])
 		@feedback = current_user.feedbacks.last
 
 		if @feedback.update(feedback_params)
-			redirect_to account_orders_twos_path, notice: "反馈已更新。"
+			redirect_to account_order_twos_path, notice: "反馈已更新。"
 		else
 			render :root
 		end
