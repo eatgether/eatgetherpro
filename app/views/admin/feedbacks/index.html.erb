@@ -18,7 +18,7 @@
 					<td><%= feedback.user.email %></td>
           <td>
               <%= link_to("Edit", edit_admin_feedback_path(feedback), class: "btn btn-sm btn-default outline")%>
-							<%= link_to("Delete", admin_feedback_path(feedback), class: "btn btn-sm btn-default",
+							<%= link_to("Delete", admin_feedback_path(feedback), class: "btn btn-sm btn-default outline",
                           method: :delete, data: { confirm: "Are you sure?" })%>
           </td>
         </tr>
