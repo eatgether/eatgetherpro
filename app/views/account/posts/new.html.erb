@@ -13,23 +13,15 @@
             </div>
 
             <div class="group">
-              <p>
-               <strong>约饭地点</strong>
-              </p>
-             <%= f.radio_button :eat_venue, '101咖啡',checked: true %><strong>101咖啡</strong><br>
-             <%= f.radio_button :eat_venue, '汤城小厨' %><strong>汤城小厨</strong><br>
-             <%= f.radio_button :eat_venue, '星巴克' %><strong>星巴克</strong>
-           </div>
+              <%= f.input :eat_venue, :collection => Post.default_location, :selected => Post.default_location[0] ,label: '约饭地点' %>
+            </div>
 
            <div class="group">
              <p>
               <strong>约饭日期</strong>
              </p>
-
-             <%= cust.radio_button(:post, :eat_day ,checked: true,[Time.now.end_of_week()-1.days])%><strong>本周六<%= (Time.now.end_of_week()-1.days).strftime("%Y/%m/%d") %></strong><br>
-             <%= cust.radio_button(:post, :eat_day ,[Time.now.end_of_week()]) %><strong>本周日<%= Time.now.end_of_week().strftime("%Y/%m/%d") %></strong>
-
-
+             <%= radio_button(:post, :eat_day ,Date.this_saturday, checked: true)%><strong>本周六<%= Date.this_saturday.to_s(:for_date) %></strong><br>
+             <%= radio_button(:post, :eat_day ,Date.this_sunday) %><strong>本周日<%= Date.this_sunday.to_s(:for_date)  %></strong>
            </div>
 
            <div class="group">

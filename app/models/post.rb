@@ -50,6 +50,10 @@ class Post < ApplicationRecord
       end
     end
 
+    def self.default_location
+      ["101咖啡", "汤城小厨", "星巴克", "USA"]
+    end
+
     # validates_inclusion_of :eat_day, :in => Date.civil(2016, 11, 15) .. Date.today,:message => "日期必须是2016年11月1日到今天之间"
 
 
