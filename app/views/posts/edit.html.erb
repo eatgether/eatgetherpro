@@ -13,12 +13,15 @@
             </div>
 
             <div class="group">
-              <%= f.input :eat_venue, label: '约饭地点' %>
+              <%= f.input :eat_venue, :collection => Post.default_location, :selected => @post.eat_venue,label: '约饭地点' %>
             </div>
 
             <div class="group">
-              <%= f.input :eat_day, label: '约饭日期' %>
-            </div>
+              <p>约会日期</p>
+              <%= radio_button(:post, :eat_day  ,Date.this_saturday )%>
+              <strong>本周六<%= Date.this_saturday.to_s(:for_date) %></strong><br>
+              <%= radio_button(:post, :eat_day ,Date.this_sunday) %>
+              <strong>本周日<%= Date.this_sunday.to_s(:for_date) %></strong>
 
             <div class="group">
                 <%= f.input :image, as: :file, label: '图片' %>
