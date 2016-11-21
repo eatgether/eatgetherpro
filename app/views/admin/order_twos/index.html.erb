@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-11">
-      <table class="table table-bordered table-hover table-striped">
+      <table class="table table-hover">
         <thead>
             <tr>
                 <th>约饭代码</th>
@@ -22,9 +22,9 @@
                 <td><%= order.asker_user.email%></td>
     						<td><%= order.aasm_state %></td>
                 <td>
-                  <%=link_to("取消", confirm_cancel_admin_order_two_path(order), method: :post, class: "btn btn-primary")%>
-    						  <%=link_to("重启", admin_revive_admin_order_two_path(order), method: :post, class: "btn btn-primary")%>
-    						  <%=link_to("删除", admin_order_two_path(order), method: :delete, class: "btn btn-primary", data: { confirm: "只能删除测试订单，确定？" })%>
+                  <%=link_to("取消", confirm_cancel_admin_order_two_path(order), method: :post, class: "btn btn-default outline")%>
+    						  <%=link_to("重启", admin_revive_admin_order_two_path(order), method: :post, class: "btn btn-default outline")%>
+    						  <%=link_to("删除", admin_order_two_path(order), method: :delete, class: "btn btn-default outline", data: { confirm: "只能删除测试订单，确定？" })%>
                 </td>
             </tr>
             <% end %>

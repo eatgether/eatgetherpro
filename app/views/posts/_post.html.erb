@@ -1,0 +1,23 @@
+    <div class="container">
+      <div class="row ">
+
+       <% @posts.each do |post| %>
+         <div class="col-md-4">
+            <div class="img">
+              <%= link_to post_path(post) do %>
+                <% if post.image.present? %>
+                    <%= image_tag(post.image.thumb.url, class: "thumbnail") %>
+                <% else %>
+                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                <% end %>
+                <div class="desc">
+                  <h1> <%= post.title %> </h1>
+                  <h3> <strong> <%= post.eat_venue %> </strong></h3>
+                  <h3><strong> <%= post.eat_day %> </strong></h3>
+               </div>
+             <% end %>
+           </div>
+         </div>
+      <% end %>
+     </div>
+    </div>
