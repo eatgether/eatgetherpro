@@ -10,9 +10,11 @@
                 <col class="col-md-4"></col>
                 <col class="col-md-2"></col>
                 <col class="col-md-2"></col>
+                <col class="col-md-2"></col>
               </colgroup>
               <tr>
                  <th>用户编号</th>
+                 <th>性别</th>
                  <th>email</th>
                  <th>admin 状态</th>
                  <th>权限编辑</th>
@@ -27,8 +29,9 @@
                 <% if user.is_admin %>
                   <td>  <%= link_to("<i class='fa fa-user'></i> #{user.id}".html_safe(),admin_user_path(user)) %> </td>
                 <% else %>
-                  <td>  <%= link_to("<i class='fa fa-group'></i> #{user.id}".html_safe(),admin_user_path(user)) %> </td>
+                  <td>  <%= link_to("<i class='fa fa-plane'></i> #{user.id}".html_safe(),admin_user_path(user)) %> </td>
                 <% end %>
+                  <td>  <%= user.gender %> </td>
                   <td>  <%= user.email %> </td>
                   <td>  <%= user.is_admin %>  </td>
                   <td>  <% if user.is_admin %>
