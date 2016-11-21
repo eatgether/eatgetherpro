@@ -13,6 +13,7 @@
           <div class="title-text">
             <div class="col-md-12 headfontsize">
               <h1 class="headh1content">
+              <font face="Times">
                 一顿饭，创造一段新关系
               </h1>
               <p> 用餐廳、話題、興趣...等資訊，來尋找跟你志同道合的朋友一起吃飯吧！</p>
@@ -20,22 +21,17 @@
                  <%= link_to("发起约饭", new_post_path(@post), class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
               </p>
 
-              <form class="subForm" id="dinnerSearchForm">
-                 <div class="search_container">
-                    <input type="text" class="search" name="search" placeholder="搜尋飯局關鍵字">
-                    <a href="javascript:;" class="clear_btn"><i class="fa fa-times"></i></a>
-                </div>
-                    <input type="submit" class="submit" value="搜尋">
-            	</form>
-
-
-
-
             </div>
           </div>
         </div>
       </div>
     </div>
+
+        <div class="bread">
+          	<a href="/">首頁</a>
+          	<span>/</span>
+          	<span>所有饭局</span>
+        </div>
 
   <div class="twopage">
 
@@ -70,41 +66,33 @@
 
 
   <div class="threepage">
+
+<div class="container">
+  <a class="gotop" href="#">
+    <img src="https://www.eatgether.com/public/img/gotop.png" width="60px;">
+  </a>
+  <div class="row">
     <div class="threepage-bg" id="threepage">
-      <div class="threepagecontent">
-        <div class="threepagetext">
-         <h3>「Eatgether一起吃」利用聚餐交友功能，徹底結合「飲食」與「社交」，為餐廳創造無限的可能性！
-           <br><br>只等有缘的你
-          </h3>
-        </div>
-       </div>
-    <div class="container">
-        <div class="bottompage col-md-4 ">
-          <div class="threepage-weixin">
-            <a href="#">
-               <img src="http://ww1.sinaimg.cn/large/006tNc79jw1f9t19or41kj3069069wec.jpg" style="width: 100px;" >
-            </a>
+
+       <div class="fork">
+         <div align="left">
+           <%= image_tag ("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/a90eb697-logo1_01i01i01i01i000000.png") %>
+            <span>
+           <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+           <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+           <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+           <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+           </span>
          </div>
+
+
+
        </div>
 
-       <div class="bottompage col-md-4 ">
-         <div class="threepage-weixin">
-           <a href="#">
-              <img src="http://ww2.sinaimg.cn/large/006tNc79jw1f9t19oq9rvj3069069jrf.jpg" style="width: 100px;">
-           </a>
-        </div>
-      </div>
 
-      <div class="bottompage col-md-4 ">
-        <div class="threepage-weixin">
-          <a href="#">
-             <img src="http://ww3.sinaimg.cn/large/006tNc79jw1f9t2mm8664j305o05odfq.jpg" style="width: 100px;">
-          </a>
-       </div>
-      </div>
 
-     </div>
-    </div>
+</div>
+
   </div>
 
   </body>
