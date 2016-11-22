@@ -10,4 +10,5 @@ module Admin::UsersHelper
       '女'
     end
   end
+  
 end
