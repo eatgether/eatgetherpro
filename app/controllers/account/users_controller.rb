@@ -14,13 +14,18 @@ class Account::UsersController < ApplicationController
   end
 
   def update
+
     @user = current_user
     if @user.update(user_params)
-      redirect_to account_users_path
+      # respond_to do |format|
+      # format.js
+    redirect_to account_users_path
+    
     else
       render :edit
-    end
+
   end
+end
 
 
   private

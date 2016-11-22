@@ -54,7 +54,10 @@
                      <tr>
                        <th>爱好</th>
                        <td><% @users.interest.each do |interest| %>
+                        <span class="label label-success">
+
                          <%= interest.name %>
+                       </span>
                          <% end %>
                       </td>
                       </tr>
