@@ -53,7 +53,11 @@ Rails.application.routes.draw do
 	end
 
   namespace :account do
-    resources :users
+    resources :users do
+      member do
+        get :photo
+      end
+    end
     resources :posts do
       member do
         post :application_approved

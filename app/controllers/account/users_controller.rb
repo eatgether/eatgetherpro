@@ -1,5 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
+  layout "account", only: [:photo, :index, :edit]
 
   def index
     @users = current_user
@@ -13,6 +14,11 @@ class Account::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @photos = @user.photos.all
+  end
+
+  def photo
+    @user = current_user
     @photos = @user.photos.all
   end
 
