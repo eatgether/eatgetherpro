@@ -43,7 +43,8 @@ class Account::PostsController < ApplicationController
    @post = Post.find(params[:id])
 
    @post.destroy
-   redirect_to account_posts_path, alert: 'Post deleted'
+   redirect_to :back
+   flash[:alert] = "删除成功"
  end
 
  def application_approved

@@ -73,7 +73,7 @@ div.img {
     border: 1px solid #ccc;
     float: left;
     width: 250px;
-    height: 330px;
+    height: 350px;
     // transition : 0.5s;
 }
 
@@ -86,6 +86,7 @@ div.img:hover {
 div.img img {
     width: 100%;
     height: auto;
+    border: 0;
 }
 
 div.desc {
