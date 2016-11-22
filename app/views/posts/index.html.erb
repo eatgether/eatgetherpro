@@ -38,40 +38,43 @@
            <%= render(partial: 'post') %>
        </div>
      </div>
-       <div class="center">
+       <div class="center view-more">
            <% unless @posts.current_page == @posts.total_pages %>
 
-
            <p id="view-more">
-               <%= link_to('载入更多约饭', url_for(page: @posts.current_page + 1), remote: true,
+              <%= link_to('载入更多约饭', url_for(page: @posts.current_page + 1), remote: true,
                       class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
            </p>
+
            <% end %>
        </div>
     </div>
 
 
-  <div class="threepage">
+<div class="threepage">
+  <div class="container">
+    <div class="gotop">
+       <a class="gotop" href="#">
+         <img src="assets/gotop_pink.png" width="50px;">
+      </a>
+    </div>
 
-<div class="container">
-  <a class="gotop" href="#">
-    <img src="https://www.eatgether.com/public/img/gotop.png" width="60px;">
-  </a>
-  <div class="row">
-    <div class="threepage-bg" id="threepage">
-
-       <div class="fork">
-         <div align="left">
-           <%= image_tag ("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/a90eb697-logo1_01i01i01i01i000000.png") %>
-            <span>
-           <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-           <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-           <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-           <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
-           </span>
-         </div>
-       </div>
-     </div>
+    <div class="row">
+      <div class="threepage-bg" id="threepage">
+         <div class="footer-mark">
+           <span class="logo2"> <img src="assets/logo2.png" width="40px;"></span>
+            <span > © Airbnb, Inc. </span>
+             <span class="footer-text"> 网站地图 </span>
+               <span class="facebook">
+                  <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                  <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                  <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                  <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
