@@ -34,49 +34,63 @@
           <p style="line-height: 30px"><%= @post.description %></p>
       </div>
     </div>
-    <div class="row">
-      <div class="post_button">
-        <% if current_user && current_user.is_asker_of?(@post) %>
-          <%= link_to("您已申请约饭","#", class: "btn btn-warning btn-lg",disabled: :true) %>
-        <% elsif @post.user_id == current_user.id && current_user %>
-          <%= link_to("这是您发起的预约","#", class: "btn btn-primary btn-lg",disabled: :true) %>
-        <% else %>
-          <%= link_to("加入约饭",application_post_path(@post),method: :post,class: "btn btn-default outline btn-lg") %>
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>
-<!-- 头像/昵称/兴趣/性别 -->
+
 <div class="container well" >
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>头像</th>
-                    <th>昵称</th>
-                    <th>兴趣</th>
-                    <th>性别</th>
-                </tr>
-            </thead>
-            <tbody>
-              <% @asker_users.each do |asker_user| %>
-                <tr>
-                    <td><%= image_tag(asker_user.image.avatar.url) %></td>
-                    <td><%= asker_user.nameNick %></td>
-                    <!-- <td><%#= current_asker_request(asker_user.id,@post.id).is_matched %></td> -->
-                    <td><%= asker_user.interest %></td>
-                    <td><%= asker_user.gender %></td>
-                    <% if current_asker_request(asker_user.id,@post.id).is_matched %>
-                      <td><%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%></td>
-                    <% else %>
-                      <% if OrderTwo.find_by_post_id(@post.id)%>
-                        <td><%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%></td>
-                      <% else %>
-                        <td><%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%></td>
-                      <% end %>
-                    <% end %>
-                </tr>
-                <% end %>
-            </tbody>
-        </table>
+  <ul class="list-unstyled">
+    <% @asker_users.each do |asker_user| %>
+    <li>
+      <div class="row">
+        <div class="col-md-1">
+          <div class="asker_avater">
+            <%= image_tag(asker_user.image.avatar.url) %>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="asker_nameNick">
+            <span style="font-size:1.5em"><%= asker_user.nameNick %></span>
+          </div>
+          <div class="asker_interest">
+          <% asker_user.interest.each do |interest| %>
+            <span class="label label-primay" style="background:#dddddd;border-radius: 200px; margin-left:10px;">
+              <%= interest.name %>
+            </span>
+          <% end %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <% if current_asker_request(asker_user.id,@post.id).is_matched %>
+            <%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
+          <% else %>
+            <% if OrderTwo.find_by_post_id(@post.id)%>
+              <%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
+            <% else %>
+              <%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+    <hr>
+    <% end %>
+  </ul>
 </div>
+
+
+<!-- </div>
+
+<% @asker_users.each do |asker_user| %>
+  <tr>
+      <td><%= image_tag(asker_user.image.avatar.url) %></td>
+      <td>
+        <span style="font-size:1.5em"><%= asker_user.nameNick %></span>
+
+        <% asker_user.interest.each do |interest| %>
+        <%= interest.name %>
+        <% end %>
+      </td>
+      <td><%= asker_user.gender %></td>
+
+  </tr>
+  <% end %> -->
