@@ -81,16 +81,14 @@
 
             <div class="group pic">
                 <%= f.input :image, as: :file, label: '头像' %>
+                <%= f.label :avatar %><br>
+            <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
             </div>
 
             <span>
                 <strong>目前头像<strong></span>
                     <br>
-                    <% if current_user.image.present? %>
-                    <%= image_tag(current_user.image.thumb.url, class: "thumbnail") %>
-                <% else %>
-                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-                    <% end %>
+              
 
                     <%#= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
 

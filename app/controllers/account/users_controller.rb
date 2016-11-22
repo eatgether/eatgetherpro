@@ -3,35 +3,44 @@ class Account::UsersController < ApplicationController
 
   def index
     @users = current_user
+    @photo = @users.photos.all
   end
 
   def edit
     @user = current_user
+    @photo = @user.photos.build
   end
 
   def show
     @user = User.find(params[:id])
+    @photos = @user.photos.all
   end
 
   def update
+    @user = User.find(params[:id])
 
-    @user = current_user
-    if @user.update(user_params)
-      # respond_to do |format|
-      # format.js
-    redirect_to account_users_path
-    
+    if params[:photos] != nil
+      @user.photos.destroy_all #need to destroy old pics first
+
+      params[:photos]['avatar'].each do |a|
+        @picture = @user.photos.create(:avatar => a)
+      end
+
+      @user.update(user_params)
+      redirect_to account_users_path
+
+    elsif @user.update(user_params)
+      redirect_to account_users_path
     else
       render :edit
-
+    end
   end
-end
 
 
   private
 
   def user_params
-    params.require(:user).permit(:nameChi, :nameNick, :image, :gender, :birthday, :cellNum, :income, :description, :heightUser, interest_ids: [])
+    params.require(:user).permit(:nameChi, :nameNick, :image, :gender, :birthday, :cellNum, :income, :description, :heightUser, interest_ids: [], avatars: [])
   end
 
 

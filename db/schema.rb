@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117155901) do
+ActiveRecord::Schema.define(version: 20161122015107) do
 
   create_table "asker_requests", force: :cascade do |t|
     t.integer  "user_id"
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 20161117155901) do
     t.integer  "poster_user_id"
     t.integer  "asker_user_id"
     t.index ["aasm_state"], name: "index_orders_on_aasm_state"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|

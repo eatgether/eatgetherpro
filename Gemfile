@@ -37,7 +37,6 @@ gem "pry"
 gem "aasm"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "mini_magick"
-
 gem "annotate"
 gem "awesome_rails_console"
 gem "kaminari"
