@@ -39,11 +39,12 @@
        </div>
      </div>
        <div class="center">
-              <!-- 判断页数 -->
            <% unless @posts.current_page == @posts.total_pages %>
+
+
            <p id="view-more">
                <%= link_to('载入更多约饭', url_for(page: @posts.current_page + 1), remote: true,
-                      class: "btn btn-success btn-lg") %>
+                      class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
            </p>
            <% end %>
        </div>

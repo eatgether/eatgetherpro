@@ -43,7 +43,8 @@
 }
 
 .bread {
-    margin: 45px auto;
+    margin: 75px auto;
+    margin-bottom: 20px;
     width: 1100px;
     position: relative;
 }
@@ -65,12 +66,14 @@
     color: #000;
 }
 
+  // 第 2 页 //
 
 div.img {
     margin: 15px;
     border: 1px solid #ccc;
     float: left;
-    width: 340px;
+    width: 250px;
+    height: 330px;
     // transition : 0.5s;
 }
 
@@ -86,12 +89,12 @@ div.img img {
 }
 
 div.desc {
-    padding: 15px;
+    padding: 0px;
     text-align: center;
 }
 
-div.desc h3 {
-  color: orange;
+div.desc h4 {
+  color: #F01D67;
 }
 
 .twopagebtn {
@@ -104,18 +107,17 @@ div.desc h3 {
   font-size: 25px;
 }
 
-#twopage-easy {
-  margin: 50px 0;
-  margin-bottom: 100px;
-  padding: 25px 40px 20px 40px;
-}
+
+// #view-more .btn{
+//   background-color: #F01D67;
+// }
 
 // 第 3 页 //
 
 .threepage a {
    position: relative;
    left: 100%;
-   top: 33px;
+   top: 30px;
    opacity: 0.9;
    z-index: 3;
 }
@@ -132,6 +134,7 @@ div.desc h3 {
   position: absolute;
   width: 100%;
 }
+
 #threepage {
   position: relative;
   background-color: #fff;
