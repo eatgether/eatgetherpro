@@ -16,6 +16,7 @@
                  <th>用户编号</th>
                  <th>性别</th>
                  <th>email</th>
+
                  <th>注册时间<th>
                  <th>权限编辑</th>
              </tr>
@@ -29,7 +30,7 @@
                 <% else %>
                   <td>  <%= link_to("<i class='fa fa-plane'></i> #{user.id}".html_safe(),admin_user_path(user)) %> </td>
                 <% end %>
-                  <td>  <%= user.gender %> </td>
+                  <td>  <%= render_user_gender(user)  %> </td>
                   <td>  <%= user.email %> </td>
                   <td>  <%= render_user_created_at(user) %> </td>
                   <td>  <% if user.is_admin %>
