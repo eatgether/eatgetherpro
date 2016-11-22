@@ -8,6 +8,10 @@ class Admin::PostsController < ApplicationController
     @posts = Post.no_match.paginate(:page => params[:page],:per_page => 5).recent
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def checkout
     @post_2_id = Post.find(params[:id])
     redirect_to admin_posts_path(@post_2_id)

@@ -16,7 +16,11 @@
                 <tbody>
                     <% @posts.each do |post| %>
                     <tr>
-                        <td><%= post.id %></td>
+                        <td>
+                          <%= link_to admin_post_path(post) do %>
+                            <i class="fa fa-cutlery"> </i> <%= post.id %>
+                          <% end %>
+                        </td>
                         <td><%= post.title %></td>
                         <td><%= post.description %></td>
                         <td><%= post.eat_venue %></td>
@@ -27,7 +31,7 @@
                 </tbody>
             </table>
             <div class="text-center">
-                <%= will_paginate @posts,render: BootstrapPagination::Rails %>
+                <%= will_paginate @posts,renderer: BootstrapPagination::Rails %>
             </div>
         </div>
     </div>
