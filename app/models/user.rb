@@ -29,6 +29,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :photos
+  accepts_nested_attributes_for :photos
   has_many :posts
 	has_many :feedbacks
   has_many :asker_requests

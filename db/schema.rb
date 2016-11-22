@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 20161122032216) do
     t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "description"

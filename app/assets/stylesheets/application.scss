@@ -85,7 +85,9 @@ $dropDown       : true;
 	 font-weight: bold;
 }
 
-
+.text-pink {
+	color: $colHighlight;
+}
 
 
 a {
@@ -177,7 +179,7 @@ a:hover {
 
 
 /* button section */
-
+// btn.outline
 .btn.outline {
     background: none;
     padding: 9px 20px;
@@ -191,6 +193,23 @@ a:hover {
     border-color: $colDefault;
 }
 .btn-default.outline:active, .btn-default.outline.active {
+    border-color: $colDefault;
+    color: $colDefault;
+    box-shadow: none;
+}
+
+// btn.pink
+.btn.pink {
+		background: $bgHighlight;
+}
+.btn-default.pink {
+    color: white;
+}
+.btn-default.pink:hover, .btn-default.pink:focus, .btn-default.pink:active, .btn-default.pink.active, .open > .dropdown-toggle.btn-default {
+    color: $colDefault;
+    border-color: $colDefault;
+}
+.btn-default.pink:active, .btn-default.pink.active {
     border-color: $colDefault;
     color: $colDefault;
     box-shadow: none;

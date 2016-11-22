@@ -35,17 +35,15 @@ gem "devise"
 gem "font-awesome-rails"
 gem "pry"
 gem "aasm"
-gem "carrierwave"
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "mini_magick"
-
 gem "annotate"
 gem "awesome_rails_console"
 gem "kaminari"
 gem "letter_opener", group: :development
 gem "roadie-rails", "~> 1.0"
-
 gem 'will_paginate-bootstrap'
-
+gem 'remotipart'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
