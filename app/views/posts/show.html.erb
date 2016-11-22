@@ -1,6 +1,6 @@
   <div class="container" style="text-align:center;">
     <div class="zhuti">
-       <h3>主题 ：<%= @post.title %></h3>
+       <%= @post.title %>
     </div>
     <div class="col-md-5">
       <% if @post.image.present? %>
@@ -10,18 +10,26 @@
       <% end %>
     </div>
     <div class="col-md-7">
-      <div class="time">
-        <%= @post.eat_day %>
+      <div class="col-md-3">
+        <div class="eat_day">
+          <span style="position: relative; top: 20%; text-align: center;">
+            <%= @post.eat_day.to_s[0,4]%><br>
+            <%= @post.eat_day.to_s[5,9]%>
+          </span>
+        </div>
       </div>
-      <h3>地点 ：<%= @post.eat_venue %></h3>
+      <div class="col-md-9">
+        <div class="eat_venue">
+          <%= @post.eat_venue %>
+        </div>
+      </div>
 
-       <div class="neirong">
-          <h3>描述 ：<%= @post.description %></h3>
+      <div class="post_description">
+        <div>
+          <%= @post.description %>
+        </div>
+      </div>
 
-       </div>
-
-       <div class="didian">
-       </div>
     </div>
   </div>
 
