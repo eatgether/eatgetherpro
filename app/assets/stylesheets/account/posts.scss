@@ -1,3 +1,50 @@
-// Place all the styles related to the account::posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.img-account {
+    margin: 15px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 250px;
+    height: 370px;
+ }
+
+ div.img-account:hover {
+     border: 1px solid #D6D6D6;
+     width: 255px;
+     background-color:#F0F0F0;
+ }
+
+ div.img-account img {
+     width: 100%;
+     height: auto;
+     border: 0;
+ }
+
+ div.desc {
+     padding: 0px;
+     text-align: center;
+ }
+
+ div.desc p {
+   position: relative;
+   left: 45px;
+   top: 18px;
+   padding: 15px;
+   width: 160px;
+   color: #F01D67;
+   font-size: 18px;
+   border-top: 1px solid #ccc;
+ }
+
+ div.desc .titleh4 {
+   position: relative;
+   left: 45px;
+   top: 18px;
+  //  padding: 15px;
+   width: 160px;
+   color: #F01D67;
+  //  border-top: 1px solid #ccc;
+ }
+
+ div.desc .titleh3 {
+   margin-top: 15px;
+   margin-bottom: -5px;
+ }

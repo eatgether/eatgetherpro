@@ -1,23 +1,21 @@
-
     <div class="container">
-      <div class="row">
+      <div class="row ">
 
        <% @posts.each do |post| %>
-         <div class="twopage-yuefan1 col-md-4">
-            <div class="post-image">
+         <div class="col-md-4">
+            <div class="img">
               <%= link_to post_path(post) do %>
                 <% if post.image.present? %>
-                    <%= image_tag(post.image.thumb.url, class: "thumbnail") %>
+                    <%= image_tag(post.image.thumb.url) %>
                 <% else %>
                     <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
                 <% end %>
-                <div class="classicon">
-                  <h1>hello</h1>
-                  <h3><strong>约吗</strong></h3>
-                  <h3><strong>我们吃个饭</strong></h3>
+                <div class="desc">
+                  <h3> <%= post.title %> </h3>
+                  <h4> <strong> <%= post.eat_venue %> </strong></h4>
+                  <h4><strong> <%= post.eat_day %> </strong></h4>
                </div>
              <% end %>
-
            </div>
          </div>
       <% end %>

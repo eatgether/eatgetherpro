@@ -1,61 +1,49 @@
-<div class="container" style="text-align:center;">
-
-   <% if @post.image.present? %>
-      <%= image_tag(@post.image.large.url, class: "thumbnail img-responsive center-block") %>
-   <% else %>
-      <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
-   <% end %>
-  </div>
-
-
-  <div class="container" style="text-align:center;">
-    <div class="content1">
-        <div class="time">
-            <%= @post.eat_day %>
-        </div>
-
-         <div class="zhuti">
-            <h3>主题 ：<%= @post.title %></h3>
-         </div>
-
-         <div class="neirong">
-            <h3>描述 ：<%= @post.description %></h3>
-
-         </div>
-
-         <div class="didian">
-          <h3>地点 ：<%= @post.eat_venue %></h3>
-          <h3>时间 ：<%= @post.eat_day %></h3>
-
-          </h3>
-         </div>
-
-
-     </div>
-  </div>
-
-  <div class="show1">
-
-    <div class="show1-bg" id="showbg">
-        <div class="container">
-          <div class="introduce">
-            <h3> 我的花絮  <br>
-              <%= current_user.nameNick %>
-            </h3>
-            <p>
-              我是一位幼儿老师，獨自前來背北京工作。 <br>
-              在陌生的環境，身邊的人和事都很新鮮， 期待認識更多朋友之後，可以一起四處遊覽！
-            </p>
+  <div class="container well" style="text-align:center;">
+    <div class="post_theme">
+       <%= @post.title %>
+    </div>
+    <div class="col-md-5">
+      <% if @post.image.present? %>
+         <%= image_tag(@post.image.large.url, class: "thumbnail img-responsive center-block") %>
+      <% else %>
+         <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+      <% end %>
+    </div>
+    <div class="col-md-7 show-grid">
+      <div class="row well">
+        <div class="col-md-3">
+          <div class="eat_day">
+            <span style="position: relative; top: 20%; text-align: center;">
+              <%= @post.eat_day.to_s[0,4]%><br>
+              <%= @post.eat_day.to_s[5,9]%>
+            </span>
           </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row eat_venue">
+            <%= @post.eat_venue %>
+          </div>
+          <div class="row post_eat_venue_address">
+            <i class="fa fa-map-marker"></i>   地址：巴拉拉巴拉拉巴拉拉巴拉拉巴拉拉
+          </div>
+        </div>
+        <br>
       </div>
-        <div class="showbtn" style="text-align:center">
+      <div class="row">
+        <div class="post_description">
+            <p style="line-height: 30px"><%= @post.description %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="post_button">
           <% if current_user && current_user.is_asker_of?(@post) %>
-            <%= link_to("您已申请约饭","#", class: "btn btn-warning",id: "twopage-easy",disabled: :true) %>
+            <%= link_to("您已申请约饭","#", class: "btn btn-warning btn-lg",disabled: :true) %>
           <% elsif @post.user_id == current_user.id && current_user %>
-            <%= link_to("这是您发起的预约","#", class: "btn btn-primary",id: "twopage-easy",disabled: :true) %>
+            <%= link_to("这是您发起的预约","#", class: "btn btn-primary btn-lg",disabled: :true) %>
           <% else %>
-            <%= link_to("加入约饭",application_post_path(@post),method: :post,id: "twopage-easy",class: "btn btn-success btn-lg") %>
+            <%= link_to("加入约饭",application_post_path(@post),method: :post,class: "btn btn-default outline btn-lg") %>
           <% end %>
         </div>
       </div>
     </div>
+  </div>
