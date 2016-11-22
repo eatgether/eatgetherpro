@@ -1,36 +1,28 @@
-<div class="container" style="text-align:center;">
-
-   <% if @post.image.present? %>
-      <%= image_tag(@post.image.large.url, class: "thumbnail img-responsive center-block") %>
-   <% else %>
-      <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
-   <% end %>
-  </div>
-
-
   <div class="container" style="text-align:center;">
-    <div class="content1">
-        <div class="time">
-            <%= @post.eat_day %>
-        </div>
+    <div class="zhuti">
+       <h3>主题 ：<%= @post.title %></h3>
+    </div>
+    <div class="col-md-5">
+      <% if @post.image.present? %>
+         <%= image_tag(@post.image.large.url, class: "thumbnail img-responsive center-block") %>
+      <% else %>
+         <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+      <% end %>
+    </div>
+    <div class="col-md-7">
+      <div class="time">
+        <%= @post.eat_day %>
+      </div>
+      <h3>地点 ：<%= @post.eat_venue %></h3>
 
-         <div class="zhuti">
-            <h3>主题 ：<%= @post.title %></h3>
-         </div>
+       <div class="neirong">
+          <h3>描述 ：<%= @post.description %></h3>
 
-         <div class="neirong">
-            <h3>描述 ：<%= @post.description %></h3>
+       </div>
 
-         </div>
-
-         <div class="didian">
-          <h3>地点 ：<%= @post.eat_venue %></h3>
-          <h3>时间 ：<%= @post.eat_day %></h3>
-
-         </div>
-
-
-     </div>
+       <div class="didian">
+       </div>
+    </div>
   </div>
 
   <div class="showbtn" style="text-align:center">
