@@ -12,8 +12,8 @@
                  <li> <%=  link_to("最新约饭",posts_path)%></li>
                   <li> <%=  link_to("约客足迹",posts_path)%></li>
               <% if !current_user %>
-                  <li><%= link_to("注册", new_user_registration_path) %> </li>
-                  <li><%= link_to("登入", new_user_session_path) %></li>
+                  <li><%= link_to("<i class='fa fa-user'></i>  注册".html_safe, "#signupModal", 'data-toggle' => "modal") %></li>
+									<li><%= link_to("<i class='fa fa-sign-in'></i>  登陆".html_safe, "#loginModal", 'data-toggle' => "modal") %></li>
                 <% else %>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -39,3 +39,6 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+
+<%= render "common/signup" %>
+<%= render "common/login" %>
