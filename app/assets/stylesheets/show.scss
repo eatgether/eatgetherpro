@@ -4,13 +4,6 @@ $colDefault     : #d6d6d6;
 $colHighlight   : #f01d67;
 $dropDown       : true;
 
-.content1 {
-  width:100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
 .eat_day {
   background-color: $bgHighlight ;
   font-size: 1.5em;
@@ -27,44 +20,42 @@ $dropDown       : true;
 
 .eat_venue {
   font-size: 2.5em;
-  height: 100px;
+  width: 100%;
+  height: 40px;
   text-align: left;
   position: absolute;
   top: 10px;
 }
 
-.zhuti {
+.post_theme {
   font-size: 4em;
-
   text-align: left;
   margin: 30px;
   width: 100%;
   //text-shadow: 3px 3px 3px $bgHighlight;
 }
 
-.zhuti {
-  font-size: 4em;
-
+.post_description {
+  font-size: 1.2em;
   text-align: left;
-  margin: 30px;
+  margin-left: 30px;
+  padding-right: 40px;
   width: 100%;
   //text-shadow: 3px 3px 3px $bgHighlight;
 }
 
-.show1 {
-  height: 20%;
+.post_button {
+  position: relative;
+  top: 100px;
   width: 100%;
+  //text-shadow: 3px 3px 3px $bgHighlight;
 }
 
-.show1-bg {
-  height: 100px;
+.post_eat_venue_address {
+  font-size: 1em;
+  text-align: left;
+  margin: 10px;
   width: 100%;
   position: absolute;
-  background-position: center center;
-  background-size: cover;
-  margin-top: 60px;
-}
-
-#showbg {
-  background-color: #F0F0F0;
+  top: 50px;
 }
