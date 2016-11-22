@@ -2,37 +2,38 @@
 <div class="container">
     <div class="row">
         <div class="col-md-11">
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>约饭主题</th>
-            <th>约饭内容</th>
-            <th>约饭地点</th>
-            <th>约饭日期</th>
-            <th>控制面板</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-        <% @posts.each do |post| %>
-        <tr>
-            <td><%= post.id %></td>
-            <td><%= post.title %></td>
-            <td><%= post.description %></td>
-            <td><%= post.eat_venue %></td>
-            <td><%= post.eat_day %></td>
-            <td><%= link_to("删除", admin_post_path(post), method: :delete, class: "btn btn-default outline center-block", :data => { :confirm => "确定要删除此约饭？？" }) %></td>
-
-        </tr>
-        <% end %>
-
-    </tbody>
-</table>
-
-</div>
-
-</div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>约饭主题</th>
+                        <th>约饭内容</th>
+                        <th>约饭地点</th>
+                        <th>约饭日期</th>
+                        <th>控制面板</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @posts.each do |post| %>
+                    <tr>
+                        <td>
+                          <%= link_to admin_post_path(post) do %>
+                            <i class="fa fa-cutlery"> </i> <%= post.id %>
+                          <% end %>
+                        </td>
+                        <td><%= post.title %></td>
+                        <td><%= post.description %></td>
+                        <td><%= post.eat_venue %></td>
+                        <td><%= post.eat_day %></td>
+                        <td><%= link_to("删除", admin_post_path(post), method: :delete, class: "btn btn-default outline center-block", :data => { :confirm => "确定要删除此约饭？？" }) %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <%= will_paginate @posts,renderer: BootstrapPagination::Rails %>
+            </div>
+        </div>
+    </div>
 
 </div>

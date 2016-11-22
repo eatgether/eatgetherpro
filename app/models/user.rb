@@ -40,6 +40,10 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
+
+
+  scope :recent, -> {order("created_at DESC")}
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
