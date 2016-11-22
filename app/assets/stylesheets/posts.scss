@@ -43,7 +43,8 @@
 }
 
 .bread {
-    margin: 45px auto;
+    margin: 75px auto;
+    margin-bottom: 20px;
     width: 1100px;
     position: relative;
 }
@@ -65,73 +66,97 @@
     color: #000;
 }
 
+  // 第 2 页 //
 
 div.img {
     margin: 15px;
     border: 1px solid #ccc;
     float: left;
-    width: 340px;
+    width: 250px;
+    height: 350px;
     // transition : 0.5s;
 }
 
 div.img:hover {
     border: 1px solid #D6D6D6;
-    // width: 342px;
-
+    width: 255px;
+    background-color:#F0F0F0;
 }
 
 div.img img {
     width: 100%;
     height: auto;
+    border: 0;
 }
 
 div.desc {
-    padding: 15px;
+    padding: 0px;
     text-align: center;
 }
 
-div.desc h3 {
-  color: orange;
+div.desc h4 {
+  color: #F01D67;
 }
 
-.twopagebtn {
-  width: 100%;
-  margin: 0% auto;
-  text-align: center;
-}
-
-.twopagebtn .btn-lg {
-  font-size: 25px;
-}
-
-#twopage-easy {
-  margin: 50px 0;
-  margin-bottom: 100px;
-  padding: 25px 40px 20px 40px;
+.view-more p {
+  margin-top: 35px;
+  margin-right: 3%;
 }
 
 // 第 3 页 //
 
-.threepage a {
+
+.gotop a {
    position: relative;
    left: 100%;
-   top: 33px;
+   top: 25px;
    opacity: 0.9;
    z-index: 3;
+
 }
 
 .threepage-bg {
-  height: 150px;
+  height: 100px;
   width: 100%;
   position: absolute;
   background-position: center center;
   background-size: cover;
 }
 
-.fork span {
-  position: absolute;
-  width: 100%;
+.footer-mark {
+    margin: 15px auto;
+    margin-bottom: 20px;
+    width: 1200px;
+    position: relative;
 }
+.footer-text{
+  margin-left: 60%;
+}
+
+.facebook {
+  position: relative;
+  left: 3%;
+}
+
+.footer-mark a {
+   color: #9B9B9B;
+   font-size: 8px;
+}
+
+
+.footer-mark span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    padding: 5px;
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #9B9B9B;
+}
+
+
 #threepage {
   position: relative;
   background-color: #fff;
