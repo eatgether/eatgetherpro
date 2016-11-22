@@ -1,27 +1,10 @@
-<div class="container" style="text-align:center;">
 
-  <% if current_user.image.present? %>
-  <%= image_tag(current_user.image.thumb.url, class: "thumbnail img-responsive center-block") %>
-<% else %>
-  <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
-  <% end %>
-  </div>
 
-  <div class="container">
+<div class="widget-content">
       <div class="row">
-          <div class="col-md-6 col-md-offset-3">
+          <div class="col-md-12">
 
-              <table class="table table-hover ">
-                  <tr>
-                      <!-- <th>头像</th>
-                      <td>
-                          <% if current_user.image.present? %>
-                          <%= image_tag(current_user.image.thumb.url, class: "thumbnail img-responsive center-block") %>
-                      <% else %>
-                          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
-                          <% end %>
-                      </td> -->
-                  </tr>
+              <table class="table table-hover table-striped table-bordered">
                   <tr>
                       <th>姓名</th>
                       <td><%= current_user.nameChi %></td>
@@ -50,43 +33,32 @@
                       <th>收入</th>
                       <td><%= current_user.income %></td>
                   </tr>
-                  <tr>
+
                      <tr>
                        <th>爱好</th>
                        <td><% @users.interest.each do |interest| %>
+                        <span class="label label-success">
+
                          <%= interest.name %>
+                       </span>
                          <% end %>
                       </td>
-                      </tr>
-                  </tr>
+                    </tr>
+
+                    <tr>
+                    <th colspan="2">
+                      自我描述
+                    </th>
+
+                    </tr>
+                    <tr>
+                    <th colspan="2">
+                    <%= simple_format(current_user.description) %>
+                    </th>
+
+                    </tr>
+
               </table>
           </div>
-          <div class="col-md-2">
-          <div class="pull-right">
-              <%= link_to("添加详细资料", edit_account_user_path(current_user), class: "btn btn-primary") %>
-          </div>
-        </div>
-      </div>
 
-  </div>
-
-
-  <div class="show1">
-    <div class="show1-bg" id="showbg">
-        <div class="container">
-          <div class="introduce">
-            <h3> 内心独白  <br>
-
-            </h3>
-            <p>
-              我是一位幼儿老师，獨自前來背北京工作。 <br>
-              在陌生的環境，身邊的人和事都很新鮮， 期待認識更多朋友之後，可以一起四處遊覽！
-            </p>
-          </div>
-      </div>
-      <div class="showbtn" style="text-align:center">
-        <a id="twopage-easy" href="#" class="btn btn-success btn-lg"> 想认识他 </a>
-      </div>
-      </div>
-    </div>
   </div>
