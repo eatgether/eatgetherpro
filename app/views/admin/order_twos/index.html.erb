@@ -1,7 +1,6 @@
-<br><br>
-<div class="container">
+
   <div class="row">
-    <div class="col-md-11">
+    <div class="col-md-12">
       <table class="table table-hover">
         <thead>
             <tr>
@@ -16,10 +15,24 @@
         <tbody>
             <% @order_twos.each do |order| %>
             <tr>
-                <td><%= order.post_id %></td>
-                <td><%= order.post.title %></td>
-                <td><%= order.poster_user.email %></td>
-                <td><%= order.asker_user.email%></td>
+                <td>
+
+                <%= order.post_id %></td>
+                <td>
+                  <%= link_to admin_post_path(order.post) do %>
+                    <i class="fa fa-cutlery"> </i> <%= order.post.title %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to admin_user_path(order.poster_user) do %>
+                    <i class="fa fa-user"> </i> <%= order.poster_user.email %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to admin_user_path(order.asker_user) do %>
+                    <i class="fa fa-rocket"> </i> <%= order.asker_user.email %>
+                  <% end %>
+                </td>
     						<td><%= order.aasm_state %></td>
                 <td>
                   <%=link_to("取消", confirm_cancel_admin_order_two_path(order), method: :post, class: "btn btn-default outline")%>
@@ -34,4 +47,6 @@
 
     </div>
   </div>
-</div>
+  <div class="text-center">
+      <%= will_paginate @order_twos,renderer: BootstrapPagination::Rails %>
+  </div>

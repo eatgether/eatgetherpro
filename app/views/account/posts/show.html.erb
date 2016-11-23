@@ -44,7 +44,11 @@
       <div class="row">
         <div class="col-md-1">
           <div class="asker_avater">
-            <%= image_tag(asker_user.image.avatar.url) %>
+              <% if asker_user.image.present? %>
+                <%= image_tag(asker_user.image.avatar.url) %>
+             <% else %>
+               <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+            <% end %>
           </div>
         </div>
         <div class="col-md-9">

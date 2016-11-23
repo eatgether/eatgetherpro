@@ -9,32 +9,22 @@
 	<%= render "common/flashes" %>
 </head>
 <body>
-    <div class="row col-md-2">
-        <ul class="nav nav-tabs nav-stacked" style="max-width: 300px; padding-top:20px;">
-					<%= link_to("用户", admin_users_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
-        </ul>
-
-        <ul class="nav nav-tabs nav-stacked" style="max-width: 300px; padding-top:20px;">
-          <%= link_to("邀约", admin_posts_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
-        </ul>
-
-
-        <ul class="nav nav-tabs nav-stacked" style="max-width: 300px; padding-top:20px;">
-          <%= link_to("订单", admin_order_twos_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
-        </ul>
-
-        <ul class="nav nav-tabs nav-stacked" style="max-width: 300px; padding-top:20px;">
-          <%= link_to("兴趣", admin_interests_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
-        </ul>
-
-				<ul class="nav nav-tabs nav-stacked" style="max-width: 300px; padding-top:20px;">
-					<%= link_to("反馈", admin_feedbacks_path, class: "btn btn-md btn-primary", style: "width: 120px") %>
-				</ul>
-
-      </div>
-      <div class="col-md-10">
-        <%= yield %>
-        <%= render "common/footer" %>
-      </div>
-</body>
+     <div class="well">
+       <div class="row">
+           <div class="col-md-10 col-md-offset-1 layad">
+               <ul class="nav nav-tabs" role="tablist">
+                   <li role="presentation" class="active"><%= link_to("用户", admin_users_path) %></li>
+                   <li role="presentation"><%= link_to("邀约", admin_posts_path) %></li>
+                   <li role="presentation"><%= link_to("订单", admin_order_twos_path) %></li>
+                   <li role="presentation"><%= link_to("兴趣", admin_interests_path) %></li>
+                   <li role="presentation"><%= link_to("反馈", admin_feedbacks_path) %></li>
+               </ul>
+           </div>
+           <div class="col-md-10 col-md-offset-1">
+               <%= yield %>
+           </div>
+       </div>
+       <%= render "common/footer" %>
+     </div>
+   </body>
 </html>
