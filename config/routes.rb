@@ -58,11 +58,13 @@ Rails.application.routes.draw do
         get :photo
       end
     end
+
     resources :posts do
       member do
         post :application_approved
       end
     end
+
     resources :order_twos do
       member do
 				post :confirm_meeting
@@ -71,6 +73,7 @@ Rails.application.routes.draw do
 			resources :feedbacks
     end
 
+    resources :asker_requests
   end
 
   root 'welcome#index'
