@@ -1,27 +1,31 @@
 
 .one {
-  height: 750px;
-
+  height: 510px;
+	margin: 0;
+	padding: 0;
   }
 
 .one-bg {
-  height: 750px;
+  height: 470px;
   width: 100%;
   background-size: cover;
   position: absolute;
   background-position: center center;
   background-size: cover;
-
 }
 
 #pictureone {
   background-image: url("http://chuantu.biz/t5/41/1479434253x1780898010.jpg");
   width: 100%;
+	margin-top: 40px;
+	// top: 0px;
+	background-attachment:fixed;
 }
 
 .headh1 {
-  margin-top: 80px;
-  line-height: 75px;
+  margin-top: 10px;
+	color: white;
+	font-weight: bold;
 }
 
 .title-one {
@@ -32,7 +36,7 @@
 }
 
 .headfontsize h1 {
-  font-size: 50pt;
+  font-size: 30pt;
   color: #fff
 }
 
@@ -47,49 +51,56 @@
 .overlay {
     position: absolute;
     width: 100%;
-    height: 750px;
+    height: 510px;
     z-index: 2;
   background:rgba(49,48,35,0.5);;
-    opacity: .7;
-  margin-left: 0px
+    opacity: .8;
+  margin-left: 0px;
+	margin-top: 0px;
 }
 
   // 第二页 //
 
 .two {
-   height: 500px;
+   height: 400px;
 }
 .two-bg {
-  height: 450px;
+  height: 300px;
   width: 100%;
   position: absolute;
   background-position: center center;
   background-size: cover;
   margin-top: 60px;
 }
-#tpicturetwo {
+#picturetwo {
   background-color:white;
 }
 
 .fork {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 
 .title-two{
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
 }
 
 .title-two p {
-  margin-top: 30px;
-  font-size: 19px;
+  margin-top: 22px;
+  font-size: 14px;
+}
+
+h2.lp-2 {
+	font-size: 24px;
+	font-weight:bold;
+	margin-left:34px;
 }
 
   // 第三页 //
 
 .three {
-   height: 750px;
+   height: 540px;
 }
 
 #picturethree {
@@ -113,14 +124,14 @@
   margin-bottom:0px;
   border-radius:0px;
   width:100%;
-  height:750px;
+  height:540px;
   position:relative;
 }
 
 
 
 .title-three {
-  margin-top: 50px;
+  margin-top: 34px;
   position:relative;
   text-align: center;
   z-index: 3;
@@ -135,28 +146,39 @@
 .wenzi {
   z-index: 3;
   position: relative;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
 .overlay1 {
   position: absolute;
   background-size: cover;
   width: 100%;
-  height: 750px;
+  height: 540px;
   z-index: 2;
   background:#E4E0D8;
   opacity: 0.8;
   margin-left: 0px
  }
 
+ h3.lp-3 {
+	 font-size: 17px;
+	 font-weight: bold;
+	 margin-left: 30px;
+ }
+
+ p.lp-3 {
+	 font-size: 14px;
+	 margin-left: 30px;
+ }
+
  // 第四页 //
 
 .four {
-  height: 1400px;
+  height: 1100px;
 }
 
 .four-bg {
- height: 1400px;
+ height: 1100px;
  width: 100%;
  position: absolute;
  background-position: center center;
@@ -175,19 +197,32 @@
 
 
 .hero3 {
-  margin-top: 35px;
-  text-align: center;
-  margin-bottom: 50px;
+  margin-top: 25px;
+  // text-align: left;
+  margin-bottom: 30px;
+	margin-left: px;
+}
+
+p.lp-4-1 {
+	font-size: 18px;
+	color: #ac8c66;
+	font-weight:bold;
+	text-align: left;
+}
+
+p.lp-4-2 {
+	font-size: 16px;
+	color: black;
 }
 
  // 第五页 //
 
 .five {
-  height: 450px;
+  height: 340px;
 }
 
 .five-bg {
- height: 450px;
+ height: 340px;
  width: 100%;
  position: absolute;
  background-position: center center;
@@ -203,15 +238,20 @@
   margin-right: 10px;
 }
 
+p.lp-5 {
+	font-style: italic;
+	color: #ac8c66;
+}
+
  // 第六页 //
 
 .six {
-  height: 500px;
-
+  height: 350px;
+	text-align: center;
   }
 
 .six-bg {
-  height: 500px;
+  height: 350px;
   width: 100%;
   background-size: cover;
   position: absolute;
@@ -223,33 +263,38 @@
 #picturesix {
   background-image: url("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/adfcd524-group-lg-5.jpg");
   width: 100%;
+	// background-attachment:local;
+	background-position: 0% 20%;
 }
 
-.title-six {
-  position: absolute;
-  z-index: 3;
-  margin-left: 14%;
-  margin-top: 60px;
-  margin-right: auto;
+// .title-six {
+//   position: absolute;
+//   z-index: 3;
+//   margin-top: 60px;
+//   text-align: center;
+//   color: white;
+// }
+//
+//
+// .title-six p {
+//   margin-top: 80px;
+//   padding: 10px 10px 10px 10px;
 
-  text-align: center;
-  color: white;
+// }
+
+.lp-footer {
+	margin-top:70px;
+	z-index: 3;
+	position: absolute;
+	text-align: center;
 }
-
-
-.title-six p {
-  margin-top: 80px;
-  padding: 10px 10px 10px 10px;
-
-}
-
 .overlay2 {
     position: absolute;
-
     width: 100%;
-    height: 500px;
+    height: 350px;
     z-index: 2;
-  background:rgba(49,48,35,0.5);;
+  	background:rgba(49,48,35,0.5);;
     opacity: .8;
-  margin-left: 0px
+  	margin-left: 0px;
+		margin-top: 0px;
 }

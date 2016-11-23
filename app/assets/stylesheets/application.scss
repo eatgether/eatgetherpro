@@ -36,14 +36,50 @@
      text-align: center;
  }
 
-.projname {
+.projnamehome {
+	font-family: "marck_scriptregular";
+	color: white;
+	font-size: 32px;
+}
+
+a.projname {
+ -webkit-transition: all 0.4s ease;
+ transition: all 0.4s ease;
+ }
+
+a.projname {
   font-family: "marck_scriptregular";
+	font-size: 21px;
+}
+
+a.projname.shrink {
+  min-height: 20px;
+	font-size: 18px;
+}
+
+img.logonav {
+ -webkit-transition: all 0.4s ease;
+ transition: all 0.4s ease;
+ }
+
+img.logonav {
+	height: 19px;
+	width: 19px;
+	float:left;
+	vertical-align: text-bottom;
+}
+
+img.logonav.shrink {
+	height: 17px;
+	width: 17px;
+	float:left;
+	vertical-align: text-bottom;
 }
 
 .logohome {
-	height: 45px;
-	width: 45px;
-	margin-bottom: 0px;
+	height: 30px;
+	width: 30px;
+	vertical-align: text-bottom;
 }
 
 .logoend {
@@ -99,15 +135,39 @@ a:hover {
 }
 
 
+.navbar {
+-webkit-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+
+.navbar.shrink {
+  min-height: 30px;
+	font-size: 13px;
+}
+
+// .navbar-brand.shrink {
+// 	min-height: 30px;
+// 	font-size: 12px;
+// }
+
 .navbar-default {
+	margin: 0;
+	padding: 0;
+	height: 40px;
+	border: none;
+	border-radius: 0px;
   background-color: $bgDefault;
   .navbar-brand {
     color: $colDefault;
     &:hover {
-      color: $colHighlight; }
+      color: $colDefault; }
 		&:focus {
-			color: #d6d6d6
-		}}
+			color: #d6d6d6; }
+		}
+	// .navbar-brand.shrink {
+	// 	min-height: 30px;
+	// 	font-size: 12px;
+	// }
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {

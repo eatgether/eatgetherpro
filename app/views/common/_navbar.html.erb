@@ -1,22 +1,24 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
 
          <div class="navbar-header">
-            <a class="navbar-brand projname" href="/">Eatgether</a>
-
+            <a class="navbar-brand projname" href="/"><img src="assets/logo1-white.png" class="logonav">Eatgether</a>
          </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                 <li> <%=  link_to("最新约饭",posts_path)%></li>
+                 <li> <%= link_to("<i class='fa fa-cutlery'></i>  最新约饭".html_safe,posts_path)%></li>
               <% if !current_user %>
+									<!-- <%#= link_to "#signupModal", 'data-toggle' => 'modal' do %>
+									<li><i class="fa fa-user"> </i>注册</li>
+									<%# end %> -->
                   <li><%= link_to("<i class='fa fa-user'></i>  注册".html_safe, "#signupModal", 'data-toggle' => "modal") %></li>
 									<li><%= link_to("<i class='fa fa-sign-in'></i>  登陆".html_safe, "#loginModal", 'data-toggle' => "modal") %></li>
                 <% else %>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Hi!, <%= current_user.nameNick %>
+                        Hi, <%= current_user.email %>
                         <b class="caret"></b>
                     </a>
                    <ul class="dropdown-menu">
