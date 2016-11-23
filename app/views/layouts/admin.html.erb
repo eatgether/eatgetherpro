@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
   <title>Eatgether 后台</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -37,4 +38,33 @@
         <%= render "common/footer" %>
       </div>
 </body>
+=======
+    <head>
+        <title>Eatgether 后台</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <%= render "common/navbar" %>
+        <%= render "common/flashes" %>
+    </head>
+    <body>
+        <div class="well">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 layad">
+                    <ul class="nav nav-tabs" role="tablist" >
+                        <li  role="presentation" ><%= link_to("用户", admin_users_path) %></li>
+                        <li  role="presentation"><%= link_to("邀约", admin_posts_path) %></li>
+                        <li  role="presentation"><%= link_to("订单", admin_order_twos_path) %></li>
+                        <li  role="presentation"><%= link_to("兴趣", admin_interests_path) %></li>
+                        <li  role="presentation"><%= link_to("反馈", admin_feedbacks_path) %></li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-md-offset-1">
+                    <%= yield %>
+                </div>
+            </div>
+            <%= render "common/footer" %>
+        </div>
+    </body>
+>>>>>>> 5ecb5d694eb1132704ca2c36aad48a312a33b8bc
 </html>

@@ -8,6 +8,7 @@
 #  asker_user_id  :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  aasm_state     :string           default("order_matched")
 #
 
 class OrderTwo < ApplicationRecord
@@ -17,7 +18,10 @@ class OrderTwo < ApplicationRecord
   belongs_to :asker_user, :class_name => "User"
   belongs_to :post, :class_name => "Post"
   has_many :feedbacks
+  has_many :notifications, as: :notifiable
 
+  scope :recent, -> {order("updated_at DESC")}
+  
   aasm do
 		state :order_matched, initial: true
 		state :order_met

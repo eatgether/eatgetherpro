@@ -24,11 +24,14 @@
 #  cellNum                :integer
 #  income                 :integer
 #  heightUser             :integer
+#  description            :text
 #
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :photos
+  accepts_nested_attributes_for :photos
   has_many :posts
 	has_many :feedbacks
   has_many :asker_requests
@@ -36,8 +39,14 @@ class User < ApplicationRecord
   has_many :user_interests
   has_many :interest, :through => :user_interests,source: :interest
 
+  has_many :notifications
+
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
+
+
+  scope :recent, -> {order("created_at DESC")}
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

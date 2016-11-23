@@ -3,7 +3,7 @@ class Admin::OrderTwosController < ApplicationController
   layout "admin"
 
   def index
-    @order_twos = OrderTwo.all
+    @order_twos = OrderTwo.all.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   def destroy

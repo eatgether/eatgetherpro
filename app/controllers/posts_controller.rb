@@ -3,7 +3,7 @@ class PostsController < ApplicationController
    before_action :authenticate_user!,only:[:new,:create,:update,:edit,:destroy,:show]
 
   def index
-    @posts = Post.all.recent
+    @posts = Post.page(params[:page]).per(3).recent
   end
 
   def new
@@ -47,8 +47,13 @@ class PostsController < ApplicationController
   def application
     @post = Post.find(params[:id])
 
+
     if !current_user.is_asker_of?(@post)
       current_user.application!(@post)
+
+      @asker_request = AskerRequest.find_by_post_id_and_user_id(@post.id,current_user.id)
+      send_notification!(current_user.id,@post.user_id,@asker_request)
+
       flash[:notice] = "您已成功申请！"
     else
       flash[:warning] = "您已经申请过这个邀约了！"
@@ -71,8 +76,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-
 
   def post_params
     params.require(:post).permit(:title, :description,:eat_venue,:eat_day,:image)

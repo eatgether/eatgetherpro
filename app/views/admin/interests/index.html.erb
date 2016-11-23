@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <br><br>
 <div class="container topnavbar">
   <div class="row">
@@ -27,14 +28,44 @@
         </tbody>
 
       </table>
+=======
+<div class="row">
+    <div class="col-md-9">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        兴趣爱好
+                    </th>
+                    <th class="center">
+                        控制选项
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @interests.each do |interest| %>
+                <tr>
+                    <td>
+                        <%= interest.name %>
+                    </td>
+                    <td class="center">
+                        <%= link_to("编辑", edit_admin_interest_path(interest), class: "btn btn-default outline") %>
+                        <%= link_to("删除", admin_interest_path(interest), :method => :delete, class: "btn btn-default outline", data: { confirm: "确定删除此爱好"}) %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+>>>>>>> 5ecb5d694eb1132704ca2c36aad48a312a33b8bc
 
+        </table>
+        <div class="text-center">
+            <%= will_paginate @users ,renderer: BootstrapPagination::Rails%>
+        </div>
     </div>
-    <div class="col-md-2 col-md-offset-1">
-      <%= link_to("添加兴趣爱好", new_interest_path(@interest), :class => "btn btn-primary") %>
+    <div class="col-md-1 layad">
+        <%= link_to("添加兴趣爱好", new_admin_interest_path(@interest), :class => "btn btn-primary") %>
     </div>
 
-  </div>
-
-
+</div>
 
 </div>

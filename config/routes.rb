@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :notifications
   resources :posts
 	resources :feedbacks
   resources :posts do
@@ -53,20 +54,31 @@ Rails.application.routes.draw do
 	end
 
   namespace :account do
-    resources :users
+    resources :users do
+      member do
+        get :photo
+      end
+    end
+
     resources :posts do
       member do
         post :application_approved
       end
     end
+
     resources :order_twos do
       member do
 				post :confirm_meeting
 				post :ask_cancel
       end
-			resources :feedbacks
+			resources :feedbacks do
+        collection do
+          post :rating
+        end
+			end
     end
 
+    resources :asker_requests
   end
 
   root 'welcome#index'

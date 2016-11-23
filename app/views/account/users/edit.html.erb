@@ -1,5 +1,11 @@
+<head>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<div class="widget-content">
 <h2 class="center">修改个人信息</h2>
-<div class="container">
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <%= simple_form_for [:account,@user] do |f| %>
@@ -41,31 +47,61 @@
                 <%= f.input :description, label: '自我介绍' %>
             </div>
 
-            <div class="group">
-                <%= f.input :image, as: :file, label: '头像' %>
+
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+                添加兴趣爱好
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">爱好越丰富</h4>
+                        </div>
+                        <div class="modal-body">
+                            <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">我选好了</button>
+
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+              <br><br>
+
+            <div class="group pic">
+                <%= f.input :image, as: :file, label: '头像' %>
+                <%= f.label :生活照片 %><br>
+            <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+            </div>
+            <br>
 
             <span>
                 <strong>目前头像<strong></span>
                     <br>
+
                     <% if current_user.image.present? %>
-                      <%= image_tag(current_user.image.thumb.url, class: "thumbnail") %>
+                    <%= image_tag(current_user.image.medium.url, class: "thumbnail") %>
                     <% else %>
-                      <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
                     <% end %>
-
-                    <div class="group">
-                      <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
-                    </div>
-
                     <br><br>
 
                     <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
 
                     <% end %>
 
-
-                        </div>
-                    </div>
-
                 </div>
+            </div>
+
+        </div>

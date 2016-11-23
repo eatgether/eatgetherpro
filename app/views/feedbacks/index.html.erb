@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 </head>
@@ -160,3 +161,28 @@
 </body>
 
 </html>
+=======
+<div class="col-md-12">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Rating</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @feedbacks.each do |feedback| %>
+        <tr>
+          <td><%=link_to(feedback.id,feedback_path(feedback),method: :get) %></td>
+          <td><%= feedback.title %></td>
+          <td><%= feedback.description %></td>
+          <td><%= feedback.rating %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+>>>>>>> 5ecb5d694eb1132704ca2c36aad48a312a33b8bc
