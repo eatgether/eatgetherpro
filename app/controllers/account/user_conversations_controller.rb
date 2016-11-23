@@ -5,15 +5,15 @@ class Account::UserConversationsController < ApplicationController
 def show
   @mailbox ||= current_user.mailbox
 
-  @designer = User.find(params[:id])
+  @user = User.find(params[:id])
 end
 
 def update
   @mailbox ||= current_user.mailbox
 
-  @designer = User.find(params[:id])
+  @user = User.find(params[:id])
 
-  conversation = current_user.send_message(@designer, params[:body], @designer.id ).conversation
+  conversation = current_user.send_message(@user, params[:body], @user.id ).conversation
 
   redirect_to account_conversation_path(conversation)
 end

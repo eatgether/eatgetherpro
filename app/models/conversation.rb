@@ -10,9 +10,5 @@
 #
 
 class Conversation < Mailboxer::Conversation
-  belongs_to :order_two
-
-  def mailboxer_email
-    email
-  end
+  belongs_to :order_two #mailboxer 
 end

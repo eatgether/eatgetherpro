@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
   resources :posts
+
 	resources :feedbacks
+
   resources :posts do
     member do
       post :application
       post :cancel_application
     end
   end
-
-  devise_for :users
-
 
   namespace :admin do
     resources :order_twos do
@@ -45,12 +46,8 @@ Rails.application.routes.draw do
 
 		resources :feedbacks
   end
-    resources :conversations do
-      member do
-        get :chatroom
-      end
-      resources :messages
-    end
+    resources :conversations
+
 
 
   resources :order_twos do
@@ -90,5 +87,5 @@ Rails.application.routes.draw do
   end
 
 
-  root 'welcome#index'
+  root "welcome#index"
 end

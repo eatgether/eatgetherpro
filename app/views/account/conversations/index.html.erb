@@ -1,13 +1,25 @@
-<h2>Your conversations</h2>
+<h2 style="margin-left:140px">约饭蜜语</h2>
 <hr>
-<ul>
-  <% @conversations.each do |conversation| %>
-    <li class="list-group-item clearfix">
-      <%= conversation.last_sender.nameNick %> - <%= conversation.last_message.body %> - <%= conversation.created_at.to_s(:short) %>
 
-      <%= link_to("查看", account_conversation_path(conversation), :class => "pull-right") %>
-    </li>
-  <% end %>
-</ul>
+<div class="row">
 
-<hr>
+    <div class="col-md-10 col-md-offset-1">
+
+        <ul>
+            <% @conversations.each do |conversation| %>
+            <li class="list-group-item clearfix">
+                <%= conversation.last_sender.nameNick %>
+                -
+                <%= conversation.last_message.body %>
+                -
+                <%= conversation.created_at.to_s(:short) %>
+
+                <%= link_to("查看", account_conversation_path(conversation), :class => "pull-right") %>
+            </li>
+            <% end %>
+        </ul>
+
+        <hr>
+    </div>
+
+</div>

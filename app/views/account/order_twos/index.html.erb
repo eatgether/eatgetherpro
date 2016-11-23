@@ -28,12 +28,8 @@
 					  when "order_matched"%>
 						<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
 						<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
-            <%# @conversations.each do |conversation| %>
             <%# binding.pry %>
-            <%#= link_to("进入聊天室",chatroom_conversation_path(mailbox.conversations,:sender_id => order.poster_user.id)) %>
-            <%#= link_to("发起对话", conversations_path(:order_two_id => order.id), class: "btn btn-primary") %>
-            <%= link_to("發起對話", account_user_conversation_path(order.poster_user_id, order.asker_user_id), :class => "btn btn-default") %>
-            <%# end %>
+            <%= link_to("发起对话", account_user_conversation_path(order.poster_user_id, order.asker_user_id), :class => "btn btn-default") %>
 					<% when "order_met" %>
 	          <% if order.feedbacks.where(:user_id => current_user).blank? %>
 	            <%= link_to("新建反馈", new_account_order_two_feedback_path(order), class: "btn btn-sm btn-default outline") %>
