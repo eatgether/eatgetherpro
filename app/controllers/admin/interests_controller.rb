@@ -6,8 +6,22 @@ class Admin::InterestsController < ApplicationController
     @interests = Interest.all.recent.paginate(:page => params[:page],:per_page => 5)
   end
 
+  def new
+    @interest = Interest.new
+  end
+  
   def edit
    @interest = Interest.find(params[:id])
+  end
+
+  def create
+    @interest = Interest.new(interest_params)
+    if @interest.save
+
+      redirect_to admin_interests_path
+    else
+      render :new
+    end
   end
 
   def update
