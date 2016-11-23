@@ -29,6 +29,62 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  acts_as_messageable
+
+  def name
+    "User #{id}"
+  end
+
+  def mailboxer_email(object)
+    nil
+  end
+has_many :conversations
+ #  def mailboxer_name
+ #   self.name
+ # end
+ #
+ # def mailboxer_email(object)
+ #   self.email
+ # end
+ #
+ #  def send_message(recipients, msg_body, subject, resource, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
+ #    conversation = Mailboxer::ConversationBuilder.new(subject: subject,
+ #                                               created_at: message_timestamp,
+ #                                               updated_at: message_timestamp).build
+ #
+ #    message = Mailboxer::MessageBuilder.new(sender: self,
+ #                                            conversation: conversation,
+ #                                            recipients: recipients,
+ #                                            body: msg_body,
+ #                                            subject: subject,
+ #                                            attachment: attachment,
+ #                                            created_at: message_timestamp,
+ #                                            updated_at: message_timestamp).build
+ #
+ #    conversation.update_attribute(:conversationable_id, resource.id)
+ #    conversation.update_attribute(:conversationable_type, resource.class)
+ #    conversation.save
+ #    message.deliver false, sanitize_text
+ #  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   has_many :photos
   accepts_nested_attributes_for :photos
   has_many :posts

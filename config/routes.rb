@@ -44,8 +44,13 @@ Rails.application.routes.draw do
     end
 
 		resources :feedbacks
-
   end
+    resources :conversations do
+      member do
+        get :chatroom
+      end
+      resources :messages
+    end
 
 
   resources :interests
@@ -68,10 +73,17 @@ Rails.application.routes.draw do
 				post :confirm_meeting
 				post :ask_cancel
       end
+      resources :conversations do
+        member do
+          get :chatroom
+        end
+        resources :messages
+      end
+  
 			resources :feedbacks
     end
-
   end
+
 
   root 'welcome#index'
 end

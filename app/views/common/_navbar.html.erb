@@ -24,6 +24,7 @@
                        <li> <%=  link_to("我的预约",account_posts_path)%></li>
                        <li> <%=  link_to("我的约饭",account_order_twos_path)%></li>
                        <li> <%=  link_to("个人中心",account_users_path)%></li>
+                      <li><%= link_to 'Your Conversations', conversations_path %></li>
 											 <li class="divider"></li>
 											 <% if current_user.admin? %>
 													<li> <%= link_to("管理后台", admin_users_path) %> </li>
