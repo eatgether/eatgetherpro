@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 20161123121541) do
   end
 
   create_table "mailboxer_conversations", force: :cascade do |t|
-    t.string   "subject",    default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "order_id"
+    t.string   "subject",      default: ""
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "order_two_id"
   end
 
   create_table "mailboxer_notifications", force: :cascade do |t|

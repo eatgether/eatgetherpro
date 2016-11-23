@@ -31,7 +31,8 @@
             <%# @conversations.each do |conversation| %>
             <%# binding.pry %>
             <%#= link_to("进入聊天室",chatroom_conversation_path(mailbox.conversations,:sender_id => order.poster_user.id)) %>
-            <%= link_to("发起对话", conversations_path(:order_two_id => order.id), class: "btn btn-primary") %>
+            <%#= link_to("发起对话", conversations_path(:order_two_id => order.id), class: "btn btn-primary") %>
+            <%= link_to("發起對話", account_user_conversation_path(order.poster_user_id, order.asker_user_id), :class => "btn btn-default") %>
             <%# end %>
 					<% when "order_met" %>
 	          <% if order.feedbacks.where(:user_id => current_user).blank? %>

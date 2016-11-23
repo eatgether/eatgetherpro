@@ -77,6 +77,8 @@ Rails.application.routes.draw do
       end
 			resources :feedbacks
     end
+    resources :conversations
+    resources :user_conversations
   end
 
 
