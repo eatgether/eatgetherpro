@@ -62,6 +62,8 @@ class Account::PostsController < ApplicationController
    else
      redirect_to :back
    end
+
+
  end
 
  private

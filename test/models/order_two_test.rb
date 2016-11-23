@@ -8,6 +8,7 @@
 #  asker_user_id  :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  aasm_state     :string           default("order_matched")
 #
 
 require 'test_helper'
