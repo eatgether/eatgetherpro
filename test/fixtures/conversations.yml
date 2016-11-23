@@ -1,14 +1,12 @@
 # == Schema Information
 #
-# Table name: order_twos
+# Table name: mailboxer_conversations
 #
-#  id             :integer          not null, primary key
-#  post_id        :integer
-#  poster_user_id :integer
-#  asker_user_id  :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  aasm_state     :string           default("order_matched")
+#  id         :integer          not null, primary key
+#  subject    :string           default("")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  order_id   :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

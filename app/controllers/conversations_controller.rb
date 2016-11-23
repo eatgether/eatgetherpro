@@ -2,42 +2,26 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @conversations = current_user.mailbox.conversations
-  end
+      @order = OrderTwo.find(params[:order_two_id])
 
-  def show
-    @conversation = current_user.mailbox.conversations.find(params[:id])
-  end
+      @conversation = @order.conversations
 
-  def chatroom
-    @poster_user = User.find_by_id(params[:sender_id])
-    @conversation =@poster_user.mailbox.conversations.find(params[:id])
-  end
+      @messages = @conversation.messages if @conversation.present?
 
-  def new
-    @conversation = current_user.mailbox.conversations.new
-    @recipients = User.all - [current_user]
-  end
+    end
 
-  def create
-    @recipient = User.find(params[:user_id])
-    receipt = current_user.send_message(@recipient, params[:body], params[:subject])
-    redirect_to conversation_path(receipt.conversation)
-  end
+    def create
+      @order = OrderTwo.find(params[:order_id])
+      @conversation = @order.conversation
 
- #  def inbox
- #   @inbox = mailbox.inbox
- #   @active = :inbox
- # end
- #
- # def sent
- #   @sent = mailbox.sentbox
- #   @active = :sent
- # end
- #
- # def trash
- #   @trash = mailbox.trash
- #   @active = :trash
- # end
+      if @conversation.blank?
+        current_user.send_message(@order.user , params[:body] , @order.title, @order )
+      else
+        current_user.reply_to_conversation(@conversation, params[:body])
+      end
+
+      redirect_to order_two_conversations_path(@order)
+
+    end
 
 end

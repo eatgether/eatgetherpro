@@ -69,17 +69,12 @@ Rails.application.routes.draw do
       end
     end
     resources :order_twos do
+      resources :conversations
+      resources :user_conversations
       member do
 				post :confirm_meeting
 				post :ask_cancel
       end
-      resources :conversations do
-        member do
-          get :chatroom
-        end
-        resources :messages
-      end
-  
 			resources :feedbacks
     end
   end

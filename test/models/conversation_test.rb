@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: photos
+# Table name: mailboxer_conversations
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  avatar     :string
+#  subject    :string           default("")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  order_id   :integer
 #
 
 require 'test_helper'
 
-class PhotoTest < ActiveSupport::TestCase
+class ConversationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

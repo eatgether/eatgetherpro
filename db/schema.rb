@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123034218) do
+ActiveRecord::Schema.define(version: 20161123121541) do
 
   create_table "asker_requests", force: :cascade do |t|
     t.integer  "user_id"
@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 20161123034218) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "is_matched", default: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -48,6 +53,7 @@ ActiveRecord::Schema.define(version: 20161123034218) do
     t.string   "subject",    default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "order_id"
   end
 
   create_table "mailboxer_notifications", force: :cascade do |t|

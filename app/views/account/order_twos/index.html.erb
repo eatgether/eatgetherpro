@@ -29,7 +29,9 @@
 						<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
 						<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
             <%# @conversations.each do |conversation| %>
-            <%= link_to("进入聊天室",chatroom_conversation_path(mailbox.conversations,:sender_id => order.poster_user.id)) %>
+            <%# binding.pry %>
+            <%#= link_to("进入聊天室",chatroom_conversation_path(mailbox.conversations,:sender_id => order.poster_user.id)) %>
+            <%= link_to("发起对话", conversations_path(:order_two_id => order.id), class: "btn btn-primary") %>
             <%# end %>
 					<% when "order_met" %>
 	          <% if order.feedbacks.where(:user_id => current_user).blank? %>
