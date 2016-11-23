@@ -71,7 +71,11 @@ Rails.application.routes.draw do
 				post :confirm_meeting
 				post :ask_cancel
       end
-			resources :feedbacks
+			resources :feedbacks do
+        collection do
+          post :rating
+        end
+			end
     end
 
     resources :asker_requests

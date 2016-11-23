@@ -5,6 +5,8 @@
         <th>#</th>
         <th>Title</th>
         <th>Description</th>
+        <th>Rating</th>
+
       </tr>
     </thead>
     <tbody>
@@ -13,6 +15,7 @@
           <td><%=link_to(feedback.id,feedback_path(feedback),method: :get) %></td>
           <td><%= feedback.title %></td>
           <td><%= feedback.description %></td>
+          <td><%= feedback.rating %></td>
         </tr>
       <% end %>
     </tbody>
