@@ -44,7 +44,11 @@
       <div class="row">
         <div class="col-md-1">
           <div class="asker_avater">
-            <%= image_tag(asker_user.image.avatar.url) %>
+            <% if asker_user.image.blank? %>
+              <%= image_tag("http://placehold.it/50x50&text=No Pic", class: "thumbnail img-responsive center-block") %>
+            <% else %>
+              <%= image_tag(asker_user.image.avatar.url) %>
+            <% end %>
           </div>
         </div>
         <div class="col-md-9">
@@ -76,21 +80,3 @@
     <% end %>
   </ul>
 </div>
-
-
-<!-- </div>
-
-<% @asker_users.each do |asker_user| %>
-  <tr>
-      <td><%= image_tag(asker_user.image.avatar.url) %></td>
-      <td>
-        <span style="font-size:1.5em"><%= asker_user.nameNick %></span>
-
-        <% asker_user.interest.each do |interest| %>
-        <%= interest.name %>
-        <% end %>
-      </td>
-      <td><%= asker_user.gender %></td>
-
-  </tr>
-  <% end %> -->

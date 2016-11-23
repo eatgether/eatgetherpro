@@ -50,6 +50,10 @@ class PostsController < ApplicationController
 
     if !current_user.is_asker_of?(@post)
       current_user.application!(@post)
+
+      @asker_request = AskerRequest.find_by_post_id_and_user_id(@post.id,current_user.id)
+      send_notification!(current_user.id,@post.user_id,@asker_request)
+
       flash[:notice] = "您已成功申请！"
     else
       flash[:warning] = "您已经申请过这个邀约了！"
