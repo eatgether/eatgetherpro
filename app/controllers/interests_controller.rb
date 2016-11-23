@@ -18,7 +18,7 @@ class InterestsController < ApplicationController
 
   def edit
    @interest = Interest.find(params[:id])
- end
+  end
 
  def update
    @interest = Interest.find(params[:id])
