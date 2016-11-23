@@ -8,6 +8,9 @@
 #  notifiable_type :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  read_at         :datetime
+#  recipient_id    :integer
+#  trigger_id      :integer
 #
 
 require 'test_helper'

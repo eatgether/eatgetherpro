@@ -43,4 +43,9 @@ class ApplicationController < ActionController::Base
   helper_method :resource_class
 # devise controlls above
 
+#创建notifications方法
+def send_notification(trigger,recipient,notifiable)
+  Notification.create()
+end
+
 end

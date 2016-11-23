@@ -47,9 +47,6 @@ class PostsController < ApplicationController
   def application
     @post = Post.find(params[:id])
 
-    @notification = Notification.new
-    @notification.notifiable_id = ""
-    @notification.notifiable_type = ""
 
     if !current_user.is_asker_of?(@post)
       current_user.application!(@post)
@@ -75,7 +72,7 @@ class PostsController < ApplicationController
   end
 
   private
-  
+
   def post_params
     params.require(:post).permit(:title, :description,:eat_venue,:eat_day,:image)
   end
