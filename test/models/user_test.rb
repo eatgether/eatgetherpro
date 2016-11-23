@@ -24,6 +24,7 @@
 #  cellNum                :integer
 #  income                 :integer
 #  heightUser             :integer
+#  description            :text
 #
 
 require 'test_helper'

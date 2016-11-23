@@ -10,7 +10,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                  <li> <%=  link_to("最新约饭",posts_path)%></li>
-                  <li> <%=  link_to("约客足迹",posts_path)%></li>
+                 <li> <%=  link_to("约客足迹",feedbacks_path)%></li>
+                 <li> <%=  link_to("通知",notifications_path)%></li>
               <% if !current_user %>
                   <li><%= link_to("<i class='fa fa-user'></i>  注册".html_safe, "#signupModal", 'data-toggle' => "modal") %></li>
 									<li><%= link_to("<i class='fa fa-sign-in'></i>  登陆".html_safe, "#loginModal", 'data-toggle' => "modal") %></li>
@@ -22,8 +23,10 @@
                     </a>
                    <ul class="dropdown-menu">
                        <li> <%=  link_to("我的预约",account_posts_path)%></li>
+                       <li> <%=  link_to("我申请过的预约",account_asker_requests_path)%></li>
                        <li> <%=  link_to("我的约饭",account_order_twos_path)%></li>
                        <li> <%=  link_to("个人中心",account_users_path)%></li>
+
 											 <li class="divider"></li>
 											 <% if current_user.admin? %>
 													<li> <%= link_to("管理后台", admin_users_path) %> </li>
