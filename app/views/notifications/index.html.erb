@@ -1,0 +1,23 @@
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>通知编号</td>
+        <td>trigger_id</td>
+        <td>recipient_id</td>
+        <td>notifiable_id</td>
+        <td>notifiable_type</td>
+        <td>read_at</td>
+      </tr>
+    </thead>
+    <% @notifications.each do |notification|%>
+    <tr>
+      <td><%= notification.id %></td>
+      <td><%= notification.trigger_id %></td>
+      <td><%= notification.recipient_id %></td>
+      <td><%= notification.notifiable_id %></td>
+      <td><%= notification.notifiable_type %></td>
+      <td><%= notification.read_at %></td>
+    </tr>
+    <% end  %>
+  </table>

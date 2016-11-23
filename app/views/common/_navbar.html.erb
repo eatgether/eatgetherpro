@@ -11,7 +11,7 @@
             <ul class="nav navbar-nav navbar-right">
                  <li> <%=  link_to("最新约饭",posts_path)%></li>
                  <li> <%=  link_to("约客足迹",posts_path)%></li>
-                 <li> <%=  link_to("通知",posts_path)%></li>
+                 <li> <%=  link_to("通知",notifications_path)%></li>
               <% if !current_user %>
                   <li><%= link_to("<i class='fa fa-user'></i>  注册".html_safe, "#signupModal", 'data-toggle' => "modal") %></li>
 									<li><%= link_to("<i class='fa fa-sign-in'></i>  登陆".html_safe, "#loginModal", 'data-toggle' => "modal") %></li>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :notifications
   resources :posts
 	resources :feedbacks
   resources :posts do
