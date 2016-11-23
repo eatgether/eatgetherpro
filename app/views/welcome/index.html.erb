@@ -6,25 +6,82 @@
     <title>landing page</title>
   </head>
   <body>
-    <div class="one">
-      <div class="overlay"></div>
-      <div class="one-bg" id="pictureone"></div>
-      <div class="container">
-        <div class="row">
-          <div class="title-one">
-            <div class="col-md-12">
-                <img src="assets/logo1-white.png" class="logohome"><font class="projnamehome">Eatgether </font><br>
-                <h1 class="headh1">好玩不尴尬，吃饭认识TA</h1>
-              <p style="color:white;"><i> 约上四个人一起吃饭，结交更多拥有共同爱好的年轻人</i></p>
-							<br>
-							<div>
-                 <%= link_to("加入饭局", posts_path, class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
-              </div>
-            </div>
+
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top:20px;">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+			<div class="overlaycarousel"></div>
+      <img class="carouselpic" src="assets/carousel1-new.jpg" alt="Image Unavailable">
+			<div class="header-text hidden-xs">
+				<div class="title-carousel">
+					<div class="col-md-12">
+						<img src="assets/logo1-white.png" class="logocarousel"><font class="projnamehome">Eatgether </font><br>
+						<h1 class="headh1">好玩不尴尬，吃饭认识TA</h1>
+					<p style="color:white;"><i> 约上四个人一起吃饭，结交更多拥有共同爱好的年轻人</i></p>
+					<br>
+					<div>
+						 <%= link_to("加入饭局", posts_path, class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
+					</div>
           </div>
-        </div>
+				</div>
       </div>
     </div>
+    <div class="item">
+			<div class="item active">
+				<div class="overlaycarousel"></div>
+				<img class="carouselpic" src="assets/carousel2.jpg" alt="Image Unavailable">
+			<div class="header-text hidden-xs">
+				<div class="title-carousel-item2">
+					<div class="col-md-12 carouselitem2">
+						<img src="assets/logo1-white.png" class="logocarousel"><font class="projnamehome">Eatgether </font><br>
+						<h1 class="headh1">参加附近的饭局，迅速扩展社交圈</h1>
+					<p style="color:white;"><i> 基于地理位置的餐厅推荐，缩短社交距离，更好地认识身边的人</i></p>
+					<br>
+					<div>
+						 <%= link_to("扩展社交圈", posts_path, class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+    <div class="item">
+			<div class="item active">
+				<div class="overlaycarousel"></div>
+				<img class="carouselpic" src="assets/carousel3.jpg" alt="Image Unavailable">
+			<div class="header-text hidden-xs">
+				<div class="title-carousel-item3">
+					<div class="col-md-12 carouselitem3">
+						<img src="assets/logo1-white.png" class="logocarousel"><font class="projnamehome">Eatgether </font><br>
+						<h1 class="headh1">兴趣相投，认识更多有趣的人</h1>
+					<p style="color:white;"><i>发起或参加社交达人的活动，开启多姿多彩的周末生活</i></p>
+
+					<div>
+						 <%= link_to("认识更多人", posts_path, class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div> <!-- Carousel -->
 
 
 <div class="two">
@@ -195,7 +252,7 @@
           <h2 class="text-left lp-2">听听他们怎么说</h2>
 				</div>
 				<div>
-           <div class="row col-md-12" style="margin-top:30px;">
+           <div class="container" style="margin-top:30px;">
 						 <div class="col-md-2">
 						 </div>
 							 <div class="col-md-1">
@@ -232,7 +289,7 @@
                     <p style="font-size:24px;font-weight:bold;color:white;">
                       无数和你一样的年轻人，<br>都可能通过一顿饭成为你的好友
                     </p>
-										<br>
+
                     <p>
                        <%= link_to("这就约饭去！", posts_path, class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
                     </p>
@@ -240,3 +297,11 @@
         </div>
   </body>
 </html>
+
+
+
+<script>
+	$('.carousel').carousel({
+		interval: 80000
+	})
+</script>

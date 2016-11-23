@@ -1,3 +1,80 @@
 // Place all the styles related to the feedbacks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$bgDefault      : #3e3e3e;
+$bgHighlight    : #f01d67;
+$colDefault     : #d6d6d6;
+$colHighlight   : #f01d67;
+
+.blogpage {
+  height: 500px;
+}
+
+.blogpage-bg {
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  background-position: center center;
+  background-size: cover;
+	margin-left: 0px;
+	z-index: -1;
+}
+#blog-bg-pic {
+  background-image: url("pair-lg-3.jpg");
+}
+
+.blogpage-top h1 {
+	color: white;
+	font-size:32px;
+	font-weight:bold;
+	margin-top:190px;
+}
+
+.blogpage-top p {
+	color: white;
+	font-size:16px;
+}
+
+.overlayblog {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    z-index: 2;
+  	background:rgba(49,48,35,0.5);;
+    opacity: .8;
+	  margin-left: 0px;
+		margin-top: 0px;
+		z-index: -1;
+}
+
+.title-text {
+  margin-left: 50px;
+}
+
+.blogphoto {
+	height: 500px;
+	width: 750px;
+}
+
+// .blogphoto.shrink {
+// 	height: 300px;
+// 	width: 615px;
+// }
+
+.polaroid {
+	border: 10px solid #fff;
+	border-bottom: 45px solid #fff;
+	-webkit-box-shadow: 3px 3px 3px #777;
+	-moz-box-shadow: 3px 3px 3px #777;
+	box-shadow: 3px 3px 3px #777;
+}
+
+.polaroidtext {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  top: 502px;
+  font: 400 18px/1 'Kaushan Script', cursive;
+  color: $colHighlight;
+}

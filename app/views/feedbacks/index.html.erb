@@ -1,23 +1,162 @@
-<div class="col-md-12">
-  <div class="feedback">
-    <%= link_to("New feedback", new_admin_feedback_path, class: "btn btn-primary pull-right") %>
-  </div>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @feedbacks.each do |feedback| %>
-        <tr>
-          <td><%= feedback.id %></td>
-          <td><%= feedback.title %></td>
-          <td><%= feedback.description %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+</head>
+<body>
+			<div class="blogpage">
+	      <div class="blogpage-bg" id="blog-bg-pic"></div>
+				<div class="overlayblog"></div>
+	      <div class="container">
+							<div class="title-two">
+								<div class="row blogpage-top">
+								<h1>
+									<img src="assets/logo1-white.png" class="logocarousel">
+										<font class="projnamehome">Eatgether</font> + 你 = &nbsp; <br>
+										一顿饭局的100种打开方式
+								</h1>
+								<p> 通过Eatgether成为好朋友的人 <br>
+								 由系统通过共同爱好、地理位置等特征精准匹配能够吃到一起的人
+							 </p>
+							</div>
+	        </div>
+	      </div>
+	    </div>
+<div class="container">
+				<div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h1 class="page-header">
+                    那些年，我们约过的饭局
+                    <br>
+										<small>
+										与&nbsp;<font class="projnamehome pinkfont">Eatgether</font>
+										共同建立的美好回忆</small>
+                </h1>
+
+								<% @feedbacks.each do |feedback| %>
+								<h2>
+									<%= feedback.title %>
+                </h2>
+                <p class="lead">
+                    by <%= feedback.user.email %>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span>
+									<%= feedback.created_at %>
+								</p>
+                <hr>
+
+								<p class="polaroidtext"><%= feedback.created_at%></p>
+								<%= image_tag feedback.image.url, :class => "blogphoto polaroid" %>
+
+                <hr>
+								<div class="well">
+                <p><%= truncate(feedback.description, :length => 120, :omission => '...') %></p>
+								<%= link_to "继续阅读 <span class='glyphicon glyphicon-chevron-right'></span>".html_safe(), feedback_path(feedback), class: "btn btn-default pink" %>
+								</div>
+								<hr>
+								<% end %>
+
+
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+                <!-- Blog Search Well -->
+                <div class="well" style="margin-top: 20px;">
+                    <h4>博客关键字<font class="pinkfont">搜索</font></h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control pink">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default search" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>博客文章<font class="pinkfont">分类</font></h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">浪漫西餐</a>
+                                </li>
+                                <li><a href="#">健康饮食</a>
+                                </li>
+                                <li><a href="#">重庆火锅</a>
+                                </li>
+                                <li><a href="#">找到男朋友</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">找到女朋友</a>
+                                </li>
+                                <li><a href="#">最难忘的</a>
+                                </li>
+                                <li><a href="#">有趣的人</a>
+                                </li>
+                                <li><a href="#">遇到奇葩</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>分享你的<font class="pinkfont">精彩饭局</font></h4>
+                    <p>在Eatgether平台上，每天都有新的关系在被挖掘、新的友谊在搭建，现在就注册开启你的约饭，和有趣的人一起享受各种新奇的餐饮体验吧!</p>
+										<% if !current_user %>
+										<%= link_to("<i class='fa fa-user'></i>  注册".html_safe, "#signupModal", class: "btn btn-danger btn-lg center", style: "background-color:#f01d67;", 'data-toggle' => "modal") %>
+										<% else %>
+										<%= link_to("加入饭局", posts_path, class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
+										<% end %>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

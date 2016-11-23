@@ -1,3 +1,7 @@
+$bgDefault      : #3e3e3e;
+$bgHighlight    : #f01d67;
+$colDefault     : #d6d6d6;
+$colHighlight   : #f01d67;
 
 .one {
   height: 510px;
@@ -11,7 +15,6 @@
   background-size: cover;
   position: absolute;
   background-position: center center;
-  background-size: cover;
 }
 
 #pictureone {
@@ -35,6 +38,64 @@
   margin-top: 200px;
 }
 
+.carouselpic{
+	width: auto;
+	height: 510px;
+	min-width: 100%;
+	max-width: none;
+	min-height: 510px;
+	max-height: 510px;
+}
+
+
+// .active {
+// 	max-height: 510px;
+// 	margin-top: 20px;
+// }
+
+.title-carousel {
+  position: absolute;
+  z-index: 3;
+  margin-left: 100px;
+  margin-top: 108px;
+}
+
+.overlaycarousel {
+    position: absolute;
+    width: 100%;
+    height: 510px;
+    z-index: 2;
+  background:rgba(49,48,35,0.5);;
+    opacity: .8;
+  margin-left: 0px;
+	margin-top: 0px;
+}
+
+.title-carousel-item2 {
+	position: relative;
+	z-index: 3;
+	margin-right: 118px;
+	margin-top: 53px;
+}
+
+.title-carousel-item3 {
+	position: relative;
+	z-index: 3;
+	margin-right: 118px;
+	margin-top: 46px;
+}
+
+.carouselitem2 {
+	text-align: right;
+	margin-top: 85px;
+	margin-right: 40px;
+}
+
+.carouselitem3 {
+	text-align: right;
+	margin-top: -100px;
+}
+
 .headfontsize h1 {
   font-size: 30pt;
   color: #fff
@@ -47,7 +108,7 @@
   color: #fff
 }
 
-         // 阴影 overlay //
+// 阴影 overlay //
 .overlay {
     position: absolute;
     width: 100%;
@@ -297,4 +358,28 @@ p.lp-5 {
     opacity: .8;
   	margin-left: 0px;
 		margin-top: 0px;
+}
+
+/* Carousel Header Styles */
+.header-text {
+    position: absolute;
+    top: 20%;
+    left: 1.8%;
+    right: auto;
+    width: 96.66666666666666%;
+    color: #fff;
+}
+
+.header-text h2 {
+    font-size: 40px;
+}
+
+.header-text h2 span {
+    background-color: #2980b9;
+	padding: 10px;
+}
+
+.header-text h3 span {
+	background-color: #000;
+	padding: 15px;
 }

@@ -32,9 +32,18 @@
    font-family: "lucida grande";
   }
 
+.alert {
+	  position: absolute;
+	  top: 55px;
+	  left: 20px;
+	  right: 20px;
+		z-index: 4;
+	}
+
 .center {
      text-align: center;
  }
+
 
 .projnamehome {
 	font-family: "marck_scriptregular";
@@ -82,9 +91,15 @@ img.logonav.shrink {
 	vertical-align: text-bottom;
 }
 
-.logoend {
+.logocarousel {
 	height: 30px;
 	width: 30px;
+	vertical-align: text-bottom;
+}
+
+.logoend {
+	height: 30px;
+	max-width: 30px;
 	margin-bottom: 9px;
 }
 
@@ -106,6 +121,15 @@ $bgHighlight    : #f01d67;
 $colDefault     : #d6d6d6;
 $colHighlight   : #f01d67;
 $dropDown       : true;
+
+
+.pinkfont {
+ 	color: $bgHighlight;
+}
+
+.topnavbar {
+	margin-top:50px;
+}
 
 .userheader {
 	 font-family: 'marck_scriptregular';
@@ -256,6 +280,17 @@ transition: all 0.4s ease;
     border-color: $colDefault;
     color: $colDefault;
     box-shadow: none;
+}
+
+.btn-default.search {
+	padding: 6px 21px;
+	border: 1px solid $bgDefault;
+	color: $bgHighlight;
+	background: none;
+}
+
+.form-control.pink {
+	border: 1px solid $bgDefault;
 }
 
 // btn.pink
