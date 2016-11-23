@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>我的申请记录</title>
+  </head>
+
+  <body>
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>邀约id</td>
+            <td>创建日期</td>
+            <td>匹配状态</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @asker_requests.each do |asker_request|  %>
+          <tr>
+              <td><%= link_to(asker_request.post_id,post_path(asker_request.post_id)) %></td>
+              <td><%= asker_request.created_at %></td>
+              <td><%= asker_request.is_matched %></td>
+              <% if asker_request.is_matched%>
+                <td><%=link_to("申请已通过","#", class: "btn btn-sm btn-success",disabled: :true)%></td>
+              <% else %>
+                <td><%=link_to("取消申请", account_asker_request_path(asker_request),method: :delete, data: { confirm: "Are you sure?" },class: "btn-sm btn-default outline")%></td>
+              <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

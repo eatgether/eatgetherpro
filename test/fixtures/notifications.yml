@@ -1,14 +1,16 @@
 # == Schema Information
 #
-# Table name: order_twos
+# Table name: notifications
 #
-#  id             :integer          not null, primary key
-#  post_id        :integer
-#  poster_user_id :integer
-#  asker_user_id  :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  aasm_state     :string           default("order_matched")
+#  id              :integer          not null, primary key
+#  name            :string
+#  notifiable_id   :integer
+#  notifiable_type :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  read_at         :datetime
+#  recipient_id    :integer
+#  trigger_id      :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

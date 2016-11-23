@@ -13,73 +13,53 @@
            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
         <% end %>
       </div>
-      <div class="col-md-7 show-grid">
-        <div class="row well">
-          <div class="col-md-3">
-            <div class="eat_day">
-              <span style="position: relative; top: 20%; text-align: center;">
-                <%= @post.eat_day.to_s[0,4]%><br>
-                <%= @post.eat_day.to_s[5,9]%>
-              </span>
-            </div>
-          </div>
-          <div class="col-md-9">
-            <div class="row eat_venue">
-              <%= @post.eat_venue %>
-            </div>
-            <div class="row post_eat_venue_address">
-              <i class="fa fa-map-marker"></i>   地址：巴拉拉巴拉拉巴拉拉巴拉拉巴拉拉
-            </div>
-          </div>
-          <br>
-        </div>
-        <div class="row">
-          <div class="post_description">
-              <p style="line-height: 30px"><%= @post.description %></p>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <div class="container well" >
-      <ul class="list-unstyled">
-        <% @asker_users.each do |asker_user| %>
-        <li>
-          <div class="row">
-            <div class="col-md-1">
-              <div class="asker_avater">
-                <%= image_tag(asker_user.image.avatar.url) %>
-              </div>
-            </div>
-            <div class="col-md-9">
-              <div class="asker_nameNick">
-                <span style="font-size:1.5em"><%= asker_user.nameNick %></span>
-              </div>
-              <div class="asker_interest">
-              <% asker_user.interest.each do |interest| %>
-                <span class="label label-primay" style="background:#dddddd;border-radius: 200px; margin-left:10px;">
-                  <%= interest.name %>
-                </span>
-              <% end %>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <% if current_asker_request(asker_user.id,@post.id).is_matched %>
-                <%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
-              <% else %>
-                <% if OrderTwo.find_by_post_id(@post.id)%>
-                  <%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
-                <% else %>
-                  <%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </li>
-        <hr>
-        <% end %>
-      </ul>
-    </div>
-
   </div>
 </div>
+
+      <div class="row">
+          <div class="container well" >
+            <ul class="list-unstyled">
+              <% @asker_users.each do |asker_user| %>
+              <li>
+                <div class="row">
+                  <div class="col-md-1">
+                    <div class="asker_avater">
+                      <% if asker_user.image.blank? %>
+                        <%= image_tag(asker_user.image.avatar.url) %>
+                      <% else %>
+                        <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="asker_nameNick">
+                      <span style="font-size:1.5em"><%= asker_user.nameNick %></span>
+                    </div>
+                    <div class="asker_interest">
+                    <% asker_user.interest.each do |interest| %>
+                      <span class="label label-primay" style="background:#dddddd;border-radius: 200px; margin-left:10px;">
+                        <%= interest.name %>
+                      </span>
+                    <% end %>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <% if current_asker_request(asker_user.id,@post.id).is_matched %>
+                      <%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
+                    <% else %>
+                      <% if OrderTwo.find_by_post_id(@post.id)%>
+                        <%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
+                      <% else %>
+                        <%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </li>
+              <hr>
+              <% end %>
+            </ul>
+          </div>
+
+      </div>
