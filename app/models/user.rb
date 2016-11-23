@@ -48,6 +48,9 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  def mailboxer_email(user)
+    email
+  end
 
   def is_asker_of?(post)
     ask_posts.include?(post)

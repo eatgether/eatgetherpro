@@ -8,6 +8,7 @@ class ConversationsController < ApplicationController
 
       @messages = @conversation.messages if @conversation.present?
 
+
     end
 
     def create

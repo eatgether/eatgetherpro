@@ -53,6 +53,10 @@ Rails.application.routes.draw do
     end
 
 
+  resources :order_twos do
+    resources :conversations
+  end
+
   resources :interests
 	resources :orders do
 	end
@@ -77,7 +81,11 @@ Rails.application.routes.draw do
       end
 			resources :feedbacks
     end
-    resources :conversations
+    resources :conversations do
+      member do
+        post :reply
+      end
+    end
     resources :user_conversations
   end
 
