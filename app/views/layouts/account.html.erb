@@ -8,20 +8,33 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
-    <body> 
+    <body>
 
         <div class="container-fluid">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
-            <div class="row">
-                <div class="col-md-2 col-md-offset-1">
-                    <%= render(partial: 'user') %>
-                </div>
 
-                <div class="col-md-8">
+            <div class="container">
+              <div class="row">
+                <div class="bread-user">
+                  <div class="brend-word">
+                     <span class="bread-one">
+                        <a href="/">首页</a>
+                     </span>
+                     <span class="bread-two">»</span>
+                     <span class="bread-three">个人中心</span>
+                  </div>
 
-                    <%= yield %>
+                    <div class="col-md-2 col-md-offset-2">
+                        <%= render(partial: 'user') %>
+                    </div>
+                    <div class="col-md-8">
+
+                        <%= yield %>
+                    </div>
+
                 </div>
+              </div>
             </div>
 
         </div>
