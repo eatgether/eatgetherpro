@@ -46,12 +46,10 @@ Rails.application.routes.draw do
 
 		resources :feedbacks
   end
-    resources :conversations
 
 
-
-  resources :order_twos do
-    resources :conversations
+    resources :conversations do
+    resources :order_twos
   end
 
   resources :interests

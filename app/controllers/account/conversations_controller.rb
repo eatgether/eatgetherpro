@@ -10,6 +10,7 @@ class Account::ConversationsController < ApplicationController
   end
 
   def show
+    #@order = OrderTwo.ids
     @mailbox = current_user.mailbox
     @conversation = @mailbox.conversations.find(params[:id])
     @receipts = @conversation.receipts.collect(&:receiver).uniq

@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
     end
 
     def create
-      @order = OrderTwo.find(params[:order_id])
+      @order = OrderTwo.find(params[:order_two_id])
       @conversation = @order.conversation
 
       if @conversation.blank?
