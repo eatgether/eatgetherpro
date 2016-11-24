@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +21,7 @@
 								<% if @post.image.present? %>
 			            <%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
 			          <% else %>
-			           	<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+			           	<%= image_tag("logo-nopic3.png", class: "thumbnail img-responsive center-block") %>
 			          <% end %></div>
 <!-- 可添加更多图片：大图区 -->
 						  <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
@@ -42,11 +41,13 @@
 					</div>
 					<div class="details col-md-6">
 						<h3 class="product-title"><%= @post.title %></h3>
-						<h4 class="price"><i class="fa fa-calendar"><%= @post.eat_day.to_s[5,9]%></h4>
+						<h4 class="sizes"><i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%Y年%m月%d日")%></h4>
 						<p class="sizes"><i class="fa fa-cutlery"></i>&nbsp;<%= @post.eat_venue %></p>
-						<h5 class="sizes"<i class="fa fa-map-marker"></i>&nbsp;东三环中路39号建外SOHO东区5号别墅(近国贸地铁站)</h5>
+						<h5 class="sizes"><i class="fa fa-map-marker"></i>&nbsp;东三环中路39号建外SOHO东区5号别墅(近国贸地铁站)</h5>
 						<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;010-58690273</h5>
+						<br>
 						<p class="product-description"><%= @post.description %></p>
+						<br><br>
 						<div class="post-action-btn">
 							<% if current_user && current_user.is_asker_of?(@post) %>
 									<%= link_to("您已申请约饭","#", class: "btn btn-default pink",disabled: :true) %>
@@ -60,8 +61,7 @@
 					</div>
 				</div>
 			</div>
-  </body>
-</html>
+
 
 
 
@@ -122,3 +122,6 @@
 		<% end %>
   </div>
 </div>
+
+</body>
+</html>

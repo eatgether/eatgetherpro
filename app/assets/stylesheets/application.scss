@@ -278,7 +278,23 @@ transition: all 0.4s ease;
     box-shadow: none;
 }
 
-.btn-default.search {
+//btn-sm
+.btn-sm.outline {
+    border: 2px solid $bgDefault;
+    color: $bgDefault;
+}
+.btn-sm.outline:hover, .btn-sm.outline:focus, .btn-sm.outline:active, .btn-sm.outline.active, .open > .dropdown-toggle.btn-sm {
+    color: $colDefault;
+    border-color: $colDefault;
+}
+.btn-sm.outline:active, .btn-sm.outline.active {
+    border-color: $colDefault;
+    color: $colDefault;
+    box-shadow: none;
+}
+//
+
+.btn-sm.search {
 	padding: 6px 21px;
 	border: 1px solid $bgDefault;
 	color: $bgHighlight;

@@ -8,7 +8,7 @@
           <% if current_user.image.present? %>
              <%= image_tag(current_user.image.medium.url, class: "img-thumbnails") %>
           <% else %>
-             <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+             <%= image_tag("logo-nopic2.png", class: "img-thumbnails", style: "width:200px;") %>
           <% end %>
 
 
