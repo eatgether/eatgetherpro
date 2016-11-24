@@ -1,19 +1,10 @@
-.account-index {
-  height: 600px;
-}
-
-.account-index-bg {
-  height: 600px;
-  width: 100%;
-}
-
 
 .img-account {
     margin: 15px;
     border: 1px solid #ccc;
     float: left;
     width: 250px;
-    height: 380px;
+    height: 400px;
  }
 
  div.img-account:hover {
@@ -59,3 +50,20 @@
    margin-bottom: -5px;
    overflow: hidden;
  }
+
+ .my-order-bg{
+   height: 450px;
+   width: 100px;
+ }
+
+.my-order{
+  height: 550px;
+  width: 100%;
+  position:relative;
+  margin-top: 80px;
+}
+
+.user-space{
+   position: relative;
+   height: 400px;
+}
