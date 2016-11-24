@@ -1,9 +1,11 @@
 class Account::OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :get_notification
+  
 
   def index
     #@orders = Order.where(:poster_user_id => current_user) || Order.where(:asker_user_id => current_user)
-    @orders = Order.where(':poster_user_id = ? OR :asker_user_id = ?', current_user ,current_user) 
+    @orders = Order.where(':poster_user_id = ? OR :asker_user_id = ?', current_user ,current_user)
   end
 
   def show

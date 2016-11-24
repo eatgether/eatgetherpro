@@ -1,5 +1,7 @@
 class Account::FeedbacksController < ApplicationController
 	before_action :authenticate_user! , only: [:new, :create]
+	before_action :get_notification
+	
 	# before_action :find_order
 
 	def new

@@ -1,4 +1,6 @@
 class Account::AskerRequestsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :get_notification
 
   def index
     @asker_requests = AskerRequest.where(user_id: current_user)

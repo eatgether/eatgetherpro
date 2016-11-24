@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-
-   before_action :authenticate_user!,only:[:new,:create,:update,:edit,:destroy,:show]
-
+  before_action :authenticate_user!,only:[:new,:create,:update,:edit,:destroy,:show]
+  before_action :get_notification
+  
   def index
     @posts = Post.page(params[:page]).per(6).recent
   end
