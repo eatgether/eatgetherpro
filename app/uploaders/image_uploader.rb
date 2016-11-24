@@ -33,6 +33,13 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [500,600]
   end
 
+	process :rotate
+
+	def rotate
+		manipulate! do |image|
+			image.auto_orient
+		end
+	end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

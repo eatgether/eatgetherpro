@@ -20,3 +20,32 @@
 //= require bootstrap-sprockets
 
 //= require_tree .
+
+
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('nav').addClass('shrink');
+  } else {
+    $('nav').removeClass('shrink');
+  }
+});
+
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('a').addClass('shrink');
+  } else {
+    $('a').removeClass('shrink');
+  }
+});
+
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('img').addClass('shrink');
+  } else {
+    $('img').removeClass('shrink');
+  }
+});
+
+$('.carousel').carousel({
+	interval: 4000
+})

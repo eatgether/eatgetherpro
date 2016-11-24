@@ -28,27 +28,90 @@
 
  }
 
- * {
+
+$bgDefault      : #3e3e3e;
+$bgHighlight    : #f01d67;
+$colDefault     : #d6d6d6;
+$colHighlight   : #f01d67;
+$dropDown       : true;
+
+
+* {
    font-family: "lucida grande";
   }
+
+a:hover {
+	text-decoration: none;
+}
+
+.alert {
+	  position: absolute;
+	  top: 55px;
+	  left: 20px;
+	  right: 20px;
+		z-index: 4;
+	}
 
 .center {
      text-align: center;
  }
 
-.projname {
+
+.projnamehome {
+	font-family: "marck_scriptregular";
+	color: white;
+	font-size: 32px;
+}
+
+a.projname {
+ -webkit-transition: all 0.4s ease;
+ transition: all 0.4s ease;
+ }
+
+a.projname {
   font-family: "marck_scriptregular";
+	font-size: 21px;
+}
+
+a.projname.shrink {
+  min-height: 20px;
+	font-size: 18px;
+}
+
+img.logonav {
+ -webkit-transition: all 0.4s ease;
+ transition: all 0.4s ease;
+ }
+
+img.logonav {
+	height: 19px;
+	width: 19px;
+	float:left;
+	vertical-align: text-bottom;
+}
+
+img.logonav.shrink {
+	height: 17px;
+	width: 17px;
+	float:left;
+	vertical-align: text-bottom;
 }
 
 .logohome {
-	height: 45px;
-	width: 45px;
-	margin-bottom: 0px;
+	height: 30px;
+	width: 30px;
+	vertical-align: text-bottom;
+}
+
+.logocarousel {
+	height: 30px;
+	width: 30px;
+	vertical-align: text-bottom;
 }
 
 .logoend {
 	height: 30px;
-	width: 30px;
+	max-width: 30px;
 	margin-bottom: 9px;
 }
 
@@ -65,11 +128,15 @@
 			background-position: 70% 48%;
 }
 
-$bgDefault      : #3e3e3e;
-$bgHighlight    : #f01d67;
-$colDefault     : #d6d6d6;
-$colHighlight   : #f01d67;
-$dropDown       : true;
+
+
+.pinkfont {
+ 	color: $bgHighlight;
+}
+
+.topnavbar {
+	margin-top:60px;
+}
 
 .userheader {
 	 font-family: 'marck_scriptregular';
@@ -99,15 +166,39 @@ a:hover {
 }
 
 
+.navbar {
+-webkit-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+
+.navbar.shrink {
+  min-height: 30px;
+	font-size: 13px;
+}
+
+// .navbar-brand.shrink {
+// 	min-height: 30px;
+// 	font-size: 12px;
+// }
+
 .navbar-default {
+	margin: 0;
+	padding: 0;
+	height: 40px;
+	border: none;
+	border-radius: 0px;
   background-color: $bgDefault;
   .navbar-brand {
     color: $colDefault;
     &:hover {
-      color: $colHighlight; }
+      color: $colDefault; }
 		&:focus {
-			color: #d6d6d6
-		}}
+			color: #d6d6d6; }
+		}
+	// .navbar-brand.shrink {
+	// 	min-height: 30px;
+	// 	font-size: 12px;
+	// }
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {
@@ -196,6 +287,17 @@ a:hover {
     border-color: $colDefault;
     color: $colDefault;
     box-shadow: none;
+}
+
+.btn-default.search {
+	padding: 6px 21px;
+	border: 1px solid $bgDefault;
+	color: $bgHighlight;
+	background: none;
+}
+
+.form-control.pink {
+	border: 1px solid $bgDefault;
 }
 
 // btn.pink
