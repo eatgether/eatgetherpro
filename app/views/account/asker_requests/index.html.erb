@@ -6,31 +6,49 @@
   </head>
 
   <body>
-    <div class="col-md-12 topnavbar">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <td>邀约id</td>
-            <td>创建日期</td>
-            <td>匹配状态</td>
-            <td>操作</td>
-          </tr>
-        </thead>
-        <tbody>
-          <% @asker_requests.each do |asker_request|  %>
-          <tr>
-              <td><%= link_to(asker_request.post_id,post_path(asker_request.post_id)) %></td>
-              <td><%= asker_request.created_at %></td>
-              <td><%= asker_request.is_matched %></td>
-              <% if asker_request.is_matched%>
-                <td><%=link_to("申请已通过","#", class: "btn btn-sm btn-success",disabled: :true)%></td>
-              <% else %>
-                <td><%=link_to("取消申请", account_asker_request_path(asker_request),method: :delete, data: { confirm: "Are you sure?" },class: "btn-sm btn-default outline")%></td>
-              <% end %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-md-10 col-md-offset-1 topnavbar">
+			<% if @asker_requests.present? %>
+	      <table class="table table-hover">
+	        <thead>
+	          <tr>
+	            <td>邀约id</td>
+	            <td>创建日期</td>
+	            <td>匹配状态</td>
+	            <td>操作</td>
+	          </tr>
+	        </thead>
+	        <tbody>
+	          <% @asker_requests.each do |asker_request|  %>
+	          <tr>
+	              <td><%= link_to(asker_request.post_id,post_path(asker_request.post_id)) %></td>
+	              <td><%= asker_request.created_at %></td>
+	              <td><%= asker_request.is_matched %></td>
+	              <% if asker_request.is_matched%>
+	                <td><%=link_to("申请已通过","#", class: "btn btn-sm btn-default pink",disabled: :true)%></td>
+	              <% else %>
+	                <td><%=link_to("取消申请", account_asker_request_path(asker_request),method: :delete, data: { confirm: "Are you sure?" },class: "btn-sm btn-default pink light")%></td>
+	              <% end %>
+	          </tr>
+	          <% end %>
+	        </tbody>
+	      </table>
+			<% else %>
+			<div class="lonely2page">
+				<div class="lonely2page-bg" id="noasker_request"></div>
+				<div class="overlaylonely2"></div>
+				<div class="col-md-12">
+					<div class="row noorderpage-top">
+						<h1>
+						还没有申请邀约？
+						</h1>
+						<br>
+						<%= link_to "游览饭局 <span class='glyphicon glyphicon-chevron-right'></span>".html_safe(), posts_path, class: "btn btn-default pink" %>
+						<br>
+						<p> 游览多个好玩的饭局，开启全新社交模式</p>
+					</div>
+				</div>
+			</div>
+			<% end %>
     </div>
   </body>
 </html>

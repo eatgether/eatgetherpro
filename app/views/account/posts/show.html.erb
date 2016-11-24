@@ -1,63 +1,123 @@
-<div class="account-show">
-  <div class="account-show-bg" id="account-show">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
 
-    <div class="container well" style="text-align:center;">
-      <div class="post_theme">
-         <%= @post.title %>
-      </div>
-      <div class="col-md-5">
-        <% if @post.image.present? %>
-           <%= image_tag(@post.image.large.url, class: "thumbnail img-responsive center-block") %>
-        <% else %>
-           <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>eCommerce Product Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+			<div class="container topnavbar">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1">
+								<% if @post.image.present? %>
+			            <%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
+			          <% else %>
+			           	<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+			          <% end %></div>
+<!-- 可添加更多图片：大图区 -->
+						  <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
+						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
+						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div> -->
+						</div>
+<!-- 可添加更多图片：小图区 -->
+						<!-- <ul class="preview-thumbnail nav nav-tabs">
+						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						</ul> -->
+
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title"><%= @post.title %></h3>
+						<h4 class="price"><i class="fa fa-calendar"><%= @post.eat_day.to_s[5,9]%></h4>
+						<p class="sizes"><i class="fa fa-cutlery"></i>&nbsp;<%= @post.eat_venue %></p>
+						<h5 class="sizes"<i class="fa fa-map-marker"></i>&nbsp;东三环中路39号建外SOHO东区5号别墅(近国贸地铁站)</h5>
+						<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;010-58690273</h5>
+						<p class="product-description"><%= @post.description %></p>
+						<div class="post-action-btn">
+							<% if current_user && current_user.is_asker_of?(@post) %>
+									<%= link_to("您已申请约饭","#", class: "btn btn-default pink",disabled: :true) %>
+							<% elsif @post.user_id == current_user.id && current_user %>
+									<%= link_to("这是您发起的预约","#", class: "btn btn-default pink",disabled: :true) %>
+							<% else %>
+									<%= link_to("加入约饭",application_post_path(@post),method: :post,class: "btn btn-default pink light") %>
+							<% end %>
+							<button class="like btn btn-default pink" type="button"><i class="fa fa-heart"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+  </body>
+</html>
+
+
+
+
+
+<!-- 申请人列表部分 -->
+<div class="row">
+  <div class="container well">
+		<div class="row">
+			<h4 class="ask_user_well">申请邀约的人</h4>
+			<hr>
+		</div>
+		<% if @asker_users.present? %>
+    <ul class="list-unstyled">
+				<% @asker_users.each do |asker_user| %>
+        <li>
+          <div class="row">
+            <div class="col-md-1">
+              <div class="asker_avater">
+                <% if asker_user.image.present? %>
+                  <%= image_tag(asker_user.image.avatar.url, alt: "No Picture") %>
+                <% else %>
+                  <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="asker_nameNick">
+                <span style="font-size:1.5em"><%= asker_user.nameNick %></span>
+              </div>
+              <div class="asker_interest">
+              <% asker_user.interest.each do |interest| %>
+                <span class="label label-primay" style="background:#dddddd;border-radius: 200px; margin-left:10px;">
+                  <%= interest.name %>
+                </span>
+              <% end %>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <% if current_asker_request(asker_user.id,@post.id).is_matched %>
+                <%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
+              <% else %>
+                <% if OrderTwo.find_by_post_id(@post.id)%>
+                  <%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
+                <% else %>
+                  <%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+        <hr>
         <% end %>
-      </div>
-    </div>
+    </ul>
+		<% else %>
+		~还没有人申请，可以尝试分享链接到社交网络让更多人看到你的邀约~
+		<!-- 添加社交图标 -->
+		<% end %>
   </div>
 </div>
-
-      <div class="row">
-          <div class="container well" >
-            <ul class="list-unstyled">
-              <% @asker_users.each do |asker_user| %>
-              <li>
-                <div class="row">
-                  <div class="col-md-1">
-                    <div class="asker_avater">
-                      <% if asker_user.image.present? %>
-                        <%= image_tag(asker_user.image.avatar.url, alt: "No Picture") %>
-                      <% else %>
-                        <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
-                      <% end %>
-                    </div>
-                  </div>
-                  <div class="col-md-9">
-                    <div class="asker_nameNick">
-                      <span style="font-size:1.5em"><%= asker_user.nameNick %></span>
-                    </div>
-                    <div class="asker_interest">
-                    <% asker_user.interest.each do |interest| %>
-                      <span class="label label-primay" style="background:#dddddd;border-radius: 200px; margin-left:10px;">
-                        <%= interest.name %>
-                      </span>
-                    <% end %>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <% if current_asker_request(asker_user.id,@post.id).is_matched %>
-                      <%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
-                    <% else %>
-                      <% if OrderTwo.find_by_post_id(@post.id)%>
-                        <%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
-                      <% else %>
-                        <%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%>
-                      <% end %>
-                    <% end %>
-                  </div>
-                </div>
-              </li>
-              <hr>
-              <% end %>
-            </ul>
-          </div>
-      </div>

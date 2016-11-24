@@ -4,18 +4,18 @@
        <% @posts.each do |post| %>
          <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="img">
-              <%= link_to post_path(post) do %>
                 <% if post.image.present? %>
                     <%= image_tag(post.image.thumb.url) %>
                 <% else %>
-                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                    <%= image_tag("logo-nopic3.png") %>
                 <% end %>
                 <div class="desc">
-                  <h3> <%= post.title %> </h3>
-                  <h4> <strong> <%= post.eat_venue %> </strong></h4>
-                  <h4><strong> <%= post.eat_day %> </strong></h4>
+									<h3 class="titleh3"> <%= post.title %> </h3>
+									<h4 class="titleh4"> <strong><i class="fa fa-map-marker"></i>&nbsp;<%= post.eat_venue %> </strong></h4>
+									<h4 class="titleh4"><i class="glyphicon glyphicon-time"></i>&nbsp;<%= post.eat_day.strftime("%b %d 晚饭") %></h4>
+									<br>
+									<%= link_to "加入饭局 <span class='glyphicon glyphicon-chevron-right'></span>".html_safe(), post_path(post), class: "btn btn-default pink" %>
                </div>
-             <% end %>
            </div>
          </div>
       <% end %>
