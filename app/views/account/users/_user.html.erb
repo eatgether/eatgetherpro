@@ -6,7 +6,7 @@
   <table class="table person-table topnavbar">
 
           <% if current_user.image.present? %>
-             <%= image_tag(current_user.image.medium.url) %>
+             <%= image_tag(current_user.image.medium.url, class: "img-thumbnails") %>
           <% else %>
              <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
           <% end %>
