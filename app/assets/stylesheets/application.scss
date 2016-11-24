@@ -33,6 +33,7 @@ $bgDefault      : #3e3e3e;
 $bgHighlight    : #f01d67;
 $colDefault     : #d6d6d6;
 $colHighlight   : #f01d67;
+$btnLight	   	 	: #f181a8;
 $dropDown       : true;
 
 
@@ -107,25 +108,13 @@ img.logonav.shrink {
 	height: 30px;
 	width: 30px;
 	vertical-align: text-bottom;
+	margin-bottom: 3px;
 }
 
 .logoend {
 	height: 30px;
 	max-width: 30px;
 	margin-bottom: 9px;
-}
-
-.jumbotron {
-			width:100%;
-			height:100px;
-      background:
-    	 	linear-gradient(
-    			rgba(31, 5, 5, 0.6),
-    			rgba(31, 5, 5, 0.6)
-    			),
-    			url("cheers1.jpg") no-repeat;
-			background-size: auto;
-			background-position: 70% 48%;
 }
 
 
@@ -135,7 +124,7 @@ img.logonav.shrink {
 }
 
 .topnavbar {
-	margin-top:60px;
+	margin-top:70px;
 }
 
 .userheader {
@@ -317,6 +306,26 @@ transition: all 0.4s ease;
     box-shadow: none;
 }
 
+// btn.pink.light
+.btn.pink.light {
+		background: none;
+		padding: 9px 20px;
+		border: 2px solid $colHighlight;
+}
+.btn-default.pink.light {
+    color: $colHighlight;
+		border-color: $colHighlight;
+}
+.btn-default.pink.light:hover, .btn-default.pink.light:focus, .btn-default.pink.light:active, .btn-default.pink.light.active, .open > .dropdown-toggle.btn-default {
+    color: $btnLight;
+    border-color: $btnLight;
+}
+.btn-default.pink.light:active, .btn-default.pink.light.active {
+    border-color: $btnLight;
+    color: $btnLight;
+    box-shadow: none;
+}
+
 //
 
 .btn {
@@ -356,6 +365,11 @@ transition: all 0.4s ease;
 	color: $bgDefault ;
 }
 
+#noasker_request {
+  background-image: url("pair-lg-2.jpg");
+}
+
 .footermargin {
   height: 250px;
+
 }

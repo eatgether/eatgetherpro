@@ -1,3 +1,57 @@
 // Place all the styles related to the order_twos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.lonely2page {
+  height: 500px;
+	margin-top: 15px;
+}
+
+.lonely2page-bg {
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  background-position: center center;
+  background-size: cover;
+	margin-left: 0px;
+	z-index: -1;
+	border-radius: 6px;
+}
+
+
+.lonely2page-top {
+  margin-top: 30px;
+  text-align: center;
+	padding-left: 44px;
+}
+
+.lonely2page-top h1 {
+	color: white;
+	font-size:32px;
+	font-weight:bold;
+	margin-top:190px;
+}
+
+.lonely2page-top p {
+	color: white;
+	font-size: 18px;
+	font-style: italic;
+}
+
+.overlaylonely2 {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    z-index: 2;
+  	background:rgba(49,48,35,0.5);;
+    opacity: .8;
+	  margin-left: 0px;
+		margin-top: 0px;
+		z-index: -1;
+		border-radius: 6px;
+}
+
+#lonely2pic {
+  background-image: url("pair1.jpg");
+}
