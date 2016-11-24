@@ -3,27 +3,55 @@ $bgHighlight    : #f01d67;
 $colDefault     : #d6d6d6;
 $colHighlight   : #f01d67;
 
-  // 第一页 //
-
-.onepage {
-  height: 450px;
+.postpage {
+  height: 500px;
 }
 
-.onepage-bg {
-  height: 450px;
+.postpage-bg {
+  height: 500px;
   width: 100%;
   position: absolute;
   background-position: center center;
   background-size: cover;
-  vertical-align: baseline;
-  display: inline-block;;
+	margin-left: 0px;
+	z-index: -1;
 }
-#onepage {
+
+#postspage {
   display: inline-block;
   vertical-align: baseline;
   background-image: url("http://file06.16sucai.com/2016/0608/e6579a57aff1e4a4dabce4670d9847fd.jpg");
 }
 
+.postpage-top {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.postpage-top h1 {
+	color: white;
+	font-size:32px;
+	font-weight:bold;
+	margin-top:190px;
+}
+
+.postpage-top p {
+	color: white;
+	font-size: 16px;
+	font-style: italic;
+}
+
+.overlaypost {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    z-index: 2;
+  	background:rgba(49,48,35,0.5);;
+    opacity: .8;
+	  margin-left: 0px;
+		margin-top: 0px;
+		z-index: -1;
+}
 
 .headh1content {
   margin-top: 150px;
@@ -51,24 +79,24 @@ $colHighlight   : #f01d67;
     margin-bottom: 20px;
     width: 1100px;
     position: relative;
+		font-size: 14pt;
 }
 
 .bread a {
    color: #9B9B9B;
-   font-size: 18px;
 }
 
-.bread span {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 18px;
-    padding: 5px;
-    max-width: 250px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #000;
-}
+// .bread span {
+//     display: inline-block;
+//     vertical-align: middle;
+//     font-size: 18px;
+//     padding: 5px;
+//     max-width: 250px;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//     color: #000;
+// }
 
   // 第 2 页 //
 
@@ -104,7 +132,7 @@ div.desc h4 {
 
 .view-more p {
   margin-top: 35px;
-  margin-right: 3%;
+  margin-right: -2%;
 }
 
 // 第 3 页 //
@@ -167,4 +195,30 @@ border-top: 1px solid #9B9B9B;
     white-space: nowrap;
     text-overflow: ellipsis;
     color: #9B9B9B;
+}
+
+.jumbotron {
+		width:100%;
+		height:400px;
+		background-image: url("lonely1.jpg");
+		background-size:cover;
+		background-position: center;
+		position: relative;
+		z-index: 1;
+}
+
+.jumbooverlay {
+	position: absolute;
+	width: 96.5%;
+	height: 400px;
+	z-index: 2;
+	background:rgba(49,48,35,0.5);;
+	opacity: .8;
+	margin-left: 0px;
+	margin-top: 0px;
+	border-radius:6px;
+}
+
+#lonelypic {
+  background-image: url("lonely1.jpg");
 }
