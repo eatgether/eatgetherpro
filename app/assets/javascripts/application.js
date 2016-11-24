@@ -45,3 +45,7 @@ $(window).scroll(function() {
     $('img').removeClass('shrink');
   }
 });
+
+$('.carousel').carousel({
+	interval: 4000
+})

@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-<br><br>
-      <table class="table table-hover topnavbar">
-        <thead>
-            <tr>
-                <th>约饭代码</th>
-                <th>约饭主题</th>
-                <th>约饭发起人</th>
-                <th>约饭申请人</th>
-    						<th>邀约状态</th>
-    						<th colspan="3">Admin操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @order_twos.each do |order| %>
-            <tr>
-                <td><%= order.post_id %></td>
-                <td><%= order.post.title %></td>
-                <td><%= order.poster_user.email %></td>
-                <td><%= order.asker_user.email%></td>
-    						<td><%= order.aasm_state %></td>
-                <td>
-                  <%=link_to("取消", confirm_cancel_admin_order_two_path(order), method: :post, class: "btn btn-default outline")%>
-    						  <%=link_to("重启", admin_revive_admin_order_two_path(order), method: :post, class: "btn btn-default outline")%>
-    						  <%=link_to("删除", admin_order_two_path(order), method: :delete, class: "btn btn-default outline", data: { confirm: "只能删除测试订单，确定？" })%>
-                </td>
-            </tr>
-            <% end %>
-        </tbody>
-
-      </table>
-=======
 <div class="row">
     <div class="col-md-12">
         <table class="table table-hover">
@@ -86,4 +54,3 @@
 <div class="text-center">
     <%= will_paginate @order_twos,renderer: BootstrapPagination::Rails %>
 </div>
->>>>>>> 5ecb5d694eb1132704ca2c36aad48a312a33b8bc

@@ -8,14 +8,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-                 <li> <%= link_to("<i class='fa fa-cutlery'></i>  最新约饭".html_safe,posts_path)%></li>
-								 <li> <%= link_to("<i class='fa fa-cutlery'></i>  最新博客".html_safe,feedbacks_path)%></li>
-=======
                  <li> <%=  link_to("最新约饭",posts_path)%></li>
                  <li> <%=  link_to("约客足迹",feedbacks_path)%></li>
                  <li> <%=  link_to("通知",notifications_path)%></li>
->>>>>>> 5ecb5d694eb1132704ca2c36aad48a312a33b8bc
               <% if !current_user %>
 									<!-- <%#= link_to "#signupModal", 'data-toggle' => 'modal' do %>
 									<li><i class="fa fa-user"> </i>注册</li>

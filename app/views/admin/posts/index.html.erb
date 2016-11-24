@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-<br><br>
-<table class="table table-hover topnavbar">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>约饭主题</th>
-            <th>约饭内容</th>
-            <th>约饭地点</th>
-            <th>约饭日期</th>
-            <th>控制面板</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-        <% @posts.each do |post| %>
-        <tr>
-            <td><%= post.id %></td>
-            <td><%= post.title %></td>
-            <td><%= post.description %></td>
-            <td><%= post.eat_venue %></td>
-            <td><%= post.eat_day %></td>
-            <td><%= link_to("删除", admin_post_path(post), method: :delete, class: "btn btn-default outline center-block", :data => { :confirm => "确定要删除此约饭？？" }) %></td>
-
-        </tr>
-        <% end %>
-
-    </tbody>
-</table>
-=======
-
     <div class="row">
         <div class="col-md-12">
             <table class="table table-hover">
@@ -52,7 +20,7 @@
                           <% end %>
                         </td>
                         <td><%= post.title %></td>
-                        
+
                         <td><%= post.eat_venue %></td>
                         <td><%= post.eat_day %></td>
                         <td><%= link_to("删除", admin_post_path(post), method: :delete, class: "btn btn-default outline center-block", :data => { :confirm => "确定要删除此约饭？？" }) %></td>
@@ -67,4 +35,3 @@
     </div>
 
 </div>
->>>>>>> 5ecb5d694eb1132704ca2c36aad48a312a33b8bc

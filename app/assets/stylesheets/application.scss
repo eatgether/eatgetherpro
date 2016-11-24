@@ -28,9 +28,21 @@
 
  }
 
- * {
+
+$bgDefault      : #3e3e3e;
+$bgHighlight    : #f01d67;
+$colDefault     : #d6d6d6;
+$colHighlight   : #f01d67;
+$dropDown       : true;
+
+
+* {
    font-family: "lucida grande";
   }
+
+a:hover {
+	text-decoration: none;
+}
 
 .alert {
 	  position: absolute;
@@ -116,11 +128,6 @@ img.logonav.shrink {
 			background-position: 70% 48%;
 }
 
-$bgDefault      : #3e3e3e;
-$bgHighlight    : #f01d67;
-$colDefault     : #d6d6d6;
-$colHighlight   : #f01d67;
-$dropDown       : true;
 
 
 .pinkfont {
@@ -128,7 +135,7 @@ $dropDown       : true;
 }
 
 .topnavbar {
-	margin-top:50px;
+	margin-top:60px;
 }
 
 .userheader {
