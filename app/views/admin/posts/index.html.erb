@@ -1,13 +1,11 @@
-<br><br>
-<div class="container">
     <div class="row">
-        <div class="col-md-11">
+        <div class="col-md-12">
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>约饭主题</th>
-                        <th>约饭内容</th>
+
                         <th>约饭地点</th>
                         <th>约饭日期</th>
                         <th>控制面板</th>
@@ -22,7 +20,7 @@
                           <% end %>
                         </td>
                         <td><%= post.title %></td>
-                        <td><%= post.description %></td>
+
                         <td><%= post.eat_venue %></td>
                         <td><%= post.eat_day %></td>
                         <td><%= link_to("删除", admin_post_path(post), method: :delete, class: "btn btn-default outline center-block", :data => { :confirm => "确定要删除此约饭？？" }) %></td>

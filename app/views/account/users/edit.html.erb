@@ -1,5 +1,5 @@
+<div class="widget-content topnavbar">
 
-<div class="widget-content">
 <h2 class="center">修改个人信息</h2>
 
     <div class="row">
@@ -46,12 +46,12 @@
 
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+            <!-- <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
                 添加兴趣爱好
-            </button>
+            </button> -->
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -61,16 +61,18 @@
                             </button>
                             <h4 class="modal-title" id="myModalLabel">爱好越丰富</h4>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body"> -->
+                          <div class="group">
                             <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
-                        </div>
+                                                      </div>
+                        <!-- </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">我选好了</button>
 
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
               <br><br>

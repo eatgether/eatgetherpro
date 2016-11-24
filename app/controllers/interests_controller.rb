@@ -16,6 +16,19 @@ class InterestsController < ApplicationController
     end
   end
 
+  def edit
+   @interest = Interest.find(params[:id])
+  end
+
+ def update
+   @interest = Interest.find(params[:id])
+   if @interest.update(interest_params)
+     redirect_to admin_interests_path
+   else
+     render :edit
+   end
+ end
+
   private
 
   def interest_params

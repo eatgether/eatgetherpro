@@ -2,7 +2,7 @@ class Admin::FeedbacksController < ApplicationController
   layout "admin"
 
 	def index
-		@feedbacks = Feedback.all
+		@feedbacks = Feedback.all.recent.paginate(:page => params[:page],:per_page => 5)
 	end
 
 	def edit
