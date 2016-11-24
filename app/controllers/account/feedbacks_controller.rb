@@ -16,6 +16,7 @@ class Account::FeedbacksController < ApplicationController
 		@feedback = @order.feedbacks.build(feedback_params)
 		@feedback.user = current_user
 		@feedback.order_two_id = @order.id
+		@feedback.rating = params[:rating]
 		@feedback.save
 
 		redirect_to account_order_twos_path, notice: "反馈已保存，感谢您的填写！"
@@ -37,6 +38,19 @@ class Account::FeedbacksController < ApplicationController
 			render :root
 		end
 	end
+
+	def rating
+    # 获取message的参数
+    feedback_id = params[:feedback_id]
+    score = params[:rating]
+
+    # 找到指定的message
+    feedback = Feedback.find(feedback_id.to_i)
+    # 为message评级
+    feedback.rating = score
+    feedback.save
+    return 'success'
+  end
 
 	private
 

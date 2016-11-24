@@ -51,6 +51,9 @@ private
    @mailbox ||= current_user.mailbox
  end
 
-
+  #创建notifications方法
+  def send_notification!(trigger,recipient,notifiable)
+    Notification.create(trigger_id: trigger,recipient_id: recipient,notifiable_id: notifiable.id,notifiable_type: notifiable.class)
+  end
 
 end

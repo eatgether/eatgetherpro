@@ -13,12 +13,14 @@
 
 class OrderTwo < ApplicationRecord
   include AASM
-  has_one :conversation, class_name: "Conversation", foreign_key: "request_id"  #mailboxer 
+  has_one :conversation, class_name: "Conversation", foreign_key: "request_id"  #mailboxer
   belongs_to :poster_user, :class_name => "User"
   belongs_to :asker_user, :class_name => "User"
   belongs_to :post, :class_name => "Post"
   has_many :feedbacks
+  has_many :notifications, as: :notifiable
 
+  scope :recent, -> {order("updated_at DESC")}
 
   aasm do
 		state :order_matched, initial: true

@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20161123121541) do
     t.string   "image"
     t.integer  "user_id"
     t.integer  "order_two_id"
+    t.integer  "rating"
   end
 
   create_table "interests", force: :cascade do |t|
@@ -93,6 +94,17 @@ ActiveRecord::Schema.define(version: 20161123121541) do
     t.string   "message_id"
     t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
     t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "notifiable_id"
+    t.string   "notifiable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.datetime "read_at"
+    t.integer  "recipient_id"
+    t.integer  "trigger_id"
   end
 
   create_table "order_twos", force: :cascade do |t|

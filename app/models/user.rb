@@ -40,6 +40,8 @@ class User < ApplicationRecord
   has_many :user_interests
   has_many :interest, :through => :user_interests,source: :interest
 
+  has_many :notifications
+
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
 

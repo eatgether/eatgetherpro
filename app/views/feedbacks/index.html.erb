@@ -1,21 +1,21 @@
 <div class="col-md-12">
-  <div class="feedback">
-    <%= link_to("New feedback", new_admin_feedback_path, class: "btn btn-primary pull-right") %>
-  </div>
   <table class="table table-hover">
     <thead>
       <tr>
         <th>#</th>
         <th>Title</th>
         <th>Description</th>
+        <th>Rating</th>
+
       </tr>
     </thead>
     <tbody>
       <% @feedbacks.each do |feedback| %>
         <tr>
-          <td><%= feedback.id %></td>
+          <td><%=link_to(feedback.id,feedback_path(feedback),method: :get) %></td>
           <td><%= feedback.title %></td>
           <td><%= feedback.description %></td>
+          <td><%= feedback.rating %></td>
         </tr>
       <% end %>
     </tbody>
