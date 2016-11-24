@@ -62,7 +62,7 @@ Rails.application.routes.draw do
         get :photo
       end
     end
-
+    resources :user_conversations
     resources :posts do
       member do
         post :application_approved
@@ -91,6 +91,7 @@ Rails.application.routes.draw do
     end
 
     resources :asker_requests
+  end
 
   root "welcome#index"
 end
