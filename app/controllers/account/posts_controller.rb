@@ -1,6 +1,7 @@
 class Account::PostsController < ApplicationController
   before_action :authenticate_user!
-
+  before_action :get_notification
+  
  def index
    @posts = current_user.posts
  end

@@ -1,6 +1,6 @@
 class InterestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_required
+  #before_action :admin_required
 
   def new
     @interest = Interest.new
