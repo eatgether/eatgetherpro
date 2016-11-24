@@ -67,12 +67,6 @@
   margin-top: 50px;
   font-size: 12px;
   color: #9B9B9B;
-  //
-  // border-radius: 100%;
-  // border-top-left-radius: 100%;
-  // border-top-right-radius: 100%;
-  // border-bottom-right-radius: 100%;
-  // border-bottom-left-radius: 100%;
 }
 
 .twitter{
@@ -94,11 +88,13 @@
 }
 
 .life-image{
+  position: relative;
   padding: 20px;
 }
 
 .life-photo {
   position: relative;
+  height: 100%;
   margin-top: 100px;
   margin-left: 50px;
   border: 1px solid #9B9B9B;
