@@ -20,6 +20,8 @@ class OrderTwo < ApplicationRecord
   has_many :feedbacks
   has_many :notifications, as: :notifiable
 
+  scope :recent, -> {order("updated_at DESC")}
+  
   aasm do
 		state :order_matched, initial: true
 		state :order_met

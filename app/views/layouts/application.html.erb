@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Eatgether</title>
-		<%= csrf_meta_tags %>
+    <head>
+        <title>Eatgether</title>
+        <%= csrf_meta_tags %>
 
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="http://ogx9q73gu.bkt.clouddn.com/blowup.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="http://ogx9q73gu.bkt.clouddn.com/ihover.css" media="screen" title="no title">
-</head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <script src="http://ogx9q73gu.bkt.clouddn.com/blowup.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="http://ogx9q73gu.bkt.clouddn.com/ihover.css" media="screen" title="no title">
+    </head>
 
-<body>
+    <body>
 
-		<div>
-				<%= render "common/navbar" %>
-				<%= render "common/flashes" %>
-				<%= yield %>
-		</div>
-
+        <div>
+            <%= render "common/navbar" %>
+            <%= render "common/flashes" %>
+            <%= yield %>
+        </div>
 		<%= render "common/footer" %>
-
-</body>
+    </body>
 </html>

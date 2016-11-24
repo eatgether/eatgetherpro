@@ -11,4 +11,5 @@
 class Interest < ApplicationRecord
   has_many :users, :through => :user_interests ,source: :user
   has_many :user_interests
+  scope :recent, -> {order("created_at DESC")}
 end
