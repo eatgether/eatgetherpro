@@ -1,31 +1,39 @@
 .new {
-  height: 750px;
+  height: 650px;
 
 }
 
 .new-bg {
   width: 100%;
-  height: 100%;
+  height: 650px;
   background-position: center;
   background-size: cover;
   position: absolute;
 }
 
 #newbg {
-  background-image: url('wine-lg.jpg');
+  // background-image: url('date1.png');
 }
+
+.date-picture{
+  margin-top: -70px;
+  margin-right: -550px;
+}
+
+
 .new-bg h1 {
   // text-align: center;
-  color: black;
-  margin-top: 450px;
-  text-indent: 25px;
-  margin-left: 100px;
+  color: #454545;
+  margin-top: 100px;
+  margin-left: 120px;
+  margin-bottom: 30px;
 }
 
 .tianbiao {
+  left: 10%;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 25px;
+  // border-radius: 25px;
   // border:2px solid #a1a1a1;
 }

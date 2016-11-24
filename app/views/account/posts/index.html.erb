@@ -6,39 +6,39 @@
   </head>
 
   <body>
-     <div class="twopage topnavbar">
-       <div class="container">
-         <div class="row">
-           <div class=center>
-             <div id="content">
-                 <% @posts.each do |post| %>
-                   <div class="col-md-4">
-                      <div class="img-account">
-                        <%= link_to account_post_path(post) do %>
-                          <% if post.image.present? %>
-                              <%= image_tag(post.image.thumb.url) %>
-                          <% else %>
-                              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-                          <% end %>
-                          <div class="desc">
-                            <h3 class="titleh3"> <%= post.title %> </h3>
-
-                            <h4 class="titleh4"> <strong> <%= post.eat_venue %> </strong></h4>
-
-                            <h4 class="titleh4"><strong> <%= post.eat_day %> </strong></h4>
-                            <p>
-                                <%=link_to("删除记录", account_post_path(post),
-                                 method: :delete, data: { confirm: "Are you sure?" })%>
-                            </p>
-                         </div>
-                       <% end %>
+     <div class="account-index">
+       <div class="account-index-bg">
+         <div class="container">
+           <div class="row">
+             <div class=center>
+               <div id="content">
+                   <% @posts.each do |post| %>
+                     <div class="col-md-4">
+                        <div class="img-account">
+                          <%= link_to account_post_path(post) do %>
+                            <% if post.image.present? %>
+                                <%= image_tag(post.image.thumb.url) %>
+                            <% else %>
+                                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                            <% end %>
+                            <div class="desc">
+                              <h3 class="titleh3"> <%= post.title %> </h3>
+                              <h4 class="titleh4"> <strong> <%= post.eat_venue %> </strong></h4>
+                              <h4 class="titleh4"><strong> <%= post.eat_day %> </strong></h4>
+                              <p>
+                                  <%=link_to("删除记录", account_post_path(post),
+                                   method: :delete, data: { confirm: "Are you sure?" })%>
+                              </p>
+                           </div>
+                         <% end %>
+                       </div>
                      </div>
-                   </div>
-                <% end %>
+                  <% end %>
+               </div>
              </div>
-           </div>
+          </div>
         </div>
-      </div>
+       </div>
     </div>
 
   </body>

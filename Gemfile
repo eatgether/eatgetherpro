@@ -44,7 +44,7 @@ gem "letter_opener", group: :development
 gem "roadie-rails", "~> 1.0"
 gem 'will_paginate-bootstrap'
 gem 'remotipart'
-
+gem 'mailboxer'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platform: :mri

@@ -18,7 +18,7 @@
 //= require bootstrap/tab
 //= require bootstrap/transition
 //= require bootstrap-sprockets
-//= require jquery.remotipart
+
 //= require_tree .
 
 

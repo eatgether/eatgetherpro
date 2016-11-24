@@ -30,6 +30,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  acts_as_messageable #mailboxer
   has_many :photos
   accepts_nested_attributes_for :photos
   has_many :posts
@@ -49,6 +50,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  #mailboxer 没有这个会出现no method mailboxer_email
+  def mailboxer_email(user)
+    email
+  end
+  ###
 
   def is_asker_of?(post)
     ask_posts.include?(post)

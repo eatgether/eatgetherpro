@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :notifications
   resources :posts
+
 	resources :feedbacks
+
   resources :posts do
     member do
       post :application
       post :cancel_application
     end
   end
-
-  devise_for :users
-
 
   namespace :admin do
     resources :order_twos do
@@ -45,13 +45,16 @@ Rails.application.routes.draw do
     end
 
 		resources :feedbacks
-
   end
 
 
+  resources :conversations do
+    resources :order_twos
+  end
+
   resources :interests
-	resources :orders do
-	end
+
+  resources :orders
 
   namespace :account do
     resources :users do
@@ -59,7 +62,7 @@ Rails.application.routes.draw do
         get :photo
       end
     end
-
+    resources :user_conversations
     resources :posts do
       member do
         post :application_approved
@@ -67,6 +70,8 @@ Rails.application.routes.draw do
     end
 
     resources :order_twos do
+      resources :conversations
+      resources :user_conversations
       member do
 				post :confirm_meeting
 				post :ask_cancel
@@ -78,8 +83,15 @@ Rails.application.routes.draw do
 			end
     end
 
+    resources :conversations do
+      member do
+        post :reply
+      end
+      resources :user_conversations
+    end
+
     resources :asker_requests
   end
 
-  root 'welcome#index'
+  root "welcome#index"
 end

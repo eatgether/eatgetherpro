@@ -4,6 +4,23 @@ $colDefault     : #d6d6d6;
 $colHighlight   : #f01d67;
 $dropDown       : true;
 
+.account-show {
+  height: 750px;
+}
+
+.account-show-bg {
+  width: 100%;
+  height: 750px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+
+#account-show {
+  // background-image: url('date1.png');
+}
+
+
 .eat_day {
   background-color: $bgHighlight ;
   font-size: 1.5em;
@@ -36,10 +53,9 @@ $dropDown       : true;
 }
 
 .post_description {
-  font-size: 1.2em;
   text-align: left;
-  margin-left: 30px;
-  padding-right: 40px;
+  margin-left: 0px;
+  padding-right: 0px;
   width: 100%;
   //text-shadow: 3px 3px 3px $bgHighlight;
 }
