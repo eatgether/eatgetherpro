@@ -1,63 +1,67 @@
-<div class="widget-content topnavbar">
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> 个人中心 </title>
+  </head>
+  <body>
+
+    <div class="container">
       <div class="row">
-          <div class="col-md-12">
-
-              <table class="table table-hover table-striped table-bordered">
-                  <tr>
-                      <th>姓名</th>
-                      <td><%= current_user.nameChi %></td>
-                  </tr>
-                  <tr>
-                      <th>昵称</th>
-                      <td><%= current_user.nameNick %></td>
-                  </tr>
-                  <tr>
-                      <th>性别</th>
-                      <td><%= current_user.gender %></td>
-                  </tr>
-                  <tr>
-                      <th>出生年月</th>
-                      <td><%= current_user.birthday %></td>
-                  </tr>
-                  <tr>
-                      <th>身高</th>
-                      <td><%= current_user.heightUser %></td>
-                  </tr>
-                  <tr>
-                      <th>手机号码</th>
-                      <td><%= current_user.cellNum %></td>
-                  </tr>
-                  <tr>
-                      <th>收入</th>
-                      <td><%= current_user.income %></td>
-                  </tr>
-
-                     <tr>
-                       <th>爱好</th>
-                       <td><% @users.interest.each do |interest| %>
-                        <span class="label label-success">
-
-                         <%= interest.name %>
-                       </span>
-                         <% end %>
-                      </td>
-                    </tr>
-
-                    <tr>
-                    <th colspan="2">
-                      自我描述
-                    </th>
-
-                    </tr>
-                    <tr>
-                    <th colspan="2">
-                    <%= simple_format(current_user.description) %>
-                    </th>
-
-                    </tr>
-
-              </table>
+        <div class="user-space">
+         <div class="com-md-6 col-md-offset-1 user-information" >
+          <div class="Name">
+            <h3><%= current_user.nameChi %></h3>
           </div>
 
+       <div class="word-color">
+
+          <div class="nikename">
+
+             <span class="nike-name">昵称:</span>	<span class="nikname"><%= current_user.nameNick %></span>
+         </div>
+
+         <div class="birthday">
+            <label>生日:</label>  	<span class="nikname"><%= current_user.birthday %></span>
+         </div>
+
+         <div class="phone">
+             <label>电话:</label>  <span class="nikname"><%= current_user.cellNum %></span>
+         </div>
+
+         <div class="height">
+             <label>身高:</label>  	<span class="nikname"><%= current_user.heightUser %></span>
+         </div>
+
+         <div class="income">
+             <label>收入:</label>  	<span class="nikname"><%= current_user.income %></span>
+         </div>
+
+         <div class="interest">
+           <label>兴趣爱好:</label>  <span class="interest-introduction"><% @users.interest.each do |interest| %>
+                                    <span class="label label-success"><%= interest.name %>  </span>
+                                      <% end %>
+                                    </span>
+         </div>
+
+         <div class="introduction" colspan="2">
+             <label>自我介绍:</label>  	<span class="interest-introduction"><%= current_user.description %></span>
+         </div>
+
+            <div class="web-mark">
+                 <span class="web-mark">
+                  <span class="facebook1"></span>  <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                      <span class="twitter"></span><a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                    <span class="goole"></span>  <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                    <span class="wechat"></span>  <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-wechat fa-3x social-em" id="social"></i></a>
+                </span>
+            </div>
+         </div>
+      </div>
+    </div>
   </div>
-</div>
+  </div>
+
+  </body>
+</html>
