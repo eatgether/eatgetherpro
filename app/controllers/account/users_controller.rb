@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  layout "account", only: [:photo, :index, :edit]
+  layout "account"
 
   def index
     @users = current_user
