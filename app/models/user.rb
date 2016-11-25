@@ -53,7 +53,7 @@ class User < ApplicationRecord
 
   #mailboxer 没有这个会出现no method mailboxer_email
   def mailboxer_email(user)
-    email
+    nil
   end
   ###
 

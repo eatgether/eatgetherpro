@@ -1,3 +1,103 @@
-// Place all the styles related to the account/users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-sidebar{
+  margin-top: 100px;
+}
+
+.bread-user{
+  position: relative;
+  padding: 15px;
+  border-bottom: 1px solid #DEDEDE;
+  margin-top: 70px;
+  margin-bottom: 50px
+  }
+
+.brend-word {
+  right:32%;
+}
+
+.bread-one a {
+    color: #9F9789;
+    position: relative;
+  }
+
+.bread-two {
+    color: #9F9789;
+  }
+
+.bread-three {
+  color: #9F9789;
+}
+
+.user-photo {
+  margin-top: 280px;
+}
+
+.user-information {
+  position: relative;
+  right: 3%;
+  margin-top: 100px;
+
+}
+
+.word-color {
+  position: absolute;
+  color: #686868;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.nikname {
+  margin-left: 70px;
+}
+
+.interest-introduction{
+    margin-left: 42px;
+}
+
+.nike-name{
+  margin-bottom: 20px;
+}
+
+.web-mark {
+  margin-top: 50px;
+  font-size: 12px;
+  color: red;
+}
+
+.web-mark a {
+  margin-top: 50px;
+  font-size: 12px;
+  color: #9B9B9B;
+}
+
+.twitter{
+  padding: 10px;
+}
+
+.goole{
+  padding: 10px;
+}
+.wechat{
+  padding: 10px;
+}
+
+.user-edit-title{
+  position: relative;
+  margin-top: 55px;
+  text-align: center;
+  margin-right: 18%;
+}
+
+.life-image{
+  position: relative;
+  padding: 20px;
+}
+
+.life-photo {
+  position: relative;
+  height: 100%;
+  margin-top: 100px;
+  margin-left: 50px;
+  border: 1px solid #9B9B9B;
+  border-radius: 10px;
+
+}

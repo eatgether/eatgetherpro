@@ -37,7 +37,6 @@ class Post < ApplicationRecord
     def must_be_weekend
       if !eat_day.saturday? || eat_day.sunday?
         errors.add(:base,  message:'Must be weeknd')
-
       end
     end
 

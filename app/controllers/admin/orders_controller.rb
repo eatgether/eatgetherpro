@@ -1,6 +1,8 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
+  before_action :get_notification
+  
   layout "admin"
 
   def index

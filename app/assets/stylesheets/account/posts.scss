@@ -1,3 +1,51 @@
+.lonelypage {
+  height: 500px;
+	margin-top: 15px;
+}
+
+.lonelypage-bg {
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  background-position: center center;
+  background-size: cover;
+	margin-left: 0px;
+	z-index: -1;
+	border-radius: 6px;
+}
+
+
+.lonelypage-top {
+  margin-top: 30px;
+  text-align: left;
+	padding-left: 44px;
+}
+
+.lonelypage-top h1 {
+	color: white;
+	font-size:32px;
+	font-weight:bold;
+	margin-top:190px;
+}
+
+.lonelypage-top p {
+	color: white;
+	font-size: 18px;
+}
+
+.overlaylonely {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    z-index: 2;
+  	background:rgba(49,48,35,0.5);;
+    opacity: .8;
+	  margin-left: 0px;
+		margin-top: 0px;
+		z-index: -1;
+		border-radius: 6px;
+}
+
 .account-index {
   height: 600px;
 }
@@ -7,24 +55,12 @@
   width: 100%;
 }
 
-
 .img-account {
     margin: 15px;
     border: 1px solid #ccc;
     float: left;
     width: 250px;
-    height: 380px;
- }
-
- div.img-account:hover {
-     border: 1px solid #D6D6D6;
-     background-color:#F0F0F0;
- }
-
- div.img-account img {
-     width: 100%;
-     height: auto;
-     border: 0;
+    height: 400px;
  }
 
  div.desc {
@@ -45,17 +81,26 @@
    border-top: 1px solid #ccc;
  }
 
- div.desc .titleh4 {
-   position: relative;
-   overflow: hidden;
-   left: 45px;
-   top: 18px;
-   width: 160px;
-   color: #F01D67;
- }
 
  div.desc .titleh3 {
    margin-top: 15px;
    margin-bottom: -5px;
    overflow: hidden;
  }
+
+ .my-order-bg{
+   height: 450px;
+   width: 100px;
+ }
+
+.my-order{
+  height: 550px;
+  width: 100%;
+  position:relative;
+  margin-top: 80px;
+}
+
+.user-space{
+   position: relative;
+   height: 400px;
+}
