@@ -63,17 +63,6 @@
     height: 400px;
  }
 
- div.img-account:hover {
-     border: 1px solid #D6D6D6;
-     background-color:#F0F0F0;
- }
-
- div.img-account img {
-     width: 100%;
-     height: auto;
-     border: 0;
- }
-
  div.desc {
      padding: 0px;
      text-align: center;
@@ -92,14 +81,6 @@
    border-top: 1px solid #ccc;
  }
 
- div.desc .titleh4 {
-   position: relative;
-   overflow: hidden;
-   left: 45px;
-   top: 18px;
-   width: 160px;
-   color: #F01D67;
- }
 
  div.desc .titleh3 {
    margin-top: 15px;

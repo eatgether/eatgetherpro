@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :notifications do
+
+	resources :users
+
+	resources :notifications do
     member do
       get :redirect_notification
     end

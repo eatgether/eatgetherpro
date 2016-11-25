@@ -14,7 +14,7 @@
 
         <div class="container">
             <div class="row">
-                <h1>Hi, 马上约饭吧</h1>
+                <h1>好玩有趣的饭局，这就启程</h1>
                 <div class="col-md-3 col-md-offset-1">
                     <%= simple_form_for @post do |f| %>
 
@@ -28,11 +28,11 @@
                       <%= f.input :eat_venue, :collection => Post.default_location, :selected => Post.default_location[0],label: '约饭地点' %>
                     </div>
                     <div class="group">
-                      <p>约会日期</p>
-                      <%= radio_button(:post, :eat_day,  Date.this_saturday ,checked: true)%><strong>本周六<%=  Date.this_saturday.to_s(:for_date) %></strong><br>
-                      <%= radio_button(:post, :eat_day ,  Date.this_sunday ) %><strong>本周日<%= Date.this_sunday.to_s(:for_date)  %></strong>
+                      <p><strong>约会日期</strong></p>
+                      <%= radio_button(:post, :eat_day,  Date.this_saturday ,checked: true)%>&nbsp;本周六&nbsp;<%=  Date.this_saturday.strftime("%m月%d日 晚饭") %><br>
+                      <%= radio_button(:post, :eat_day ,  Date.this_sunday ) %>&nbsp;本周日&nbsp;<%= Date.this_sunday.strftime("%m月%d日 晚饭")  %>
                     </div>
-
+										<br>
                     <div class="group">
                         <%= f.input :image, as: :file, label: '图片' %>
                     </div>
