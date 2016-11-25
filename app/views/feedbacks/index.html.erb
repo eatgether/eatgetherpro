@@ -36,7 +36,9 @@
 									<%= feedback.title %>
                 </h2>
                 <p class="lead">
-                    by <%= feedback.user.email %>
+										by &nbsp;
+											<%= feedback.user.nameNick %>
+											<%= image_tag(feedback.user.image.medium.url, class: "blog-thumbnails") %>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span>
 									<%= feedback.created_at.strftime("%Y年%m月%d日%I:%M%p") %>
@@ -78,9 +80,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control pink">
                         <span class="input-group-btn">
-                            <button class="btn btn-default search" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
+                          <%= link_to "<span class='glyphicon glyphicon-search'></span>".html_safe(), "#", class: "btn btn-default pink light", style: "height:34px;" %>
                         </span>
                     </div>
                     <!-- /.input-group -->

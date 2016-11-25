@@ -41,7 +41,7 @@
 					</div>
 					<div class="details col-md-6">
 						<h3 class="product-title"><%= @post.title %></h3>
-						<h4 class="sizes"><i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%Y年%m月%d日")%></h4>
+						<h4 class="sizes"><i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%m月%d日")%></h4>
 						<p class="sizes"><i class="fa fa-cutlery"></i>&nbsp;<%= @post.eat_venue %></p>
 						<h5 class="sizes"><i class="fa fa-map-marker"></i>&nbsp;东三环中路39号建外SOHO东区5号别墅(近国贸地铁站)</h5>
 						<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;010-58690273</h5>
@@ -80,9 +80,9 @@
         <li>
           <div class="row">
             <div class="col-md-1">
-              <div class="asker_avater">
+              <div>
                 <% if asker_user.image.present? %>
-                  <%= image_tag(asker_user.image.avatar.url, alt: "No Picture") %>
+                  <%= image_tag(asker_user.image.avatar.url, class: "avatar-thumbnails", alt: "No Picture") %>
                 <% else %>
                   <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
                 <% end %>

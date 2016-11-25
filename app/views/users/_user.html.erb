@@ -1,0 +1,37 @@
+
+<div class="user-sidebar">
+
+
+
+  <table class="table person-table topnavbar">
+
+          <% if current_user.image.present? %>
+             <%= image_tag(current_user.image.medium.url, class: "img-thumbnails") %>
+          <% else %>
+             <%= image_tag("logo-nopic2.png", class: "img-thumbnails", style: "width:200px;") %>
+          <% end %>
+
+
+
+
+    <tr>
+        <td>
+            <i class="fa fa-street-view" aria-hidden="true"></i>
+            <%= link_to("个人资料", account_users_path)%>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <i class="fa fa-picture-o" aria-hidden="true"></i>
+            <%= link_to("生活照", photo_account_user_path(current_user)) %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+            <%= link_to("TA的feedback", account_users_path) %>
+        </td>
+    </tr>
+ </table>
+
+</div>

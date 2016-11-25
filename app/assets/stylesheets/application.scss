@@ -389,3 +389,37 @@ transition: all 0.4s ease;
   height: 250px;
 
 }
+
+.nav-thumbnails {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.blog-thumbnails {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.avatar-thumbnails {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.label-success {
+	background-color: $colHighlight;
+}
