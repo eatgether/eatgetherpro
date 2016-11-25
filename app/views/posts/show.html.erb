@@ -1,54 +1,49 @@
-<div class="account-show">
-   <div class="account-show-bg" id="account-show">
-     <div class="container well" style="text-align:center;">
-       <div class="post_theme">
-          <%= @post.title %>
-       </div>
-       <div class="col-md-5">
-           <% if @post.image.present? %>
-               <%= image_tag(@post.image.large.url, class: "thumbnail img-responsive center-block") %>
-           <% else %>
-               <%= image_tag("logo-nopic3.png", class: "thumbnail img-responsive center-block") %>
-           <% end %>
-        </div>
+<div class="container topnavbar">
+	<div class="wrapper row">
+		<div class="preview col-md-6">
 
-        <div class="col-md-7 show-grid">
-          <div class="row well">
-            <div class="col-md-3">
-              <div class="eat_day">
-                <span style="position: relative; top: 20%; text-align: center;">
-                   <%= @post.eat_day.to_s[0,4]%><br>
-                   <%= @post.eat_day.to_s[5,9]%>
-               </span>
-             </div>
-           </div>
-           <div class="col-md-9">
-              <div class="row eat_venue">
-                <%= @post.eat_venue %>
-              </div>
-              <div class="row post_eat_venue_address">
-                 <i class="fa fa-map-marker"></i>   地址：巴拉拉巴拉拉巴拉拉巴拉拉巴拉拉
-              </div>
-            </div>
-            <br>
-         </div>
-         <div class="row">
-             <div class="post_description">
-                <p style="line-height: 10px;"><%= @post.description %></p>
-             </div>
-         </div>
-         <div class="row">
-             <div class="post_button">
-               <% if current_user && current_user.is_asker_of?(@post) %>
-                   <%= link_to("您已申请约饭","#", class: "btn btn-warning btn-lg",disabled: :true) %>
-               <% elsif @post.user_id == current_user.id && current_user %>
-                   <%= link_to("这是您发起的预约","#", class: "btn btn-primary btn-lg",disabled: :true) %>
-               <% else %>
-                   <%= link_to("加入约饭",application_post_path(@post),method: :post,class: "btn btn-default outline btn-lg") %>
-               <% end %>
-             </div>
-         </div>
-      </div>
-    </div>
-  </div>
+			<div class="preview-pic tab-content">
+				<div class="tab-pane active" id="pic-1">
+					<% if @post.image.present? %>
+						<%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
+					<% else %>
+						<%= image_tag("logo-nopic3.png", class: "thumbnail img-responsive center-block") %>
+					<% end %></div>
+<!-- 可添加更多图片：大图区 -->
+				<!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+				<div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
+				<div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
+				<div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div> -->
+			</div>
+<!-- 可添加更多图片：小图区 -->
+			<!-- <ul class="preview-thumbnail nav nav-tabs">
+				<li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+				<li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+				<li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+				<li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+				<li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+			</ul> -->
+
+		</div>
+		<div class="details col-md-6">
+			<h3 class="product-title"><%= @post.title %></h3>
+			<h4 class="sizes"><i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%Y年%m月%d日")%></h4>
+			<p class="sizes"><i class="fa fa-cutlery"></i>&nbsp;<%= @post.eat_venue %></p>
+			<h5 class="sizes"><i class="fa fa-map-marker"></i>&nbsp;东三环中路39号建外SOHO东区5号别墅(近国贸地铁站)</h5>
+			<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;010-58690273</h5>
+			<br>
+			<p class="product-description"><%= @post.description %></p>
+			<br><br>
+			<div class="post-action-btn">
+				<% if current_user && current_user.is_asker_of?(@post) %>
+						<%= link_to("您已申请约饭","#", class: "btn btn-default pink",disabled: :true) %>
+				<% elsif @post.user_id == current_user.id && current_user %>
+						<%= link_to("这是您发起的预约","#", class: "btn btn-default pink",disabled: :true) %>
+				<% else %>
+						<%= link_to("加入约饭",application_post_path(@post),method: :post,class: "btn btn-default pink light") %>
+				<% end %>
+				<button class="like btn btn-default pink" type="button"><i class="fa fa-heart"></i></button>
+			</div>
+		</div>
+	</div>
 </div>

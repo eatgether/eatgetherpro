@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title> 个人中心 </title>
+    <title> 用户信息 </title>
   </head>
   <body>
 
@@ -26,10 +25,6 @@
             <label>生日:</label>  	<span class="nikname"><%= current_user.birthday %></span>
          </div>
 
-         <div class="phone">
-             <label>电话:</label>  <span class="nikname"><%= current_user.cellNum %></span>
-         </div>
-
          <div class="height">
              <label>身高:</label>  	<span class="nikname"><%= current_user.heightUser %></span>
          </div>
@@ -40,7 +35,7 @@
 
          <div class="interest">
            <label>兴趣爱好:</label>  <span class="interest-introduction"><% @users.interest.each do |interest| %>
-                                    <span class="label label-success"><%= interest.name %>  </span>&nbsp;
+                                    <span class="label label-success"><%= interest.name %>  </span>
                                       <% end %>
                                     </span>
          </div>

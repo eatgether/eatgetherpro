@@ -107,7 +107,7 @@ div.img {
     border: 1px solid #ccc;
     float: left;
     width: 250px;
-    height: 330px;
+    height: 383px;
     // transition : 0.5s;
 }
 
@@ -149,7 +149,6 @@ div.desc h5 {
 .gotop a {
    position: relative;
    left: 100%;
-   top: 190px;
    opacity: 0.9;
    z-index: 3;
 }
@@ -168,7 +167,7 @@ div.desc h5 {
 
 #threepage {
   position: relative;
-  margin-top: 15%;
+  margin-top: 50%;
   background-color: #fff;
   border-top: 1px solid #9B9B9B;
 }
@@ -247,7 +246,6 @@ div.desc h5 {
  }
 
 
-
  div.img-account img {
      width: 100%;
      height: auto;
@@ -276,7 +274,7 @@ div.desc h5 {
    position: relative;
    overflow: hidden;
    left: 45px;
-   top: 18px;
+   top: 8px;
    width: 160px;
    color: #F01D67;
  }

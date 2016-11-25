@@ -1,5 +1,6 @@
-<h2 class="center">修改约饭信息</h2>
-<div class="container topnavbar">
+<div class="container well topnavbar">
+	<h2 class="center">修改约饭信息</h2>
+		<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <%= simple_form_for [:account,@post] do |f| %>
@@ -16,10 +17,11 @@
             </div>
 
             <div class="group">
-              <p>约会日期</p>
-              <%= radio_button(:post, :eat_day  ,Date.this_saturday )%><strong>本周六<%= Date.this_saturday.to_s(:for_date) %></strong><br>
-              <%= radio_button(:post, :eat_day ,Date.this_sunday) %><strong>本周日<%= Date.this_sunday.to_s(:for_date) %></strong>
+              <p><strong>约会日期</strong></p>
+              <%= radio_button(:post, :eat_day  ,Date.this_saturday )%>&nbsp;本周六&nbsp;<%= Date.this_saturday.to_s(:for_date) %><br>
+              <%= radio_button(:post, :eat_day ,Date.this_sunday) %>&nbsp;本周日&nbsp;<%= Date.this_sunday.to_s(:for_date) %>
             </div>
+						<br>
 
             <div class="group">
                 <%= f.input :image, as: :file, label: '图片' %>
@@ -30,4 +32,5 @@
             <% end %>
         </div>
     </div>
+	</div>
 </div>
