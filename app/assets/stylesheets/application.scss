@@ -33,6 +33,7 @@ $bgDefault      : #3e3e3e;
 $bgHighlight    : #f01d67;
 $colDefault     : #d6d6d6;
 $colHighlight   : #f01d67;
+$btnLight	   	 	: #f181a8;
 $dropDown       : true;
 
 
@@ -107,25 +108,13 @@ img.logonav.shrink {
 	height: 30px;
 	width: 30px;
 	vertical-align: text-bottom;
+	margin-bottom: 3px;
 }
 
 .logoend {
 	height: 30px;
 	max-width: 30px;
 	margin-bottom: 9px;
-}
-
-.jumbotron {
-			width:100%;
-			height:100px;
-      background:
-    	 	linear-gradient(
-    			rgba(31, 5, 5, 0.6),
-    			rgba(31, 5, 5, 0.6)
-    			),
-    			url("cheers1.jpg") no-repeat;
-			background-size: auto;
-			background-position: 70% 48%;
 }
 
 
@@ -135,7 +124,7 @@ img.logonav.shrink {
 }
 
 .topnavbar {
-	margin-top:60px;
+	margin-top:70px;
 }
 
 .userheader {
@@ -289,7 +278,23 @@ transition: all 0.4s ease;
     box-shadow: none;
 }
 
-.btn-default.search {
+//btn-sm
+.btn-sm.outline {
+    border: 2px solid $bgDefault;
+    color: $bgDefault;
+}
+.btn-sm.outline:hover, .btn-sm.outline:focus, .btn-sm.outline:active, .btn-sm.outline.active, .open > .dropdown-toggle.btn-sm {
+    color: $colDefault;
+    border-color: $colDefault;
+}
+.btn-sm.outline:active, .btn-sm.outline.active {
+    border-color: $colDefault;
+    color: $colDefault;
+    box-shadow: none;
+}
+//
+
+.btn-sm.search {
 	padding: 6px 21px;
 	border: 1px solid $bgDefault;
 	color: $bgHighlight;
@@ -314,6 +319,26 @@ transition: all 0.4s ease;
 .btn-default.pink:active, .btn-default.pink.active {
     border-color: $colDefault;
     color: $colDefault;
+    box-shadow: none;
+}
+
+// btn.pink.light
+.btn.pink.light {
+		background: none;
+		padding: 9px 20px;
+		border: 2px solid $colHighlight;
+}
+.btn-default.pink.light {
+    color: $colHighlight;
+		border-color: $colHighlight;
+}
+.btn-default.pink.light:hover, .btn-default.pink.light:focus, .btn-default.pink.light:active, .btn-default.pink.light.active, .open > .dropdown-toggle.btn-default {
+    color: $btnLight;
+    border-color: $btnLight;
+}
+.btn-default.pink.light:active, .btn-default.pink.light.active {
+    border-color: $btnLight;
+    color: $btnLight;
     box-shadow: none;
 }
 
@@ -354,4 +379,47 @@ transition: all 0.4s ease;
 .btn-primary[disabled] {
 	background: $colDefault;
 	color: $bgDefault ;
+}
+
+#noasker_request {
+  background-image: url("pair-lg-2.jpg");
+}
+
+.footermargin {
+  height: 250px;
+
+}
+
+.nav-thumbnails {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.blog-thumbnails {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.avatar-thumbnails {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.label-success {
+	background-color: $colHighlight;
 }

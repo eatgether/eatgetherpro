@@ -1,58 +1,71 @@
 <div class="container topnavbar">
-  <div class="row">
     <div class="col-md-12">
+			<% if @order_twos.present? %>
+				<table class="table table-hover">
+				    <thead>
+				        <tr>
+				            <th>约饭对象</th>
+				            <th>约饭地点</th>
+				            <th>约饭日期</th>
+				            <th>订单状态</th>
+				            <th>控制面板</th>
+				        </tr>
+				    </thead>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>约饭对象</th>
-            <th>约饭地点</th>
-            <th>约饭日期</th>
-            <th>订单状态</th>
-            <th>控制面板</th>
-        </tr>
-    </thead>
+				    <tbody>
+				      <% @order_twos.each do |order| %>
+				      <tr>
+				        <% if order.poster_user == current_user %>
+				          <td><%= link_to(order.asker_user.nameNick, account_user_path(order.asker_user))%></td>
+				        <% else %>
+				          <td><%= link_to(order.poster_user.nameNick, account_user_path(order.poster_user))%></td>
+				        <% end %>
+				        <td><%= order.post.eat_venue %></td>
+				        <td><%= order.post.eat_day.strftime("%m月%d日") %></td>
+				        <td><%= order.aasm_state %></td>
+								<td>
+					        <% case order.aasm_state
+									  when "order_matched"%>
+										<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-sm outline") %>
+										<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-sm outline") %>
+				            <%= link_to("发起对话", account_user_conversation_path(order.poster_user_id, order.asker_user_id), :class => "btn btn-sm outline") %>
+									<% when "order_met" %>
+					          <% if order.feedbacks.where(:user_id => current_user).blank? %>
+					            <%= link_to("新建反馈", new_account_order_two_feedback_path(order), class: "btn btn-sm outline") %>
+					          <% else %>
+											<!--找current user写过的feedback-->
+										  <% order.feedbacks.where(:user_id => current_user).each do |feedback| %>
+					            	<%= link_to("修改反馈", edit_account_order_two_feedback_path(order.id, feedback.id), class: "btn btn-sm outline") %>
+											<% end %>
+										<%= link_to("已完成", "#", class: "btn btn-sm outline disabled") %>
+										<% end %>
 
-    <tbody>
-      <% @order_twos.each do |order| %>
-      <tr>
-        <% if order.poster_user == current_user %>
-          <td><%= link_to(order.asker_user.email, account_user_path(order.asker_user))%></td>
-        <% else %>
-          <td><%= link_to(order.poster_user.email, account_user_path(order.poster_user))%></td>
-        <% end %>
-        <td><%= order.post.eat_venue %></td>
-        <td><%= order.post.eat_day %></td>
-        <td><%= order.aasm_state %></td>
-				<td>
-	        <% case order.aasm_state
-					  when "order_matched"%>
-						<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
-						<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
-            <%# binding.pry %>
-            <%= link_to("发起对话", account_user_conversation_path(order.poster_user_id, order.asker_user_id), :class => "btn btn-default") %>
-					<% when "order_met" %>
-	          <% if order.feedbacks.where(:user_id => current_user).blank? %>
-	            <%= link_to("新建反馈", new_account_order_two_feedback_path(order), class: "btn btn-sm btn-default outline") %>
-	          <% else %>
-							<!--找current user写过的feedback-->
-						  <% order.feedbacks.where(:user_id => current_user).each do |feedback| %>
-	            	<%= link_to("修改反馈", edit_account_order_two_feedback_path(order.id, feedback.id), class: "btn btn-sm btn-default outline") %>
-							<% end %>
-						<%= link_to("已完成", "#", class: "btn btn-sm btn-default outline disabled") %>
-						<% end %>
+					        <% when "order_cancelled" %>
+										<%= link_to("已取消", "#", class: "btn btn-sm outline disabled") %>
+									<% end %>
+				      	</td>
 
-	        <% when "order_cancelled" %>
-						<%= link_to("已取消", "#", class: "btn btn-sm btn-default outline pull-left disabled") %>
-					<% end %>
-      	</td>
-
-      </tr>
-      <% end %>
-    </tbody>
-</table>
-</div>
-
-</div>
-
-</div>
+				      </tr>
+				      <% end %>
+				    </tbody>
+				</table>
+			<% else %>
+				<div class="lonely2page">
+					<div class="lonely2page-bg" id="lonely2pic"></div>
+					<div class="overlaylonely2"></div>
+					<div class="col-md-12">
+						<div class="row lonely2page-top">
+							<h1>
+							还没有被通过吗？
+							</h1>
+							<p> 添加更多个人信息，加大通过几率</p>
+							<%= link_to "添加信息 <span class='glyphicon glyphicon-chevron-right'></span>".html_safe(), edit_account_user_path(current_user), class: "btn btn-default pink" %>
+						 <br><br>
+							<p> 主动发起邀约，组局比参与更有魅力</p>
+							<%= link_to "发起约饭 <span class='glyphicon glyphicon-chevron-right'></span>".html_safe(), new_post_path(@post), class: "btn btn-default pink" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>

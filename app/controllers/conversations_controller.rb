@@ -1,6 +1,7 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
-
+  before_action :get_notification
+  
   def index
       @order = OrderTwo.find(params[:order_two_id])
 

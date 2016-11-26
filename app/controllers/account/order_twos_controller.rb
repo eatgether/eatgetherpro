@@ -1,5 +1,7 @@
 class Account::OrderTwosController < ApplicationController
   before_action :authenticate_user!
+  before_action :get_notification
+
   def index
     @order_twos = OrderTwo.where(:poster_user_id => current_user).or(OrderTwo.where(:asker_user_id => current_user))
   end

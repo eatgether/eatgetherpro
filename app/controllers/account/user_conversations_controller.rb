@@ -1,6 +1,7 @@
 class Account::UserConversationsController < ApplicationController
   before_action :authenticate_user!
-
+  before_action :get_notification
+  
 
 def show
   @mailbox ||= current_user.mailbox

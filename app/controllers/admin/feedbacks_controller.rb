@@ -1,4 +1,6 @@
 class Admin::FeedbacksController < ApplicationController
+  before_action :get_notification
+  
   layout "admin"
 
 	def index

@@ -36,16 +36,21 @@
 									<%= feedback.title %>
                 </h2>
                 <p class="lead">
-                    by <%= feedback.user.email %>
+										by &nbsp;
+											<%= feedback.user.nameNick %>
+											<%= image_tag(feedback.user.image.medium.url, class: "blog-thumbnails") %>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span>
-									<%= feedback.created_at %>
+									<%= feedback.created_at.strftime("%Y年%m月%d日%I:%M%p") %>
 								</p>
                 <hr>
 
-								<p class="polaroidtext"><%= feedback.created_at%></p>
-								<%= image_tag feedback.image.url, :class => "blogphoto polaroid" %>
-
+								<p class="polaroidtext"><%= OrderTwo.find(feedback.order_two_id).created_at.strftime("%d %b %Y")%></p>
+								<% if feedback.image.present? %>
+									<%= image_tag feedback.image.url, :class => "blogphoto polaroid" %>
+								<% else %>
+									<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+								<% end %>
                 <hr>
 								<div class="well">
                 <p><%= truncate(feedback.description, :length => 120, :omission => '...') %></p>
@@ -75,9 +80,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control pink">
                         <span class="input-group-btn">
-                            <button class="btn btn-default search" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
+                          <%= link_to "<span class='glyphicon glyphicon-search'></span>".html_safe(), "#", class: "btn btn-default pink light", style: "height:34px;" %>
                         </span>
                     </div>
                     <!-- /.input-group -->
@@ -126,14 +129,15 @@
 										<% else %>
 										<%= link_to("加入饭局", posts_path, class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
 										<% end %>
+
+
+
                 </div>
 
             </div>
 
         </div>
         <!-- /.row -->
-
-        <hr>
 
 
 

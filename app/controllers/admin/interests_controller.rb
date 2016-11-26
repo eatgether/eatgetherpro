@@ -1,6 +1,8 @@
 class Admin::InterestsController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
+  before_action :get_notification
+
   layout "admin"
   def index
     @interests = Interest.all.recent.paginate(:page => params[:page],:per_page => 5)
@@ -9,7 +11,7 @@ class Admin::InterestsController < ApplicationController
   def new
     @interest = Interest.new
   end
-  
+
   def edit
    @interest = Interest.find(params[:id])
   end

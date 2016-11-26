@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :notifications
+
+	resources :users
+
+	resources :notifications do
+    member do
+      get :redirect_notification
+    end
+  end
   resources :posts
 
 	resources :feedbacks
