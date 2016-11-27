@@ -17,9 +17,10 @@ class ApplicationController < ActionController::Base
     @c_user = current_user
   end
 
+#获取当前用户的notifications
   def get_notification
     if current_user.present?
-      @notifications = Notification.where(:recipient_id => current_user.id)
+      @notifications = Notification.where(:recipient_id => current_user.id).where(:read_at => nil)
     end
   end
 

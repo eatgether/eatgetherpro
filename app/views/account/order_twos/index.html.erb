@@ -4,6 +4,7 @@
 				<table class="table table-hover">
 				    <thead>
 				        <tr>
+                    <th>约饭主题</th>
 				            <th>约饭对象</th>
 				            <th>约饭地点</th>
 				            <th>约饭日期</th>
@@ -15,6 +16,7 @@
 				    <tbody>
 				      <% @order_twos.each do |order| %>
 				      <tr>
+                <td><%= order.post.title %></td>
 				        <% if order.poster_user == current_user %>
 				          <td><%= link_to(order.asker_user.nameNick, account_user_path(order.asker_user))%></td>
 				        <% else %>
@@ -26,9 +28,17 @@
 								<td>
 					        <% case order.aasm_state
 									  when "order_matched"%>
-										<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-sm outline") %>
-										<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-sm outline") %>
-				            <%= link_to("发起对话", account_user_conversation_path(order.poster_user_id, order.asker_user_id), :class => "btn btn-sm outline") %>
+
+										<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
+										<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
+                    <% if order.conversation.present? %>
+
+                      <%#= link_to("进入聊天室", account_conversations_path, :class => "btn btn-xs btn-default outline") %>
+                      <%= link_to("进入聊天室", account_conversation_path(order), :class => "btn btn-xs btn-default outline") %>
+                    <% else %>
+                        <%= link_to("发起对话", account_user_conversations_path(:order_two_id => order.id), :class => "btn btn-xs btn-default outline") %>
+                    <% end %>
+                    <%# binding.pry %>
 									<% when "order_met" %>
 					          <% if order.feedbacks.where(:user_id => current_user).blank? %>
 					            <%= link_to("新建反馈", new_account_order_two_feedback_path(order), class: "btn btn-sm outline") %>

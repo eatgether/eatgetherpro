@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: post_restaurants
+#
+#  id            :integer          not null, primary key
+#  post_id       :integer
+#  restaurant_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_id: 1
+  restaurant_id: 
+
+two:
+  post_id: 1
+  restaurant_id: 

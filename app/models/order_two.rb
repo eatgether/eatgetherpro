@@ -13,7 +13,7 @@
 
 class OrderTwo < ApplicationRecord
   include AASM
-  has_one :conversation, class_name: "Conversation", foreign_key: "request_id"  #mailboxer
+  has_one :conversation, class_name: "Conversation", foreign_key: "order_two_id"  #mailboxer
   belongs_to :poster_user, :class_name => "User"
   belongs_to :asker_user, :class_name => "User"
   belongs_to :post, :class_name => "Post"

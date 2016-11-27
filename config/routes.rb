@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resources :feedbacks
     end
     resources :interests
+    resources :restaurants
     resources :users
     resources :orders do
     	member do
@@ -55,9 +56,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :conversations do
-    resources :order_twos
-  end
+
 
   resources :interests
 
@@ -69,7 +68,7 @@ Rails.application.routes.draw do
         get :photo
       end
     end
-    resources :user_conversations
+
     resources :posts do
       member do
         post :application_approved
@@ -77,7 +76,7 @@ Rails.application.routes.draw do
     end
 
     resources :order_twos do
-      resources :conversations
+
       resources :user_conversations
       member do
 				post :confirm_meeting
@@ -94,8 +93,8 @@ Rails.application.routes.draw do
       member do
         post :reply
       end
-      resources :user_conversations
     end
+    resources :user_conversations
 
     resources :asker_requests
   end
