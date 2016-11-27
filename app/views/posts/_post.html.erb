@@ -2,6 +2,7 @@
       <div class="row">
 				<div class="col-md-9" style="float:none; margin: 0 auto;">
        <% @posts.each do |post| %>
+       <%# @restaurants.each do |restaurant| %>
          <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="img">
                 <% if post.image.present? %>
@@ -11,14 +12,15 @@
                 <% end %>
                 <div class="desc">
 									<h3 class="titleh3"> <%= post.title %> </h3>
-									<h4 class="titleh4"> <strong><i class="fa fa-map-marker"></i>&nbsp;<%= post.eat_venue %> </strong></h4>
+									<h4 class="titleh4"> <strong><i class="fa fa-map-marker"></i>&nbsp;<%= post.restaurant.name %> </strong></h4>
 									<h4 class="titleh4"><i class="glyphicon glyphicon-time"></i>&nbsp;<%= post.eat_day.strftime("%b %d 晚饭") %></h4>
 									<br>
-									<%= link_to "点开看看 <span class='glyphicon glyphicon-chevron-right'></span>".html_safe(), post_path(post), class: "btn btn-default pink" %>
+									<%= link_to "点开看看 <span class='glyphicon glyphicon-chevron-right'></span>".html_safe(), post_path(post,:post_id => post.id), class: "btn btn-default pink" %>
                </div>
            </div>
          </div>
-      <% end %>
+         <% end %>
+      <%# end %>
      </div>
     </div>
 	</div>

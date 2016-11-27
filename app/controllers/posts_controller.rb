@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!,only:[:new,:create,:update,:edit,:destroy,:show]
   before_action :get_notification
-  
+
   def index
     @posts = Post.page(params[:page]).per(6).recent
   end
@@ -22,6 +22,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+       @post_restaurant = PostRestaurant.new
+       @post_restaurant.post_id = @post.id
+       @post_restaurant.restaurant_id = @post.eat_venue
+       @post_restaurant.save
       redirect_to posts_path
     else
       render :new
@@ -80,5 +84,6 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :description,:eat_venue,:eat_day,:image)
   end
+
 
 end
