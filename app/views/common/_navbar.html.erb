@@ -13,8 +13,8 @@
 							<% if current_user %>
 								 <li>
                    <a id="notifications" data-toggle="popover"
-                    data-trigger = "click"  data-html="true"
-                    data-title= "<% @notifications.each do |notification| %>
+                    data-trigger = "click"  data-html="true" data-placement="bottom"
+                    data-content= "<% @notifications.each do |notification| %>
                                       <span>
                                         <a href = <%= redirect_notification_notification_path(notification)%>>
                                           用户<%= notification.trigger.nameNick %>申请了您的邀约
