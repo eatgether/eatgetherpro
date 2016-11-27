@@ -11,34 +11,32 @@
 								 <li><%= link_to("<i class='fa fa-cutlery'></i>  最新约饭".html_safe, posts_path) %></li>
 								 <li><%= link_to("<i class='fa fa-book'></i>  精彩博客".html_safe, feedbacks_path) %></li>
 							<% if current_user %>
-								 <li class="dropdown">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                       <i class="fa fa-bell"></i>&nbsp;通知
-                       <% if @notifications.present?  %>
-                        <span class="redpoint"></span>
-                      <% end %>
-                       <!-- <b class="caret"></b> -->
-                   </a>
-                   <% if @notifications.present? %>
-                     <% @notifications.each do |notification| %>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <%= link_to redirect_notification_notification_path(notification) do %>
-                              <span>
-                                用户<%= notification.trigger.nameNick %>
-                                申请了您的邀约
-                              </span>
-                              <% end %>
-                          </li>
-                        </ul>
-                    <% end %>
-                  <% end %>
+								 <li>
+
+									 <a href="#" id="notificationLink"><i class="fa fa-bell"></i>&nbsp;通知
+										 <% if @notifications.present? %>
+										 <span class="redpoint"></span>
+										 <% end %>
+									 </a>
+									 <div class="notificationCenter" id="notificationContainer">
+										 <div id="notificationTitle">你的通知<hr class="noticeTop"></div>
+										 <div id="notificationsBody" class="notifications">
+										 	<% @notifications.each do |notification| %>
+											<ul>
+												<a href = "<%= redirect_notification_notification_path(notification)%>">
+													用户<%= notification.trigger.nameNick %>申请了您的邀约
+												</a>
+											</ul>
+										<% end %>
+									 	 </div>
+										 <div id="notificationFooter"><hr class="noticeBottom"><a href="#">查看更多</a></div>
+									 </div>
                 </li>
 							<% end %>
 
               <% if !current_user %>
                 <li><%= link_to("<i class='fa fa-user'></i>  注册".html_safe, "#signupModal", 'data-toggle' => "modal") %></li>
-								<li><%= link_to("<i class='fa fa-sign-in'></i>  登陆".html_safe, "#loginModal", 'data-toggle' => "modal") %></li>
+								<li><%= link_to("<i class='fa fa-sign-in'></i>  登录".html_safe, "#loginModal", 'data-toggle' => "modal") %></li>
               <% else %>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -53,17 +51,14 @@
                         <b class="caret"></b>
                     </a>
                    <ul class="dropdown-menu">
-                       <li> <%=  link_to("发起的预约",account_posts_path)%></li>
-                       <li> <%=  link_to("申请的预约",account_asker_requests_path)%></li>
-                       <li> <%=  link_to("约饭订单",account_order_twos_path)%></li>
-                       <li> <%=  link_to("个人中心",account_users_path)%></li>
-                       <li> <%=  link_to('我的聊天', account_conversations_path) %></li>
+                       <li> <%=  link_to("<i class='fa fa-book'></i>  我的约会".html_safe,account_posts_path)%></li>
+                       <li> <%=  link_to("<i class='fa fa-user'></i>个人中心".html_safe,account_users_path)%></li>
 											 <li class="divider"></li>
 											 <% if current_user.admin? %>
-													<li> <%= link_to("管理后台", admin_users_path) %> </li>
+													<li><%= link_to("<i class='fa fa-server'></i>  管理后台".html_safe, admin_users_path) %></li>
 													<li class="divider"></li>
 												<% end %>
-                       <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
+											 <li><%= link_to("<i class='fa fa-sign-out'></i>  登出".html_safe, destroy_user_session_path,method: :delete) %></li>
                     </ul>
                   </li>
               <% end %>
@@ -76,3 +71,9 @@
 
 <%= render "common/signup" %>
 <%= render "common/login" %>
+
+<script type="text/javascript">
+  $(function () {
+    $("#notifications").popover()
+  });
+ </script>

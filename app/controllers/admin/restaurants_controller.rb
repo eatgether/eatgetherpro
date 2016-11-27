@@ -1,6 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
+  before_action :get_notification
   layout "admin"
 
   def index
@@ -41,6 +42,6 @@ class Admin::RestaurantsController < ApplicationController
  end
 
  def restaurant_params
-   params.require(:restaurant).permit(:name)
+   params.require(:restaurant).permit(:name,:description)
  end
 end

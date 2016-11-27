@@ -5,6 +5,7 @@
     <title>我的约饭记录</title>
   </head>
 
+ <%= render(partial: 'pathbar') %>
   <body>
      <div class="account-index topnavbar">
        <div class="account-index-bg">
@@ -16,6 +17,7 @@
                <div class="col-md-9" id="content" style="float:none; margin: 0 auto;">
 								 <% if @posts.present? %>
                    <% @posts.each do |post| %>
+                   <% if !OrderTwo.find_by_post_id(post.id)%>
                      <div class="col-md-4">
                         <div class="img-account">
 	                          <%= link_to account_post_path(post) do %>
@@ -27,17 +29,18 @@
 	                            <div class="desc">
 	                              <h3 class="titleh3"> <%= post.title %> </h3>
 														<% end %>
-	                              <h4 class="titleh4"> <strong> <%= post.eat_venue %> </strong></h4>
+	                              <h4 class="titleh4"> <strong> <%= post.restaurant.name %> </strong></h4>
 	                              <h4 class="titleh4"><%= post.eat_day.strftime("%b %d") %></h4>
 																<hr class="posthr">
 																<div class="postwindow">
-																	<%=link_to("修改", edit_account_post_path(post), class: "btn btn-default pink light")%>
+																	<%=link_to("修改", edit_post_path(post), class: "btn btn-default pink light")%>
 																	<%=link_to("删除", account_post_path(post), class: "btn btn-default pink light",
 	                                   method: :delete, data: { confirm: "Are you sure?" })%>
 																</div>
 	                           </div>
                        </div>
                      </div>
+                    <% end %>
                   <% end %>
 								<% else %>
 								<div class="lonelypage">

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-	resources :users
-
+#	resources :users
+  resources :restaurants
 	resources :notifications do
     member do
       get :redirect_notification
@@ -93,8 +93,8 @@ Rails.application.routes.draw do
       member do
         post :reply
       end
-      resources :user_conversations
     end
+    resources :user_conversations
 
     resources :asker_requests
   end
