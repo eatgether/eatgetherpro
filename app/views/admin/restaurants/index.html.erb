@@ -1,0 +1,38 @@
+<div class="container" style="margin-top: 100px">
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            名称
+          </th>
+          <th>
+            控制选项
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td>
+            <%= restaurant.name %>
+          </td>
+          <td>
+            <%= link_to("编辑", edit_admin_restaurant_path(restaurant), class: "btn btn-xs btn-default outline") %>
+            <%= link_to("删除", admin_restaurant_path(restaurant), method: :delete, class: "btn btn-xs btn-default outline", :data => { :confirm => "确定要删除此约饭地点？？" } ) %>
+          </td>
+        </tr>
+          <% end %>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="pull-right">
+    <%= link_to("加添约饭地点", new_admin_restaurant_path(@restaurant), class: "btn btn-xs btn-default outline") %>
+  </div>
+</div>
+
+</div>
