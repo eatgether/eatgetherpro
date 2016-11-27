@@ -46,7 +46,7 @@ gem 'will_paginate-bootstrap'
 gem 'remotipart'
 gem 'mailboxer'
 
-gem 'bootstrap-popover-rails', '~> 0.1.0'
+#gem 'bootstrap-popover-rails', '~> 0.1.0'
 
 
 group :development, :test do

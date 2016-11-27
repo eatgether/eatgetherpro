@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap/bootstrap-rails-tooltip
-//= require bootstrap/bootstrap-rails-popover
 //= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown

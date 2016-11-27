@@ -16,6 +16,7 @@
                <div class="col-md-9" id="content" style="float:none; margin: 0 auto;">
 								 <% if @posts.present? %>
                    <% @posts.each do |post| %>
+                   <% if !OrderTwo.find_by_post_id(post.id)%>
                      <div class="col-md-4">
                         <div class="img-account">
 	                          <%= link_to account_post_path(post) do %>
@@ -38,6 +39,7 @@
 	                           </div>
                        </div>
                      </div>
+                    <% end %>
                   <% end %>
 								<% else %>
 								<div class="lonelypage">
