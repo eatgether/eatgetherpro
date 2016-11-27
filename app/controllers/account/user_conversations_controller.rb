@@ -27,7 +27,7 @@ class Account::UserConversationsController < ApplicationController
         @user = @order.asker_user
       end
     if @conversation.blank?
-      @conversation = current_user.send_message(@user , params[:body] , @order.post.title, @order.id).conversation
+      @conversation = current_user.send_message(@user , params[:body] , @order.post.title, @order).conversation
       #@conversation.order_two_id = @order.id
           #binding.pry
     else

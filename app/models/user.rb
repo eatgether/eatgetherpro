@@ -70,7 +70,7 @@ class User < ApplicationRecord
                                             created_at: message_timestamp,
                                             updated_at: message_timestamp).build
 
-    convo.order_two_id = order
+    convo.order_two_id = order.id
     convo.save
 
     message.deliver false, sanitize_text
