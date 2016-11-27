@@ -28,11 +28,11 @@
 	                            <div class="desc">
 	                              <h3 class="titleh3"> <%= post.title %> </h3>
 														<% end %>
-	                              <h4 class="titleh4"> <strong> <%= post.eat_venue %> </strong></h4>
+	                              <h4 class="titleh4"> <strong> <%= post.restaurant.name %> </strong></h4>
 	                              <h4 class="titleh4"><%= post.eat_day.strftime("%b %d") %></h4>
 																<hr class="posthr">
 																<div class="postwindow">
-																	<%=link_to("修改", edit_account_post_path(post), class: "btn btn-default pink light")%>
+																	<%=link_to("修改", edit_post_path(post), class: "btn btn-default pink light")%>
 																	<%=link_to("删除", account_post_path(post), class: "btn btn-default pink light",
 	                                   method: :delete, data: { confirm: "Are you sure?" })%>
 																</div>
