@@ -58,7 +58,7 @@
 													<li><%= link_to("<i class='fa fa-server'></i>  管理后台".html_safe, admin_users_path) %></li>
 													<li class="divider"></li>
 												<% end %>
-											 <li><%= link_to("<i class='fa fa-sign-out'></i>  登出".html_safe, destroy_user_session_path) %></li>
+											 <li><%= link_to("<i class='fa fa-sign-out'></i>  登出".html_safe, destroy_user_session_path,method: :delete) %></li>
                     </ul>
                   </li>
               <% end %>
