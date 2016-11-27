@@ -3,6 +3,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
+                    <th><i class="fa fa-list-ol" aria-hidden="true"></i> 编号</th>
                     <th>
                        <i class="fa fa-tags" aria-hidden="true"></i>
                         兴趣爱好
@@ -16,6 +17,9 @@
             <tbody>
                 <% @interests.each do |interest| %>
                 <tr>
+                  <td>
+                    <%= interest.id %>
+                  </td>
                     <td>
                         <!-- <i class="fa fa-tag" aria-hidden="true"></i> -->
                         <%= interest.name %>
