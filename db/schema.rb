@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127050620) do
+ActiveRecord::Schema.define(version: 20161127112847) do
 
   create_table "asker_requests", force: :cascade do |t|
     t.integer  "user_id"
@@ -148,15 +148,16 @@ ActiveRecord::Schema.define(version: 20161127050620) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.string   "eat_venue"
+    t.integer  "eat_venue"
     t.date     "eat_day"
     t.string   "image"
   end
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
   end
 
   create_table "user_interests", force: :cascade do |t|
