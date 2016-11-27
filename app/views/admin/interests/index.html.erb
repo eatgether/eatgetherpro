@@ -1,13 +1,15 @@
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>
+                       <i class="fa fa-tags" aria-hidden="true"></i>
                         兴趣爱好
                     </th>
                     <th class="center">
-                        控制选项
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                        控制台
                     </th>
                 </tr>
             </thead>
@@ -15,6 +17,7 @@
                 <% @interests.each do |interest| %>
                 <tr>
                     <td>
+                        <!-- <i class="fa fa-tag" aria-hidden="true"></i> -->
                         <%= interest.name %>
                     </td>
                     <td class="center">
@@ -31,10 +34,8 @@
             <%= will_paginate @users ,renderer: BootstrapPagination::Rails%>
         </div>
     </div>
-    <div class="col-md-1 layad">
-        <%= link_to("添加兴趣爱好", new_admin_interest_path(@interest), :class => "btn btn-primary") %>
+    <div class="pull-right">
+        <%= link_to("添加兴趣爱好", new_admin_interest_path(@interest), :class => "btn btn-xs btn-default outline") %>
     </div>
-
-</div>
 
 </div>

@@ -1,6 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
+  layout "admin"
 
   def index
     @restaurants = Restaurant.all

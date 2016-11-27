@@ -27,7 +27,7 @@
                     <div class="group">
                       <!-- <label>约饭地点</label> -->
                       <%#= f.select :eat_venue, Restaurant.all.collect { |p| [ p.name ] }, :selected => Restaurant.first.name,label: '约饭地点' %>
-                       <%= f.input :eat_venue, :collection => Restaurant.all,:value_method => :name,:label => "约饭地点" ,:include_blank => false %>
+                       <%= f.input :eat_venue, :collection => Restaurant.all, :value_method => :name, :label => "约饭地点", :include_blank => false %>
                     </div>
                     <div class="group">
                       <p><strong>约会日期</strong></p>
