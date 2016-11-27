@@ -3,15 +3,15 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>序号</th>
-                    <th>发起时间</th>
-                    <th>约饭主题</th>
-                    <th>发起人</th>
-                    <th>申请人</th>
-                    <th>约饭地点</th>
-                    <th>约饭时间</th>
-                    <th>邀约状态</th>
-                    <th>Admin操作</th>
+                    <th><i class="fa fa-list-ol" aria-hidden="true"></i> 序号</th>
+                    <th><i class="fa fa-clock-o" aria-hidden="true"></i> 发起时间</th>
+                    <th><i class="fa fa-cutlery"></i> 约饭主题</th>
+                    <th><i class="fa fa-user"></i> 发起人</th>
+                    <th><i class="fa fa-rocket"></i> 申请人</th>
+                    <th><i class="fa fa-map-marker" aria-hidden="true"></i> 约饭地点</th>
+                    <th><i class="fa fa-calendar" aria-hidden="true"></i> 约饭时间</th>
+                    <th><i class="fa fa-heart" aria-hidden="true"></i> 邀约状态</th>
+                    <th><i class="fa fa-cog" aria-hidden="true"></i> 控制台</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,19 +21,16 @@
                     <td><%= render_post_created_at(order.post) %></td>
                     <td>
                         <%= link_to admin_post_path(order.post) do %>
-                        <i class="fa fa-cutlery"></i>
                         <%= order.post.title %>
                         <% end %>
                     </td>
                     <td>
                         <%= link_to admin_user_path(order.poster_user) do %>
-                        <i class="fa fa-user"></i>
                         <%= order.poster_user.email %>
                         <% end %>
                     </td>
                     <td>
                         <%= link_to admin_user_path(order.asker_user) do %>
-                        <i class="fa fa-rocket"></i>
                         <%= order.asker_user.email %>
                         <% end %>
                     </td>

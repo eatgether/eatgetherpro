@@ -1,53 +1,63 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                 <th>用户编号</th>
-                 <th>性别</th>
-                 <th>Email</th>
-                 <th>注册时间<th>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th><i class="fa fa-list-ol" aria-hidden="true"></i> 用户编号</th>
+                        <th><i class="fa fa-venus-mars" aria-hidden="true"></i> 性别</th>
+                        <th><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</th>
+                        <th><i class="fa fa-clock-o" aria-hidden="true"></i> 注册时间<th>
+                        <th class="center"><i class="fa fa-cog" aria-hidden="true"></i> 控制台</th>
+                    </tr>
+                        </thead>
 
-             </tr>
-            </thead>
+                        <tbody>
+                            <tr>
+                                <% @users.each do |user| %>
+                                <% if user.is_admin %>
+                                <td>
 
-            <tbody>
-              <tr>
-              <% @users.each do |user| %>
-                <% if user.is_admin %>
-                  <td>
+                                    <%= link_to admin_user_path(user) do %>
+                                    <i class="fa fa-user"></i>
+                                    <%= user.id %>
+                                    <% end %>
 
-                  <%= link_to admin_user_path(user) do %>
-                    <i class="fa fa-user"> </i> <%= user.id %>
-                  <% end %>
+                                </td>
 
-                </td>
+                            <% else %>
+                                <td>
+                                    <%= link_to admin_user_path(user) do %>
+                                    <i class="fa fa-plane"></i>
+                                    <%= user.id %>
+                                    <% end %>
+                                    <% end %>
+                                 </td>
+                                    <td>
+                                        <%= render_user_gender(user)  %>
+                                    </td>
+                                    <td>
+                                        <%= user.email %>
+                                    </td>
+                                    <td>
+                                        <%= render_user_created_at(user) %>
+                                    </td>
+                                    <td></td>
+                                    <td class="center">
+                                        <% if user.is_admin %>
+                                        <%= link_to("成为User", customer_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default outline") %>
+                                    <% else %>
+                                        <%= link_to("成为Admin", take_master_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default outline") %>
+                                        <% end %>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            <%= will_paginate @users ,renderer: BootstrapPagination::Rails%>
+                        </div>
+                    </div>
+                </div>
 
-                <% else %>
-                  <td>
-                    <%= link_to admin_user_path(user) do %>
-                      <i class="fa fa-plane"> </i> <%= user.id %>
-                    <% end %>
-
-                <% end %>
-                  <td>  <%= render_user_gender(user)  %> </td>
-                  <td>  <%= user.email %> </td>
-                  <td>  <%= render_user_created_at(user) %> </td>
-                  <td>  <% if user.is_admin %>
-                          <%= link_to("成为User", customer_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default outline") %>
-                        <% else %>
-                          <%= link_to("成为Admin", take_master_admin_user_path(user), :method => :post, :class => "btn btn-xs btn-default outline") %>
-                        <% end %>
-                  </td>
-              </tr>
-               <% end %>
-            </tbody>
-          </table>
-          <div class="text-center">
-             <%= will_paginate @users ,renderer: BootstrapPagination::Rails%>
-          </div>
-        </div>
-      </div>
-
-</div>
+            </div>

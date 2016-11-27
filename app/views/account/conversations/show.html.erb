@@ -22,7 +22,16 @@
                 <% @conversation.receipts_for(current_user).each do |receipt| %>
                 <% message = receipt.message %>
                 <% if message.sender == current_user %>
-                <div class="text-right" style="background-color:; height: 30px;">
+                <div class="text-right">
+                  <p>
+                      <span style="color: black;">
+                          <%= message.sender.nameNick %>
+                      </span>
+                      <span style="color: black;">
+                          says at
+                          <%= message.created_at.strftime("%F %T") %>
+                      </span>ddd
+                  </p>
                     <h4>
                         <%= message.body %>
                     </h4>
@@ -30,10 +39,10 @@
             <% else %>
                 <div class="" style="background-color: ;">
                     <p>
-                        <span style="color: black;">
+                        <span style="color: #f01d67;">
                             <%= message.sender.nameNick %>
                         </span>
-                        <span style="color: black;">
+                        <span style="color: #f01d67;">
                             says at
                             <%= message.created_at.strftime("%F %T") %>
                         </span>

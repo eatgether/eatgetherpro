@@ -10,6 +10,7 @@
 #  image        :string
 #  user_id      :integer
 #  order_two_id :integer
+#  rating       :integer
 #
 
 class Feedback < ApplicationRecord
