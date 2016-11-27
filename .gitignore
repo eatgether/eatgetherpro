@@ -23,3 +23,6 @@ db/schema.rb
 
 #Ignore upload image
 /public/uploads
+
+# Ignore application configuration
+/config/application.yml
