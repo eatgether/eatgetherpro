@@ -4,11 +4,14 @@
   <head>
     <meta charset="utf-8">
     <title>landing page</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
 
+  <body>
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top:20px;">
+       <!-- Overlay -->
+
+
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -18,10 +21,10 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
-			<div class="overlaycarousel"></div>
-      <img class="carouselpic" src="https://ooo.0o0.ooo/2016/11/27/583a686cc5911.jpg" alt="Image Unavailable">
-			<div class="header-text hidden-xs">
+    <div class="item slides active"><div class="overlaycarousel"></div>
+      <div class="slide-1"></div>
+
+		  	<div class="header-text hidden-xs">
 				<div class="title-carousel">
 					<div class="col-md-12">
 						<img src="https://ooo.0o0.ooo/2016/11/27/583a68d9aa0b0.png" class="logocarousel"><font class="projnamehome">Eatgether </font><br>
@@ -36,9 +39,9 @@
       </div>
     </div>
     <div class="item">
-			<div class="item active">
-				<div class="overlaycarousel"></div>
-				<img class="carouselpic" src="https://ooo.0o0.ooo/2016/11/27/583a69786d368.jpg" alt="Image Unavailable">
+			<div class="item slides"><div class="overlaycarousel"></div>
+        <div class="slide-2"></div>
+
 			<div class="header-text hidden-xs">
 				<div class="title-carousel-item2">
 					<div class="col-md-12 carouselitem2">
@@ -55,9 +58,9 @@
 			</div>
 		</div>
     <div class="item">
-			<div class="item active">
-				<div class="overlaycarousel"></div>
-				<img class="carouselpic" src="https://ooo.0o0.ooo/2016/11/27/583a69b93bd5c.jpg" alt="Image Unavailable">
+			<div class="item slides"><div class="overlaycarousel"></div>
+        <div class="slide-3"></div>
+
 			<div class="header-text hidden-xs">
 				<div class="title-carousel-item3">
 					<div class="col-md-12 carouselitem3">
@@ -77,10 +80,10 @@
 
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
   </a>
   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
   </a>
 </div> <!-- Carousel -->
 
