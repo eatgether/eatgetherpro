@@ -34,12 +34,27 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post_restaurant = @post.post_restaurant
     if @post.update(post_params)
+       @post_restaurant.restaurant_id = @post.eat_venue
+       @post_restaurant.save
+    
       redirect_to posts_path, notice: 'Update Success'
     else
       render :edit
     end
   end
+
+#   def update
+#   @post = User.find_by(id: params[:id])
+#   @post.title = params[:title]
+#   @post.description = params[:description]
+#   @post.eat_venue = params[:eat_venue]
+#   @post.eat_day = params[:eat_day]
+#   @post.image = params[:image]
+#   @post.save
+#   redirect_to account_posts_path
+# end
 
   def destroy
     @post = Post.find(params[:id])
@@ -85,5 +100,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :description,:eat_venue,:eat_day,:image)
   end
 
-
+  # def post_restaurant_params
+  #   params.require(:post_restaurant).permit(:post_id, :restaurant_id)
+  # end
 end
