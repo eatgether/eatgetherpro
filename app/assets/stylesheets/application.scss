@@ -425,14 +425,12 @@ transition: all 0.4s ease;
 }
 
 .redpoint {
-  height:16px;
-  width:16px;
-  border-radius:16px;
+  height:8px;
+  width:8px;
+  border-radius:8px;
   display:inline-block;
   text-align:center;
-  font-size:0.1em;
-  color:#fff;
-  background:red;
+  background:$bgHighlight;
   position: relative;
   top: -8px;
   right: 5px;
