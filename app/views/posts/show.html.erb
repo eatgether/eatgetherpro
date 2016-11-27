@@ -30,7 +30,7 @@
 			<h4 class="sizes"><i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%Y年%m月%d日")%></h4>
 			<p class="sizes"><i class="fa fa-cutlery"></i>&nbsp;<%= @post.description %></p>
 			<h5 class="sizes"><i class="fa fa-map-marker"></i>&nbsp;<%= @post.eat_venue %></h5>
-			<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;010-58690273</h5>
+			<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;<%= @post.user.cellNum %></h5>
 			<br>
 			<p class="product-description"><%= @post.description %></p>
 			<br><br>
