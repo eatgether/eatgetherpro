@@ -298,17 +298,19 @@
   </body>
 </html>
 
-<div class="container">
-    <h2>使用Bootstrap创建弹出框</h2>
-    <div class="well">
-        <a href="#" id="example" class="btn btn-danger" rel="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Twitter Bootstrap Popover">hover for popover</a>
-    </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-tooltip.js"></script>
-<script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-popover.js"></script>
-<script>
-    $(function ()
-    { $("#example").popover(); 
-    });
-</script>
+<div data-content="This will be displayed as popover content"
+ data-toggle="popover" data-toggle="popover" title="Popover"> Popover </div>
+
+ <a id="hh_test" data-toggle="popover"
+ data-trigger:"focus hover"
+ data-placement="bottom"
+ data-html="true"
+ data-content="
+      <span>
+        用户申请了您的邀约
+      </span>
+  ">
+ Click to toggle popover
+ </a>
+
+ <div class="popover-content"></div>
