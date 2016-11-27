@@ -44,7 +44,7 @@ gem "roadie-rails", "~> 1.0"
 gem 'will_paginate-bootstrap'
 gem 'remotipart'
 gem 'mailboxer'
-gem 'fog'
+gem 'fog', require: 'fog/aws'
 gem "figaro"
 
 group :production do
