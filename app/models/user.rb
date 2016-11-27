@@ -38,7 +38,7 @@ class User < ApplicationRecord
   has_many :asker_requests
   has_many :ask_posts, :through => :asker_requests, :source => :post
   has_many :user_interests
-  has_many :interest, :through => :user_interests,source: :interest
+  has_many :interests, :through => :user_interests,source: :interest
 
   has_many :notifications
 
@@ -70,7 +70,7 @@ class User < ApplicationRecord
                                             created_at: message_timestamp,
                                             updated_at: message_timestamp).build
 
-    convo.order_two_id = order
+    convo.order_two_id = order.id
     convo.save
 
     message.deliver false, sanitize_text
