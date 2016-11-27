@@ -93,8 +93,8 @@ Rails.application.routes.draw do
       member do
         post :reply
       end
-      resources :user_conversations
     end
+    resources :user_conversations
 
     resources :asker_requests
   end
