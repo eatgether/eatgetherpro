@@ -16,6 +16,7 @@
                 <%= conversation.created_at.to_s(:short) %>
 
                 <%= link_to("查看", account_conversation_path(conversation), :class => "pull-right") %>
+                <%#= link_to("删除回话", account_conversation_path(conversation), method: :delete, :class => "pull-right") %>
             </li>
             <% end %>
         </ul>
