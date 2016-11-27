@@ -46,7 +46,7 @@ $(window).scroll(function() {
 });
 
 $('.carousel').carousel({
-	interval: 4000
+	interval: 5000
 })
 
 

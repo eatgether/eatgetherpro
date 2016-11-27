@@ -3,27 +3,37 @@ $bgHighlight    : #f01d67;
 $colDefault     : #d6d6d6;
 $colHighlight   : #f01d67;
 
-.one {
-  height: 510px;
-	margin: 0;
-	padding: 0;
-  }
 
-.one-bg {
-  height: 470px;
-  width: 100%;
+.slides .slide-1,
+.slides .slide-2,
+.slides .slide-3  {
+	width: auto;
+	height: 510px;
+	min-width: 100%;
+	max-width: none;
+	min-height: 250px;
+	max-height: 510px;
+   background-repeat: no-repeat;
+   position:relative;
+
+}
+
+.slides .slide-1 {
+  background-image: url(http://chuantu.biz/t5/41/1479434253x1780898010.jpg);
+  background-size: 100%;
   background-size: cover;
-  position: absolute;
-  background-position: center center;
+}
+.slides .slide-2 {
+  background-image: url("https://ooo.0o0.ooo/2016/11/27/583a69786d368.jpg");
+  background-size: 100%;
+  background-size: cover;
+}
+.slides .slide-3{
+  background-image: url("https://ooo.0o0.ooo/2016/11/27/583a69b93bd5c.jpg");
+  background-size: 100%;
+  background-size: cover;
 }
 
-#pictureone {
-  background-image: url("http://chuantu.biz/t5/41/1479434253x1780898010.jpg");
-  width: 100%;
-	margin-top: 40px;
-	// top: 0px;
-	background-attachment:fixed;
-}
 
 .headh1 {
   margin-top: 10px;
@@ -38,20 +48,6 @@ $colHighlight   : #f01d67;
   margin-top: 200px;
 }
 
-.carouselpic{
-	width: auto;
-	height: 510px;
-	min-width: 100%;
-	max-width: none;
-	min-height: 510px;
-	max-height: 510px;
-}
-
-
-// .active {
-// 	max-height: 510px;
-// 	margin-top: 20px;
-// }
 
 .title-carousel {
   position: absolute;
@@ -64,12 +60,13 @@ $colHighlight   : #f01d67;
     position: absolute;
     width: 100%;
     height: 510px;
-    z-index: 2;
+    z-index: 1;
   background:rgba(49,48,35,0.5);;
     opacity: .8;
   margin-left: 0px;
 	margin-top: 0px;
 }
+
 
 .title-carousel-item2 {
 	position: relative;
@@ -327,22 +324,6 @@ p.lp-5 {
 	// background-attachment:local;
 	background-position: 0% 20%;
 }
-
-
-// .title-six {
-//   position: absolute;
-//   z-index: 3;
-//   margin-top: 60px;
-//   text-align: center;
-//   color: white;
-// }
-//
-//
-// .title-six p {
-//   margin-top: 80px;
-//   padding: 10px 10px 10px 10px;
-
-// }
 
 .lp-footer {
 	margin-top:70px;
