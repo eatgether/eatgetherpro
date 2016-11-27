@@ -26,6 +26,9 @@ class Post < ApplicationRecord
   scope :all_except, -> (post){where.not(id: post)}
   scope :recent, -> {order("created_at DESC")}
 
+  has_one :restaurant, through: :post_restaurant, source: :restaurant
+  has_one :post_restaurant
+  
   def self.no_match
     where('id NOT IN (SELECT DISTINCT poster_id FROM orders)
        AND id NOT IN (SELECT DISTINCT asker_id FROM orders)')
