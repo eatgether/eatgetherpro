@@ -51,11 +51,8 @@
                         <b class="caret"></b>
                     </a>
                    <ul class="dropdown-menu">
-											 <li><%= link_to("<i class='fa fa-download'></i>  发起的预约".html_safe, account_posts_path) %></li>
-											 <li><%= link_to("<i class='fa fa-upload'></i>  申请的预约".html_safe, account_asker_requests_path) %></li>
-											 <li><%= link_to("<i class='fa fa-book'></i>  约饭订单".html_safe, account_order_twos_path) %></li>
-											 <li><%= link_to("<i class='fa fa-user'></i>  个人中心".html_safe, account_users_path) %></li>
-                       <!-- <li> <%=  link_to('我的聊天', account_conversations_path) %></li> -->
+                       <li> <%=  link_to("<i class='fa fa-book'></i>  我的约会".html_safe,account_posts_path)%></li>
+                       <li> <%=  link_to("<i class='fa fa-user'></i>个人中心".html_safe,account_users_path)%></li>
 											 <li class="divider"></li>
 											 <% if current_user.admin? %>
 													<li><%= link_to("<i class='fa fa-server'></i>  管理后台".html_safe, admin_users_path) %></li>

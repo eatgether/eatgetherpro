@@ -1,7 +1,8 @@
 class Account::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_notification
-  
+  layout "order"
+
  def index
    @posts = current_user.posts
  end
@@ -63,13 +64,9 @@ class Account::PostsController < ApplicationController
    else
      redirect_to :back
    end
-
-
  end
 
  private
-
-
 
  def post_params
    params.require(:post).permit(:title, :description,:eat_venue,:eat_day,:image,:eat_day_choose)
