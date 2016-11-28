@@ -21,13 +21,17 @@
 									 <div class="notificationCenter" id="notificationContainer">
 										 <div id="notificationTitle">你的通知<hr class="noticeTop"></div>
 										 <div id="notificationsBody" class="notifications">
+                   <% if @notifications.present? %>
 										 	<% @notifications.each do |notification| %>
 											<ul>
 												<a href = "<%= redirect_notification_notification_path(notification)%>">
 													用户<%= notification.trigger.nameNick %>申请了您的邀约
 												</a>
 											</ul>
-										<% end %>
+										  <% end %>
+                   <% else %>
+                      <p>还没有收到通知，赶紧<%=link_to("发起邀约",posts_path) %>吧~</p>
+                   <% end %>
 									 	 </div>
 										 <div id="notificationFooter"><hr class="noticeBottom"><a href="#">查看更多</a></div>
 									 </div>
