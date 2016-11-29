@@ -131,10 +131,10 @@ ActiveRecord::Schema.define(version: 20161129034151) do
   create_table "photos", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "avatar"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "photo_type"
-    t.integer  "photo_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "photoable_type"
+    t.integer  "photoable_id"
     t.integer  "restaurant_id"
   end
 

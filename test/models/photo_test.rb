@@ -2,11 +2,14 @@
 #
 # Table name: photos
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  avatar     :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  avatar        :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  photo_type    :string
+#  photo_id      :integer
+#  restaurant_id :integer
 #
 
 require 'test_helper'

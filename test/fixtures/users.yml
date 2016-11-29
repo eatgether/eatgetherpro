@@ -21,10 +21,10 @@
 #  image                  :string
 #  gender                 :string
 #  birthday               :date
-#  cellNum                :integer
 #  income                 :integer
 #  heightUser             :integer
 #  description            :text
+#  cellNum                :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
