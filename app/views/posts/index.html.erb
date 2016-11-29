@@ -20,12 +20,12 @@
 						</div>
 		</div>
 	</div>
-  <div class="pull-right">
+  <div class="pull-right", style="margin-top:10px; margin-right:80px">
     <%= form_tag posts_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, params[:search], placeholder: "搜索饭局" %>
-      <%= submit_tag "Search", :title => nil, :description => nil ,:class => "btn btn-default"%>
-    </p>
+      <%= text_field_tag :search, params[:search], placeholder: "搜索饭局", class: "form-control pink"%>
+      <span>
+      <%= submit_tag "Search", :title => nil, :description => nil, class: "btn-xs btn-default pink light", style: "height:34px; margin-left:10px" %>
+      </span>
     <% end %>
   </div>
         <div class="bread">
