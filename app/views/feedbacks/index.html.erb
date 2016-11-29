@@ -38,7 +38,7 @@
                 <p class="lead">
 										by &nbsp;
 											<%= feedback.user.nameNick %>
-											<% if current_user.image.present? %>
+											<% if feedback.user.image.present? %>
 											  <%= image_tag(feedback.user.image.medium.url, class: "blog-thumbnails") %>
 											<% else %>
 												 <%= image_tag("logo-nopic2.png", class: "img-thumbnails", style: "width:200px;") %>
