@@ -28,7 +28,7 @@ class Post < ApplicationRecord
 
   has_one :restaurant, through: :post_restaurant, source: :restaurant
   has_one :post_restaurant
-  
+
   def self.no_match
     where('id NOT IN (SELECT DISTINCT poster_id FROM orders)
        AND id NOT IN (SELECT DISTINCT asker_id FROM orders)')
@@ -47,6 +47,8 @@ class Post < ApplicationRecord
       ["101咖啡", "汤城小厨", "星巴克", "USA"]
     end
 
-
+    def self.search(search)
+      where('title LIKE ?', "%#{search}%").or(where('description LIKE ?', "%#{search}%"))
+    end
 
 end

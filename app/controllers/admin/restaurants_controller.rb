@@ -13,6 +13,12 @@ class Admin::RestaurantsController < ApplicationController
     @photo = @restaurant.photos.build
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    @photos = @restaurant.photos.all
+  end
+
+
   def edit
     @restaurant = Restaurant.find(params[:id])
   end

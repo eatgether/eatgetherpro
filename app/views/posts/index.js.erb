@@ -4,3 +4,4 @@ $('#content').append("<%=j render(partial: 'post',format: 'html') %>");
 <% else %>
   $('#view-more a').attr('href', '<%= url_for(page: @posts.current_page + 1) %>');
 <% end %>
+$("#content").html("<%= escape_javascript(render("post")) %>");
