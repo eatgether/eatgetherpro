@@ -2,14 +2,14 @@
 #
 # Table name: photos
 #
-#  id            :integer          not null, primary key
-#  user_id       :integer
-#  avatar        :string
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  photo_type    :string
-#  photo_id      :integer
-#  restaurant_id :integer
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  avatar         :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  photoable_type :string
+#  photoable_id   :integer
+#  restaurant_id  :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

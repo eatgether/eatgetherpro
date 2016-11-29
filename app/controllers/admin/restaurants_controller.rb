@@ -22,7 +22,7 @@ class Admin::RestaurantsController < ApplicationController
     if @restaurant.save
       if params[:photos] != nil
         params[:photos]['avatar'].each do |a|
-          @photo = @restaurant.photoss.create(:avatar => a)
+          @photo = @restaurant.photos.create(:avatar => a)
         end
       end
       redirect_to admin_restaurants_path
