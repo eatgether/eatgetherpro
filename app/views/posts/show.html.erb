@@ -1,3 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
 <div class="container">
   <div class="row">
     <div class="bread-userhr">
@@ -65,13 +68,14 @@
 
 
 
-<div class="row">
-  <div class="container well">
+
+  <div class="container  user-informations">
 		<div class="row">
 			<h4 class="ask_user_well">发起人信息</h4>
 			<hr>
 	 </div>
    <div class="row">
+       <div class="user-position">
       <div class="col-md-2">
         <% if current_user.image.present? %>
           <%= image_tag(current_user.image.medium.url, class: "img-thumbnails") %>
@@ -79,8 +83,7 @@
                  <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "img-thumbnails", style: "width:200px;") %>
             <% end %>
       </div>
-      <div class="col-md-6">
-
+      <div class="col-md-8">
             <div class="com-md-6 col-md-offset-1 " >
                <div class="word-color">
 
