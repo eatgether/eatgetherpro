@@ -241,6 +241,7 @@ transition: all 0.4s ease;
       background-color: $colDefault; }}
   .navbar-collapse,
   .navbar-link {
+		padding-left:0;
     color: $colDefault;
     &:hover {
       color: $colHighlight; }}}
@@ -257,8 +258,17 @@ transition: all 0.4s ease;
 }
 
 .collapsing, .collapse.in {
-	color:$bgDefault;
+	background-color: $bgDefault;
 }
+
+.collapsing li {
+	margin-left:15px;
+}
+
+.collapse.in li {
+	margin-left:15px;
+}
+
 
 
 /* button section */
