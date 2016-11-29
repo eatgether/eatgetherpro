@@ -51,6 +51,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates_numericality_of :income, greater_than_or_equal_to: 1,
+                                     message: "收入不能小于1哦，请如实填写"
+  validates_numericality_of :heightUser, greater_than_or_equal_to: 1,
+                                          less_than_or_equal_to: 210,
+                                         :message => "请如实填写身高"
+
+
   #mailboxer 没有这个会出现no method mailboxer_email
   def mailboxer_email(user)
     nil
@@ -75,6 +82,11 @@ class User < ApplicationRecord
 
     message.deliver false, sanitize_text
   end
+
+  def self.sex_select
+    ["酷男","美女"]
+  end
+
 
   def is_asker_of?(post)
     ask_posts.include?(post)
