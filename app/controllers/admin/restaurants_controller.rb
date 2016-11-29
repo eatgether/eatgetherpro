@@ -10,7 +10,14 @@ class Admin::RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @photo = @restaurant.photos.build
   end
+
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    @photos = @restaurant.photos.all
+  end
+
 
   def edit
     @restaurant = Restaurant.find(params[:id])
@@ -19,6 +26,11 @@ class Admin::RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
+      if params[:photos] != nil
+        params[:photos]['avatar'].each do |a|
+          @photo = @restaurant.photos.create(:avatar => a)
+        end
+      end
       redirect_to admin_restaurants_path
     else
       render :new

@@ -12,4 +12,5 @@
 class Restaurant < ApplicationRecord
   has_many :posts, :through => :post_restaurant ,source: :post
   has_many :post_restaurants
+  has_many :photos, :as => :photoable
 end
