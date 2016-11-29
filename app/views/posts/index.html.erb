@@ -23,6 +23,14 @@
         <div class="bread">
           	<a href="/">首頁</a>&nbsp;/&nbsp;所有饭局
         </div>
+        <div class="pull-right">
+          <%= form_tag posts_path, :method => 'get' do %>
+          <p>
+            <%= text_field_tag :search, params[:search], placeholder: "搜索饭局" %>
+            <%= submit_tag "Search", :title => nil, :description => nil ,:class => "btn btn-default outline"%>
+          </p>
+          <% end %>
+        </div>
 
   <div class="twopage">
     <!-- 这里是引用的partial文件，达到加载更多的约饭 -->
@@ -49,6 +57,5 @@
             </a>
          </div>
       </div>
-
 </body>
 </html>

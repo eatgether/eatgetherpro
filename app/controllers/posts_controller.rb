@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :get_notification
 
   def index
-    @posts = Post.page(params[:page]).per(6).recent
+    @posts = Post.page(params[:page]).per(6).recent.search(params[:search])
   end
 
   def new
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
        @post_restaurant.restaurant_id = @post.eat_venue
        @post_restaurant.save
-    
+
       redirect_to posts_path, notice: 'Update Success'
     else
       render :edit
