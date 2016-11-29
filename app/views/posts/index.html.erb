@@ -21,6 +21,14 @@
 						</div>
 		</div>
 	</div>
+  <div class="pull-right", style="margin-top:10px; margin-right:80px">
+    <%= form_tag posts_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search], placeholder: "搜索饭局", class: "form-control pink"%>
+      <span>
+      <%= submit_tag "Search", :title => nil, :description => nil, class: "btn-xs btn-default pink light", style: "height:34px; margin-left:10px" %>
+      </span>
+    <% end %>
+  </div>
         <div class="bread">
           	<a href="/">首頁</a>&nbsp;/&nbsp;所有饭局
         </div>
@@ -47,6 +55,8 @@
                <img src="https://ooo.0o0.ooo/2016/11/27/583a6ad7514c7.png" width="50px;">
             </a>
          </div>
+
+
 
 </body>
 </html>

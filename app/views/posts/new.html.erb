@@ -28,6 +28,9 @@
                     <div class="group">
                       <!-- <label>约饭地点</label> -->
                       <%#= f.select :eat_venue, Restaurant.all.collect { |p| [ p.name ] }, :selected => Restaurant.first.name,label: '约饭地点' %>
+                       <%#= f.input :eat_venue, :collection => Restaurant.all, :label => Restaurant.first.description, :include_blank => false %>
+                       <%#= f.select :eat_venue, :restaurant_id, Restaurant.all.collect {|p| [p.description]},:label => Restaurant.first.description, :include_blank => false %>
+                       <%#= select_tag :eat_venue, options_from_collection_for_select(Restaurant.all, "description","name", Restaurant.first.description) %>
                        <%= f.input :eat_venue, :collection => @restaurants,:selected => @restaurants.first.name, label: '约饭地点'%>
                        详细地址：<span id='cg'></span>
                        <br><br>
@@ -55,6 +58,7 @@
                        });
 
                        </script>
+
 
                     </div>
                     <div class="group">

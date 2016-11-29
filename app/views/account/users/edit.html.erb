@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="group">
-                       <%= f.input :gender, label: '性别' %>
+                       <%= f.input :gender, :collection => User.sex_select, :selected => User.sex_select[1], label: '性别' %>
                     </div>
 
                     <div class="group">
@@ -40,11 +40,11 @@
                     </div>
 
                     <div class="group">
-                      <%= f.input :heightUser, label: '身高' %>
+                      <%= f.input :heightUser, label: '身高（厘米）',input_html: { min: '0', step: 'any' } %>
                     </div>
 
                     <div class="group">
-                         <%= f.input :income, label: '收入' %>
+                         <%= f.input :income, label: '收入（年薪）' %>
                     </div>
 
                     <div class="group">
