@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127112847) do
+ActiveRecord::Schema.define(version: 20161127082452) do
 
   create_table "asker_requests", force: :cascade do |t|
     t.integer  "user_id"
@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 20161127112847) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.integer  "eat_venue"
+    t.string   "eat_venue"
     t.date     "eat_day"
     t.string   "image"
   end
@@ -168,25 +168,25 @@ ActiveRecord::Schema.define(version: 20161127112847) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                             default: "",    null: false
+    t.string   "encrypted_password",                default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.boolean  "is_admin",               default: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.boolean  "is_admin",                          default: false
     t.string   "nameChi"
     t.string   "nameNick"
     t.string   "image"
     t.string   "gender"
     t.date     "birthday"
-    t.integer  "cellNum"
+    t.integer  "cellNum",                limit: 16
     t.integer  "income"
     t.integer  "heightUser"
     t.text     "description"
