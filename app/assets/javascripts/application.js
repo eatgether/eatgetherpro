@@ -44,8 +44,33 @@ $(window).scroll(function() {
   }
 });
 
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('button').addClass('shrink');
+  } else {
+    $('button').removeClass('shrink');
+  }
+});
+
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('div').addClass('shrink');
+  } else {
+    $('div').removeClass('shrink');
+  }
+});
+
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('collapse').addClass('shrink');
+  } else {
+    $('collapse').removeClass('shrink');
+  }
+});
+
+
 $('.carousel').carousel({
-	interval: 5000
+	interval: 20000
 })
 
 

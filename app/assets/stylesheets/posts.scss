@@ -164,11 +164,12 @@ div.desc h5 {
 .footer-mark {
     margin: 15px auto;
     margin-bottom: 20px;
-    width: 1200px;
+    width: auto;
     position: relative;
 }
 .footer-text{
   margin-left: 63%;
+	float:right;
 }
 
 .facebook {

@@ -17,8 +17,7 @@
 								 <li><%= link_to("<i class='fa fa-cutlery'></i>  最新约饭".html_safe, posts_path) %></li>
 								 <li><%= link_to("<i class='fa fa-book'></i>  精彩博客".html_safe, feedbacks_path) %></li>
 							<% if current_user %>
-								 <li>
-
+								 <li class="hidden-xs">
 									 <a href="#" id="notificationLink"><i class="fa fa-bell"></i>&nbsp;通知
 										 <% if @notifications.present? %>
 										 <span class="redpoint"></span>
@@ -30,9 +29,11 @@
                    <% if @notifications.present? %>
 										 	<% @notifications.each do |notification| %>
 											<ul>
-												<a href = "<%= redirect_notification_notification_path(notification)%>">
+												<li>
+													<a href = "<%= redirect_notification_notification_path(notification)%>">
 													用户<%= notification.trigger.nameNick %>申请了您的邀约
 												</a>
+												</li>
 											</ul>
 										  <% end %>
                    <% else %>

@@ -164,10 +164,23 @@ transition: all 0.4s ease;
 	font-size: 13px;
 }
 
-// .navbar-brand.shrink {
-// 	min-height: 30px;
-// 	font-size: 12px;
-// }
+button.shrink {
+	padding:6px 10px;
+}
+
+button {
+ -webkit-transition: all 0.4s ease;
+ transition: all 0.4s ease;
+}
+
+div.navbar-header {
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+div.navbar-header.shrink {
+  min-height: 30px;
+}
 
 .navbar-default {
 	margin: 0;
@@ -183,10 +196,7 @@ transition: all 0.4s ease;
 		&:focus {
 			color: #d6d6d6; }
 		}
-	// .navbar-brand.shrink {
-	// 	min-height: 30px;
-	// 	font-size: 12px;
-	// }
+
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {
@@ -259,6 +269,15 @@ transition: all 0.4s ease;
 
 .collapsing, .collapse.in {
 	background-color: $bgDefault;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	position:absolute;
+	width:100%;
+}
+
+.collapsing.shrink, .collapse.in.shrink {
+	margin-top:-10px;
+	position:absolute;
 }
 
 .collapsing li {
@@ -447,4 +466,8 @@ transition: all 0.4s ease;
   position: relative;
   top: -7px;
   right: 7px;
+}
+
+.signupBtn {
+	text-align:center;
 }
