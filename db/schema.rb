@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127112847) do
+ActiveRecord::Schema.define(version: 20161129034151) do
 
   create_table "asker_requests", force: :cascade do |t|
     t.integer  "user_id"
@@ -131,8 +131,11 @@ ActiveRecord::Schema.define(version: 20161127112847) do
   create_table "photos", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "avatar"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "photo_type"
+    t.integer  "photo_id"
+    t.integer  "restaurant_id"
   end
 
   create_table "post_restaurants", force: :cascade do |t|
@@ -186,10 +189,10 @@ ActiveRecord::Schema.define(version: 20161127112847) do
     t.string   "image"
     t.string   "gender"
     t.date     "birthday"
-    t.integer  "cellNum"
     t.integer  "income"
     t.integer  "heightUser"
     t.text     "description"
+    t.string   "cellNum"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
