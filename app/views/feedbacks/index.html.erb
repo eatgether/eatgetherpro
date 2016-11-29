@@ -83,10 +83,11 @@
                     <h4>博客关键字<font class="pinkfont">搜索</font></h4>
                     <div class="input-group">
 											<%= form_tag feedbacks_path, :method => 'get' do %>
-											<p>
-												<%= text_field_tag :search, params[:search], placeholder: "搜索博文" %>
-												<%= submit_tag "Search", :title => nil, :description => nil ,:class => "btn btn-default"%>
-											</p>
+
+												<%= text_field_tag :search, params[:search], placeholder: "搜索博文", class: "form-control pink"%>
+												<span>
+												<%= submit_tag "Search", :title => nil, :description => nil , class: "btn-xs btn-default pink light", style: "height:34px; margin-left:10px"%>
+											</span>
 											<% end %>
                         <!-- <input type="text" class="form-control pink">
                         <span class="input-group-btn">
