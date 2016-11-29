@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
     <head>
         <title>Eatgether</title>
         <%= csrf_meta_tags %>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         <script src="http://ogx9q73gu.bkt.clouddn.com/blowup.js" charset="utf-8"></script>
         <link rel="stylesheet" href="http://ogx9q73gu.bkt.clouddn.com/ihover.css" media="screen" title="no title">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<title>eCommerce Product Detail</title>
+				<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     </head>
 
     <body>
@@ -17,6 +23,8 @@
             <%= render "common/flashes" %>
             <%= yield %>
         </div>
-		<%= render "common/footer" %>
+				<% unless current_page?('/') %>
+					<%= render "common/footer" %>
+				<% end %>
     </body>
 </html>

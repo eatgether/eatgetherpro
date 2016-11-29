@@ -27,11 +27,13 @@ $colHighlight   : #f01d67;
   background-image: url("https://ooo.0o0.ooo/2016/11/27/583a69786d368.jpg");
   background-size: 100%;
   background-size: cover;
+	background-position: 63%;
 }
 .slides .slide-3{
   background-image: url("https://ooo.0o0.ooo/2016/11/27/583a69b93bd5c.jpg");
   background-size: 100%;
   background-size: cover;
+	background-position: 20%;
 }
 
 
@@ -52,8 +54,9 @@ $colHighlight   : #f01d67;
 .title-carousel {
   position: absolute;
   z-index: 3;
-  margin-left: 100px;
-  margin-top: 108px;
+	margin-left: 10%;
+	margin-top: 8%;
+	margin-right: 14%;
 }
 
 .overlaycarousel {
@@ -67,19 +70,29 @@ $colHighlight   : #f01d67;
 	margin-top: 0px;
 }
 
+.sellingpoints {
+	z-index:3;
+	text-align: -webkit-center;
+}
+
+.caption {
+	max-width: 300px;
+}
 
 .title-carousel-item2 {
 	position: relative;
 	z-index: 3;
-	margin-right: 118px;
-	margin-top: 53px;
+	margin-right: 3%;
+	margin-top: -6%;
+  margin-left: 16%;
 }
 
 .title-carousel-item3 {
 	position: relative;
 	z-index: 3;
-	margin-right: 118px;
-	margin-top: 46px;
+	margin-right: 10%;
+  margin-top: 12%;
+  margin-left: 9%;
 }
 
 .carouselitem2 {
@@ -161,10 +174,14 @@ h2.lp-2 {
    height: 540px;
 }
 
+.three.shrink {
+	height:auto;
+}
+
 #picturethree {
   display:block;
   background:rgba(236,236,236,0.87);
-  background-image:url(//d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/centenni-lightbox-51/a01ae583-cheers-lg.jpg);
+  background-image:url(//ooo.0o0.ooo/2016/11/29/583d6604d4bbe.jpg);
   background-attachment:fixed;
   background-repeat:no-repeat;
   background-position:left top;
@@ -174,7 +191,7 @@ h2.lp-2 {
   background-size:cover;
   -ms-behavior:url(//d9hhrg4mnvzow.cloudfront.net/backgroundsize.min.htc);
   behavior:url(//d9hhrg4mnvzow.cloudfront.net/backgroundsize.min.htc);
-  border-style:solid none none none;
+  border-style:solid none solid none;
   border-width:1px;
   border-color:#000;
   margin-left:auto;
@@ -182,7 +199,7 @@ h2.lp-2 {
   margin-bottom:0px;
   border-radius:0px;
   width:100%;
-  height:540px;
+  height:auto;
   position:relative;
 }
 
@@ -236,9 +253,9 @@ h2.lp-2 {
 }
 
 .four-bg {
- height: 1100px;
+ height: auto;
  width: 100%;
- position: absolute;
+ position: relative;
  background-position: center center;
  background-size: cover;
 
@@ -268,15 +285,16 @@ p.lp-4-1 {
 	text-align: left;
 }
 
-p.lp-4-2 {
-	font-size: 16px;
+span.lp-4-2 {
+	font-size: 14px;
 	color: black;
+	float:right;
 }
 
  // 第五页 //
 
 .five {
-  height: 340px;
+  height: auto;
 }
 
 .five-bg {
@@ -365,4 +383,24 @@ p.lp-5 {
 .header-text h3 span {
 	background-color: #000;
 	padding: 15px;
+}
+
+
+.lp-sample-invites {
+	max-width: 817px;
+	display:block;
+	height: auto;
+}
+
+.lp-image {
+	// max-width:766;
+	// max-height:228;
+	// width:100%
+	max-width: 100%;
+	display:block;
+	height: auto;
+}
+
+.lp-row {
+	max-width:766;
 }
