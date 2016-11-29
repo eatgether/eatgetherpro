@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
     Notification.create(trigger_id: trigger,recipient_id: recipient,notifiable_id: notifiable.id,notifiable_type: notifiable.class)
   end
 
+
 # devise controlls below
 	def new
   end

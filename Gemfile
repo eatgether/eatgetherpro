@@ -46,6 +46,7 @@ gem 'remotipart'
 gem 'mailboxer'
 gem 'country_select'
 
+
 gem 'fog', require: 'fog/aws'
 gem "figaro"
 gem 'airbrake'

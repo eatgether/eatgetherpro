@@ -1,0 +1,15 @@
+<div class="person-table topnavbar">
+
+  <div class="life-photo">
+    <div class="life-image">
+    <div class="row">
+          <% @photos.each_with_index do |p, index| %>
+            <div class="col-md-4 img-thumbnails">
+           <%= image_tag p.avatar.thumb.url, :class => "person-photo"%>
+             </div>
+           <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>

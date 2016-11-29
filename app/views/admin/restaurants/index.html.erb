@@ -21,7 +21,7 @@
           <% @restaurants.each do |restaurant| %>
         <tr>
             <td>
-              <%= restaurant.id %>
+              <%= link_to(restaurant.id, admin_restaurant_path(restaurant)) %>
             </td>
           <td>
             <%= restaurant.name %>

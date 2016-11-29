@@ -21,17 +21,17 @@
 #  image                  :string
 #  gender                 :string
 #  birthday               :date
-#  cellNum                :integer
 #  income                 :integer
 #  heightUser             :integer
 #  description            :text
+#  cellNum                :string
 #
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   acts_as_messageable #mailboxer
-  has_many :photos
+  has_many :photos, :as => :photoable
   accepts_nested_attributes_for :photos
   has_many :posts
 	has_many :feedbacks

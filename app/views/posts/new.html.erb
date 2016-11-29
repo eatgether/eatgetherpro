@@ -81,6 +81,32 @@
         </div>
     </div>
   </div>
+  <script>
+  $(function () {
+      $("#btnName").click(function () {
+          var strname = $("#txtName").val();   //strname获得文本框中输入的值
+          $.ajax({
+              type: "post",  //ajax的方式为post(get方式对传送数据长度有限制)
+              contentType: "application/json",        //传值方式
+              url: "demo.aspx/getName",  //demo.aspx为目标文件，getName为目标文件中的方法
+              data: "{strName:'" + strname + "'}",  //strName为后台方法的参数，strname为文本框中输入的值
+              contentType: "application/json",        //传值方式
+              success: function (result) {      //成功回传值后触发的方法
+                  alert(result.d);          //后台返回的参数
+              }
+          })
+      })
+  });
+  </script>
+
+
+
+
+
+
+
 
   </body>
+
+
 </html>
