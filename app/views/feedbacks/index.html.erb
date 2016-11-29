@@ -38,7 +38,11 @@
                 <p class="lead">
 										by &nbsp;
 											<%= feedback.user.nameNick %>
-											<%= image_tag(feedback.user.image.medium.url, class: "blog-thumbnails") %>
+											<% if current_user.image.present? %>
+											  <%= image_tag(feedback.user.image.medium.url, class: "blog-thumbnails") %>
+											<% else %>
+												 <%= image_tag("logo-nopic2.png", class: "img-thumbnails", style: "width:200px;") %>
+											<% end %>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span>
 									<%= feedback.created_at.strftime("%Y年%m月%d日%I:%M%p") %>
@@ -78,10 +82,16 @@
                 <div class="well" style="margin-top: 20px;">
                     <h4>博客关键字<font class="pinkfont">搜索</font></h4>
                     <div class="input-group">
-                        <input type="text" class="form-control pink">
+											<%= form_tag feedbacks_path, :method => 'get' do %>
+											<p>
+												<%= text_field_tag :search, params[:search], placeholder: "搜索博文" %>
+												<%= submit_tag "Search", :title => nil, :description => nil ,:class => "btn btn-default"%>
+											</p>
+											<% end %>
+                        <!-- <input type="text" class="form-control pink">
                         <span class="input-group-btn">
                           <%= link_to "<span class='glyphicon glyphicon-search'></span>".html_safe(), "#", class: "btn btn-default pink light", style: "height:34px;" %>
-                        </span>
+                        </span> -->
                     </div>
                     <!-- /.input-group -->
                 </div>
