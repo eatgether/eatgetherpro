@@ -5,7 +5,6 @@ class Account::AskerRequestsController < ApplicationController
 
   def index
     @asker_requests = AskerRequest.where(user_id: current_user)
-    # @posts = current_user.asker_requests
   end
 
   def destroy

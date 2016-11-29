@@ -1,3 +1,107 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$bgDefault      : #3e3e3e;
+$bgHighlight    : #f01d67;
+$colDefault     : #d6d6d6;
+$colHighlight   : #f01d67;
+$btnLight	   	 	: #f181a8;
+$dropDown       : true;
+
+hr.noticeTop {
+	padding: 0px;
+	margin: 0px;
+	margin-top:5px;
+}
+
+hr.noticeBottom {
+	padding: 0px;
+	margin: 0px;
+	margin-bottom:7px;
+}
+
+#notification_li {
+	position:relative
+	}
+
+#notificationContainer
+	{
+	background-color: #fff;
+	border: 1px solid rgba(100, 100, 100, .4);
+	-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+	overflow: visible;
+	position: absolute;
+	top: 45px;
+	margin-left: -175px;
+	width: 250px;
+	z-index: -1;
+	display: none; // Enable this after jquery implementation
+	border-radius: 4px;
+	}
+
+// Popup Arrow
+#notificationContainer:before {
+content: '';
+display: block;
+position: absolute;
+width: 0;
+height: 0;
+color: transparent;
+border: 10px solid black;
+border-color: transparent transparent white;
+margin-top: -20px;
+margin-left: 188px;
+}
+
+#notificationTitle
+	{
+	font-weight: bold;
+	padding: 8px;
+	font-size: 13px;
+	position: fixed;
+	z-index: 1000;
+	width: 250px;
+	color: $bgHighlight;
+	}
+
+#notificationsBody
+	{
+	padding: 5px 0px 0px 0px !important;
+	min-height:100px;
+	// max-height:100px;
+	margin-top:35px;
+	}
+
+.notifications ul {
+	margin-left: -20px;
+}
+
+#notificationFooter
+	{
+	text-align: center;
+	font-weight: bold;
+	padding: 8px;
+	font-size: 12px;
+	border-radius: 4px;
+	}
+
+#notification_count
+	{
+	padding: 3px 7px 3px 7px;
+	background: #cc0000;
+	color: #ffffff;
+	font-weight: bold;
+	margin-left: 77px;
+	border-radius: 9px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	position: absolute;
+	margin-top: -11px;
+	font-size: 11px;
+	}
+
+	.notifications p {
+		color: $colDefault;
+		padding-left:18px;
+	}

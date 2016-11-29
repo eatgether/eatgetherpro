@@ -1,9 +1,9 @@
-<div class="container topnavbar">
-    <div class="col-md-12">
+    <div class="col-md-12 topnavbar">
 			<% if @order_twos.present? %>
 				<table class="table table-hover">
 				    <thead>
 				        <tr>
+                    <th>约饭主题</th>
 				            <th>约饭对象</th>
 				            <th>约饭地点</th>
 				            <th>约饭日期</th>
@@ -15,6 +15,7 @@
 				    <tbody>
 				      <% @order_twos.each do |order| %>
 				      <tr>
+                <td><%= order.post.title %></td>
 				        <% if order.poster_user == current_user %>
 				          <td><%= link_to(order.asker_user.nameNick, account_user_path(order.asker_user))%></td>
 				        <% else %>
@@ -76,4 +77,3 @@
 				</div>
 			<% end %>
 		</div>
-	</div>

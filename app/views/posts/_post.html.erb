@@ -2,7 +2,8 @@
       <div class="row">
 				<div class="col-md-9" style="float:none; margin: 0 auto;">
        <% @posts.each do |post| %>
-       <%# @restaurants.each do |restaurant| %>
+
+        <% if !OrderTwo.find_by_post_id(post.id)%>
          <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="img">
                 <% if post.image.present? %>
@@ -20,7 +21,7 @@
            </div>
          </div>
          <% end %>
-      <%# end %>
+      <% end %>
      </div>
     </div>
 	</div>

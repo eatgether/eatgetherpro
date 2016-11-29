@@ -12,15 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap/bootstrap-rails-tooltip
-//= require bootstrap/bootstrap-rails-popover
-//= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
 //= require bootstrap/tab
 //= require bootstrap/transition
 //= require bootstrap-sprockets
-
 //= require_tree .
 
 
@@ -49,5 +45,55 @@ $(window).scroll(function() {
 });
 
 $('.carousel').carousel({
-	interval: 4000
+	interval: 5000
 })
+
+
+//notifications
+$(document).ready(function()
+	{
+		$("#notificationLink").click(function()
+			{
+				$("#notificationContainer").fadeToggle(300);
+				$("#notification_count").fadeOut("slow");
+				function scrollbar(){
+					var parH = $('.parent').outerHeight(true);
+					var areaH = $('.scrollable').outerHeight(true);
+					var scrH = parH / (areaH/parH);
+
+					function dragging(){
+					var scrPos = $('.scrollbar').position().top;
+					$('.scrollable').css({top: -(scrPos*(areaH/parH)-1)});
+					}
+
+
+
+					$('.scrollbar').height(scrH);
+					$('.scrollbar').draggable({
+					axis: 'y',
+					containment: 'parent',
+					drag: function() {
+					dragging()
+					}
+
+					});
+
+				};//]]>
+
+
+				return false;
+			});
+
+//Document Click hiding the popup
+		$(document).click(function()
+			{
+				$("#notificationContainer").hide();
+			});
+
+//Popup on click
+		$("#notificationContainer").click(function()
+			{
+				e.stopPropagation();
+			});
+
+			});
