@@ -47,8 +47,6 @@ class Post < ApplicationRecord
       ["101咖啡", "汤城小厨", "星巴克", "USA"]
     end
 
-    def self.search(search)
-      where('title LIKE ?', "%#{search}%").or(where('description LIKE ?', "%#{search}%"))
-    end
+  
 
 end

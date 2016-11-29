@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :get_notification
 
   def index
-    @posts = Post.page(params[:page]).per(6).recent.search(params[:search])
+    @posts = Post.page(params[:page]).per(6).recent
   end
 
   def new
