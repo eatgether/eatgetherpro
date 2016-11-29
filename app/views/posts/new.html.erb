@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>我要约饭</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
   <body>
 
@@ -27,9 +28,38 @@
                     <div class="group">
                       <!-- <label>约饭地点</label> -->
                       <%#= f.select :eat_venue, Restaurant.all.collect { |p| [ p.name ] }, :selected => Restaurant.first.name,label: '约饭地点' %>
-                       <%= f.input :eat_venue, :collection => Restaurant.all, :label => Restaurant.first.description, :include_blank => false %>
+                       <%#= f.input :eat_venue, :collection => Restaurant.all, :label => Restaurant.first.description, :include_blank => false %>
                        <%#= f.select :eat_venue, :restaurant_id, Restaurant.all.collect {|p| [p.description]},:label => Restaurant.first.description, :include_blank => false %>
                        <%#= select_tag :eat_venue, options_from_collection_for_select(Restaurant.all, "description","name", Restaurant.first.description) %>
+                       <%= f.input :eat_venue, :collection => @restaurants,:selected => @restaurants.first.name, label: '约饭地点'%>
+                       详细地址：<span id='cg'></span>
+                       <br><br>
+                        <% @restaurants.each do |restaurant| %>
+                          <div class="hidden"><span id="restaurant_<%=restaurant.id%>"><%=restaurant.description%></span></div>
+                        <% end %>
+
+
+                       <script type="text/javascript">
+                       $(function (){
+                         function aletSelect(obj){
+                           obj.change(function(){
+                            $("#cg").text($("#restaurant_"+obj.val()).text())
+                           });
+
+                           obj.ready(function(){
+                            $("#cg").text($("#restaurant_"+obj.val()).text())
+                           });
+
+                         }
+
+                         var selectObj = $("#post_eat_venue");
+                         aletSelect(selectObj);
+
+                       });
+
+                       </script>
+
+
                     </div>
                     <div class="group">
                       <p><strong>约会日期</strong></p>
@@ -55,6 +85,32 @@
         </div>
     </div>
   </div>
+  <script>
+  $(function () {
+      $("#btnName").click(function () {
+          var strname = $("#txtName").val();   //strname获得文本框中输入的值
+          $.ajax({
+              type: "post",  //ajax的方式为post(get方式对传送数据长度有限制)
+              contentType: "application/json",        //传值方式
+              url: "demo.aspx/getName",  //demo.aspx为目标文件，getName为目标文件中的方法
+              data: "{strName:'" + strname + "'}",  //strName为后台方法的参数，strname为文本框中输入的值
+              contentType: "application/json",        //传值方式
+              success: function (result) {      //成功回传值后触发的方法
+                  alert(result.d);          //后台返回的参数
+              }
+          })
+      })
+  });
+  </script>
+
+
+
+
+
+
+
 
   </body>
+
+
 </html>

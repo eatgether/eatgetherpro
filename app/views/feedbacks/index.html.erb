@@ -1,5 +1,6 @@
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
 			<div class="blogpage">
@@ -51,7 +52,7 @@
 
 								<p class="polaroidtext"><%= OrderTwo.find(feedback.order_two_id).created_at.strftime("%d %b %Y")%></p>
 								<% if feedback.image.present? %>
-									<%= image_tag feedback.image.url, :class => "blogphoto polaroid" %>
+									<%= image_tag feedback.image.large.url, :class => "blogphoto polaroid" %>
 								<% else %>
 									<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
 								<% end %>

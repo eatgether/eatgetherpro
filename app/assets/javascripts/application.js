@@ -20,6 +20,17 @@
 //= require_tree .
 
 
+//  // post搜索的ajax
+// $(function() {
+//   $("#posts_search input").keyup(function() {
+//     $.get($("#posts_search").attr("action"), $("#posts_search").serialize(), null, "script");
+//     return false;
+//   });
+// });
+// //到这里结束
+
+
+
 $(window).scroll(function() {
   if ($(document).scrollTop() > 50) {
     $('nav').addClass('shrink');

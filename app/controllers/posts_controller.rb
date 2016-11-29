@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @restaurants = Restaurant.all
   end
 
   def show
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @restaurants = Restaurant.all
     @post = Post.find(params[:id])
   end
 

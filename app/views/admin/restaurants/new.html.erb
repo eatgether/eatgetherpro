@@ -4,6 +4,10 @@
       <h4 class="center">后台添加约饭地点</h4>
       <%= f.input :name %>
       <%= f.input :description  %>
+      <div class="group pic">
+          <%= f.label :生活照片 %><br>
+          <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+      </div>
       <%= f.submit "提交", class: "btn btn-default outline center-block", data: { disable_with: "提交中.."} %>
       <% end %>
   </div>

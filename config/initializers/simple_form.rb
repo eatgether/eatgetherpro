@@ -162,4 +162,7 @@ SimpleForm.setup do |config|
 
   # Defines which i18n scope will be used in Simple Form.
   # config.i18n_scope = 'simple_form'
+
+  #添加国家选择
+  config.input_mappings = { /country/ => :string }
 end

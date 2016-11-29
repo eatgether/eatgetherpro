@@ -8,7 +8,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
-#  eat_venue   :string
+#  eat_venue   :integer
 #  eat_day     :date
 #  image       :string
 #
@@ -47,9 +47,11 @@ class Post < ApplicationRecord
       ["101咖啡", "汤城小厨", "星巴克", "USA"]
     end
 
+
     def self.search(search)
      where("title LIKE ?", "%#{search}%").or(where("description LIKE ?", "%#{search}%"))
     end
+
 
 
 end
