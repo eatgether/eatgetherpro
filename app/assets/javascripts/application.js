@@ -21,7 +21,6 @@
 
 
 
-
 // $(window).scroll(function() {
 // 	if ($(document).scroll() > 50) {
 //     $(".dropdown-toggle").dropdown();
@@ -32,6 +31,7 @@ $(window).scroll(function() {
 				$('.navbar-collapse').collapse('hide');
 		 }
  });
+
 
 $(window).scroll(function() {
   if ($(document).scrollTop() > 50) {

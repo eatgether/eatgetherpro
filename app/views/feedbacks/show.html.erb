@@ -27,8 +27,12 @@
                 </h2>
                 <p class="lead">
                     by &nbsp;
-											<%= @feedback.user.nameNick %>
+										<%= @feedback.user.nameNick %>
+										<% if @feedback.user.image.present? %>
 											<%= image_tag(@feedback.user.image.medium.url, class: "blog-thumbnails") %>
+										<% else %>
+											 <%= image_tag("logo-nopic2.png", class: "img-thumbnails", style: "width:200px;") %>
+										<% end %>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span>
 									<%= @feedback.created_at.strftime("%Y年%m月%d日%I:%M%p") %>

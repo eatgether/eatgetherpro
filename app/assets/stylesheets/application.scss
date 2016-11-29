@@ -335,6 +335,7 @@ div.navbar-header.shrink {
 
 .form-control.pink {
 	border: 1px solid $bgDefault;
+  width: 240px;
 }
 
 // btn.pink
@@ -411,10 +412,6 @@ div.navbar-header.shrink {
 .btn-primary[disabled] {
 	background: $colDefault;
 	color: $bgDefault ;
-}
-
-#noasker_request {
-  background-image: url("https://ooo.0o0.ooo/2016/11/27/583a7b2288aab.jpg");
 }
 
 .footermargin {

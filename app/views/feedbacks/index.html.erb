@@ -1,5 +1,6 @@
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
 			<div class="blogpage">
@@ -38,7 +39,11 @@
                 <p class="lead">
 										by &nbsp;
 											<%= feedback.user.nameNick %>
-											<%= image_tag(feedback.user.image.medium.url, class: "blog-thumbnails") %>
+											<% if feedback.user.image.present? %>
+											  <%= image_tag(feedback.user.image.medium.url, class: "blog-thumbnails") %>
+											<% else %>
+												 <%= image_tag("logo-nopic2.png", class: "img-thumbnails", style: "width:200px;") %>
+											<% end %>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span>
 									<%= feedback.created_at.strftime("%Y年%m月%d日%I:%M%p") %>
@@ -47,7 +52,7 @@
 
 								<p class="polaroidtext"><%= OrderTwo.find(feedback.order_two_id).created_at.strftime("%d %b %Y")%></p>
 								<% if feedback.image.present? %>
-									<%= image_tag feedback.image.url, :class => "blogphoto polaroid" %>
+									<%= image_tag feedback.image.large.url, :class => "blogphoto polaroid" %>
 								<% else %>
 									<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
 								<% end %>
@@ -78,10 +83,17 @@
                 <div class="well" style="margin-top: 20px;">
                     <h4>博客关键字<font class="pinkfont">搜索</font></h4>
                     <div class="input-group">
-                        <input type="text" class="form-control pink">
+											<%= form_tag feedbacks_path, :method => 'get' do %>
+
+												<%= text_field_tag :search, params[:search], placeholder: "搜索博文", class: "form-control pink"%>
+												<span>
+												<%= submit_tag "Search", :title => nil, :description => nil , class: "btn-xs btn-default pink light", style: "height:34px; margin-left:10px"%>
+											</span>
+											<% end %>
+                        <!-- <input type="text" class="form-control pink">
                         <span class="input-group-btn">
                           <%= link_to "<span class='glyphicon glyphicon-search'></span>".html_safe(), "#", class: "btn btn-default pink light", style: "height:34px;" %>
-                        </span>
+                        </span> -->
                     </div>
                     <!-- /.input-group -->
                 </div>
