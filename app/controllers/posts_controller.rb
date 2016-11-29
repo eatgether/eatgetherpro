@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @restaurants = Restaurant.all
   end
 
   def show
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
        @post_restaurant.restaurant_id = @post.eat_venue
        @post_restaurant.save
-    
+
       redirect_to posts_path, notice: 'Update Success'
     else
       render :edit
