@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>我要约饭</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
   <body>
 
@@ -27,7 +28,34 @@
                     <div class="group">
                       <!-- <label>约饭地点</label> -->
                       <%#= f.select :eat_venue, Restaurant.all.collect { |p| [ p.name ] }, :selected => Restaurant.first.name,label: '约饭地点' %>
-                       <%= f.input :eat_venue, :collection => Restaurant.all, :label => "约饭地点", :include_blank => false %>
+                       <%= f.input :eat_venue, :collection => @restaurants,:selected => @restaurants.first.name, label: '约饭地点'%>
+                       详细地址：<span id='cg'></span>
+                       <br><br>
+                        <% @restaurants.each do |restaurant| %>
+                          <div class="hidden"><span id="restaurant_<%=restaurant.id%>"><%=restaurant.description%></span></div>
+                        <% end %>
+
+
+                       <script type="text/javascript">
+                       $(function (){
+                         function aletSelect(obj){
+                           obj.change(function(){
+                            $("#cg").text($("#restaurant_"+obj.val()).text())
+                           });
+
+                           obj.ready(function(){
+                            $("#cg").text($("#restaurant_"+obj.val()).text())
+                           });
+
+                         }
+
+                         var selectObj = $("#post_eat_venue");
+                         aletSelect(selectObj);
+
+                       });
+
+                       </script>
+
                     </div>
                     <div class="group">
                       <p><strong>约会日期</strong></p>

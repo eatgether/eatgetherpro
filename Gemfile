@@ -44,11 +44,12 @@ gem "roadie-rails", "~> 1.0"
 gem 'will_paginate-bootstrap'
 gem 'remotipart'
 gem 'mailboxer'
+gem 'country_select'
 
 
 gem 'fog', require: 'fog/aws'
 gem "figaro"
-
+gem 'airbrake'
 group :production do
   gem "pg"
 end
