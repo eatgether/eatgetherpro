@@ -13,10 +13,33 @@
                 <%= f.input :description, label: '详细信息' %>
             </div>
             <div class="group">
-            <%#= f.input :eat_venue, :collection => Restaurant.all, :label => "约饭地点", :include_blank => false %>
             <%= f.input :eat_venue,:as => :select, :collection => Restaurant.all, label: "约饭地点"%>
-            <%#= f.select :eat_venue, Restaurant.all.collect { |p| [ p.id ] }, :selected => Restaurant.first.name,label: '约饭地点' %>
             </div>
+						详细地址：<span id='cg'></span>
+						<br><br>
+						<% @restaurants.each do |restaurant| %>
+							<div class="hidden"><span id="restaurant_<%=restaurant.id%>"><%=restaurant.description%></span></div>
+						<% end %>
+
+						<script type="text/javascript">
+						$(function (){
+							function aletSelect(obj){
+								obj.change(function(){
+								 $("#cg").text($("#restaurant_"+obj.val()).text())
+								});
+
+								obj.ready(function(){
+								 $("#cg").text($("#restaurant_"+obj.val()).text())
+								});
+
+							}
+
+							var selectObj = $("#post_eat_venue");
+							aletSelect(selectObj);
+
+						});
+
+						</script>
 
             <div class="group">
               <p><strong>约会日期</strong></p>

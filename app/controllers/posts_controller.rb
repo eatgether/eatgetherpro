@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @restaurants = Restaurant.all
     @post = Post.find(params[:id])
   end
 
