@@ -13,16 +13,18 @@ $dropDown       : true;
   height: 500px;
   width: 100%;
   position: absolute;
-  background-position: center center;
   background-size: cover;
-	margin-left: 0px;
+	margin-left: auto;
+  margin-right: auto;
 	z-index: -1;
 }
 
 #postspage {
-  display: inline-block;
+  display: block;
   vertical-align: baseline;
   background-image: url("http://file06.16sucai.com/2016/0608/e6579a57aff1e4a4dabce4670d9847fd.jpg");
+  background-position-x: center;
+  background-position-y: 13%;
 }
 
 .postpage-top {
@@ -81,7 +83,8 @@ $dropDown       : true;
     margin-bottom: 20px;
     width: 1100px;
     position: relative;
-		font-size: 14pt;
+		font-size: 12pt;
+    color: #9B9B9B;
 }
 
 .bread a {
@@ -137,9 +140,10 @@ div.desc h5 {
 
 .gotop a {
    position: relative;
-   left: 95%;
+   left: 85%;
    opacity: 0.9;
    z-index: 3;
+   margin-top: -300px;
 }
 
 .threepage {
@@ -164,16 +168,11 @@ div.desc h5 {
 .footer-mark {
     margin: 15px auto;
     margin-bottom: 20px;
-    width: 1200px;
+    width: 100%;
     position: relative;
 }
 .footer-text{
-  margin-left: 63%;
-}
-
-.facebook {
-  position: relative;
-  left: 3%;
+  margin-left: 66%;
 }
 
 .footer-mark a {
@@ -186,11 +185,7 @@ div.desc h5 {
     display: inline-block;
     vertical-align: middle;
     font-size: 15px;
-    padding: 5px;
-    max-width: 250px;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     color: #9B9B9B;
 }
 
