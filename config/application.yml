@@ -13,3 +13,15 @@ production:
   AWS_ACCESS_KEY_ID: AKIAJBLX2WEDX2AUOCLQ
   AWS_SECRET_ACCESS_KEY: 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
   AWS_BUCKET_NAME: jdstore-qf
+  
+  #mailgun config
+  MAILGUN_SMTP_PORT: 587 
+  MAILGUN_SMTP_SERVER: smtp.mailgun.org
+  MAILGUN_SMTP_LOGIN: postmaster@qinfeng.io
+  MAILGUN_SMTP_PASSWORD: 534d103465ea8b1ce26a0c150e4d2e5a
+
+development:
+  MAILGUN_SMTP_PORT: 587 
+  MAILGUN_SMTP_SERVER: smtp.mailgun.org
+  MAILGUN_SMTP_LOGIN: postmaster@qinfeng.io
+  MAILGUN_SMTP_PASSWORD: 534d103465ea8b1ce26a0c150e4d2e5a 
