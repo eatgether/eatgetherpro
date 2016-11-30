@@ -48,7 +48,7 @@ gem 'country_select'
 
 
 gem 'fog', require: 'fog/aws'
-gem "figaro"
+#gem "figaro"
 gem 'airbrake'
 group :production do
   gem "pg"
