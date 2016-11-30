@@ -1,10 +1,18 @@
-$('#uploadForm input').change(function(){
- $(this).parent().ajaxSubmit({
-  beforeSubmit: function(a,f,o) {
-   o.dataType = 'json';
-  },
-  complete: function(XMLHttpRequest, textStatus) {
-$('#my_image').attr('src', XMLHttpRequest.responseText);
-  },
- });
-});
+
+
+     function readURL(input) {
+
+         if (input.files && input.files[0]) {
+             var reader = new FileReader();
+
+             reader.onload = function (e) {
+                 $('#image').attr('src', e.target.result);
+             }
+
+             reader.readAsDataURL(input.files[0]);
+         }
+     }
+
+     $("#user_image").change(function(){
+         readURL(this);
+     });

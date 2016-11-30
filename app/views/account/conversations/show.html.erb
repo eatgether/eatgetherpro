@@ -25,6 +25,11 @@
                 <div class="text-right">
                   <p>
                       <span style="color: black;">
+                        <% if message.sender.image.present? %>
+                           <%= image_tag(message.sender.image.medium.url, class: "nav-thumbnails") %>
+                        <% else %>
+                          <i class="fa fa-user"></i>
+                        <% end %>
                           <%= message.sender.nameNick %>
                       </span>
                       <span style="color: black;">
@@ -40,6 +45,11 @@
                 <div class="" style="background-color: ;">
                     <p>
                         <span style="color: #f01d67;">
+                          <% if message.sender.image.present? %>
+                             <%= image_tag(message.sender.image.medium.url, class: "nav-thumbnails") %>
+                          <% else %>
+                            <i class="fa fa-user"></i>
+                          <% end %>
                             <%= message.sender.nameNick %>
                         </span>
                         <span style="color: #f01d67;">
