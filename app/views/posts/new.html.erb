@@ -35,7 +35,13 @@
                        详细地址：<span id='cg'></span>
                        <br><br>
                         <% @restaurants.each do |restaurant| %>
-                          <div class="hidden"><span id="restaurant_<%=restaurant.id%>"><%=restaurant.description%></span></div>
+                          <div class="hidden"><span id="restaurant_<%=restaurant.id%>"><%=restaurant.description%>
+                            <% restaurant.photos.each_with_index do |p, index| %>
+                              <div class="col-md-4 img-thumbnails">
+                             <%= image_tag p.avatar.thumb.url, :class => "person-photo"%>
+                               </div>
+                             <% end %>
+                          </span></div>
                         <% end %>
 
 
@@ -45,18 +51,13 @@
                            obj.change(function(){
                             $("#cg").text($("#restaurant_"+obj.val()).text())
                            });
-
                            obj.ready(function(){
                             $("#cg").text($("#restaurant_"+obj.val()).text())
                            });
-
                          }
-
                          var selectObj = $("#post_eat_venue");
                          aletSelect(selectObj);
-
                        });
-
                        </script>
 
 
