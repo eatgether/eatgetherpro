@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <%= simple_form_for [:account,@user] ,remote: true do |f| %>
+            <%= simple_form_for [:account,@user] do |f| %>
                     <div id="my_image">
                     <% if current_user.image.present? %>
                     <%= image_tag(current_user.image.medium.url, :id => "image") %>
@@ -44,6 +44,10 @@
                     </div>
 
                     <div class="group">
+                         <%= f.input :work, label: '工作' %>
+                    </div>
+
+                    <div class="group">
                          <%= f.input :income, label: '收入（年薪）' %>
                     </div>
 
@@ -71,7 +75,7 @@
 
 
 
-     <script type="text/javascript">
+     <!-- <script type="text/javascript">
      function readURL(input) {
 
          if (input.files && input.files[0]) {
@@ -90,4 +94,4 @@
      });
 
 
-     </script>
+     </script> -->

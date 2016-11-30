@@ -35,8 +35,14 @@
          </div>
 
          <div class="income">
+             <label>工作:</label>  	<span class="nikname"><%= current_user.work %></span>
+         </div>
+
+
+         <div class="income">
              <label>收入:</label>  	<span class="nikname"><%= current_user.income %></span>
          </div>
+
 
          <div class="interest">
            <label>兴趣爱好:</label>  <span class="interest-introduction"><% @users.interests.each do |interest| %>
