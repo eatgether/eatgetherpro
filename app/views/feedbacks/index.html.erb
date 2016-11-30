@@ -10,10 +10,10 @@
 								<div class="row blogpage-top">
 								<h1>
 									<img src="https://ooo.0o0.ooo/2016/11/27/583a68d9aa0b0.png" class="logocarousel">
-										<font class="projnamehome">Eatgether</font> + 你 = &nbsp; <br>
+										<font class="projnamehome">Eat2gether</font> + 你 = &nbsp; <br>
 										一顿饭局的100种打开方式
 								</h1>
-								<p> 通过Eatgether成为好朋友的人 <br>
+								<p> 通过Eat2gether成为好朋友的人 <br>
 								 都开启了哪些有趣的故事
 							 </p>
 							</div>
@@ -24,18 +24,18 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="page-header">
+                <h2 class="page-header">
                     那些年，我们约过的饭局
                     <br>
 										<small>
-										与&nbsp;<font class="projnamehome pinkfont">Eatgether</font>
+										与&nbsp;<font class="projnamehome pinkfont">Eat2gether</font>
 										共同建立的美好回忆</small>
-                </h1>
+                </h2>
 
 								<% @feedbacks.each do |feedback| %>
-								<h2>
+								<h3>
 									<%= feedback.title %>
-                </h2>
+                </h3>
                 <p class="lead">
 										by &nbsp;
 											<%= feedback.user.nameNick %>
@@ -50,7 +50,7 @@
 								</p>
                 <hr>
 
-								<p class="polaroidtext"><%= OrderTwo.find(feedback.order_two_id).created_at.strftime("%d %b %Y")%></p>
+								<p class="polaroidtext"><%#= OrderTwo.find(feedback.order_two_id).created_at.strftime("%d %b %Y")%></p>
 								<% if feedback.image.present? %>
 									<%= image_tag feedback.image.large.url, :class => "blogphoto polaroid" %>
 								<% else %>
@@ -85,9 +85,9 @@
                     <div class="input-group">
 											<%= form_tag feedbacks_path, :method => 'get' do %>
 
-												<%= text_field_tag :search, params[:search], placeholder: "搜索博文", class: "form-control pink"%>
+												<%= text_field_tag :search, params[:search], placeholder: "搜索博文", class: "form-control pink", style: "width:225px;"%>
 												<span>
-												<%= submit_tag "Search", :title => nil, :description => nil , class: "btn-xs btn-default pink light", style: "height:34px; margin-left:10px"%>
+												<%= submit_tag "搜索", :title => nil, :description => nil , class: "btn btn-default pink light searchbtn"%>
 											</span>
 											<% end %>
                         <!-- <input type="text" class="form-control pink">
@@ -99,7 +99,7 @@
                 </div>
 
                 <!-- Blog Categories Well -->
-                <div class="well">
+                <!-- <div class="well">
                     <h4>博客文章<font class="pinkfont">分类</font></h4>
                     <div class="row">
                         <div class="col-lg-6">
@@ -114,7 +114,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- /.col-lg-6 -->
                         <div class="col-lg-6">
                             <ul class="list-unstyled">
                                 <li><a href="#">@ 找到女朋友</a>
@@ -127,15 +126,13 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- /.col-lg-6 -->
                     </div>
-                    <!-- /.row -->
-                </div>
+                </div> -->
 
                 <!-- Side Widget Well -->
                 <div class="well">
                     <h4>分享你的<font class="pinkfont">精彩饭局</font></h4>
-                    <p>在Eatgether平台上，每天都有新的关系在被挖掘、新的友谊在搭建，现在就注册开启你的约饭，和有趣的人一起享受各种新奇的餐饮体验吧!</p>
+                    <p>在Eat2gether平台上，每天都有新的关系在被挖掘、新的友谊在搭建，现在就注册开启你的约饭，和有趣的人一起享受各种新奇的餐饮体验吧!</p>
 										<% if !current_user %>
 										<%= link_to("<i class='fa fa-user'></i>  注册".html_safe, "#signupModal", class: "btn btn-danger btn-lg center", style: "background-color:#f01d67;", 'data-toggle' => "modal") %>
 										<% else %>

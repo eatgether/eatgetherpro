@@ -2,6 +2,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+# config.action_controller.asset_host = "http://assets%d.artstore.com"
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

@@ -8,7 +8,7 @@
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
 						</button>
-            <a class="navbar-brand projname" href="/"><%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a68d9aa0b0.png", class: "logonav") %>Eatgether</a>
+            <a class="navbar-brand projname" href="/"><%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a68d9aa0b0.png", class: "logonav") %>Eat2gether</a>
          </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,11 +63,11 @@
                     </a>
                    <ul class="dropdown-menu">
                        <li> <%=  link_to("<i class='fa fa-book'></i>  我的约会".html_safe,account_posts_path)%></li>
-                       <li> <%=  link_to("<i class='fa fa-user'></i>个人中心".html_safe,account_users_path)%></li>
-											 <li class="divider"></li>
+                       <li> <%=  link_to("<i class='fa fa-user'></i>  个人中心".html_safe,account_users_path)%></li>
+											 <ul class="divider"></ul>
 											 <% if current_user.admin? %>
 													<li><%= link_to("<i class='fa fa-server'></i>  管理后台".html_safe, admin_users_path) %></li>
-													<li class="divider"></li>
+													<ul class="divider"></ul>
 												<% end %>
 											 <li><%= link_to("<i class='fa fa-sign-out'></i>  登出".html_safe, destroy_user_session_path,method: :delete) %></li>
                     </ul>
