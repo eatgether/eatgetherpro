@@ -88,15 +88,15 @@
                <div class="word-color">
 
                    <div class="nikename">
-                       <label>昵称:</label>	<span class="nikname"><%= current_user.nameNick %></span>
+                       <label>昵称:</label>	<span class="nikname"><%= @post.user.nameNick %></span>
                    </div>
 
                    <div class="birthday">
-                      <label>生日:</label>  	<span class="nikname"><%= current_user.birthday %></span>
+                      <label>生日:</label>  	<span class="nikname"><%= @post.user.birthday %></span>
                    </div>
 
                    <div class="phone">
-                       <label>电话:</label>  <span class="nikname"><%= current_user.cellNum %></span>
+                       <label>电话:</label>  <span class="nikname"><%= @post.user.cellNum %></span>
                    </div>
 
                    <div class="user-job">
@@ -104,14 +104,14 @@
                    </div>
 
                    <div class="user-interest">
-                       <label>兴趣爱好:</label>  	<span class="interest-introduction"><% current_user.interests.each do |interest| %>
+                       <label>兴趣爱好:</label>  	<span class="interest-introduction"><% @post.user.interests.each do |interest| %>
                                                 <span class="label label-success"><%= interest.name %>  </span>&nbsp;
                                                 <% end %>
                                             </span>
                    </div>
 
                    <div class="introduction" colspan="2">
-                       <label>自我介绍:</label>  	<span class="interest-introduction"><%= current_user.description %></span>
+                       <label>自我介绍:</label>  	<span class="interest-introduction"><%= @post.user.description %></span>
                    </div>
             </div>
           </div>
@@ -119,4 +119,3 @@
         </div>
       </div>
      </div>
-    </div>

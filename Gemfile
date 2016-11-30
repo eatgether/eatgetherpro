@@ -47,6 +47,7 @@ gem 'mailboxer'
 
 gem 'fog', require: 'fog/aws'
 gem "figaro"
+gem 'rack-mini-profiler'
 
 group :production do
   gem "pg"
