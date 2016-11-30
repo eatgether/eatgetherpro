@@ -19,8 +19,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-
-
 // $(window).scroll(function() {
 // 	if ($(document).scroll() > 50) {
 //     $(".dropdown-toggle").dropdown();

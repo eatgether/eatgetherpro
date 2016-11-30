@@ -1,7 +1,4 @@
-
-
-
-  <body>
+<body>
 
 			<div class="container topnavbar">
 				<div class="wrapper row">
@@ -93,10 +90,10 @@
             </div>
             <div class="col-md-2">
               <% if current_asker_request(asker_user.id,@post.id).is_matched %>
-                <%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
+                <%= link_to("已通过","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
               <% else %>
                 <% if OrderTwo.find_by_post_id(@post.id)%>
-                  <%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
+                  <%= link_to("已拒绝","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
                 <% else %>
                   <%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%>
                 <% end %>

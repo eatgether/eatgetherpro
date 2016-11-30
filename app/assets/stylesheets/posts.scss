@@ -81,7 +81,14 @@ $dropDown       : true;
 .bread {
     margin: 35px auto;
     margin-bottom: 20px;
-    width: 1100px;
+    width: 100%;
+    position: relative;
+		font-size: 12pt;
+    color: #9B9B9B;
+}
+
+.breadpost {
+    width: 100%;
     position: relative;
 		font-size: 12pt;
     color: #9B9B9B;
@@ -91,7 +98,19 @@ $dropDown       : true;
    color: #9B9B9B;
 }
 
+.btn-default.pink.light.searchbtn {
+    min-height: 10px;
+		max-height: 34px;
+		padding: 5px 20px;
+}
 
+// .searchbox1 {
+// 		padding-left:9%;
+// }
+
+.input-group .form-control:not(:first-child):not(:last-child) {
+    border-radius: 3px !important;
+}
   // 第 2 页 //
 
 div.img {
@@ -132,7 +151,6 @@ div.desc h5 {
 
 .view-more p {
   margin-top: 35px;
-  margin-right: -2%;
 }
 
 // 第 3 页 //
@@ -171,10 +189,6 @@ div.desc h5 {
     width: auto;
     position: relative;
 }
-.footer-text{
-  margin-left: 63%;
-	float:right;
-}
 
 .facebook {
   position: relative;
@@ -191,7 +205,7 @@ div.desc h5 {
     display: inline-block;
     vertical-align: middle;
     font-size: 15px;
-    overflow: hidden;
+    // overflow: hidden;
     color: #9B9B9B;
 }
 
