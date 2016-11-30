@@ -7,7 +7,7 @@
             <%= simple_form_for [:account,@user] do |f| %>
                     <div id="my_image">
                     <% if current_user.image.present? %>
-                    <%= image_tag(current_user.image.medium.url, class: "image-js",:id => "image") %>
+                    <%= image_tag(current_user.image.medium.url, class: "img-thumbnails",:id => "image") %>
                     <% else %>
                     <img src="https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png" width="230px;">
                     <% end %>
@@ -74,26 +74,19 @@
 
 
 
-
+<!-- 预览图片功能 -->
       <script type="text/javascript">
      function readURL(input) {
-
          if (input.files && input.files[0]) {
              var reader = new FileReader();
-
-
              reader.onload = function (e) {
                  $('#image').attr('src', e.target.result);
              }
-
              reader.readAsDataURL(input.files[0]);
          }
      }
-
      $("#user_image").change(function(){
          readURL(this);
-          {maxWidth: 300} // Options
      });
-
-
      </script>
+<!-- 预览图片功能 -->
