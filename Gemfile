@@ -49,7 +49,11 @@ gem 'country_select'
 
 gem 'fog', require: 'fog/aws'
 gem "figaro"
+
+gem 'rack-mini-profiler'
+
 gem 'airbrake'
+
 group :production do
   gem "pg"
 end
