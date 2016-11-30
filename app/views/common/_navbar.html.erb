@@ -33,7 +33,8 @@
     												<li>
     													<a href = "<%= redirect_notification_notification_path(notification)%>">
     													  用户<%= notification.trigger.nameNick %>申请了您的邀约
-                                <%= Post.find(notification.notifiable_id).title %>
+                                <%#= Post.find(notification.notifiable_id).title %>
+                                <%= get_post(notification).title %>
     												  </a>
     												</li>
     											</ul>
