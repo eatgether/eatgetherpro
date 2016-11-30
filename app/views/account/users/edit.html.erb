@@ -59,12 +59,12 @@
                         <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
                     </div>
 
-                    <br>
+                    <!-- <br>
                    <div class="group pic">
-                       <%= f.label :生活照片 %><br>
-                       <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+                       <%#= f.label :生活照片 %><br>
+                       <%#= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
                    </div>
-                   <br>
+                   <br> -->
                       <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
             <% end %>
         </div>
