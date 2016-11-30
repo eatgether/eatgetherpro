@@ -5,11 +5,12 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <%= simple_form_for [:account,@user] do |f| %>
-                    <div id="my_image">
+                    <div>
                     <% if current_user.image.present? %>
-                    <%= image_tag(current_user.image.medium.url, class: "img-thumbnails",:id => "image") %>
+                    <%= image_tag(current_user.image.medium.url, class: "img-thumbnails",:id => "img-reflect") %>
                     <% else %>
-                    <img src="https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png" width="230px;">
+                      <!-- <img src="https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png" width="230px;" ,class="img-thumbnails",id="img-reflect2"> -->
+                      <%= image_tag("logo-nopic3.png", class: "img-thumbnails",:id => "img-reflect") %>
                     <% end %>
                     </div>
                     <div class="group pic">
@@ -80,7 +81,7 @@
          if (input.files && input.files[0]) {
              var reader = new FileReader();
              reader.onload = function (e) {
-                 $('#image').attr('src', e.target.result);
+                 $('#img-reflect').attr('src', e.target.result);
              }
              reader.readAsDataURL(input.files[0]);
          }
