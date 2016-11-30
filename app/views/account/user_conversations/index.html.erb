@@ -1,6 +1,6 @@
 <div class="container">
 <div class="col-md-10 topnavbar">
-  <h3> 发送给 <%= image_tag(@user.image.medium.url, class: "nav-thumbnails") %><%= @user.nameNick %> 消息 </h3>
+  <h3> 发送给 <%#= image_tag(@user.image.medium.url, class: "nav-thumbnails") %><%= @user.nameNick %> 消息 </h3>
 <% #binding.pry %>
 <%= form_tag account_order_two_user_conversations_path(@conversation,:order_two_id => @order.id), method: :post do %>
 <%# binding.pry %>
