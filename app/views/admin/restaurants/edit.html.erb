@@ -2,8 +2,9 @@
   <div class="col-md-10 col-md-offset-1">
     <%= simple_form_for [:admin,@restaurant] do |f| %>
       <h4 class="center">后台编辑约饭地点</h4>
-      <%= f.input :name %>
-      <%= f.input :description %>
+      <%= f.input :name, label: "名称" %>
+      <%= f.input :description, label: "详细地址" %>
+      <%= f.input :cellnum, label: "联系方式" %>
       <%= f.submit "提交", class: "btn btn-default outline center-block", data: { disable_with: "提交中.."} %>
       <% end %>
   </div>
