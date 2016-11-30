@@ -25,7 +25,7 @@
 					<% if @post.image.present? %>
 						<%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
 					<% else %>
-						<%= image_tag("logo-nopic3.png", class: "thumbnail img-responsive center-block") %>
+						<%= image_tag("https://ooo.0o0.ooo/2016/11/30/583ec60514596.png", class: "thumbnail img-responsive center-block") %>
 					<% end %></div>
 <!-- 可添加更多图片：大图区 -->
 				<!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
@@ -60,7 +60,7 @@
 				<% else %>
 						<%= link_to("加入约饭",application_post_path(@post),method: :post,class: "btn btn-default pink light") %>
 				<% end %>
-				<button class="like btn btn-default pink" type="button"><i class="fa fa-heart"></i></button>
+				<div class="btn btn-danger pink" ><i class="fa fa-heart"></i></button>
 			</div>
 		</div>
 	</div>

@@ -4,7 +4,7 @@ class Account::PostsController < ApplicationController
   layout "order"
 
  def index
-   @posts = current_user.posts
+   @posts = current_user.posts.recent
  end
 
  def new
