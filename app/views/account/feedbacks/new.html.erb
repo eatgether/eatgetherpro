@@ -47,6 +47,10 @@
 
 <div></div>
 
+
+
+
+
 <!-- 律师端的评价系统 -->
 <script>
     //$('div').raty({ starType: 'i' });
@@ -68,28 +72,18 @@
         var ratableObj = $('#rating-for-message-1');
         initRating(ratableObj);
     });
+
+    // function readURL(input) {
+    //     if (input.files && input.files[0]) {
+    //         var reader = new FileReader();
+    //         reader.onload = function (e) {
+    //             $('#img-feedback').attr('src', e.target.result);
+    //         }
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+    // }
+    // $("#feedback_image").change(function(){
+    //     readURL(this);
+    // });
+
 </script>
-
-<!-- // ajax提交评级
-          function ajaxRating(score) {
-            $.ajax({
-              url: '<%= rating_account_order_two_feedbacks_path %>',
-              type: 'POST',
-              dataType: 'json',
-              data: {
-                'feedback_id' : <%= @feedback.id %>,
-                'rating': score
-              },
-            })
-            .done(function() {
-              console.log("raty success");
-            })
-            .fail(function() {
-              console.log("raty error");
-            })
-            .always(function() {
-              console.log("raty complete");
-            });
-          }; -->
-
-<!-- 律师端的评价系统 -->

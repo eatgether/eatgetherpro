@@ -1,8 +1,17 @@
 class Account::FeedbacksController < ApplicationController
 	before_action :authenticate_user! , only: [:new, :create]
 	before_action :get_notification
-	
+	layout "account", only: [:index]
+
 	# before_action :find_order
+
+	def index
+		@feedbacks = current_user.feedbacks
+	end
+
+	def show
+		@feedbacks = Feedback.find(params[:id])
+	end
 
 	def new
 		@order = OrderTwo.find(params[:order_two_id])
@@ -39,6 +48,12 @@ class Account::FeedbacksController < ApplicationController
 		else
 			render :root
 		end
+	end
+
+	def destroy
+		@feedback = Feedback.find(params[:id])
+		@feedback.destroy
+		redirect_to :back
 	end
 
 	def rating

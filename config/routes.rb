@@ -99,7 +99,7 @@ Rails.application.routes.draw do
       end
     end
     resources :user_conversations
-
+    resources :feedbacks
     resources :asker_requests
   end
 
