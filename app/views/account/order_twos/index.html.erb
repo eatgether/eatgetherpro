@@ -30,9 +30,9 @@
 
                 <td><%= order.post.title %></td>
 				        <% if order.poster_user == current_user %>
-				          <td><%= link_to(order.asker_user.nameNick, account_user_path(order.asker_user))%></td>
+				          <td><%= link_to(order.asker_user.nameNick, counterpart_account_user_path(order.asker_user))%></td>
 				        <% else %>
-				          <td><%= link_to(order.poster_user.nameNick, account_user_path(order.poster_user))%></td>
+				          <td><%= link_to(order.poster_user.nameNick, counterpart_account_user_path(order.poster_user))%></td>
 				        <% end %>
 				        <td><%= order.post.eat_venue %></td>
 				        <td><%= order.post.eat_day.strftime("%m月%d日") %></td>

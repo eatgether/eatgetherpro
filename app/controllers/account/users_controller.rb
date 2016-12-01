@@ -2,7 +2,7 @@ class Account::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :get_notification
 
-  layout "account"
+  layout "account",:except => :counterpart
 
   def index
     @users = current_user
@@ -42,6 +42,11 @@ class Account::UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def counterpart
+    @user = User.find(params[:id])
+    @photos = @user.photos.all
   end
 
 
