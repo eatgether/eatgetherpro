@@ -24,6 +24,10 @@ class NotificationsController < ApplicationController
       @notification.save
 
       redirect_to account_post_path(@post)
+    elsif @notification.present? && @notification.notifiable_type == "OrderTwo"
+      @notification.read_at = DateTime.now
+      @notification.save
+      redirect_to account_order_twos_path
     end
   end
 

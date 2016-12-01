@@ -12,7 +12,11 @@
         <div class="user-space">
          <div class="com-md-6 col-md-offset-1 user-information" >
           <div class="Name">
-            <h3><i class="fa fa-user" style="font-size:16px;"></i>&nbsp;<%= current_user.nameChi %></h3>
+            <% if current_user.gender == "酷男" %>
+            <h3><i class="fa fa-mars"></i>&nbsp;<%= current_user.nameChi %></h3>
+            <% else %>
+            <h3><i class="fa fa-venus"></i>&nbsp;<%= current_user.nameChi %></h3>
+            <% end %>
           </div>
 
        <div class="word-color">
@@ -35,8 +39,14 @@
          </div>
 
          <div class="income">
+             <label>工作:</label>  	<span class="nikname"><%= current_user.work %></span>
+         </div>
+
+
+         <div class="income">
              <label>收入:</label>  	<span class="nikname"><%= current_user.income %></span>
          </div>
+
 
          <div class="interest">
            <label>兴趣爱好:</label>  <span class="interest-introduction"><% @users.interests.each do |interest| %>

@@ -21,14 +21,30 @@
 						</div>
 		</div>
 	</div>
-        <div class="bread">
-          	<a href="/">首頁</a>&nbsp;/&nbsp;所有饭局
-        </div>
+
+<br><br>
+
+	<div class="container">
+		<div class="col-md-6 pull-left hidden-xs breadpost" style="padding-left:15%">
+				<a href="/">首頁</a>&nbsp;/&nbsp;所有饭局
+		</div>
+	  <div class="col-md-6 col-xs-12 input-group" style="padding-left:9%">
+	    <%= form_tag posts_path, :method => 'get' do %>
+				<%= text_field_tag :search, params[:search], placeholder: "搜索饭局", class: "form-control pink searchbox2"%>
+				<span>
+	      <%= submit_tag "搜索", :title => nil, :description => nil, class: "btn btn-default pink light searchbtn" %>
+	      </span>
+	    <% end %>
+	  </div>
+	</div>
+
+<br>
 
   <div class="twopage">
     <!-- 这里是引用的partial文件，达到加载更多的约饭 -->
     <div class=center>
        <div id="content">
+
            <%= render(partial: 'post') %>
        </div>
      </div>
@@ -47,6 +63,8 @@
                <img src="https://ooo.0o0.ooo/2016/11/27/583a6ad7514c7.png" width="50px;">
             </a>
          </div>
+
+
 
 </body>
 </html>

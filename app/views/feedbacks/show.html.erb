@@ -8,10 +8,10 @@
 	      <div class="container">
 								<div class="row blogpage-top">
 								<h1>
-									<%= image_tag "https://ooo.0o0.ooo/2016/11/27/583a68d9aa0b0.png", class: "logocarousel" %><font class="projnamehome">Eatgether</font> + 你 = &nbsp; <br>
+									<%= image_tag "https://ooo.0o0.ooo/2016/11/27/583a68d9aa0b0.png", class: "logocarousel" %><font class="projnamehome">Eat2gether</font> + 你 = &nbsp; <br>
 										一顿饭局的100种打开方式
 								</h1>
-								<p> 通过Eatgether成为好朋友的人 <br>
+								<p> 通过Eat2gether成为好朋友的人 <br>
 								 都开启了哪些有趣的故事
 							 </p>
 							</div>
@@ -27,8 +27,12 @@
                 </h2>
                 <p class="lead">
                     by &nbsp;
-											<%= @feedback.user.nameNick %>
+										<%= @feedback.user.nameNick %>
+										<% if @feedback.user.image.present? %>
 											<%= image_tag(@feedback.user.image.medium.url, class: "blog-thumbnails") %>
+										<% else %>
+											 <%= image_tag("logo-nopic2.png", class: "img-thumbnails", style: "width:200px;") %>
+										<% end %>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span>
 									<%= @feedback.created_at.strftime("%Y年%m月%d日%I:%M%p") %>
@@ -99,7 +103,7 @@
                 <!-- Side Widget Well -->
                 <div class="well">
                     <h4>分享你的<font class="pinkfont">精彩饭局</font></h4>
-                    <p>在Eatgether平台上，每天都有新的关系在被挖掘、新的友谊在搭建，现在就注册开启你的约饭，和有趣的人一起享受各种新奇的餐饮体验吧!</p>
+                    <p>在Eat2gether平台上，每天都有新的关系在被挖掘、新的友谊在搭建，现在就注册开启你的约饭，和有趣的人一起享受各种新奇的餐饮体验吧!</p>
 										<% if !current_user %>
 										<%= link_to("<i class='fa fa-user'></i>  注册".html_safe, "#signupModal", class: "btn btn-danger btn-lg center", style: "background-color:#f01d67;", 'data-toggle' => "modal") %>
 										<% else %>

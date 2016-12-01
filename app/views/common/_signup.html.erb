@@ -1,13 +1,13 @@
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
+	<div class="modal-dialog topnavbar">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">注册成为Eatgether用户</h4>
+				<h4 class="modal-title" id="myModalLabel">注册成为<font class="projnamehome pinkfont" style="font-size:25px;">Eat2gether</font>用户</h4>
 			</div>
 			<div class="modal-body">
 			  <div class="row">
-				  <div class="col-xs-6">
+				  <div class="col-md-6 col-xs-12">
 					  <div class="well">
 							<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 							<%= f.error_notification %>
@@ -18,7 +18,7 @@
 							</div>
 						</div>
 					</div>
-			<div class="col-xs-6" style="text-align:center">
+			<div class="col-md-6 col-xs-12" style="text-align:center">
 				 <p class="lead">立刻开启我的<span class="text-pink">精彩生活</span></p>
 				 <ul class="list-unstyled" style="line-height: 2.5; text-align:left; margin-left:10%">
 					 <li><span class="fa fa-users text-pink" style="margin-right:5px">  </span> 迅速拓展我的社交圈</li>
@@ -26,11 +26,11 @@
 					 <li><span class="fa fa-wpforms text-pink" style="margin-right:5px"></span> 只和靠谱的人共进晚餐</li>
 					 <li><span class="fa fa-heart text-pink" style="margin-right:5px"></span> 添加兴趣，结识更多有趣的人</li>
 				 </ul>
-				 <div>
-					 <br>
-					 <%= f.button :submit, "注册开始Eatgether", class: "btn btn-default pink" %>
-				 </div>
 			 </div>
+				 <div class="signupBtn">
+					 <br>
+					 <%= f.button :submit, "注册开始Eat2gether", class: "btn btn-default pink" %>
+				 </div>
 		 </div>
 	 </div>
 			<div class="modal-footer">
