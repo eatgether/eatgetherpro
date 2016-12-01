@@ -1,6 +1,7 @@
 class Account::ConversationsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_notification
+  layout "conversation", only: [:show]
 
 
 
