@@ -1,6 +1,6 @@
 class Admin::FeedbacksController < ApplicationController
   before_action :get_notification
-  
+
   layout "admin"
 
 	def index
@@ -28,6 +28,18 @@ class Admin::FeedbacksController < ApplicationController
 		# @feedback.order.delete(Order.find[:order_id])
 		redirect_to admin_feedbacks_path, alert: "Feedback Deleted."
 	end
+
+  def publish
+    @feedback = Feedback.find(params[:id])
+    @feedback.publish!
+    redirect_to :back
+  end
+
+  def hide
+    @feedback = Feedback.find(params[:id])
+    @feedback.hide!
+    redirect_to :back
+  end
 
 	private
 
