@@ -35,7 +35,7 @@ class Account::PostsController < ApplicationController
  def update
    @post = Post.find(params[:id])
    if @post.update(post_params)
-     redirect_to account_posts_path, notice: 'Update Success'
+     redirect_to account_posts_path, notice: '修改成功'
    else
      render :edit
    end
@@ -61,7 +61,7 @@ class Account::PostsController < ApplicationController
      @asker_request.is_matched = true
      @asker_request.save
      send_notification!(current_user.id,@order.asker_user_id,@order)
-     redirect_to :back, notice: 'Application approved Success!'
+     redirect_to :back, notice: '成功通过申请'
    else
      redirect_to :back
    end
