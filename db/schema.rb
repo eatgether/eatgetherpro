@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20161201060357) do
     t.boolean  "is_hidden",    default: true
   end
 
+  create_table "gmaps", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "interests", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -97,23 +105,6 @@ ActiveRecord::Schema.define(version: 20161201060357) do
     t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
-  create_table "models", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_models_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.string   "name"
     t.integer  "notifiable_id"
@@ -169,7 +160,7 @@ ActiveRecord::Schema.define(version: 20161201060357) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "user_id"
-    t.string   "eat_venue"
+    t.integer  "eat_venue"
     t.date     "eat_day"
     t.string   "image"
     t.boolean  "is_hidden",   default: true
