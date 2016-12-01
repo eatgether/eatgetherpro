@@ -22,10 +22,11 @@
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <%= yield %>
-        </div>
-				<% unless current_page?('/') %>
+
+				<% unless current_page?('/') || current_page?(account_conversation_path)%>
 					<%= render "common/footer" %>
 				<% end %>
+        </div>
     </body>
 </html>
 
