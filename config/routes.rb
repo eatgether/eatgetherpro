@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
+  get 'welcome/abouthelp'
+  get 'welcome/aboutus'
+  get 'welcome/service'
+  get 'welcome/contactus'
 #	resources :users
   resources :restaurants
 	resources :notifications do

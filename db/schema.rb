@@ -36,14 +36,6 @@ ActiveRecord::Schema.define(version: 20161201045147) do
     t.integer  "rating"
   end
 
-  create_table "gmaps", force: :cascade do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "interests", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -159,7 +151,7 @@ ActiveRecord::Schema.define(version: 20161201045147) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.integer  "eat_venue"
+    t.string   "eat_venue"
     t.date     "eat_day"
     t.string   "image"
   end
