@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 				post :admin_revive
       end
       resources :feedbacks
-    end
+      end
     resources :interests
     resources :restaurants do
       member do
@@ -49,6 +49,8 @@ Rails.application.routes.draw do
       member do
         get :get_post_2_id
         post :confirm_order
+        post :publish
+        post :hide
       end
     end
 
@@ -59,7 +61,12 @@ Rails.application.routes.draw do
       end
     end
 
-		resources :feedbacks
+		resources :feedbacks  do
+      member do
+        post :publish
+        post :hide
+      end
+    end
   end
 
 
@@ -103,7 +110,7 @@ Rails.application.routes.draw do
       end
     end
     resources :user_conversations
-
+    resources :feedbacks
     resources :asker_requests
   end
 

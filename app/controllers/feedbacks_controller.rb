@@ -3,7 +3,7 @@ class FeedbacksController < ApplicationController
   before_action :get_notification
 
 	def index
-		@feedbacks = Feedback.all.search(params[:search])
+		@feedbacks = Feedback.all.search(params[:search]).publish
 	end
 
 	def show
