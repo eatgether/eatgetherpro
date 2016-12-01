@@ -44,8 +44,6 @@
 										<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
 										<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
                     <% if order.conversation.present? %>
-
-                      <%#= link_to("进入聊天室", account_conversatio ns_path, :class => "btn btn-xs btn-default outline") %>
                       <%= link_to("进入聊天室", account_conversation_path(order.conversation), :class => "btn btn-xs btn-default outline") %>
                     <% else %>
                         <%= link_to("发起对话", account_user_conversations_path(:order_two_id => order.id), :class => "btn btn-xs btn-default outline") %>
