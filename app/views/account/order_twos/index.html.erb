@@ -46,7 +46,7 @@
                     <% if order.conversation.present? %>
 
                       <%#= link_to("进入聊天室", account_conversations_path, :class => "btn btn-xs btn-default outline") %>
-                      <%= link_to("进入聊天室", account_conversation_path(order), :class => "btn btn-xs btn-default outline") %>
+                      <%= link_to("进入聊天室", account_conversation_path(order.conversation), :class => "btn btn-xs btn-default outline") %>
                     <% else %>
                         <%= link_to("发起对话", account_user_conversations_path(:order_two_id => order.id), :class => "btn btn-xs btn-default outline") %>
                     <% end %>
