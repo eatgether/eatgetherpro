@@ -82,8 +82,8 @@
    <div class="row">
        <div class="user-position">
       <div class="col-md-2">
-        <% if current_user.image.present? %>
-          <%= image_tag(current_user.image.medium.url, class: "img-thumbnails") %>
+        <% if @post.user.image.present? %>
+          <%= image_tag(@post.user.image.medium.url, class: "img-thumbnails") %>
             <% else %>
                  <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "img-thumbnails", style: "width:200px;") %>
             <% end %>
