@@ -37,15 +37,35 @@ class Admin::RestaurantsController < ApplicationController
    end
  end
 
+ # def update
+ #   @restaurant = Restaurant.find(params[:id])
+ #   if @restaurant.update(restaurant_params)
+ #      @restaurant.save
+ #      redirect_to admin_restaurants_path
+ #   else
+ #     render :edit
+ #   end
+ # end
+
  def update
    @restaurant = Restaurant.find(params[:id])
-   if @restaurant.update(restaurant_params)
-      @restaurant.save
-      redirect_to admin_restaurants_path
+   if params[:photos] != nil
+     @restaurant.photos.destroy_all #need to destroy old pics first
+
+     params[:photos]['avatar'].each do |a|
+       @picture = @restaurant.photos.create(:avatar => a)
+     end
+
+     @restaurant.update(restaurant_params)
+    redirect_to admin_restaurants_path
+
+  elsif @restaurant.update(restaurant_params)
+    redirect_to admin_restaurants_path
    else
      render :edit
    end
  end
+
 
  def destroy
    @restaurant = Restaurant.find(params[:id])
@@ -54,6 +74,6 @@ class Admin::RestaurantsController < ApplicationController
  end
 
  def restaurant_params
-   params.require(:restaurant).permit(:name, :description, :cellnum)
+   params.require(:restaurant).permit(:name, :description, :cellnum, avatars: [])
  end
 end
