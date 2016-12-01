@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
+  get 'welcome/abouthelp'
+  get 'welcome/aboutus'
+  get 'welcome/service'
+  get 'welcome/contactus'
 #	resources :users
   resources :restaurants
 	resources :notifications do
@@ -77,6 +80,7 @@ Rails.application.routes.draw do
     resources :users do
       member do
         get :photo
+        get :counterpart
       end
     end
 
