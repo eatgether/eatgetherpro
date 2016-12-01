@@ -19,11 +19,11 @@
 				      <% @order_twos.each do |order| %>
 				      <tr>
 
-                <td width="200px;">
+                <td>
                   <% if order.post.image.present? %>
-                     <%= image_tag(order.post.image.medium.url) %>
+                     <%= image_tag(order.post.image.medium.url, style: "width:200px") %>
                   <% else %>
-                     <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png",  style: "width:200px;") %>
+                     <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", style: "width:200px") %>
 
                   <% end %>
                 </td>
@@ -45,8 +45,8 @@
 										<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
                     <% if order.conversation.present? %>
 
-                      <%#= link_to("进入聊天室", account_conversations_path, :class => "btn btn-xs btn-default outline") %>
-                      <%= link_to("进入聊天室", account_conversation_path(order), :class => "btn btn-xs btn-default outline") %>
+                      <%#= link_to("进入聊天室", account_conversatio ns_path, :class => "btn btn-xs btn-default outline") %>
+                      <%= link_to("进入聊天室", account_conversation_path(order.conversation), :class => "btn btn-xs btn-default outline") %>
                     <% else %>
                         <%= link_to("发起对话", account_user_conversations_path(:order_two_id => order.id), :class => "btn btn-xs btn-default outline") %>
                     <% end %>
