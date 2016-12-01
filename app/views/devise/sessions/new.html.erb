@@ -1,43 +1,28 @@
-<div class="modal-dialog topnavbar">
-	<div class="modal-content">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h4 class="modal-title" id="myModalLabel">注册成为Eatgether用户</h4>
-		</div>
-		<div class="modal-body">
-			<div class="row">
-				<div class="col-xs-6">
-					<div class="well">
-						<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-						<%= f.error_notification %>
-						<div class="form-inputs">
-							<%= f.input :email, label: "邮件", required: true, autofocus: true %>
-							<%= f.input :password, label: "密码", required: true %>
-							<%= f.input :password_confirmation, label: "确认密码", required: true %>
-						</div>
-					</div>
-				</div>
-		<div class="col-xs-6" style="text-align:center">
-			 <p class="lead">立刻开启我的<span class="text-pink">精彩生活</span></p>
-			 <ul class="list-unstyled" style="line-height: 2.5; text-align:left; margin-left:10%">
-				 <li><span class="fa fa-users text-pink" style="margin-right:5px">  </span> 迅速拓展我的社交圈</li>
-				 <li><span class="fa fa-cutlery text-pink" style="margin-right:5px"></span> 尝遍推荐的美食佳肴</li>
-				 <li><span class="fa fa-wpforms text-pink" style="margin-right:5px"></span> 只和靠谱的人共进晚餐</li>
-				 <li><span class="fa fa-heart text-pink" style="margin-right:5px"></span> 添加兴趣，结识更多有趣的人</li>
-			 </ul>
-			 <div>
-				 <br>
-				 <%= f.button :submit, "注册开始Eatgether", class: "btn btn-default pink" %>
-			 </div>
-		 </div>
-	 </div>
- </div>
-		<div class="modal-footer">
-		<div class="form-actions">
 
-		</div>
-		<% end %>
-			<!-- <%= render "devise/shared/links" %> -->
+	<div class="modal-dialog topnavbar">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">用户登陆</h4>
+			</div>
+			<div class="modal-body">
+				<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					<%= f.error_notification %>
+
+					<div class="form-inputs">
+						<%= f.input :email, label: "邮箱", required: true, autofocus: true %>
+						<%= f.input :password, label: "密码", required: true %>
+						<%= f.input :remember_me, label: "记住我", as: :boolean if devise_mapping.rememberable? %>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<div class="col-md-6 col-xs-6 signuploginlinks">
+					<%= render "devise/shared/links" %>
+				</div>
+				<div class="col-md-6 col-xs-6 pull-right form-actions">
+					<%= f.button :submit, "登陆", class: "btn btn-default pink" %>
+				</div>
+				<% end %>
+			</div>
 		</div>
 	</div>
-</div>

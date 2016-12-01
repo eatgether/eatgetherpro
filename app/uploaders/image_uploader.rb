@@ -26,11 +26,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   version :medium do
-    process :resize_to_fill => [200,200]
+    process :resize_to_fill => [200,150]
   end
 
   version :large do
-    process :resize_to_fill => [500,600]
+    process :resize_to_fill => [600,500]
   end
 
 	process :rotate

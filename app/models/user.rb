@@ -51,9 +51,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-        #  devise :database_authenticatable, :lockable, :registerable, :recoverable,
-        #         :rememberable, :trackable, :validatable
-
   validates_confirmation_of :password
 
   validates_numericality_of :income, greater_than_or_equal_to: 1,

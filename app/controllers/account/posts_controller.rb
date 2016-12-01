@@ -4,7 +4,7 @@ class Account::PostsController < ApplicationController
   layout "order"
 
  def index
-   @posts = current_user.posts
+   @posts = current_user.posts.recent
  end
 
  def new
@@ -60,6 +60,7 @@ class Account::PostsController < ApplicationController
    if @order.save
      @asker_request.is_matched = true
      @asker_request.save
+     send_notification!(current_user.id,@order.asker_user_id,@order)
      redirect_to :back, notice: 'Application approved Success!'
    else
      redirect_to :back

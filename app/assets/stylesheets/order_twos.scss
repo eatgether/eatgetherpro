@@ -9,16 +9,23 @@
 }
 
 .lonely2page-bg {
-  height: 500px;
-  width: 100%;
-  position: absolute;
-  background-position: center center;
+  display: block;
+  position:absolute;
   background-size: cover;
-	margin-left: 0px;
+  background-position-x: 20%;
+  background-position-y: 10%;
+	margin-left: auto;
+  margin-right: auto;
 	z-index: -1;
 	border-radius: 6px;
 }
 
+#noasker_request {
+  background-image: url("https://ooo.0o0.ooo/2016/11/27/583a7b2288aab.jpg");
+  height: 500px;
+  width: 100%;
+  position: absolute;
+}
 
 .lonely2page-top {
   margin-top: 30px;

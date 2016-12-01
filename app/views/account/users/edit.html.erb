@@ -5,11 +5,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <%= simple_form_for [:account,@user] do |f| %>
+                    <div>
                     <% if current_user.image.present? %>
-                    <%= image_tag(current_user.image.medium.url) %>
+                    <%= image_tag(current_user.image.medium.url, class: "img-thumbnails",:id => "img-reflect") %>
                     <% else %>
-                    <img src="https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png" width="230px;">
+                      <!-- <img src="https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png" width="230px;" ,class="img-thumbnails",id="img-reflect2"> -->
+                      <%= image_tag("logo-nopic3.png", class: "img-thumbnails",:id => "img-reflect") %>
                     <% end %>
+                    </div>
                     <div class="group pic">
                        <%= f.input :image, as: :file, label: '更换头像' %>
                     </div>
@@ -23,7 +26,7 @@
                     </div>
 
                     <div class="group">
-                       <%= f.input :gender, label: '性别' %>
+                       <%= f.input :gender, :collection => User.sex_select, :selected => User.sex_select[1], label: '性别' %>
                     </div>
 
                     <div class="group">
@@ -38,11 +41,15 @@
                     </div>
 
                     <div class="group">
-                      <%= f.input :heightUser, label: '身高' , input_html: { min: '100', max: '200', step: 'any' } %>
+                      <%= f.input :heightUser, label: '身高（厘米）' %>
                     </div>
 
                     <div class="group">
-                         <%= f.input :income, label: '收入' %>
+                         <%= f.input :work, label: '工作' %>
+                    </div>
+
+                    <div class="group">
+                         <%= f.input :income, label: '收入（年薪）' %>
                     </div>
 
                     <div class="group">
@@ -53,13 +60,34 @@
                         <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
                     </div>
 
-                    <br>
+                    <!-- <br>
                    <div class="group pic">
-                       <%= f.label :生活照片 %><br>
-                       <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+                       <%#= f.label :生活照片 %><br>
+                       <%#= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
                    </div>
-                   <br>
+                   <br> -->
                       <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
             <% end %>
         </div>
      </div>
+
+
+
+
+
+<!-- 预览图片功能 -->
+      <script type="text/javascript">
+     function readURL(input) {
+         if (input.files && input.files[0]) {
+             var reader = new FileReader();
+             reader.onload = function (e) {
+                 $('#img-reflect').attr('src', e.target.result);
+             }
+             reader.readAsDataURL(input.files[0]);
+         }
+     }
+     $("#user_image").change(function(){
+         readURL(this);
+     });
+     </script>
+<!-- 预览图片功能 -->

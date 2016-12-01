@@ -29,7 +29,11 @@ Rails.application.routes.draw do
       resources :feedbacks
     end
     resources :interests
-    resources :restaurants
+    resources :restaurants do
+      member do
+        get :photo
+    end
+  end
     resources :users
     resources :orders do
     	member do

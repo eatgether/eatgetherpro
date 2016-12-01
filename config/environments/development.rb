@@ -52,8 +52,20 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = {host: 'localhost:3000'}
-  config.action_mailer.delivery_method = :letter_opener
+  config.active_record.default_timezone = :local
+  config.time_zone = 'Beijing'
+  
+  #config.action_mailer.default_url_options = {host: 'localhost:3000'}
+  #config.action_mailer.delivery_method = :letter_opener
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'qinfeng.io', #eg: 'yourappname.herokuapp.com'
+    :authentication => :plain,
+  }
 
 end

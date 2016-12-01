@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  skip_before_action :verify_authenticity_token
   helper_method :mailbox
 
 
@@ -28,6 +29,7 @@ class ApplicationController < ActionController::Base
   def send_notification!(trigger,recipient,notifiable)
     Notification.create(trigger_id: trigger,recipient_id: recipient,notifiable_id: notifiable.id,notifiable_type: notifiable.class)
   end
+
 
 # devise controlls below
 	def new
