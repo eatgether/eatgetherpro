@@ -6,14 +6,15 @@
 
                 <div class="preview-pic tab-content">
                     <div class="tab-pane active" id="pic-1">
-                        <% if @post.image.present? %>
-                        <%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
-                    <% else %>
-                        <% @post.restaurant.photos.each_with_index do |p, index| %>
-                        <%= image_tag p.avatar.medium.url%>
-                        <% end %>
-                        <%#= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "thumbnail img-responsive center-block") %>
-                        <% end %></div>
+												<% if @post.image.present? %>
+														<%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
+												 <% elsif @post.restaurant.photos.present? %>
+												 <% @post.restaurant.photos.each_with_index do |p, index| %>
+												 <%= image_tag p.avatar.medium.url%>
+												 <% end %>
+												 <% else %>
+														<%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png") %>
+												<% end %></div>
                     <!-- 可添加更多图片：大图区 -->
                     <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
 						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
@@ -77,8 +78,8 @@
                         <div class="col-md-2">
                             <% if asker_user.image.present? %>
                             <%= image_tag(asker_user.image.avatar.url, class: "img-thumbnails") %>
-                        <% else %>
-                            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
+                          <% else %>
+                            <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png", class: "thumbnail img-responsive center-block") %>
                             <% end %>
                         </div>
 
