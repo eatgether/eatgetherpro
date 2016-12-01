@@ -21,7 +21,10 @@
 	                            <% if post.image.present? %>
 	                                <%= image_tag(post.image.thumb.url) %>
 	                            <% else %>
-	                                <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png") %>
+                              <% post.restaurant.photos.each_with_index do |p, index| %>
+                               <%= image_tag p.avatar.medium.url%>
+                               <% end %>
+	                                <%#= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png") %>
 	                            <% end %>
 
 	                            <div class="desc">

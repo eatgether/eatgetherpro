@@ -9,7 +9,10 @@
 								<% if @post.image.present? %>
 			            <%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
 			          <% else %>
-			           	<%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "thumbnail img-responsive center-block") %>
+								<% @post.restaurant.photos.each_with_index do |p, index| %>
+                 <%= image_tag p.avatar.medium.url%>
+                 <% end %>
+			           	<%#= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "thumbnail img-responsive center-block") %>
 			          <% end %></div>
 <!-- 可添加更多图片：大图区 -->
 						  <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>

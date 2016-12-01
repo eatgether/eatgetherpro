@@ -63,10 +63,15 @@
                       <%= radio_button(:post, :eat_day,  Date.this_saturday ,checked: true)%>&nbsp;本周六&nbsp;<%=  Date.this_saturday.strftime("%m月%d日 晚饭") %><br>
                       <%= radio_button(:post, :eat_day ,  Date.this_sunday ) %>&nbsp;本周日&nbsp;<%= Date.this_sunday.strftime("%m月%d日 晚饭")  %>
                     </div>
-										<br>
+                   <br>
                     <div class="group">
                         <%= f.input :image, as: :file, label: '图片' %>
                     </div>
+                    <p style=word-wrap:break-word>
+                       <font size="-3">
+                       如果您没有上传图片，我们会为你准备一张精美的餐厅图片
+                     </font>
+                     </p>
 
                     <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
 
