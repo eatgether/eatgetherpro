@@ -36,7 +36,16 @@
 				        <% end %>
 				        <td><%= order.post.eat_venue %></td>
 				        <td><%= order.post.eat_day.strftime("%m月%d日") %></td>
-				        <td><%= order.aasm_state %></td>
+				        <td>
+									<% case order.aasm_state
+									  when "order_matched"%>
+										已通过
+									<% when "order_met" %>
+										已约饭
+									<% when "order_cancelled" %>
+										已取消
+									<% end %>
+								</td>
 								<td>
 					        <% case order.aasm_state
 									  when "order_matched"%>
