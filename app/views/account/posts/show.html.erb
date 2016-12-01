@@ -1,24 +1,28 @@
 <body>
 
-			<div class="container topnavbar">
-				<div class="wrapper row">
-					<div class="preview col-md-6">
+    <div class="container topnavbar">
+        <div class="wrapper row">
+            <div class="preview col-md-6">
 
-						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1">
-								<% if @post.image.present? %>
-			            <%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
-			          <% else %>
-			           	<%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "thumbnail img-responsive center-block") %>
-			          <% end %></div>
-<!-- 可添加更多图片：大图区 -->
-						  <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+                <div class="preview-pic tab-content">
+                    <div class="tab-pane active" id="pic-1">
+												<% if @post.image.present? %>
+														<%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
+												 <% elsif @post.restaurant.photos.present? %>
+												 <% @post.restaurant.photos.each_with_index do |p, index| %>
+												 <%= image_tag p.avatar.medium.url%>
+												 <% end %>
+												 <% else %>
+														<%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png") %>
+												<% end %></div>
+                    <!-- 可添加更多图片：大图区 -->
+                    <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
 						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
 						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
 						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div> -->
-						</div>
-<!-- 可添加更多图片：小图区 -->
-						<!-- <ul class="preview-thumbnail nav nav-tabs">
+                </div>
+                <!-- 可添加更多图片：小图区 -->
+                <!-- <ul class="preview-thumbnail nav nav-tabs">
 						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
 						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
 						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
@@ -26,112 +30,124 @@
 						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
 						</ul> -->
 
-					</div>
-					<div class="details col-md-6">
-						<h3 class="product-title"><%= @post.title %></h3>
-						<h4 class="sizes"><i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%m月%d日")%></h4>
-						<p class="sizes"><i class="fa fa-cutlery"></i>&nbsp;<%= @post.restaurant.name %></p>
-						<h5 class="sizes"><i class="fa fa-map-marker"></i>&nbsp;<%= @post.restaurant.description %></h5>
-						<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;<%= @post.user.cellNum %></h5>
-						<br>
-						<p class="product-description"><%= @post.description %></p>
-						<br><br>
-						<div class="post-action-btn">
-							<% if current_user && current_user.is_asker_of?(@post) %>
-									<%= link_to("您已申请约饭","#", class: "btn btn-default pink",disabled: :true) %>
-							<% elsif @post.user_id == current_user.id && current_user %>
-									<%= link_to("这是您发起的预约","#", class: "btn btn-default pink",disabled: :true) %>
-							<% else %>
-									<%= link_to("加入约饭",application_post_path(@post),method: :post,class: "btn btn-default pink light") %>
-							<% end %>
-							<button class="like btn btn-default pink" type="button"><i class="fa fa-heart"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-<!-- 申请人列表部分 -->
-
-
-      <div class="container  user-informations">
-         <div class="row">
-          	<h4 class="ask_user_well">申请人信息</h4>
-          	<hr>
-         </div>
-         <% if @asker_users.present? %>
-            <% @asker_users.each do |asker_user| %>
-
-            <ul>
-
-    <li>
-               <div class="row">
-                  <div class="user-position">
-                    <div class="col-md-2">
-                       <% if asker_user.image.present? %>
-                          <%= image_tag(asker_user.image.avatar.url, class: "img-thumbnails") %>
-                       <% else %>
-                          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail img-responsive center-block") %>
-                       <% end %>
-                    </div>
-
-                   <div class="col-md-8">
-                      <div class="com-md-6 col-md-offset-1 " >
-                         <div class="word-color">
-
-                             <div class="nikename">
-                                 <label>昵称:</label>	<span class="nikname"><%= asker_user.nameNick %> </span>
-                             </div>
-
-                             <div class="birthday">
-                                <label>生日:</label>  	<span class="nikname"><%= asker_user.birthday %></span>
-                             </div>
-
-                             <div class="phone">
-                                 <label>电话:</label>  <span class="nikname"><%= asker_user.cellNum %></span>
-                             </div>
-
-                             <div class="user-job">
-                                 <label>职业:</label>  	<span class="nikname"><%=  %></span>
-                             </div>
-
-                             <div class="user-interest">
-                                 <label>兴趣爱好:</label>  	<span class="interest-introduction"><% asker_user.interests.each do |interest| %>
-                                                          <span class="label label-success"><%= interest.name %>  </span>&nbsp;
-                                                          <% end %>
-                                                      </span>
-                             </div>
-
-                             <div class="introduction" colspan="2">
-                                 <label>自我介绍:</label>  	<span class="interest-introduction"><%= asker_user.description %></span>
-                             </div>
-                      </div>
-                    </div>
-                   </div>
-                   <div class="col-md-2">
-                     <% if current_asker_request(asker_user.id,@post.id).is_matched %>
-                       <%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
-                     <% else %>
-                       <% if OrderTwo.find_by_post_id(@post.id)%>
-                         <%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
-                       <% else %>
-                         <%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%>
-                       <% end %>
-                     <% end %>
-                   </div>
-                 </div>
-              </li>
-            </ul>
-             <hr>
-
-        <% end %>
-      </div>
+            </div>
+            <div class="details col-md-6">
+                <h3 class="product-title"><%= @post.title %></h3>
+                <h4 class="sizes">
+                    <i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%m月%d日")%></h4>
+                <p class="sizes">
+                    <i class="fa fa-cutlery"></i>&nbsp;<%= @post.restaurant.name %></p>
+                <h5 class="sizes">
+                    <i class="fa fa-map-marker"></i>&nbsp;<%= @post.restaurant.description %></h5>
+                <h5 class="sizes">
+                    <i class="fa fa-phone"></i>&nbsp;<%= @post.user.cellNum %></h5>
+                <br>
+                <p class="product-description"><%= @post.description %></p>
+                <br><br>
+                <div class="post-action-btn">
+                    <% if current_user && current_user.is_asker_of?(@post) %>
+                    <%= link_to("您已申请约饭","#", class: "btn btn-default pink",disabled: :true) %>
+                    <% elsif @post.user_id == current_user.id && current_user %>
+                    <%= link_to("这是您发起的预约","#", class: "btn btn-default pink",disabled: :true) %>
+                <% else %>
+                    <%= link_to("加入约饭",application_post_path(@post),method: :post,class: "btn btn-default pink light") %>
+                    <% end %>
+                    <button class="like btn btn-default pink" type="button">
+                        <i class="fa fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-	<% else %>
-		~还没有人申请，可以尝试分享链接到社交网络让更多人看到你的邀约~
-		<!-- 添加社交图标 -->
-		 <% end %>
-   </div>
-  </div>
+
+    <!-- 申请人列表部分 -->
+
+    <div class="container  user-informations">
+        <div class="row">
+            <h4 class="ask_user_well">申请人信息</h4>
+            <hr>
+        </div>
+        <% if @asker_users.present? %>
+        <% @asker_users.each do |asker_user| %>
+
+        <ul>
+
+            <li>
+                <div class="row">
+                    <div class="user-position">
+                        <div class="col-md-2">
+                            <% if asker_user.image.present? %>
+                            <%= image_tag(asker_user.image.avatar.url, class: "img-thumbnails") %>
+                          <% else %>
+                            <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png", class: "thumbnail img-responsive center-block") %>
+                            <% end %>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="com-md-6 col-md-offset-1 ">
+                                <div class="word-color">
+
+                                    <div class="nikename">
+                                        <label>昵称:</label>
+                                        <span class="nikname"><%= asker_user.nameNick %>
+                                        </span>
+                                    </div>
+
+                                    <div class="birthday">
+                                        <label>生日:</label>
+                                        <span class="nikname"><%= asker_user.birthday %></span>
+                                    </div>
+
+                                    <div class="phone">
+                                        <label>电话:</label>
+                                        <span class="nikname"><%= asker_user.cellNum %></span>
+                                    </div>
+
+                                    <div class="user-job">
+                                        <label>职业:</label>
+                                        <span class="nikname"><%=  %></span>
+                                    </div>
+
+                                    <div class="user-interest">
+                                        <label>兴趣爱好:</label>
+                                        <span class="interest-introduction"><% asker_user.interests.each do |interest| %>
+                                            <span class="label label-success"><%= interest.name %>
+                                            </span>&nbsp;
+                                            <% end %>
+                                        </span>
+                                    </div>
+
+                                    <div class="introduction" colspan="2">
+                                        <label>自我介绍:</label>
+                                        <span class="interest-introduction"><%= asker_user.description %></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <% if current_asker_request(asker_user.id,@post.id).is_matched %>
+                            <%= link_to("已配对","#",method: :post,class: "btn btn-warning btn-sm",disabled: :true)%>
+                        <% else %>
+                            <% if OrderTwo.find_by_post_id(@post.id)%>
+                            <%= link_to("已被淘汰","#",method: :post,class: "btn btn-danger btn-sm",disabled: :true)%>
+                        <% else %>
+                            <%= link_to("通过申请",application_approved_account_post_path(@post,:asker_user => asker_user),method: :post,class: "btn btn-default btn-sm outline")%>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <hr>
+
+            <% end %>
+        </div>
+    </div>
+<% else %>
+    ~还没有人申请，可以尝试分享链接到社交网络让更多人看到你的邀约~
+    <!-- 添加社交图标 -->
+    <% end %>
+</div>
+</div>
 </body>
 </html>

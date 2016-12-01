@@ -25,7 +25,10 @@
 					<% if @post.image.present? %>
 						<%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
 					<% else %>
-						<%= image_tag("https://ooo.0o0.ooo/2016/11/30/583ec60514596.png", class: "thumbnail img-responsive center-block") %>
+          <% @post.restaurant.photos.each_with_index do |p, index| %>
+           <%= image_tag p.avatar.medium.url%>
+           <% end %>
+						<%#= image_tag("https://ooo.0o0.ooo/2016/11/30/583ec60514596.png", class: "thumbnail img-responsive center-block") %>
 					<% end %></div>
 <!-- 可添加更多图片：大图区 -->
 				<!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
@@ -43,21 +46,14 @@
 			</ul> -->
 
 		</div>
-<<<<<<< HEAD
-  		<div class="details col-md-6">
-  			<h3 class="product-title"><%= @post.title %></h3>
-  			<h4 class="sizes"><i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%Y年%m月%d日")%></h4>
-  			<p class="sizes"><i class="fa fa-cutlery"></i>&nbsp;<%= @post.restaurant.description %></p>
-  			<h5 class="sizes"><i class="fa fa-map-marker"></i>&nbsp;<%= @post.restaurant.name %></h5>
-  			<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;<%= @post.user.cellNum %></h5>
-=======
+
 		<div class="details col-md-6">
 			<h3 class="product-title"><%= @post.title %></h3>
 			<h4 class="sizes"><i class="fa fa-calendar"></i>&nbsp;<%= @post.eat_day.strftime("%Y年%m月%d日")%></h4>
 			<p class="sizes"><i class="fa fa-cutlery"></i>&nbsp;<%= @post.restaurant.description %></p>
 			<h5 class="sizes"><i class="fa fa-map-marker"></i>&nbsp;<%= @post.restaurant.name %></h5>
 			<h5 class="sizes"><i class="fa fa-phone"></i>&nbsp;<%= @post.restaurant.cellnum %></h5>
->>>>>>> 2c29cfe0367b5f79c7594c33b1a501f11bb7e9fb
+
 			<br>
 			<p class="product-description"><%= @post.description %></p>
 			<br><br>
@@ -86,8 +82,8 @@
    <div class="row">
        <div class="user-position">
       <div class="col-md-2">
-        <% if current_user.image.present? %>
-          <%= image_tag(current_user.image.medium.url, class: "img-thumbnails") %>
+        <% if @post.user.image.present? %>
+          <%= image_tag(@post.user.image.medium.url, class: "img-thumbnails") %>
             <% else %>
                  <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "img-thumbnails", style: "width:200px;") %>
             <% end %>
