@@ -23,6 +23,19 @@
 // 	if ($(document).scroll() > 50) {
 //     $(".dropdown-toggle").dropdown();
 
+
+
+$ ->
+	flashCallback = ->
+		$(".alert").fadeOut()
+	$(".alert").bind 'click', (ev) =>
+		$(".alert").fadeOut()
+	setTimeout flashCallback, 3000
+
+
+
+
+
 $(window).scroll(function() {
 		if ($(document).scrollTop() > 50)
 		 {

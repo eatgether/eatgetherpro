@@ -6,3 +6,10 @@
     </div>
   <% end %>
 <% end %>
+<script>
+    $(function() {
+      $('.alert').delay(500).fadeIn('normal', function() {
+          $(this).delay(1500).fadeOut();
+          });
+      });
+  </script>
