@@ -1,0 +1,45 @@
+<div class="person-table topnavbar" style="margin-top:80px;">
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+			<div><h4>对方信息</h4></div>
+        <table class="table table-hover ">
+            <tr>
+              <% if current_user.image.present? %>
+                 <%= image_tag(current_user.image.medium.url, class: "img-thumbnails") %>
+              <% else %>
+                 <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "img-thumbnails", style: "width:200px;") %>
+              <% end %>
+            </tr>
+            <tr>
+                <th>姓名</th>
+                <td><%= @user.nameChi %></td>
+            </tr>
+            <tr>
+                <th>昵称</th>
+                <td><%= @user.nameNick %></td>
+            </tr>
+            <tr>
+                <th>性别</th>
+                <td><%= @user.gender %></td>
+            </tr>
+            <tr>
+                <th>出生年月</th>
+                <td><%= @user.birthday %></td>
+            </tr>
+            <tr>
+                <th>身高</th>
+                <td><%= @user.heightUser %></td>
+            </tr>
+            <tr>
+                <th>手机号码</th>
+                <td><%= @user.cellNum %></td>
+            </tr>
+            <tr>
+                <th>收入</th>
+                <td><%= @user.income %></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+</div>
