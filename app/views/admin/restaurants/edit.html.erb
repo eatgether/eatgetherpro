@@ -5,6 +5,10 @@
       <%= f.input :name, label: "名称" %>
       <%= f.input :description, label: "详细地址" %>
       <%= f.input :cellnum, label: "联系方式" %>
+      <div class="group pic">
+          <%= f.label :餐厅照片 %><br>
+          <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+      </div>
       <%= f.submit "提交", class: "btn btn-default outline center-block", data: { disable_with: "提交中.."} %>
       <% end %>
   </div>
