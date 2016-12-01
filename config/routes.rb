@@ -46,6 +46,8 @@ Rails.application.routes.draw do
       member do
         get :get_post_2_id
         post :confirm_order
+        post :publish
+        post :hide
       end
     end
 

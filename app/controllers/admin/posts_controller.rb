@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
   before_action :get_notification
-  
+
   layout "admin"
 
   def index
@@ -26,6 +26,18 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to admin_posts_path
+  end
+
+  def publish
+    @post = Post.find(params[:id])
+    @post.publish!
+    redirect_to :back
+  end
+
+  def hide
+    @post = Post.find(params[:id])
+    @post.hide!
+    redirect_to :back
   end
 
   private

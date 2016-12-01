@@ -25,11 +25,19 @@ class Post < ApplicationRecord
   has_many :asker_users, through: :asker_requests,source: :user
   scope :all_except, -> (post){where.not(id: post)}
   scope :recent, -> {order("created_at DESC")}
-
+  scope :publish, -> { where(:is_hidden => false)}
   has_one :restaurant, through: :post_restaurant, source: :restaurant
   has_one :post_restaurant
 
-  
+  def publish!
+    self.is_hidden = false
+    self.save
+  end
+
+  def hide!
+    self.is_hidden = true
+    self.save
+  end
 
   def self.no_match
     where('id NOT IN (SELECT DISTINCT poster_id FROM orders)

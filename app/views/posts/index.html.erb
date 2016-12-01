@@ -49,12 +49,12 @@
        </div>
      </div>
        <div class="center view-more">
-           <% unless @posts.current_page == @posts.total_pages %>
+           <%# unless @posts.current_page == @posts.total_pages %>
               <p id="view-more">
-               <%= link_to('载入更多约饭', url_for(page: @posts.current_page + 1), remote: true,
+               <%#= link_to('载入更多约饭', url_for(page: @posts.current_page + 1), remote: true,
                       class: "btn btn-danger btn-lg", style: "background-color:#f01d67;") %>
               </p>
-           <% end %>
+           <%# end %>
        </div>
     </div>
 
