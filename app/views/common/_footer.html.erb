@@ -4,15 +4,21 @@
       <!-- <div class="threepage-bg" id="threepage"> -->
          <hr>
 				 <div class="footer-mark">
-           <!-- <span class="logo2"></span> -->
-					 <div class="col-md-3 pull-left col-xs-12 center">
+
+					 <!-- <div class="col-md-3 pull-left col-xs-12 center"> -->
             <span> <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a75286fc22.png",
                        style:"width:30px; margin-bottom:15px;")%>© Eat2gether, Inc.
             </span>
-					</div>
-					<div class="col-md-3 pull-right col-xs-12 center">
-             <span> 社交媒体
-               <span class="facebook" style="margin-bottom:8px">
+            <span class="about-footer">
+                <span class="about-us"><%= link_to("关于我们", welcome_aboutus_path) %> </span>
+                <span class="contact-us"><%= link_to("联系我们", welcome_contactus_path) %></span>
+                <span class="about-servise"><%= link_to("服务协议", welcome_service_path)%></span>
+                <span class="about-help"><%= link_to("帮助中心", welcome_abouthelp_path)%></span>
+            </span>
+
+					<!-- <div class="col-md-3 pull-right col-xs-12 center"> -->
+             <span class="facebook" > 社交媒体 &nbsp;
+               <span>
                   <a href=""><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
                   <a href=""><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
                   <a href=""><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
@@ -20,7 +26,8 @@
               </span>
 							</span>
 					</div>
-        </div>
+      </div>
+
 
       <!-- </div> -->
     </div>
