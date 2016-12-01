@@ -14,14 +14,28 @@
       <%= render "common/navbar" %>
       <%= render "common/flashes" %>
         <div>
-            <div class="container">
+            <div class="container" style="margin-top:10px;">
                 <div class="col-md-12 layad">
-                    <ul class="nav nav-tabs" role="tablist" >
-                        <li  role="presentation" ><%= link_to("发起的预约", account_posts_path) %></li>
-                        <li  role="presentation"><%= link_to("我申请的预约", account_asker_requests_path) %></li>
-                        <li  role="presentation"><%= link_to("约饭订单", account_order_twos_path) %></li>
-                    </ul>
+                    <ul class="nav nav-tabs" role="tablist">
+											<% if current_page?(account_posts_path) %>
+												<li class="nav-item active" role="presentation"><%= link_to("发起的预约", account_posts_path) %></li>
+											<% else %>
+												<li class="nav-item" role="presentation"><%= link_to("发起的预约", account_posts_path) %></li>
+											<% end  %>
 
+											<% if current_page?(account_asker_requests_path) %>
+												<li class="nav-item active" role="presentation"><%= link_to("我申请的预约", account_asker_requests_path) %></li>
+											<% else %>
+												<li class="nav-item" role="presentation"><%= link_to("我申请的预约", account_asker_requests_path) %></li>
+											<% end  %>
+
+											<% if current_page?(account_order_twos_path) %>
+												<li class="nav-item active" role="presentation"><%= link_to("约饭订单", account_order_twos_path) %></li>
+											<% else %>
+  											<li class="nav-item" role="presentation"><%= link_to("约饭订单", account_order_twos_path) %></li>
+											<% end  %>
+
+                    </ul>
                     <%= yield %>
                </div>
             </div>

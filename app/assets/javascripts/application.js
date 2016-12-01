@@ -146,3 +146,6 @@ $(document).ready(function()
 			});
 
 			});
+
+
+//Alert changes fade in and out

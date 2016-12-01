@@ -1,0 +1,6 @@
+zh-CN:
+  date: #Throws an exception otherwise.
+    order:
+      - "year"
+      - "month"
+      - "day"

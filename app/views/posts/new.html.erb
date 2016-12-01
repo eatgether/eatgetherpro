@@ -6,19 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
   <body>
-
-
-      <div class="new">
-        <div class="new-bg" id="newbg">
-
-         <div class="tianbiao">
-
-        <div class="container">
-            <div class="row">
-                <h1>好玩有趣的饭局，这就启程</h1>
-                <div class="col-md-3 col-md-offset-1">
+        <div class="container topnavbar" style="width:90%;">
+								<div class="col-md-8 col-md-offset-2 col-xs-12">
+	                <h3>这就启程，一起&nbsp;<font class="projnamehome pinkfont">Eat2gether!</font></h3>
+								</div>
+								<div class="col-md-8 col-md-offset-2 col-xs-12">
+									<%= image_tag "http://ww2.sinaimg.cn/large/7853084cjw1fabj7sxrfzj20sg0dr415.jpg", :class => "polaroid", :style => "width:100%" %>
+								</div>
+                <div class="col-md-8 col-md-offset-2 col-xs-12">
                     <%= simple_form_for @post do |f| %>
-
+										<br><br>
                     <div class="group">
                         <%= f.input :title, label: '主题' %>
                     </div>
@@ -39,24 +36,6 @@
 
                           </span></div>
                         <% end %>
-
-
-                       <script type="text/javascript">
-                       $(function (){
-                         function aletSelect(obj){
-                           obj.change(function(){
-                            $("#cg").text($("#restaurant_"+obj.val()).text())
-                           });
-                           obj.ready(function(){
-                            $("#cg").text($("#restaurant_"+obj.val()).text())
-                           });
-                         }
-                         var selectObj = $("#post_eat_venue");
-                         aletSelect(selectObj);
-                       });
-                       </script>
-
-
                     </div>
                     <div class="group">
                       <p><strong>约会日期</strong></p>
@@ -65,49 +44,42 @@
                     </div>
 										<br>
                     <div class="group">
-                        <%= f.input :image, as: :file, label: '图片' %>
+                        <%= f.input :image, as: :file, label: '餐厅图片（选填）',hint: '请上传50KB以上.jpg格式图片' %>
                     </div>
 
-                    <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
+                    <%= f.submit "提交", class: "btn btn-default pink light", data: { disable_with: "提交中..." } %>
 
                     <% end %>
                 </div>
-
-                <div class="col-md-3 col-md-offset-2 date-picture">
-                  <img src="https://ooo.0o0.ooo/2016/11/23/583597bd056ea.png" width="400px;">
-                </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  <script>
-  $(function () {
-      $("#btnName").click(function () {
-          var strname = $("#txtName").val();   //strname获得文本框中输入的值
-          $.ajax({
-              type: "post",  //ajax的方式为post(get方式对传送数据长度有限制)
-              contentType: "application/json",        //传值方式
-              url: "demo.aspx/getName",  //demo.aspx为目标文件，getName为目标文件中的方法
-              data: "{strName:'" + strname + "'}",  //strName为后台方法的参数，strname为文本框中输入的值
-              contentType: "application/json",        //传值方式
-              success: function (result) {      //成功回传值后触发的方法
-                  alert(result.d);          //后台返回的参数
-              }
-          })
-      })
-  });
-  </script>
-
-
-
-
-
-
-
-
+      </div>
+		<script type="text/javascript">
+		  $(function () {
+		      $("#btnName").click(function () {
+		          var strname = $("#txtName").val();   //strname获得文本框中输入的值
+		          $.ajax({
+		              type: "post",  //ajax的方式为post(get方式对传送数据长度有限制)
+		              contentType: "application/json",        //传值方式
+		              url: "demo.aspx/getName",  //demo.aspx为目标文件，getName为目标文件中的方法
+		              data: "{strName:'" + strname + "'}",  //strName为后台方法的参数，strname为文本框中输入的值
+		              contentType: "application/json",        //传值方式
+		              success: function (result) {      //成功回传值后触发的方法
+		                  alert(result.d);          //后台返回的参数
+		              }
+		          })
+		      })
+		  });
+			$(function (){
+				function aletSelect(obj){
+					obj.change(function(){
+					 $("#cg").text($("#restaurant_"+obj.val()).text())
+					});
+					obj.ready(function(){
+					 $("#cg").text($("#restaurant_"+obj.val()).text())
+					});
+				}
+				var selectObj = $("#post_eat_venue");
+				aletSelect(selectObj);
+			});
+		</script>
   </body>
-
-
 </html>
