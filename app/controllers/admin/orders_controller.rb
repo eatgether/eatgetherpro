@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
   before_action :get_notification
-  
+
   layout "admin"
 
   def index
@@ -20,7 +20,7 @@ class Admin::OrdersController < ApplicationController
     @order.asker_user_id = @order.asker.user_id
 
     if @order.save!
-			OrderMailer.notify_order_placed(Order.last).deliver!
+			#OrderMailer.notify_order_placed(Order.last).deliver!
       redirect_to admin_orders_path
     else
       render "admin/orders/index"
@@ -32,7 +32,7 @@ class Admin::OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		if @order.aasm_state === "order_matched"
 				@order.cancel_order!
-				OrderMailer.notify_order_cancelled(Order.last).deliver!
+				#OrderMailer.notify_order_cancelled(Order.last).deliver!
 				flash[:warning] = "Order cancelled. User will be notified via email."
 		else
 			flash[:alert] = "Order cannot be cancelled. Check order status is 'order_matched'."
@@ -45,7 +45,7 @@ class Admin::OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		if @order.aasm_state === "order_cancelled" || @order.aasm_state === "order_met"
 			@order.revive_order!
-			OrderMailer.notify_order_revived(Order.last).deliver!
+			#OrderMailer.notify_order_revived(Order.last).deliver!
 			flash[:notice] = "Order revived. User will be notified via email."
 		else
 			flash[:warning] = 'Order cannot be revived. Check order status is "order_cancelled" or "order_met".'
