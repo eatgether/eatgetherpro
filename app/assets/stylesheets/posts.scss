@@ -118,7 +118,7 @@ div.img {
     border: 1px solid #ccc;
     float: left;
     width: 250px;
-    height: 383px;
+    height: 445px;
     // transition : 0.5s;
 }
 
@@ -291,6 +291,10 @@ div.desc h5 {
 
  h3.titleh3 {
 	 font-size: 16px;
+ }
+
+ h5.titleh3 {
+	font-size: 13px !important;
  }
 
  h4.titleh4 {

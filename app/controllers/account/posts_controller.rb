@@ -25,7 +25,7 @@ class Account::PostsController < ApplicationController
    @post.user_id = current_user.id
 
    if @post.save
-     redirect_to account_posts_path
+     redirect_to account_posts_path, notice: '感谢您的发起，工作人员尽快审核~'
    else
      render :new
      flash[:alert] = "请选择周末"
@@ -35,7 +35,7 @@ class Account::PostsController < ApplicationController
  def update
    @post = Post.find(params[:id])
    if @post.update(post_params)
-     redirect_to account_posts_path, notice: 'Update Success'
+     redirect_to account_posts_path, notice: '更新成功'
    else
      render :edit
    end
@@ -61,7 +61,7 @@ class Account::PostsController < ApplicationController
      @asker_request.is_matched = true
      @asker_request.save
      send_notification!(current_user.id,@order.asker_user_id,@order)
-     redirect_to :back, notice: 'Application approved Success!'
+     redirect_to :back, notice: '成功通过！'
    else
      redirect_to :back
    end
