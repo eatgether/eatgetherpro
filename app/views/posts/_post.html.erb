@@ -14,7 +14,14 @@
                  <% else %>
                     <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png") %>
                 <% end %>
+								<div>
+								<%= image_tag(post.user.image.avatar.url, class: "post-thumbnails") %>
+								</div>
+								<br>
                 <div class="desc">
+									<h3 class="titleh3"> <%= post.user.nameNick %> </h3>
+									<h5 class="titleh3"> <%= post.user.work %> </h5>
+									<br>
 									<h3 class="titleh3"> <%= post.title %> </h3>
 									<h4 class="titleh4"> <strong><i class="fa fa-map-marker"></i>&nbsp;<%= post.restaurant.name %> </strong></h4>
 									<h4 class="titleh4"><i class="glyphicon glyphicon-time"></i>&nbsp;<%= post.eat_day.strftime("%b %d 晚饭") %></h4>

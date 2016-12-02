@@ -25,7 +25,7 @@ class Account::PostsController < ApplicationController
    @post.user_id = current_user.id
 
    if @post.save
-     redirect_to account_posts_path
+     redirect_to account_posts_path, notice: '感谢您的发起，工作人员尽快审核~'
    else
      render :new
      flash[:alert] = "请选择周末"
@@ -35,7 +35,7 @@ class Account::PostsController < ApplicationController
  def update
    @post = Post.find(params[:id])
    if @post.update(post_params)
-     redirect_to account_posts_path, notice: '修改成功'
+     redirect_to account_posts_path, notice: '更新成功'
    else
      render :edit
    end

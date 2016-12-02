@@ -429,6 +429,18 @@ div.navbar-header.shrink {
 	background-size: cover;
 }
 
+.post-thumbnails {
+	display: inline-block;
+	width: 60px !important;
+	height: 60px !important;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	position: absolute;
+	margin: -11% 0px 0px -10%;
+}
+
 .blog-thumbnails {
 	display: inline-block;
 	width: 24px;
