@@ -7,7 +7,11 @@
             <div class="img">
                 <% if post.image.present? %>
                     <%= image_tag(post.image.thumb.url) %>
-                <% else %>
+                 <% elsif post.restaurant.photos.present? %>
+                 <% post.restaurant.photos.each_with_index do |p, index| %>
+                 <%= image_tag p.avatar.medium.url%>
+                 <% end %>
+                 <% else %>
                     <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png") %>
                 <% end %>
 								<div>

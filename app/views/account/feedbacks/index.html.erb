@@ -1,0 +1,24 @@
+<div class="well" style="margin-top:100px;margin-left:20px">
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>主题</th>
+              <th>内容</th>
+          </tr>
+      </thead>
+
+      <tbody>
+          <% @feedbacks.each do |feedback| %>
+          <tr>
+              <td><%= link_to(truncate(feedback.title, :length => 10, :omission => '...'), feedback_path(feedback))%></td>
+              <td><%= truncate(feedback.description, :length => 50, :omission => '...')  %></td>
+              <td>
+                <%= link_to("删除", account_feedback_path(feedback), method: :delete, class:"btn btn-default outline",  data: { confirm: "确定删除博文？" }) %>
+              </td>
+          </tr>
+          <% end %>
+      </tbody>
+  </table>
+
+
+</div>

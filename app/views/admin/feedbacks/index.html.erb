@@ -18,6 +18,11 @@
           <td><%= truncate(feedback.description, :length => 110, :omission => '...')  %></td>
 					<td><%= feedback.user.email %></td>
           <td>
+		          <% if feedback.is_hidden == true %>
+							<%= link_to("推送", publish_admin_feedback_path(feedback), method: :post, class: "btn btn-sm btn-default outline") %>
+							<% else %>
+							<%= link_to("隐藏", hide_admin_feedback_path(feedback), method: :post, class: "btn btn-sm btn-default outline") %>
+							<% end %>
               <%= link_to("编辑", edit_admin_feedback_path(feedback), class: "btn btn-sm btn-default outline")%>
 							<%= link_to("删除", admin_feedback_path(feedback), class: "btn btn-sm btn-default outline",
                           method: :delete, data: { confirm: "Are you sure?" })%>

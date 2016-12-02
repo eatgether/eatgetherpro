@@ -61,7 +61,7 @@ class Account::PostsController < ApplicationController
      @asker_request.is_matched = true
      @asker_request.save
      send_notification!(current_user.id,@order.asker_user_id,@order)
-     redirect_to :back, notice: '成功通过！'
+     redirect_to :back, notice: '成功通过申请'
    else
      redirect_to :back
    end

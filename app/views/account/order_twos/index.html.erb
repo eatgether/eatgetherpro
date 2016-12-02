@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <div class="col-md-12 topnavbar">
+    <div class="col-md-12" style="margin-top:10px;">
 			<% if @order_twos.present? %>
 				<table class="table table-hover">
 				    <thead>
@@ -19,24 +19,33 @@
 				      <% @order_twos.each do |order| %>
 				      <tr>
 
-                <td width="200px;">
+                <td>
                   <% if order.post.image.present? %>
-                     <%= image_tag(order.post.image.medium.url) %>
+                     <%= image_tag(order.post.image.medium.url, style: "width:200px") %>
                   <% else %>
-                     <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png",  style: "width:200px;") %>
+                     <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", style: "width:200px") %>
 
                   <% end %>
                 </td>
 
                 <td><%= order.post.title %></td>
 				        <% if order.poster_user == current_user %>
-				          <td><%= link_to(order.asker_user.nameNick, account_user_path(order.asker_user))%></td>
+				          <td><%= link_to(order.asker_user.nameNick, counterpart_account_user_path(order.asker_user))%></td>
 				        <% else %>
-				          <td><%= link_to(order.poster_user.nameNick, account_user_path(order.poster_user))%></td>
+				          <td><%= link_to(order.poster_user.nameNick, counterpart_account_user_path(order.poster_user))%></td>
 				        <% end %>
 				        <td><%= order.post.eat_venue %></td>
 				        <td><%= order.post.eat_day.strftime("%m月%d日") %></td>
-				        <td><%= order.aasm_state %></td>
+				        <td>
+									<% case order.aasm_state
+									  when "order_matched"%>
+										已通过
+									<% when "order_met" %>
+										已约饭
+									<% when "order_cancelled" %>
+										已取消
+									<% end %>
+								</td>
 								<td>
 					        <% case order.aasm_state
 									  when "order_matched"%>
@@ -44,9 +53,7 @@
 										<%= link_to("申请取消", ask_cancel_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
 										<%= link_to("确认约会", confirm_meeting_account_order_two_path(order), :method => :post, :class => "btn btn-xs btn-default outline") %>
                     <% if order.conversation.present? %>
-
-                      <%#= link_to("进入聊天室", account_conversations_path, :class => "btn btn-xs btn-default outline") %>
-                      <%= link_to("进入聊天室", account_conversation_path(order), :class => "btn btn-xs btn-default outline") %>
+                      <%= link_to("进入聊天室", account_conversation_path(order.conversation), :class => "btn btn-xs btn-default outline") %>
                     <% else %>
                         <%= link_to("发起对话", account_user_conversations_path(:order_two_id => order.id), :class => "btn btn-xs btn-default outline") %>
                     <% end %>
