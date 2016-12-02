@@ -15,7 +15,11 @@
                     <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png") %>
                 <% end %>
 								<div>
-								<%= image_tag(post.user.image.avatar.url, class: "post-thumbnails") %>
+                  <% if post.user.image.present? %>
+							    	<%= image_tag(post.user.image.avatar.url, class: "post-thumbnails") %>
+                  <% else %>
+                    <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png", class: "post-thumbnails", style: "width:60px;height:60px") %>
+                  <% end %>
 								</div>
 								<br>
                 <div class="desc">
