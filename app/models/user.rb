@@ -53,23 +53,25 @@ class User < ApplicationRecord
 
   validates_confirmation_of :password
 
+  ##限定收入和身高
   validates_numericality_of :income, greater_than_or_equal_to: 1,
                                      message: "收入不能小于1哦，请如实填写"
   validates_numericality_of :heightUser, greater_than_or_equal_to: 1,
                                           less_than_or_equal_to: 210,
                                          :message => "请如实填写身高"
-
+  ##
 
   #mailboxer 没有这个会出现no method mailboxer_email
   def mailboxer_email(user)
     nil
   end
   ###
+
+  ##模改mailboxer的发信功能
   def send_message(recipients, msg_body, subject, order, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
     convo = Mailboxer::ConversationBuilder.new(subject: subject,
                                                created_at: message_timestamp,
                                                updated_at: message_timestamp).build
-
     message = Mailboxer::MessageBuilder.new(sender: self,
                                             conversation: convo,
                                             recipients: recipients,
@@ -78,16 +80,17 @@ class User < ApplicationRecord
                                             attachment: attachment,
                                             created_at: message_timestamp,
                                             updated_at: message_timestamp).build
-
     convo.order_two_id = order.id
     convo.save
-
     message.deliver false, sanitize_text
   end
+  ##
 
+  ##性别选择
   def self.sex_select
     ["酷男","美女"]
   end
+  ##
 
 
   def is_asker_of?(post)
