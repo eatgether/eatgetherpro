@@ -6,29 +6,9 @@
 
                 <div class="preview-pic tab-content">
                     <div class="tab-pane active" id="pic-1">
-												<% if @post.image.present? %>
-														<%= image_tag(@post.image.thumb.url, class: "thumbnail img-responsive center-block") %>
-												 <% elsif @post.restaurant.photos.present? %>
-												 <% @post.restaurant.photos.each_with_index do |p, index| %>
-												 <%= image_tag p.avatar.medium.url%>
-												 <% end %>
-												 <% else %>
-														<%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png") %>
-												<% end %></div>
-                    <!-- 可添加更多图片：大图区 -->
-                    <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div> -->
+                    <%= render_account_show_post_restaurant_photos(@post) %>
+								    </div>
                 </div>
-                <!-- 可添加更多图片：小图区 -->
-                <!-- <ul class="preview-thumbnail nav nav-tabs">
-						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						</ul> -->
 
             </div>
             <div class="details col-md-6">
@@ -76,11 +56,7 @@
                 <div class="row">
                     <div class="user-position">
                         <div class="col-md-2">
-                            <% if asker_user.image.present? %>
-                            <%= image_tag(asker_user.image.avatar.url, class: "img-thumbnails") %>
-                          <% else %>
-                            <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png", class: "thumbnail img-responsive center-block") %>
-                            <% end %>
+                        <%= render_asker_user_image_in_account_post_show(asker_user) %>
                         </div>
 
                         <div class="col-md-8">

@@ -17,15 +17,7 @@
               <% @asker_requests.each do |asker_request|  %>
                 <div class="col-md-4">
                   <div class="img-account">
-                    <% if asker_request.post.image.present? %>
-                        <%= image_tag(asker_request.post.image.thumb.url) %>
-                     <% elsif asker_request.post.restaurant.photos.present? %>
-                     <% asker_request.post.restaurant.photos.each_with_index do |p, index| %>
-                     <%= image_tag p.avatar.medium.url%>
-                     <% end %>
-                     <% else %>
-                        <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png") %>
-                    <% end %>
+                    <%= render_account_asker_requests_index(asker_request) %>
                        <div class="desc">
                             <h3 class="titleh3"><%= link_to(asker_request.post_id,post_path(asker_request.post_id)) %> </h3>
                             <h4 class="titleh4"> <strong> <%= Post.find(asker_request.post_id).title %> </strong></h4>

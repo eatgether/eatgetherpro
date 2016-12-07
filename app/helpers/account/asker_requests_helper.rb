@@ -9,4 +9,15 @@ module Account::AskerRequestsHelper
       return @order.asker_user_id
     end
   end
+
+  def render_account_asker_requests_index(asker_request)
+  if asker_request.post.image.present?
+    image_tag(asker_request.post.image.thumb.url)
+  elsif asker_request.post.restaurant.photos.present?
+    image_tag(asker_request.post.restaurant.photos[0].avatar.medium.url)
+  else
+    image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png")
+  end
+end
+
 end

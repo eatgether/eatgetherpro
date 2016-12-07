@@ -18,17 +18,7 @@
                      <div class="col-md-4">
                         <div class="img-account">
 	                          <%= link_to account_post_path(post) do %>
-                            <% if post.image.present? %>
-                                <%= image_tag(post.image.thumb.url) %>
-                             <% elsif post.restaurant.photos.present? %>
-                             <% post.restaurant.photos.each_with_index do |p, index| %>
-                             <%= image_tag p.avatar.medium.url%>
-                             <% end %>
-                             <% else %>
-                                <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png") %>
-                            <% end %>
-
-
+                              <%= render_restaurant_photos(post) %>
 	                            <div class="desc">
 	                              <h3 class="titleh3"> <%= post.title %> </h3>
                                 <% end %>

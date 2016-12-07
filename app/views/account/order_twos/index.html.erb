@@ -20,15 +20,8 @@
 				      <tr>
 
                 <td>
-                  <% if order.post.image.present? %>
-                   <%= image_tag(order.post.image.thumb.url,style:"width:250px; height:160px") %>
-                   <% elsif order.post.restaurant.photos.present? %>
-                   <% order.post.restaurant.photos.each_with_index do |p, index| %>
-                   <%= image_tag p.avatar.medium.url, style:"width:250px; height:160px" %>
-                   <% end %>
-                   <% else %>
-                      <%= image_tag("https://ooo.0o0.ooo/2016/11/27/583a72fa39c8a.png",style:"width:250px; height:160px") %>
-                  <% end %>
+                <%= render_order_two_index(order) %>
+                <!-- 图片显示 -->
                 </td>
 
                 <td><%= order.post.title %></td>
