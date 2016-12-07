@@ -1,0 +1,108 @@
+<h2 class="center">管理员修改个人信息</h2>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <%= simple_form_for [:admin,@user] do |f| %>
+                    <div>
+                    <% if current_user.image.present? %>
+                    <%= image_tag(current_user.image.medium.url, class: "img-thumbnails",:id => "img-reflect") %>
+                    <% else %>
+                      <!-- <img src="https://ooo.0o0.ooo/2016/11/27/583a77b4cb159.png" width="230px;" ,class="img-thumbnails",id="img-reflect2"> -->
+                      <%= image_tag("logo-nopic3.png", class: "img-thumbnails",:id => "img-reflect") %>
+                    <% end %>
+                    </div>
+                    <div class="group pic">
+                       <%= f.input :image, as: :file, label: '更换头像' %>
+                    </div>
+
+                    <div class="group">
+                       <%= f.input :nameChi, label: '姓名' %>
+                    </div>
+
+                    <div class="group">
+                       <%= f.input :nameNick, label: '昵称' %>
+                    </div>
+
+                    <div class="group">
+                       <%= f.input :gender, :collection => User.sex_select, :selected => User.sex_select[1], label: '性别' %>
+                    </div>
+
+                    <div class="group">
+                       <p>  <strong>出生 年 月 日</strong>  </p>
+                       <%= f.date_select(:birthday, :use_month_numbers=>true, :start_year=>1930, :end_year => Time.now.year, :default =>'1990-1-1'.to_date)%>
+                    </div>
+
+                    <br>
+
+                    <div class="group">
+                      <%= f.input :cellNum, label: '电话号码' %>
+                    </div>
+
+                    <div class="group">
+                      <%= f.input :heightUser, label: '身高（厘米）' %>
+                    </div>
+
+                    <div class="group">
+                         <%= f.input :work, label: '工作' %>
+                    </div>
+
+                    <div class="group">
+                         <%= f.input :income, label: '收入（年薪）' %>
+                    </div>
+
+                    <div class="group">
+                       <%= f.input :description, label: '自我介绍' %>
+                    </div>
+
+                    <div class="group">
+                      <label>兴趣爱好</label><br>
+                        <%= collection_check_boxes(:user, :interest_ids, Interest.all, :id, :name) %>
+                    </div>
+
+                    <!-- <br>
+                   <div class="group pic">
+                       <%#= f.label :生活照片 %><br>
+                       <%#= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+                   </div>
+                   <br> -->
+                   <div style="margin-top:10px">
+                      <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
+                   </div>
+            <% end %>
+        </div>
+     </div>
+<!-- 预览图片功能 -->
+      <script type="text/javascript">
+     function readURL(input) {
+         if (input.files && input.files[0]) {
+             var reader = new FileReader();
+             reader.onload = function (e) {
+                 $('#img-reflect').attr('src', e.target.result);
+             }
+             reader.readAsDataURL(input.files[0]);
+         }
+     }
+     $("#user_image").change(function(){
+         readURL(this);
+     });
+
+
+angular.module('app', ['ngImgCrop'])
+  .controller('Ctrl', function($scope) {
+    $scope.myImage='';
+    $scope.myCroppedImage='';
+
+    var handleFileSelect=function(evt) {
+      var file=evt.currentTarget.files[0];
+      var reader = new FileReader();
+      reader.onload = function (evt) {
+        $scope.$apply(function($scope){
+          $scope.myImage=evt.target.result;
+        });
+      };
+      reader.readAsDataURL(file);
+    };
+    angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
+  });
+     </script>
+<!-- 预览图片功能 -->

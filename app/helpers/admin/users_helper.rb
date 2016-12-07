@@ -4,7 +4,7 @@ module Admin::UsersHelper
   end
 
   def render_user_gender(user)
-    if user.gender == 'male'
+    if user.gender == '酷男'
       '男'
     else
       '女'
