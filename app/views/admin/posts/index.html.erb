@@ -28,6 +28,7 @@
                           <% else %>
                           <%= link_to("首页隐藏", hide_admin_post_path(post), method: :post, class: "btn btn-sm btn-default outline" ) %>
                           <% end %>
+                          <%= link_to("编辑", edit_admin_post_path(post), class: "btn btn-sm btn-default outline") %>
                           <%= link_to("删除", admin_post_path(post), method: :delete, class: "btn btn-sm btn-default outline", :data => { :confirm => "确定要删除此约饭？？" }) %>
                         </td>
                     </tr>
