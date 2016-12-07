@@ -9,7 +9,6 @@ class Account::AskerRequestsController < ApplicationController
 
   def destroy
     @asker_request = AskerRequest.find(params[:id])
-
     @asker_request.destroy
     redirect_to :back
     flash[:alert] = "取消成功"
