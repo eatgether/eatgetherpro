@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
   helper_method :mailbox
 
+  def after_sign_up_path_for(post)
+      post_path(post)
+  end
 
   def admin_required
     if !current_user.admin?
