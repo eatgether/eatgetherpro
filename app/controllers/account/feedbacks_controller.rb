@@ -3,8 +3,6 @@ class Account::FeedbacksController < ApplicationController
 	before_action :get_notification
 	layout "account", only: [:index]
 
-	# before_action :find_order
-
 	def index
 		@feedbacks = current_user.feedbacks
 	end
@@ -29,20 +27,17 @@ class Account::FeedbacksController < ApplicationController
 		@feedback.order_two_id = @order.id
 		@feedback.rating = params[:rating]
 		@feedback.save
-
 		redirect_to account_order_twos_path, notice: "反馈已保存，感谢您的填写！"
 	end
 
 	def edit
 		@order = OrderTwo.find(params[:order_two_id])
-		# @feedback = @order.feedbacks.find(params[:id])
 		@feedback = current_user.feedbacks.find(params[:id])
 	end
 
 	def update
 		@order = OrderTwo.find(params[:order_two_id])
 		@feedback = current_user.feedbacks.last
-
 		if @feedback.update(feedback_params)
 			redirect_to account_order_twos_path, notice: "反馈已更新。"
 		else
@@ -60,7 +55,6 @@ class Account::FeedbacksController < ApplicationController
     # 获取message的参数
     feedback_id = params[:feedback_id]
     score = params[:rating]
-
     # 找到指定的message
     feedback = Feedback.find(feedback_id.to_i)
     # 为message评级

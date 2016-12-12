@@ -2,6 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
   before_action :get_notification
+  before_action :set_post, :except => [:index, :checkout]
 
   layout "admin"
 
@@ -10,7 +11,18 @@ class Admin::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      @post.save
+      redirect_to admin_posts_path
+    else
+      render :edit
+    end
   end
 
   def checkout
@@ -19,23 +31,19 @@ class Admin::PostsController < ApplicationController
   end
 
   def confirm_order
-    @post = Post.find(params[:id])
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to admin_posts_path
   end
 
   def publish
-    @post = Post.find(params[:id])
     @post.publish!
     redirect_to :back
   end
 
   def hide
-    @post = Post.find(params[:id])
     @post.hide!
     redirect_to :back
   end
@@ -44,4 +52,9 @@ class Admin::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :description, :eat_venue,:eat_day,:image,:eat_day_choose)
   end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
 end

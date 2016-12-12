@@ -1,0 +1,36 @@
+<div class="container topnavbar">
+	<h2 class="center">修改约饭信息</h2>
+		<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <%= simple_form_for [:admin,@post] do |f| %>
+
+            <div class="group">
+                <%= f.input :title, label: '主题' %>
+            </div>
+
+            <div class="group">
+                <%= f.input :description, label: '详细信息' %>
+            </div>
+            <div class="group">
+            <%= f.input :eat_venue, :collection => Restaurant.all, :label => "约饭地点", :include_blank => false %>
+            </div>
+
+            <div class="group">
+              <p><strong>约会日期</strong></p>
+              <%= radio_button(:post, :eat_day  ,Date.this_saturday )%>&nbsp;本周六&nbsp;<%= Date.this_saturday.to_s(:for_date) %><br>
+              <%= radio_button(:post, :eat_day ,Date.this_sunday) %>&nbsp;本周日&nbsp;<%= Date.this_sunday.to_s(:for_date) %>
+            </div>
+						<br>
+
+            <div class="group">
+                <%= f.input :image, as: :file, label: '图片' %>
+            </div>
+
+            <%= f.submit "提交", class: "btn btn-default outline", data: { disable_with: "提交中..." } %>
+
+            <% end %>
+        </div>
+    </div>
+	</div>
+</div>

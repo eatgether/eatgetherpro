@@ -53,15 +53,12 @@ class Post < ApplicationRecord
       end
     end
 
-    def self.default_location
-      ["101咖啡", "汤城小厨", "星巴克", "USA"]
-    end
 
 
+##搜索功能
     def self.search(search)
      where("title LIKE ?", "%#{search}%").or(where("description LIKE ?", "%#{search}%"))
     end
-
-
+##
 
 end

@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
   before_action :get_notification
-  
+
   layout "admin"
 
   def index
@@ -23,6 +23,26 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+       @user.save!
+    redirect_to admin_users_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path
+  end
+
   def take_master
     @user = User.find(params[:id])
       @user.take_master!
@@ -41,7 +61,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email,:password,:password_confirmation,:is_admin)
+    params.require(:user).permit(:email,:password,:password_confirmation,:is_admin,:nameChi, :nameNick, :image, :gender, :birthday, :cellNum, :income, :description, :heightUser, :work, interest_ids: [])
   end
 
 end

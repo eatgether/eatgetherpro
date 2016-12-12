@@ -23,7 +23,6 @@ class Account::PostsController < ApplicationController
  def create
    @post = Post.new(post_params)
    @post.user_id = current_user.id
-
    if @post.save
      redirect_to account_posts_path, notice: '感谢您的发起，工作人员尽快审核~'
    else
@@ -43,7 +42,6 @@ class Account::PostsController < ApplicationController
 
  def destroy
    @post = Post.find(params[:id])
-
    @post.destroy
    redirect_to :back
    flash[:alert] = "删除成功"
