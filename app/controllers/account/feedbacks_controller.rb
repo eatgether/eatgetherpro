@@ -1,6 +1,7 @@
 class Account::FeedbacksController < ApplicationController
 	before_action :authenticate_user! , only: [:new, :create]
 	before_action :get_notification
+	before_action :set_order_two, only: [:new, :create, :edit, :update]
 	layout "account", only: [:index]
 
 	def index
@@ -12,7 +13,6 @@ class Account::FeedbacksController < ApplicationController
 	end
 
 	def new
-		@order = OrderTwo.find(params[:order_two_id])
 		if @order.feedbacks.where(:user_id => current_user).blank?
 			@feedback = @order.feedbacks.new
 		else
@@ -21,7 +21,6 @@ class Account::FeedbacksController < ApplicationController
 	end
 
 	def create
-		@order = OrderTwo.find(params[:order_two_id])
 		@feedback = @order.feedbacks.build(feedback_params)
 		@feedback.user = current_user
 		@feedback.order_two_id = @order.id
@@ -31,12 +30,10 @@ class Account::FeedbacksController < ApplicationController
 	end
 
 	def edit
-		@order = OrderTwo.find(params[:order_two_id])
 		@feedback = current_user.feedbacks.find(params[:id])
 	end
 
 	def update
-		@order = OrderTwo.find(params[:order_two_id])
 		@feedback = current_user.feedbacks.last
 		if @feedback.update(feedback_params)
 			redirect_to account_order_twos_path, notice: "反馈已更新。"
@@ -68,6 +65,11 @@ class Account::FeedbacksController < ApplicationController
 	def feedback_params
 		params.require(:feedback).permit(:title, :description, :image)
 	end
+
+	def set_order_two
+		@order = OrderTwo.find(params[:order_two_id])
+	end
+
 
 	# def find_order
 	# 	@order = Order.find(params[:order_id])
