@@ -3,9 +3,18 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
   helper_method :mailbox
 
-  def after_sign_up_path_for(post)
+  def after_sign_in_path_for(post)
+    if current_page?(controler: 'welcome', action: "index")
+       root_path
+     else
       post_path(post)
+    end
   end
+
+  def after_update_path_for(post)
+    post_path(post)
+  end
+
 
   def admin_required
     if !current_user.admin?
