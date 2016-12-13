@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
 //= require bootstrap/tab
@@ -99,7 +100,7 @@ $('.carousel').carousel({
 
 
 //notifications
-$(document).ready(function()
+$(document).on("turbolinks:load", function()
 	{
 		$("#notificationLink").click(function()
 			{
