@@ -58,7 +58,8 @@
 								<% end %>
                 <hr>
 								<div class="well">
-                <p><%= truncate(feedback.description, :length => 120, :omission => '...') %></p>
+                <p><%= raw(feedback.description.truncate(120)) %></p>
+								<%#= truncate(feedback.description, :length => 120, :omission => '...') %>
 								<%= link_to "继续阅读 <span class='glyphicon glyphicon-chevron-right'></span>".html_safe(), feedback_path(feedback), class: "btn btn-default pink" %>
 								</div>
 								<hr>
