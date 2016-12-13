@@ -18,22 +18,8 @@
 //= require bootstrap/tab
 //= require bootstrap/transition
 //= require bootstrap-sprockets
+//= require ckeditor/init
 //= require_tree .
-
-// $(window).scroll(function() {
-// 	if ($(document).scroll() > 50) {
-//     $(".dropdown-toggle").dropdown();
-
-
-
-// $
-// 	flashCallback =
-// 		$(".alert").fadeOut()
-// 	$(".alert").bind 'click', (ev) =>
-// 		$(".alert").fadeOut()
-// 	setTimeout flashCallback, 3000
-
-
 
 
 

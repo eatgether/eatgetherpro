@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
   get 'welcome/abouthelp'
   get 'welcome/aboutus'

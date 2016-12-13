@@ -45,6 +45,7 @@ gem 'will_paginate-bootstrap'
 gem 'remotipart'
 gem 'mailboxer'
 gem 'country_select'
+gem 'ckeditor'
 
 
 gem 'fog', require: 'fog/aws'

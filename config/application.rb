@@ -15,5 +15,6 @@ module Eatgether
     # -- all .rb files in that directory are automatically loaded.
 		# config.i18n.default_locale = :sv #this line would use the default devise language (EN)
 		config.i18n.default_locale = :'zh-CN'
+		config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
