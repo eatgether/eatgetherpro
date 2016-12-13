@@ -3,7 +3,12 @@
         <h2 class="center">您的约会信息</h2>
         <br><br>
         <div class="well", style="margin-left:80px; margin-right:90px">
-            <div class="group">
+
+<div class="group">
+		<label>约饭图片:</label>
+		<span><%= render_order_two_index_feedback(@order) %></span>
+</div>
+						<div class="group">
                 <label>约饭主题:</label>
                 <span class="nikname"><%= @order.post.title %></span>
             </div>

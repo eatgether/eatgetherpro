@@ -31,7 +31,7 @@
 
     <%= form_tag order_two_conversations_path(@order), method: :post do %>
       <div class="form-group">
-        <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+        <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: '在此输入信息...', required: true %>
       </div>
       <%= submit_tag "Send Message", class: 'btn btn-primary' %>
     <% end %>

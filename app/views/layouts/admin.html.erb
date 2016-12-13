@@ -12,14 +12,46 @@
     <body>
         <div class="well">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2 layad">
+                <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 layad">
                     <ul class="nav nav-tabs" role="tablist" >
-                        <li role="presentation"><%= link_to("用户", admin_users_path) %></li>
-                        <li role="presentation"><%= link_to("邀约", admin_posts_path) %></li>
-                        <li role="presentation"><%= link_to("订单", admin_order_twos_path) %></li>
-                        <li role="presentation"><%= link_to("兴趣", admin_interests_path) %></li>
-                        <li role="presentation"><%= link_to("反馈", admin_feedbacks_path) %></li>
-                        <li role="presentation"><%= link_to("约饭地点", admin_restaurants_path) %></li>
+
+
+												<% if current_page?(admin_users_path) %>
+													<li class="nav-item active" role="presentation"><%= link_to("用户", admin_users_path) %></li>
+												<% else %>
+													<li class="nav-item" role="presentation"><%= link_to("用户", admin_users_path) %></li>
+												<% end  %>
+
+												<% if current_page?(admin_posts_path) %>
+													<li class="nav-item active" role="presentation"><%= link_to("邀约", admin_posts_path) %></li>
+												<% else %>
+													<li class="nav-item" role="presentation"><%= link_to("邀约", admin_posts_path) %></li>
+												<% end  %>
+
+												<% if current_page?(admin_order_twos_path) %>
+													<li class="nav-item active" role="presentation"><%= link_to("订单", admin_order_twos_path) %></li>
+												<% else %>
+													<li class="nav-item" role="presentation"><%= link_to("订单", admin_order_twos_path) %></li>
+												<% end  %>
+
+												<% if current_page?(admin_interests_path) %>
+													<li class="nav-item active" role="presentation"><%= link_to("兴趣", admin_interests_path) %></li>
+												<% else %>
+													<li class="nav-item" role="presentation"><%= link_to("兴趣", admin_interests_path) %></li>
+												<% end  %>
+
+												<% if current_page?(admin_feedbacks_path) %>
+													<li class="nav-item active" role="presentation"><%= link_to("反馈", admin_feedbacks_path) %></li>
+												<% else %>
+													<li class="nav-item" role="presentation"><%= link_to("反馈", admin_feedbacks_path) %></li>
+												<% end  %>
+
+												<% if current_page?(admin_restaurants_path) %>
+													<li class="nav-item active" role="presentation"><%= link_to("约饭地点", admin_restaurants_path) %></li>
+												<% else %>
+													<li class="nav-item" role="presentation"><%= link_to("约饭地点", admin_restaurants_path) %></li>
+												<% end  %>
+
                     </ul>
                 </div>
                 <div class="col-md-10 col-md-offset-1">

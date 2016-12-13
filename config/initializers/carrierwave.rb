@@ -1,27 +1,15 @@
-require 'carrierwave/storage/abstract'
-require 'carrierwave/storage/file'
-require 'carrierwave/storage/fog'
-
 CarrierWave.configure do |config|
-  if Rails.env.production?
-    config.storage :fog
-    config.fog_credentials = {
-      provider:              'AWS',
-      aws_access_key_id:     ENV["AWS_ACCESS_KEY_ID"],      # 你的 key
+	if Rails.env.production?
+	config.fog_provider = 'fog/aws'
+	config.fog_credentials = {
+	  provider:              'AWS',
+	  aws_access_key_id:     ENV["AWS_ACCESS_KEY_ID"],
+	  aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
+	  region:                'ap-northeast-2' #(location of your S3 bucket)
 
-
-      aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],      # 你的 secret key
-
-
-      region:                'ap-southeast-1' # 你的 S3 bucket 的 Region 位置
-
-
-    }
-    config.fog_directory  = ENV["AWS_BUCKET_NAME"] # 你设定的 bucket name
-
-
-
-  else
-    config.storage :file
-  end
+	}
+	config.fog_directory  = ENV["AWS_BUCKET_NAME"]
+	else
+	config.storage :file
+	end
 end
