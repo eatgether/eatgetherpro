@@ -47,7 +47,7 @@ gem 'mailboxer'
 gem 'country_select'
 
 
-gem 'fog', require: 'fog/aws'
+gem 'fog'
 gem "figaro"
 
 gem 'rack-mini-profiler'
