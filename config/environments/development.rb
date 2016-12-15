@@ -54,7 +54,7 @@ Rails.application.configure do
 
   config.active_record.default_timezone = :local
   config.time_zone = 'Beijing'
-  
+
   #config.action_mailer.default_url_options = {host: 'localhost:3000'}
   #config.action_mailer.delivery_method = :letter_opener
 
@@ -67,5 +67,9 @@ Rails.application.configure do
     :domain         => 'qinfeng.io', #eg: 'yourappname.herokuapp.com'
     :authentication => :plain,
   }
+
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.raise_delivery_errors = true
+
 
 end

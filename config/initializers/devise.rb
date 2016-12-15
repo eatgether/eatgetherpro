@@ -12,8 +12,10 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
+  config.mailer_sender = '3014zhangshuo@gmail.com'
+  config.mailer_sender = 'mailer@example.com'
+  require 'omniauth/strategies/qq_connect'
+  config.omniauth :alidayu, ENV["23567755"], ENV["67d0fd21bc0911ff0489d1a0bc35547e"]
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -52,7 +54,7 @@ Devise.setup do |config|
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
   config.strip_whitespace_keys = [:email]
-
+  config.omniauth :QQConnect, 'key', 'a0dbf447esecurt381f8'
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
   # given strategies, for example, `config.params_authenticatable = [:database]` will

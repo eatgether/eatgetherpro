@@ -45,8 +45,9 @@ gem 'will_paginate-bootstrap'
 gem 'remotipart'
 gem 'mailboxer'
 gem 'country_select'
-
-
+gem 'omniauth'
+gem 'omniauth-oauth2'
+gem 'alidayu-ruby', require: 'alidayu'
 gem 'fog', require: 'fog/aws'
 gem "figaro"
 
@@ -63,6 +64,7 @@ group :development, :test do
   gem "byebug", platform: :mri
   # Use sqlite3 as the database for Active Record
   gem "sqlite3"
+  gem 'foreman'
 end
 
 group :development do

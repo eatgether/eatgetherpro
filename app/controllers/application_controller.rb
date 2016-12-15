@@ -4,11 +4,9 @@ class ApplicationController < ActionController::Base
   helper_method :mailbox
 
   def after_sign_in_path_for(post)
-    if current_page?(controler: 'welcome', action: "index")
-       root_path
-     else
-      post_path(post)
-    end
+
+      posts_path
+
   end
 
   def after_update_path_for(post)
