@@ -45,6 +45,10 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   scope :all_except, -> (user) {where.not(id: user)}
 
+  validates_uniqueness_of :mobile_number
+
+  validates :mobile_number, phone: { possible: false, allow_blank: true, types: [:mobile] }
+
 
   scope :recent, -> {order("created_at DESC")}
 
@@ -85,6 +89,16 @@ class User < ApplicationRecord
     message.deliver false, sanitize_text
   end
   ##
+
+  def needs_mobile_number_verifying?
+    if is_verified
+      return false
+    end
+    if mobile_number.empty?
+      return false
+    end
+    return true
+  end
 
   ##性别选择
   def self.sex_select

@@ -46,6 +46,9 @@ gem 'remotipart'
 gem 'mailboxer'
 gem 'country_select'
 gem 'ckeditor'
+gem 'twilio-ruby', '~> 4.0.0'
+gem 'phonelib'
+gem 'dotenv-rails', :groups => [:development, :test] # optional
 
 
 gem 'fog', require: 'fog/aws'

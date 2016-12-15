@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "acme/registrations"}
+  post 'verifications' => 'verifications#create'
   get 'welcome/abouthelp'
   get 'welcome/aboutus'
   get 'welcome/service'
