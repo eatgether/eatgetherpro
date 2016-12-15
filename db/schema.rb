@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 20161213211859) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "user_id"
-    t.integer  "eat_venue"
+    t.string   "eat_venue"
     t.date     "eat_day"
     t.string   "image"
     t.boolean  "is_hidden",   default: true
