@@ -4,3 +4,4 @@ require 'carrierwave/orm/activerecord'
 
 # Initialize the Rails application.
 Rails.application.initialize!
+Rails.application.routes.default_url_options[:host] = 'localhost'
