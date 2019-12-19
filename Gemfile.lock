@@ -1,5 +1,5 @@
 GEM
-  remote: https://gems.ruby-china.com/
+  remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.4)
     aasm (4.11.1)
@@ -289,7 +289,7 @@ GEM
       pry (>= 0.9.10)
     public_suffix (2.0.4)
     puma (3.7.0)
-    rack (2.0.1)
+    rack (2.0.8)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
     rack-test (0.6.3)
